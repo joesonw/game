@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.smartfoxserver.v2.requests.game"><apiName>com.smartfoxserver.v2.requests.game</apiName><apiDetail/><apiClassifier id="com.smartfoxserver.v2.requests.game:QuickJoinGameRequest"><apiName>QuickJoinGameRequest</apiName><shortdesc>
+	 Quickly joins the current user in a public game.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Quickly joins the current user in a public game.
+	 
+	 <p>By providing a matching expression and a list of Rooms or Groups, SmartFoxServer can search for a matching public Game Room
+	 and immediately join the user into that Room as a player.</p>
+	 
+	 <p>If a game could be found and joined, the <i>roomJoin</i> event is dispatched to the requester's client.</p>
+	 
+	 </apiDesc><example>The following example makes the user quickly join a public game:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.ROOM_JOIN, onRoomJoin);
+	 	
+	 	// Create a matching expression to find a Darts game with a "maxBet" variable less than 100
+	 	var exp:MatchExpression = new MatchExpression("type", StringMatch.EQUALS, "darts").and("maxBet", NumberMatch.LESS_THAN, 100);
+	 	
+	 	// Search and join a public game within the "games" Group, leaving the last joined Room
+	 	sfs.send(new QuickJoinGameRequest(exp, ["games"], sfs.lastJoinedRoom));
+	 }
+	 
+	 private function onRoomJoin(evt:SFSEvent):void
+	 {
+	 	trace("Successfully joined Room: " + evt.params.room);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression"><linktext>MatchExpression</linktext></link><link href="com.smartfoxserver.v2.requests.xml#JoinRoomRequest"><linktext>JoinRoomRequest</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomJoin"><linktext>roomJoin event</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests.game:QuickJoinGameRequest:QuickJoinGameRequest"><apiName>QuickJoinGameRequest</apiName><shortdesc>
+		 Creates a new QuickJoinGameRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>matchExpression</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.match:MatchExpression</apiOperationClassifier><apiDesc>A matching expression that the system will use to search a Game Room where to join the current user.
+		 </apiDesc></apiParam><apiParam><apiItemName>whereToSearch</apiItemName><apiType value="Array"/><apiDesc>An array of <i>Room</i> objects or an array of Group names to which the matching expression should be applied.
+		 							The maximum number of elements that this array can contain is 32.
+		 </apiDesc></apiParam><apiParam><apiItemName>roomToLeave</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiData>null</apiData><apiDesc>	A <i>Room</i> object representing the Room that the user should leave when joining the game.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>QuickJoinGameRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests.game:SFSGameSettings"><apiName>SFSGameSettings</apiName><shortdesc>
+	 The SFSGameSettings class is a container for the settings required to create a Game Room using the CreateSFSGameRequest request.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:RoomSettings</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>SFSGameSettings</i> class is a container for the settings required to create a Game Room using the <i>CreateSFSGameRequest</i> request.
+	 
+	 <p>On the server-side, a Game Room is represented by the <i>SFSGame</i> Java class which extends the <i>Room</i> class
+	 providing new advanced features such as player matching, game invitations, public and private games, quick game joining, etc.
+	 On the client side Game Rooms are regular Rooms with their <i>isGame</i> property set to <codeph>true</codeph>.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.requests.game.xml#CreateSFSGameRequest"><linktext>CreateSFSGameRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>com.smartfoxserver.v2.entities.Room</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests.game:SFSGameSettings:SFSGameSettings"><apiName>SFSGameSettings</apiName><shortdesc>
+		 Creates a new SFSGameSettings instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the Game Room to be created.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SFSGameSettings</i> instance.
+		 The instance must be passed to the <i>CreateSFSGameRequest</i> class constructor.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.requests.game.xml#CreateSFSGameRequest"><linktext>CreateSFSGameRequest</linktext></link></related-links></apiConstructor><apiValue id="com.smartfoxserver.v2.requests.game:SFSGameSettings:invitationExpiryTime:get"><apiName>invitationExpiryTime</apiName><shortdesc>
+		 In private games, defines the number of seconds that the users invited to join the game have to reply to the invitation.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/><apiDefaultValue>15
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 In private games, defines the number of seconds that the users invited to join the game have to reply to the invitation.
+		 The suggested range is 10 to 40 seconds.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.requests.game:SFSGameSettings:invitationParams:get"><apiName>invitationParams</apiName><shortdesc>
+		 In private games, defines an optional object containing additional custom parameters to be sent together with the invitation.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiValueClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiValueClassifier><apiDefaultValue>null
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 In private games, defines an optional object containing additional custom parameters to be sent together with the invitation.
+		 <p>This object must be an instance of <i>SFSObject</i>. Possible custom parameters to be transferred to the invitees are
+		 a message for the recipient, the game details (title, type...), the inviter details, etc.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests.game:SFSGameSettings:invitedPlayers:get"><apiName>invitedPlayers</apiName><shortdesc>
+		 In private games, defines a list of User objects representing players to be invited to join the game.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Array"/><apiDefaultValue>null
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 In private games, defines a list of <i>User</i> objects representing players to be invited to join the game.
+		 
+		 <p>If the invitations are less than the minimum number of players required to start the game (see the <i>minPlayersToStartGame</i> property),
+		 the server will send additional invitations automatically, searching users in the Room Groups specified in the <i>searchableRooms</i> list
+		 and filtering them by means of the object passed to the <i>playerMatchExpression</i> property.</p>
+		 
+		 <p>The game matching criteria contained in the <i>playerMatchExpression</i> property do not apply to the users specified in this list.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.game.xml#SFSGameSettings/minPlayersToStartGame"><linktext>minPlayersToStartGame</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml#SFSGameSettings/searchableRooms"><linktext>searchableRooms</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml#SFSGameSettings/playerMatchExpression"><linktext>playerMatchExpression</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>com.smartfoxserver.v2.entities.User</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests.game:SFSGameSettings:isPublic:get"><apiName>isPublic</apiName><shortdesc>
+		 Indicates whether the game is public or private.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/><apiDefaultValue>true
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Indicates whether the game is public or private.
+		 <p>A public game can be joined by any player whose User Variables match the <i>playerMatchExpression</i> assigned to the Game Room.
+		 A private game can be joined by users invited by the game creator by means of <i>invitedPlayers</i> list.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.game.xml#SFSGameSettings/playerMatchExpression"><linktext>playerMatchExpression</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml#SFSGameSettings/invitedPlayers"><linktext>invitedPlayers</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests.game:SFSGameSettings:leaveLastJoinedRoom:get"><apiName>leaveLastJoinedRoom</apiName><shortdesc>
+		 In private games, indicates whether the players must leave the previous Room when joining the game or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/><apiDefaultValue>true
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 In private games, indicates whether the players must leave the previous Room when joining the game or not.
+		 
+		 <p>This setting applies to private games only because users join the Game Room automatically when they accept the invitation to play,
+		 while public games require a <i>JoinRoomRequest</i> request to be sent, where this behavior can be determined manually.</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.requests.game:SFSGameSettings:minPlayersToStartGame:get"><apiName>minPlayersToStartGame</apiName><shortdesc>
+		 Defines the minimum number of players required to start the game.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/><apiDefaultValue>2
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Defines the minimum number of players required to start the game.
+		 If the <i>notifyGameStarted</i> property is set to <codeph>true</codeph>, when this number is reached, the game start is notified.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.game.xml#SFSGameSettings/notifyGameStarted"><linktext>notifyGameStarted</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests.game:SFSGameSettings:notifyGameStarted:get"><apiName>notifyGameStarted</apiName><shortdesc>
+		 Indicates if a game state change must be notified when the minimum number of players is reached.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/><apiDefaultValue>false
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Indicates if a game state change must be notified when the minimum number of players is reached.
+		 
+		 <p>If this setting is <codeph>true</codeph>, the game state (started or stopped) is handled by means of the reserved Room Variable
+		 represented by the <i>ReservedRoomVariables.RV_GAME_STARTED</i> constant. Listening to the <i>roomVariablesUpdate</i> event for this variable
+		 allows clients to be notified when the game can start due to minimum number of players being reached.</p>
+		 
+		 <p>As the used Room Variable is created as <i>global</i> (see the <i>SFSRoomVariable</i> class description), its update is broadcast outside the Room too:
+		 this can be used on the client-side, for example, to show the game state in a list of available games.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#ReservedRoomVariables/RV_GAME_STARTED"><linktext>ReservedRoomVariables.RV_GAME_STARTED</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomVariablesUpdate"><linktext>roomVariablesUpdate event</linktext></link><link href="com.smartfoxserver.v2.entities.variables.xml#SFSRoomVariable"><linktext>com.smartfoxserver.v2.entities.variables.SFSRoomVariable</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests.game:SFSGameSettings:playerMatchExpression:get"><apiName>playerMatchExpression</apiName><shortdesc>
+		 Defines the game matching expression to be used to filters players.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiValueClassifier>com.smartfoxserver.v2.entities.match:MatchExpression</apiValueClassifier><apiDefaultValue>null
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Defines the game matching expression to be used to filters players.
+		 
+		 <p>Filtering is applied when:
+		 <ol>
+		 	<li>users try to join a public Game Room as players (their User Variables must match the matching criteria);</li>
+		 	<li>the server selects additional users to be invited to join a private game (see the <i>searchableRooms</i> property).</li>
+		 </ol>
+		 </p>
+		 
+		 <p>Filtering is not applied to users invited by the creator to join a private game (see the <i>invitedPlayers</i> property).</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.game.xml#SFSGameSettings/spectatorMatchExpression"><linktext>spectatorMatchExpression</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests.game:SFSGameSettings:searchableRooms:get"><apiName>searchableRooms</apiName><shortdesc>
+		 In private games, defines a list of Groups names where to search players to invite.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Array"/><apiDefaultValue>null
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 In private games, defines a list of Groups names where to search players to invite.
+		 
+		 <p>If the users invited to join the game (specified through the <i>invitedPlayers</i> property) are less than the minimum number of
+		 players required to start the game (see the <i>minPlayersToStartGame</i> property),
+		 the server will invite others automatically, searching them in Rooms belonging to the Groups specified in this list
+		 and filtering them by means of the object passed to the <i>playerMatchExpression</i> property.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.game.xml#SFSGameSettings/invitedPlayers"><linktext>invitedPlayers</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml#SFSGameSettings/minPlayersToStartGame"><linktext>minPlayersToStartGame</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml#SFSGameSettings/playerMatchExpression"><linktext>playerMatchExpression</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests.game:SFSGameSettings:spectatorMatchExpression:get"><apiName>spectatorMatchExpression</apiName><shortdesc>
+		 Defines the game matching expression to be used to filters spectators.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiValueClassifier>com.smartfoxserver.v2.entities.match:MatchExpression</apiValueClassifier><apiDefaultValue>null
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Defines the game matching expression to be used to filters spectators.
+		 
+		 <p>Filtering is applied when users try to join a public Game Room as spectators (their User Variables must match the matching criteria).</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.game.xml#SFSGameSettings/playerMatchExpression"><linktext>playerMatchExpression</linktext></link></related-links></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests.game:CreateSFSGameRequest"><apiName>CreateSFSGameRequest</apiName><shortdesc>
+	 Creates a new public or private game, including player matching criteria, invitations settings and more.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Creates a new public or private game, including player matching criteria, invitations settings and more.
+	 
+	 <p>A game is created through the istantiation of a <i>SFSGame</i> on the server-side,
+	 a specialized Room type that provides advanced features during the creation phase of a game.
+	 Specific game-configuration settings are passed by means of the <i>SFSGameSettings</i> class.</p>
+	 
+	 <p>If the creation is successful, a <i>roomAdd</i> event is dispatched to all the users who subscribed the Group to which the Room is associated, including the game creator.
+	 Otherwise, a <i>roomCreationError</i> event is returned to the creator's client.</p>
+	 
+	 <p>Also, if the settings passed in the <i>SFSGameSettings</i> object cause invitations to join the game to be sent, an <i>invitation</i> event is
+	 dispatched to all the recipient clients.</p> 
+	 
+	 <p>Check the SmartFoxServer 2X documentation for a more in-depth overview of the GAME API.</p>
+	 
+	 </apiDesc><example>The following example creates a new game:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.ROOM_ADD, onRoomCreated);
+	 	sfs.addEventListener(SFEvent.ROOM_CREATION_ERROR, onRoomCreationError);
+	 	
+	 	// Prepare the settings for a public game
+	 	var settings:SFSGameSettings = new SFSGameSettings("DartsGame");
+	 	settings.maxUsers = 2;
+	 	settings.maxSpectators = 8;
+	 	settings.isPublic = true;
+	 	settings.minPlayersToStartGame = 2;
+	 	settings.notifyGameStarted = true;
+	 	
+	 	// Set the matching expression for filtering users joining the Room
+	 	settings.playerMatchExpression = new MatchExpression("bestScore", NumberMatch.GREATER_THAN, 100);
+	 	
+	 	// Set a Room Variable containing the description of the game
+	 	settings.variables = [new SFSRoomVariable("desc", "Darts game, public, bestScore &gt; 100")];
+	 	
+	 	// Create the game
+	 	sfs.send(new CreateSFSGameRequest(settings));
+	 }
+	 
+	 private function onRoomCreated(evt:SFSEvent):void
+	 {
+	 	trace("Room created: " + evt.params.room);
+	 }
+	 
+	 private function onRoomCreationError(evt:SFSEvent):void
+	 {
+	 	trace("Room creation failed: " + evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.requests.game.xml#SFSGameSettings"><linktext>SFSGameSettings</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomAdd"><linktext>roomAdd event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomCreationError"><linktext>roomCreationError event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:invitation"><linktext>invitation event</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests.game:CreateSFSGameRequest:CreateSFSGameRequest"><apiName>CreateSFSGameRequest</apiName><shortdesc>
+		 Creates a new CreateSFSGameRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>settings</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.requests.game:SFSGameSettings</apiOperationClassifier><apiDesc>An object containing the SFSGame configuration settings.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>CreateSFSGameRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml#SFSGameSettings"><linktext>SFSGameSettings</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests.game:InviteUsersRequest"><apiName>InviteUsersRequest</apiName><shortdesc>
+	 Sends a generic invitation to a list of users.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Sends a generic invitation to a list of users.
+	 
+	 <p>Invitations can be used for different purposes, such as requesting users to join a game or visit a specific Room, asking the permission to add them as buddies, etc.
+	 Invited users receive the invitation as an <i>invitation</i> event dispatched to their clients: they can accept or refuse it
+	 by means of the <i>InvitationReplyRequest</i> request, which must be sent within the specified amount of time.</p>
+	 
+	 </apiDesc><example>The following example sends an invitation to join the current user in his private Room; the invitation contains a custom message and the Room name and password,
+	 so that the recipient clients can join the Room if the users accept the invitation:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	// Add a listener to the invitation reply
+	 	sfs.addEventListener(SFSEvent.INVITATION_REPLY, onInvitationReply);
+	 	
+	 	// Choose the invitation recipients
+	 	var friend1:User = sfs.userManager.getUserByName("Piggy");
+	 	var friend2:User = sfs.userManager.getUserByName("Gonzo");
+	 	
+	 	// Set the custom invitation details
+	 	var params:ISFSObject = new SFSObject();
+	 	params.putUtfString("msg", "Would you like to join me in my private room?");
+	 	params.putUtfString("roomName", "Kermit's room");
+	 	params.putUtfString("roomPwd", "drowssap");
+	 	
+	 	// Send the invitation; recipients have 20 seconds to reply before the invitation expires
+	 	sfs.send(new InviteUsersRequest([friend1, friend2], 20, params));
+	 }
+	 
+	 private function onInvitationReply(evt:SFSEvent):void
+	 {
+	 	// If at least one recipient accepted the invitation, make me join my private Room to meet him there
+	 	if (evt.params.reply == InvitationReply.ACCEPT)
+	 	{
+	 		var currentRoom:Room = sfs.lastJoinedRoom;
+	 		
+	 		if (currentRoom.name != "Kermit's room")
+	 			sfs.send(new JoinRoomRequest("Kermit's room"));
+	 	}
+	 	else
+	 	{
+	 		trace(evt.params.invitee + " refused the invitation")
+	 	}
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:invitation"><linktext>invitation event</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml#InvitationReplyRequest"><linktext>InvitationReplyRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests.game:InviteUsersRequest:InviteUsersRequest"><apiName>InviteUsersRequest</apiName><shortdesc>
+		 Creates a new InviteUsersRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>invitedUsers</apiItemName><apiType value="Array"/><apiDesc>	A list of <i>User</i> objects representing user to send the invitation to.
+		 </apiDesc></apiParam><apiParam><apiItemName>secondsForAnswer</apiItemName><apiType value="int"/><apiDesc>The number of seconds available to each invited user to reply to the invitation (recommended range: 15 to 40 seconds).
+		 </apiDesc></apiParam><apiParam><apiItemName>params</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier><apiDesc>			An instance of <i>SFSObject</i> containing custom parameters which specify the invitation details.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>InviteUsersRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests.game:InvitationReplyRequest"><apiName>InvitationReplyRequest</apiName><shortdesc>
+	 Replies to an invitation received by the current user.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Replies to an invitation received by the current user.
+	 
+	 <p>Users who receive an invitation sent by means of the <i>InviteUsersRequest</i> request can either accept or refuse it using this request.
+	 The reply causes an <i>invitationReply</i> event to be dispatched to the inviter; if a reply is not sent, or it is sent after the invitation expiration,
+	 the system will react as if the invitation was refused.</p>
+	 
+	 <p>If an error occurs while the reply is delivered to the inviter user (for example the invitation is already expired),
+	 an <i>invitationReplyError</i> event is returned to the current user.</p>
+	 
+	 </apiDesc><example>The following example receives an invitation and accepts it automatically; in a real case scenario, the application interface
+	 usually allows the user choosing to accept or refuse the invitation, or even ignore it:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.INVITATION, onInvitationReceived);
+	 	sfs.addEventListener(SFSEvent.INVITATION_REPLY_ERROR, onInvitationReplyError);
+	 }
+	 
+	 private function onInvitationReceived(evt:SFSEvent):void
+	 {
+	 	// Let's accept this invitation			
+	 	sfs.send(new InvitationReplyRequest(evt.params.invitation, InvitationReply.ACCEPT));
+	 }
+	 
+	 private function onInvitationReplyError(evt:SFSEvent):void
+	 {
+	 	trace("Failed to reply to invitation due to the following problem: " + evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:invitationReply"><linktext>invitationReply event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:invitationReplyError"><linktext>invitationReplyError event</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml#InviteUsersRequest"><linktext>InviteUsersRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests.game:InvitationReplyRequest:InvitationReplyRequest"><apiName>InvitationReplyRequest</apiName><shortdesc>
+		 Creates a new InvitationReplyRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>invitation</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.invitation:Invitation</apiOperationClassifier><apiDesc>	An instance of the <i>Invitation</i> class containing the invitation details (inviter, custom parameters, etc).
+		 </apiDesc></apiParam><apiParam><apiItemName>invitationReply</apiItemName><apiType value="int"/><apiDesc>The answer to be sent to the inviter, among those available as constants in the <i>InvitationReply</i> class.
+		 </apiDesc></apiParam><apiParam><apiItemName>params</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier><apiData>null</apiData><apiDesc>		An instance of <i>SFSObject</i> containing custom parameters to be returned to the inviter together with the reply
+		 							(for example a message describing the reason of refusal).
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>InvitationReplyRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.invitation.xml#InvitationReply"><linktext>InvitationReply</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></apiConstructor></apiClassifier></apiPackage>

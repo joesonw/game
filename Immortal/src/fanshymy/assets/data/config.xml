@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<uiDir>fanshymy/assets/ui/</uiDir>
+	<itemDir>fanshymy/assets/ui/</itemDir>
+	<mapDir>fanshymy/assets/map/</mapDir>
+	<roleDir>fanshymy/assets/role/</roleDir>
+	<battleXML>fanshymy/assets/data/battles.xml</battleXML>
+	<ui>CommonUI,BattlePlace,BtnBattleTips,BattleBtn,Blood,BloodSlot,FigtherText,PreSkill,BattleMusic</ui>
+</config>

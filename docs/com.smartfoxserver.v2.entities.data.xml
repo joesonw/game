@@ -1,0 +1,1622 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.smartfoxserver.v2.entities.data"><apiName>com.smartfoxserver.v2.entities.data</apiName><apiDetail/><apiClassifier id="com.smartfoxserver.v2.entities.data:SFSArray"><apiName>SFSArray</apiName><shortdesc>
+	 The SFSArray class is used by SmartFoxServer in client-server data transfer.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities.data:ISFSArray</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>SFSArray</i> class is used by SmartFoxServer in client-server data transfer.
+	 It can be thought of as a specialized Array/List object that can contain any type of data.
+	 
+	 <p>The advantage of using the <i>SFSArray</i> class (for example as a nested object inside a <i>SFSObject</i> object) is that you can fine tune the way your data is transmitted over the network.
+	 For instance, when transmitting a list of numbers between <codeph>0</codeph> and <codeph>100</codeph>, those values can be treated as normal integers (which take 32 bits each), but also as shorts (16 bit) or even as bytes (8 bit).</p>
+	 
+	 <p><i>SFSArray</i> supports many primitive data types and related arrays of primitives (see the <i>SFSDataType</i> class). It also allows to serialize class instances and rebuild them on the other side (client or server). 
+	 Check the SmartFoxServer 2X documentation for more informations on this advanced topic.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType"><linktext>SFSDataType</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.entities.data:SFSArray:SFSArray"><apiName>SFSArray</apiName><shortdesc>
+		 Creates a new SFSArray instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef><apiDesc>
+		 Creates a new <i>SFSArray</i> instance.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSArray/newInstance()"><linktext>newInstance()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSArray/newFromArray()"><linktext>newFromArray()</linktext></link></related-links></apiConstructor><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addBoolArray"><apiName>addBoolArray</apiName><shortdesc> 
+		 Appends an array of boolean values to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Boolean</i> values to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends an array of boolean values to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addBool"><apiName>addBool</apiName><shortdesc> 
+		 Appends a boolean value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Boolean"/><apiDesc>The value to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends a boolean value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addByteArray"><apiName>addByteArray</apiName><shortdesc> 
+		 Appends an array of bytes to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="flash.utils:ByteArray"/><apiDesc>The array of <i>int</i> values to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends an array of bytes to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addByte"><apiName>addByte</apiName><shortdesc> 
+		 Appends a byte (8 bit) value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="int"/><apiDesc>The value to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends a byte (8 bit) value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addClass"><apiName>addClass</apiName><shortdesc> 
+		 Appends the passed custom class instance to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="any"/><apiDesc>The custom class instance to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends the passed custom class instance to the end of this array.
+		 Read the <i>getClass()</i> method description for more informations. 
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addDoubleArray"><apiName>addDoubleArray</apiName><shortdesc> 
+		 Appends an array of double precision number values to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Number</i> values to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends an array of double precision number values to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addDouble"><apiName>addDouble</apiName><shortdesc> 
+		 Appends a double precision number (64 bit) value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Number"/><apiDesc>The value to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends a double precision number (64 bit) value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addFloatArray"><apiName>addFloatArray</apiName><shortdesc> 
+		 Appends an array of floating point number values to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Number</i> values to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends an array of floating point number values to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addFloat"><apiName>addFloat</apiName><shortdesc> 
+		 Appends a floating point number (32 bit) value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Number"/><apiDesc>The value to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends a floating point number (32 bit) value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addIntArray"><apiName>addIntArray</apiName><shortdesc> 
+		 Appends an array of integer values to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>int</i> values to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends an array of integer values to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addInt"><apiName>addInt</apiName><shortdesc> 
+		 Appends an integer (32 bit) value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="int"/><apiDesc>The value to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends an integer (32 bit) value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addLongArray"><apiName>addLongArray</apiName><shortdesc> 
+		 Appends an array of long integer values to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Number</i> values to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends an array of long integer values to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addLong"><apiName>addLong</apiName><shortdesc> 
+		 Appends a long integer (64 bit) value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Number"/><apiDesc>The value to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends a long integer (64 bit) value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addNull"><apiName>addNull</apiName><shortdesc> 
+		 Appends a null value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc> 
+		 Appends a <codeph>null</codeph> value to the end of this array.
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addSFSArray"><apiName>addSFSArray</apiName><shortdesc> 
+		 Appends a ISFSArray object to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSArray</apiOperationClassifier><apiDesc>The object implementing the <i>ISFSArray</i> interface to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends a <i>ISFSArray</i> object to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addSFSObject"><apiName>addSFSObject</apiName><shortdesc> 
+		 Appends a ISFSObject object to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier><apiDesc>The object implementing the <i>ISFSObject</i> interface to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends a <i>ISFSObject</i> object to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addShortArray"><apiName>addShortArray</apiName><shortdesc> 
+		 Appends an array of short integer values to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>int</i> values to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends an array of short integer values to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addShort"><apiName>addShort</apiName><shortdesc> 
+		 Appends a short integer (16 bit) value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="int"/><apiDesc>The value to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends a short integer (16 bit) value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addUtfStringArray"><apiName>addUtfStringArray</apiName><shortdesc> 
+		 Appends an array of UTF-8 string values to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>String</i> values to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends an array of UTF-8 string values to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:addUtfString"><apiName>addUtfString</apiName><shortdesc> 
+		 Appends a UTF-8 string value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="String"/><apiDesc>The value to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Appends a UTF-8 string value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:contains"><apiName>contains</apiName><shortdesc> 
+		 Indicates whether this array contains the specified object or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the specified object is present.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>obj</apiItemName><apiType value="any"/><apiDesc>The object whose presence in this array is to be tested.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether this array contains the specified object or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getBoolArray"><apiName>getBoolArray</apiName><shortdesc> 
+		 Returns the element at the specified position as an array of booleans.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>Boolean</i> values.
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as an array of booleans.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getBool"><apiName>getBool</apiName><shortdesc> 
+		 Returns the element at the specified position as a boolean.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as a boolean.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getByteArray"><apiName>getByteArray</apiName><shortdesc> 
+		 Returns the element at the specified position as an array of bytes.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as a <i>ByteArray</i>.
+		 </apiDesc><apiType value="flash.utils:ByteArray"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as an array of bytes.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getByte"><apiName>getByte</apiName><shortdesc> 
+		 Returns the element at the specified position as a signed byte (8 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as a signed byte (8 bit).
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getClass"><apiName>getClass</apiName><shortdesc> 
+		 Returns the element at the specified position as an instance of a custom class.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as a generic <i>Object</i> type to be casted to the target class definition.
+		 
+		 </apiDesc><apiType value="any"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as an instance of a custom class.
+		 
+		 <p>This advanced feature allows the transmission of specific object instances between client-side ActionScript and
+		 server-side Java provided that the respective class definition on both sides have the same package name.</p>
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getDoubleArray"><apiName>getDoubleArray</apiName><shortdesc> 
+		 Returns the element at the specified position as an array of double precision numbers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>Number</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as an array of double precision numbers.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getDouble"><apiName>getDouble</apiName><shortdesc> 
+		 Returns the element at the specified position as a double precision number.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 
+		 </apiDesc><apiType value="Number"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as a double precision number.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getDump"><apiName>getDump</apiName><shortdesc>  
+		 Provides a formatted string representing this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The string representation of this array.
+		 </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>format</apiItemName><apiType value="Boolean"/><apiData>true</apiData><apiDesc>If <codeph>true</codeph>, the output is formatted in a human-readable way.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>  
+		 Provides a formatted string representing this array.
+		 The returned string can be logged or traced in the console for debugging purposes.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getElementAt"><apiName>getElementAt</apiName><shortdesc> 
+		 Returns the element at the specified position in this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element at the specified index in this array.
+		 </apiDesc><apiType value="any"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position in this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getFloatArray"><apiName>getFloatArray</apiName><shortdesc> 
+		 Returns the element at the specified position as an array of floating point numbers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>Number</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as an array of floating point numbers.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getFloat"><apiName>getFloat</apiName><shortdesc> 
+		 Returns the element at the specified position as a floating point number.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 
+		 </apiDesc><apiType value="Number"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as a floating point number.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getHexDump"><apiName>getHexDump</apiName><shortdesc>  
+		 Provides a detailed hexadecimal representation of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The hexadecimal string representation of this array.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>  
+		 Provides a detailed hexadecimal representation of this array.
+		 The returned string can be logged or traced in the console for debugging purposes.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getIntArray"><apiName>getIntArray</apiName><shortdesc> 
+		 Returns the element at the specified position as an array of integers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>int</i> values.
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as an array of integers.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getInt"><apiName>getInt</apiName><shortdesc> 
+		 Returns the element at the specified position as an integer (32 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as an integer (32 bit).
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getLongArray"><apiName>getLongArray</apiName><shortdesc> 
+		 Returns the element at the specified position as an array of long integers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>Number</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as an array of long integers.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getLong"><apiName>getLong</apiName><shortdesc> 
+		 Returns the element at the specified position as a long integer (64 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 
+		 </apiDesc><apiType value="Number"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as a long integer (64 bit).
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getSFSArray"><apiName>getSFSArray</apiName><shortdesc> 
+		 Returns the element at the specified position as an ISFSArray object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an object implementing the <i>ISFSArray</i> interface.
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSArray</apiOperationClassifier></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as an <i>ISFSArray</i> object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getSFSObject"><apiName>getSFSObject</apiName><shortdesc> 
+		 Returns the element at the specified position as an ISFSObject object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an object implementing the <i>ISFSObject</i> interface.
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as an <i>ISFSObject</i> object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getShortArray"><apiName>getShortArray</apiName><shortdesc> 
+		 Returns the element at the specified position as an array of short integers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>int</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as an array of short integers.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getShort"><apiName>getShort</apiName><shortdesc> 
+		 Returns the element at the specified position as a short integer (16 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as a short integer (16 bit).
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getUnsignedByteArray"><apiName>getUnsignedByteArray</apiName><shortdesc> 
+		 Returns the element at the specified position as an array of unsigned bytes.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>int</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as an array of unsigned bytes.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getUnsignedByte"><apiName>getUnsignedByte</apiName><shortdesc> 
+		 Returns the element at the specified position as an unsigned byte (8 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as an unsigned byte (8 bit).
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getUtfStringArray"><apiName>getUtfStringArray</apiName><shortdesc> 
+		 Returns the element at the specified position as an array of UTF-8 strings.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>String</i> values.
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as an array of UTF-8 strings.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:getUtfString"><apiName>getUtfString</apiName><shortdesc> 
+		 Returns the element at the specified position as a UTF-8 string.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element at the specified position as a UTF-8 string.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:isNull"><apiName>isNull</apiName><shortdesc> 
+		 Indicates if the element at the specified position in this array is null.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the element of this array at the specified position is <codeph>null</codeph>.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to be checked.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates if the element at the specified position in this array is <codeph>null</codeph>.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:newFromArray"><apiName>newFromArray</apiName><shortdesc>
+		 Returns a new SFSArray instance.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>A new <i>SFSArray</i> instance populated with data from the passed array.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:SFSArray</apiOperationClassifier></apiReturn><apiParam><apiItemName>arr</apiItemName><apiType value="Array"/><apiDesc>			The source <i>Array</i>.
+		 </apiDesc></apiParam><apiParam><apiItemName>forceToNumber</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Indicates if the conversion of all numeric values should be forced to the highest precision possible (<i>Number</i>). This means that integer values will be treated as double precision values.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns a new <i>SFSArray</i> instance.
+		 
+		 <p>This is an alternative static constructor that builds a <i>SFSArray</i> populated with the data found in the passed native ActionScript <i>Array</i>.
+		 Numeric data is translated to <i>int</i> (integer values) or <i>Number</i> (decimal values). The procedure is recursive and works for nested objects and arrays.
+		 The supported native types are: <i>Boolean</i>, <i>int</i>, <i>Number</i>, <i>String</i>, <i>Object</i>, <i>Array</i>. The array can contain <codeph>null</codeph> values too.</p>
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSArray/SFSArray()"><linktext>SFSArray()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSArray/newInstance()"><linktext>newInstance()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:newInstance"><apiName>newInstance</apiName><shortdesc>
+		 Returns a new SFSArray instance.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>A new <i>SFSArray</i> instance.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:SFSArray</apiOperationClassifier></apiReturn></apiOperationDef><apiDesc>
+		 Returns a new <i>SFSArray</i> instance.
+		 This method is an alternative to the standard class constructor.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSArray/SFSArray()"><linktext>SFSArray()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSArray/newFromArray()"><linktext>newFromArray()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:removeElementAt"><apiName>removeElementAt</apiName><shortdesc> 
+		 Removes the element at the specified position in this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element that was removed.
+		 </apiDesc><apiType value="any"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to be removed.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Removes the element at the specified position in this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:size"><apiName>size</apiName><shortdesc> 
+		 Indicates the number of elements in this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The number of elements in this array.
+		 </apiDesc><apiType value="int"/></apiReturn></apiOperationDef><apiDesc> 
+		 Indicates the number of elements in this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:toArray"><apiName>toArray</apiName><shortdesc> 
+		 Converts the SFSArray to a native Actionscript Array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The converted Array
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc> 
+		 Converts the SFSArray to a native Actionscript Array. The procedure is recurisive so all nested objects will also be 
+		 converted. The process does not include elements of type <b>SFSDataType.CLASS</b>
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType"><linktext>SFSDataType</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSArray:toBinary"><apiName>toBinary</apiName><shortdesc> 
+		 Provides the binary form of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The binary data representing this array.
+		 </apiDesc><apiType value="flash.utils:ByteArray"/></apiReturn></apiOperationDef><apiDesc> 
+		 Provides the binary form of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.data:ISFSObject"><apiName>ISFSObject</apiName><shortdesc>
+	 The ISFSObject interface defines all the public methods and properties
+	 of the SFSObject class used by SmartFoxServer in client-server data transfer.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <i>ISFSObject</i> interface defines all the public methods and properties
+	 of the <i>SFSObject</i> class used by SmartFoxServer in client-server data transfer.
+	 Read the implementor class description for additional informations.
+	 
+	 <p><b>NOTE</b>: where mentioned in the "See also" section of the members descriptions below,
+	 check the <i>SFSDataType</i> class for more informations on data types conversion in ActionScript 3.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType"><linktext>SFSDataType</linktext></link></related-links><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:containsKey"><apiName>containsKey</apiName><shortdesc>
+		 Indicates whether this object contains a mapping for the specified key or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this object contains a mapping for the specified key.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose presence in this object is to be tested.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether this object contains a mapping for the specified key or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getBoolArray"><apiName>getBoolArray</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as an array of booleans.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>Boolean</i> values.
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as an array of booleans.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getBool"><apiName>getBool</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as a boolean.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as a boolean.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getByteArray"><apiName>getByteArray</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as an array of bytes.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as a <i>ByteArray</i>.
+		 </apiDesc><apiType value="flash.utils:ByteArray"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as an array of bytes.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getByte"><apiName>getByte</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as a signed byte (8 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as a signed byte (8 bit).
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/BYTE"><linktext>SFSDataType.BYTE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getClass"><apiName>getClass</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as an instance of a custom class.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as a generic <i>Object</i> type to be casted to the target class definition.
+		 
+		 </apiDesc><apiType value="any"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as an instance of a custom class.
+		 
+		 <p>This advanced feature allows the transmission of specific object instances between client-side ActionScript and
+		 server-side Java provided that the respective class definition on both sides have the same package name.</p>
+		 
+		 </apiDesc><example>The following example shows the same class on the client and server sides,
+		 which can be transferred back and forth with the <i>getClass()</i> and <i>putClass()</i> methods.
+		 The server-side Java definition of a SpaceShip class is:
+		 <codeblock>
+		 
+		 package my.game.spacecombat
+		 
+		 public class SpaceShip
+		 {
+		 	private String type;
+		 	private String name;
+		 	private int firePower;
+		 	private int maxSpeed;
+		 	private List&lt;String&gt; weapons;
+		 	
+		 	public SpaceShip(String name, String type)
+		 	{
+		 		this.name = name;
+		 		this.type = type;
+		 	}
+		 	
+		 	// Getters/Setters
+		 	
+		 	...
+		 }
+		 </codeblock>
+		 
+		 The client-side ActionScript 3 definition of the SpaceShip class is:
+		 <codeblock rev="3.0">
+		 
+		 package my.game.spacecombat
+		 
+		 public class SpaceShip
+		 {
+		 	private var _type:String;
+		 	private var _name:String;
+		 	private var _firePower:int;
+		 	private var _maxSpeed:int;
+		 	private var _weapons:Array;
+		 	
+		 	public function SpaceShip(name:String, type:String)
+		 	{
+		 		_name = name;
+		 		_type = type;
+		 	}
+		 	
+		 	// Getters/Setters
+		 	
+		 	...
+		 }
+		 </codeblock>
+		 
+		 The SpaceShip instance is sent by the server to the client. This is how to retrieve it:
+		 <codeblock rev="3.0">
+		 
+		 var key:String = "spaceShip";
+		 var myShipData:SpaceShip = sfsObject.getClass(key) as SpaceShip;
+		 </codeblock> 
+		 </example></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getDoubleArray"><apiName>getDoubleArray</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as an array of double precision numbers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>Number</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as an array of double precision numbers.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/DOUBLE"><linktext>SFSDataType.DOUBLE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getDouble"><apiName>getDouble</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as a double precision number.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 
+		 </apiDesc><apiType value="Number"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as a double precision number.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/DOUBLE"><linktext>SFSDataType.DOUBLE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getDump"><apiName>getDump</apiName><shortdesc> 
+		 Provides a formatted string representing this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The string representation of this object.
+		 </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>format</apiItemName><apiType value="Boolean"/><apiData>true</apiData><apiDesc>If <codeph>true</codeph>, the output is formatted in a human-readable way.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Provides a formatted string representing this object.
+		 The returned string can be logged or traced in the console for debugging purposes.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getFloatArray"><apiName>getFloatArray</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as an array of floating point numbers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>Number</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as an array of floating point numbers.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/FLOAT"><linktext>SFSDataType.FLOAT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getFloat"><apiName>getFloat</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as a floating point number.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 
+		 </apiDesc><apiType value="Number"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as a floating point number.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/FLOAT"><linktext>SFSDataType.FLOAT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getHexDump"><apiName>getHexDump</apiName><shortdesc> 
+		 Provides a detailed hexadecimal representation of this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The hexadecimal string representation of this object.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc> 
+		 Provides a detailed hexadecimal representation of this object.
+		 The returned string can be logged or traced in the console for debugging purposes.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getIntArray"><apiName>getIntArray</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as an array of integers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>int</i> values.
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as an array of integers.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getInt"><apiName>getInt</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as an integer (32 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as an integer (32 bit).
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getKeys"><apiName>getKeys</apiName><shortdesc>
+		 Retrieves a list of all the keys contained in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of all the keys in this object.
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc>
+		 Retrieves a list of all the keys contained in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getLongArray"><apiName>getLongArray</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as an array of long integers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>Number</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as an array of long integers.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/LONG"><linktext>SFSDataType.LONG</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getLong"><apiName>getLong</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as a long integer (64 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 
+		 </apiDesc><apiType value="Number"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as a long integer (64 bit).
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/LONG"><linktext>SFSDataType.LONG</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getSFSArray"><apiName>getSFSArray</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as an ISFSArray object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an object implementing the <i>ISFSArray</i> interface.
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSArray</apiOperationClassifier></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as an <i>ISFSArray</i> object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getSFSObject"><apiName>getSFSObject</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as an ISFSObject object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an object implementing the <i>ISFSObject</i> interface.
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as an <i>ISFSObject</i> object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getShortArray"><apiName>getShortArray</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as an array of short integers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>int</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as an array of short integers.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/SHORT"><linktext>SFSDataType.SHORT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getShort"><apiName>getShort</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as a short integer (16 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as a short integer (16 bit).
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/SHORT"><linktext>SFSDataType.SHORT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getUnsignedByteArray"><apiName>getUnsignedByteArray</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as an array of unsigned bytes.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>int</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as an array of unsigned bytes.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/BYTE"><linktext>SFSDataType.BYTE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getUnsignedByte"><apiName>getUnsignedByte</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as an unsigned byte (8 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as an unsigned byte (8 bit).
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/BYTE"><linktext>SFSDataType.BYTE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getUtfStringArray"><apiName>getUtfStringArray</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as an array of UTF-8 strings.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>String</i> values.
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as an array of UTF-8 strings.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:getUtfString"><apiName>getUtfString</apiName><shortdesc>
+		 Returns the element corresponding to the specified key as a UTF-8 string.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element corresponding to the specified key as a UTF-8 string.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:isNull"><apiName>isNull</apiName><shortdesc>
+		 Indicates if the value mapped by the specified key is null.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the value mapped by the passed key is <codeph>null</codeph>.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key to be checked.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates if the value mapped by the specified key is <codeph>null</codeph>.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putBoolArray"><apiName>putBoolArray</apiName><shortdesc>
+		 Associates the passed array of boolean values with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified array is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Boolean</i> values to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed array of boolean values with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putBool"><apiName>putBool</apiName><shortdesc>
+		 Associates the passed boolean value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Boolean"/><apiDesc>The value to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed boolean value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putByteArray"><apiName>putByteArray</apiName><shortdesc>
+		 Associates the passed array of bytes with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified <i>ByteArray</i> is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="flash.utils:ByteArray"/><apiDesc>The <i>ByteArray</i> to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed array of bytes with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putByte"><apiName>putByte</apiName><shortdesc>
+		 Associates the passed byte (8 bit) value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="int"/><apiDesc>The value to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed byte (8 bit) value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/BYTE"><linktext>SFSDataType.BYTE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putClass"><apiName>putClass</apiName><shortdesc>
+		 Associates the passed custom class instance with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified custom class instance is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="any"/><apiDesc>The custom class instance to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed custom class instance with the specified key in this object.
+		 Read the <i>getClass()</i> method description for more informations. 
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#ISFSObject/getClass()"><linktext>getClass()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putDoubleArray"><apiName>putDoubleArray</apiName><shortdesc>
+		 Associates the passed array of double precision number values with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified array is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Number</i> values to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed array of double precision number values with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/DOUBLE"><linktext>SFSDataType.DOUBLE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putDouble"><apiName>putDouble</apiName><shortdesc>
+		 Associates the passed double precision number (64 bit) value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Number"/><apiDesc>The value to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed double precision number (64 bit) value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/DOUBLE"><linktext>SFSDataType.DOUBLE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putFloatArray"><apiName>putFloatArray</apiName><shortdesc>
+		 Associates the passed array of floating point number values with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified array is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Number</i> values to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed array of floating point number values with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/FLOAT"><linktext>SFSDataType.FLOAT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putFloat"><apiName>putFloat</apiName><shortdesc>
+		 Associates the passed floating point number (32 bit) value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Number"/><apiDesc>The value to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed floating point number (32 bit) value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/FLOAT"><linktext>SFSDataType.FLOAT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putIntArray"><apiName>putIntArray</apiName><shortdesc>
+		 Associates the passed array of integer values with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified array is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>int</i> values to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed array of integer values with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putInt"><apiName>putInt</apiName><shortdesc>
+		 Associates the passed integer (32 bit) value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="int"/><apiDesc>The value to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed integer (32 bit) value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putLongArray"><apiName>putLongArray</apiName><shortdesc>
+		 Associates the passed array of long integer values with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified array is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Number</i> values to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed array of long integer values with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/LONG"><linktext>SFSDataType.LONG</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putLong"><apiName>putLong</apiName><shortdesc>
+		 Associates the passed long integer (64 bit) value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Number"/><apiDesc>The value to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed long integer (64 bit) value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/LONG"><linktext>SFSDataType.LONG</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putSFSArray"><apiName>putSFSArray</apiName><shortdesc>
+		 Associates the passed ISFSArray object with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified object implementing the <i>ISFSArray</i> interface is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSArray</apiOperationClassifier><apiDesc>The <i>ISFSArray</i> object to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed <i>ISFSArray</i> object with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putSFSObject"><apiName>putSFSObject</apiName><shortdesc>
+		 Associates the passed ISFSObject object with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified object implementing the <i>ISFSObject</i> interface is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier><apiDesc>The <i>ISFSObject</i> object to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed <i>ISFSObject</i> object with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putShortArray"><apiName>putShortArray</apiName><shortdesc>
+		 Associates the passed array of short integer values with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified array is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>int</i> values to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed array of short integer values with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/SHORT"><linktext>SFSDataType.SHORT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putShort"><apiName>putShort</apiName><shortdesc>
+		 Associates the passed short integer (16 bit) value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="int"/><apiDesc>The value to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed short integer (16 bit) value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/SHORT"><linktext>SFSDataType.SHORT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putUtfStringArray"><apiName>putUtfStringArray</apiName><shortdesc>
+		 Associates the passed array of UTF-8 string values with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified array is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>String</i> values to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed array of UTF-8 string values with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:putUtfString"><apiName>putUtfString</apiName><shortdesc>
+		 Associates the passed UTF-8 string value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="String"/><apiDesc>The value to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Associates the passed UTF-8 string value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:removeElement"><apiName>removeElement</apiName><shortdesc>
+		 Removes the element corresponding to the passed key from this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key of the element to be removed.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Removes the element corresponding to the passed key from this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:size"><apiName>size</apiName><shortdesc>
+		 Indicates the number of elements in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The number of elements in this object.
+		 </apiDesc><apiType value="int"/></apiReturn></apiOperationDef><apiDesc>
+		 Indicates the number of elements in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:toBinary"><apiName>toBinary</apiName><shortdesc>
+		 Provides the binary form of this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The binary data representing this object.
+		 </apiDesc><apiType value="flash.utils:ByteArray"/></apiReturn></apiOperationDef><apiDesc>
+		 Provides the binary form of this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSObject:com.smartfoxserver.v2.entities.data:ISFSObject:toObject"><apiName>toObject</apiName><shortdesc>
+		 Converts the SFSObject to a regular AS Object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The object.
+		 </apiDesc><apiType value="Object"/></apiReturn></apiOperationDef><apiDesc>
+		 Converts the SFSObject to a regular AS Object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.data:SFSDataType"><apiName>SFSDataType</apiName><shortdesc>
+	 The SFSDataType class contains the costants defining the data types supported by SFSObject and SFSArray classes.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>SFSDataType</i> class contains the costants defining the data types supported by <i>SFSObject</i> and <i>SFSArray</i> classes.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSArray"><linktext>SFSArray</linktext></link></related-links><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:BOOL_ARRAY"><apiName>BOOL_ARRAY</apiName><shortdesc>
+		 An array of Boolean values.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>9</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 An array of <i>Boolean</i> values.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:BOOL"><apiName>BOOL</apiName><shortdesc>
+		 A Boolean value.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 A <i>Boolean</i> value.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:BYTE_ARRAY"><apiName>BYTE_ARRAY</apiName><shortdesc>
+		 An array of byte values.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>10</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 An array of byte values.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/BYTE"><linktext>BYTE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:BYTE"><apiName>BYTE</apiName><shortdesc>
+		 A byte (8 bit) value.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 A byte (8 bit) value.
+		 In ActionScript 3 a byte is represented by the <i>int</i> type.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:CLASS"><apiName>CLASS</apiName><shortdesc>
+		 A custom class.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>19</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 A custom class.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:DOUBLE_ARRAY"><apiName>DOUBLE_ARRAY</apiName><shortdesc>
+		 An array of double precision number values.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>15</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 An array of double precision number values.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/DOUBLE"><linktext>DOUBLE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:DOUBLE"><apiName>DOUBLE</apiName><shortdesc>
+		 A double precision number (64 bit) value.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>7</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 A double precision number (64 bit) value.
+		 In ActionScript 3 a double precision number is represented by the <i>Number</i> type.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:FLOAT_ARRAY"><apiName>FLOAT_ARRAY</apiName><shortdesc>
+		 An array of floating point number values.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>14</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 An array of floating point number values.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/FLOAT"><linktext>FLOAT</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:FLOAT"><apiName>FLOAT</apiName><shortdesc>
+		 A floating point number (32 bit) value.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>6</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 A floating point number (32 bit) value.
+		 In ActionScript 3 a floating point number is represented by the <i>Number</i> type.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:INT_ARRAY"><apiName>INT_ARRAY</apiName><shortdesc>
+		 An array of integer values.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>12</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 An array of integer values.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/INT"><linktext>INT</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:INT"><apiName>INT</apiName><shortdesc>
+		 An integer (32 bit) value.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>4</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 An integer (32 bit) value.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:LONG_ARRAY"><apiName>LONG_ARRAY</apiName><shortdesc>
+		 An array of long integer values.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>13</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 An array of long integer values.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/LONG"><linktext>LONG</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:LONG"><apiName>LONG</apiName><shortdesc>
+		 A long integer (64 bit) value.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>5</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 A long integer (64 bit) value.
+		 In ActionScript 3 a long integer is represented by the <i>Number</i> type.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:NULL"><apiName>NULL</apiName><shortdesc>
+		 A null value.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 A <codeph>null</codeph> value.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:SFS_ARRAY"><apiName>SFS_ARRAY</apiName><shortdesc>
+		 A SFSArray object.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>17</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 A <i>SFSArray</i> object.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSArray"><linktext>SFSArray</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:SFS_OBJECT"><apiName>SFS_OBJECT</apiName><shortdesc>
+		 A SFSObject object.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>18</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 A <i>SFSObject</i> object.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:SHORT_ARRAY"><apiName>SHORT_ARRAY</apiName><shortdesc>
+		 An array of short integer values.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>11</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 An array of short integer values.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/SHORT"><linktext>SHORT</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:SHORT"><apiName>SHORT</apiName><shortdesc>
+		 A short integer (16 bit) value.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>3</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 A short integer (16 bit) value.
+		 In ActionScript 3 a short integer is represented by the <i>int</i> type.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:UTF_STRING_ARRAY"><apiName>UTF_STRING_ARRAY</apiName><shortdesc>
+		 An array of string values.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>16</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 An array of string values.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/UTF_STRING"><linktext>UTF_STRING</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.data:SFSDataType:UTF_STRING"><apiName>UTF_STRING</apiName><shortdesc>
+		 A UTF-8 encoded string value.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>8</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 A UTF-8 encoded string value.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.data:SFSObject"><apiName>SFSObject</apiName><shortdesc>
+	 The SFSObject class is used by SmartFoxServer in client-server data transfer.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities.data:ISFSObject</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>SFSObject</i> class is used by SmartFoxServer in client-server data transfer.
+	 It can be thought of as a specialized Dictionary/Map object that can contain any type of data.
+	 
+	 <p>The advantage of using the <i>SFSObject</i> class (for example when sending an <i>ExtensionRequest</i> request) is that you can fine tune the way your data is transmitted over the network.
+	 For instance, a number like <codeph>100</codeph> can be transmitted as a normal integer (which takes 32 bits), but also a short (16 bit) or even a byte (8 bit).</p>
+	 
+	 <p><i>SFSObject</i> supports many primitive data types and related arrays of primitives (see the <i>SFSDataType</i> class). It also allows to serialize class instances and rebuild them on the other side (client or server). 
+	 Check the SmartFoxServer 2X documentation for more informations on this advanced topic.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ExtensionRequest"><linktext>ExtensionRequest</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType"><linktext>SFSDataType</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.entities.data:SFSObject:SFSObject"><apiName>SFSObject</apiName><shortdesc>
+		 Creates a new SFSObject instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef><apiDesc>
+		 Creates a new <i>SFSObject</i> instance.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject/newInstance()"><linktext>newInstance()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject/newFromObject()"><linktext>newFromObject()</linktext></link></related-links></apiConstructor><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:containsKey"><apiName>containsKey</apiName><shortdesc> 
+		 Indicates whether this object contains a mapping for the specified key or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this object contains a mapping for the specified key.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose presence in this object is to be tested.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether this object contains a mapping for the specified key or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getBoolArray"><apiName>getBoolArray</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as an array of booleans.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>Boolean</i> values.
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as an array of booleans.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getBool"><apiName>getBool</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as a boolean.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as a boolean.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getByteArray"><apiName>getByteArray</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as an array of bytes.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as a <i>ByteArray</i>.
+		 </apiDesc><apiType value="flash.utils:ByteArray"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as an array of bytes.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getByte"><apiName>getByte</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as a signed byte (8 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as a signed byte (8 bit).
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getClass"><apiName>getClass</apiName><shortdesc>
+		 
+		 Returns the element corresponding to the specified key as an instance of a custom class.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as a generic <i>Object</i> type to be casted to the target class definition.
+		 
+		 </apiDesc><apiType value="any"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 
+		 Returns the element corresponding to the specified key as an instance of a custom class.
+		 
+		 <p>This advanced feature allows the transmission of specific object instances between client-side ActionScript and
+		 server-side Java provided that the respective class definition on both sides have the same package name.</p>
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#ISFSObject/getClass()"><linktext>ISFSObject.getClass()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getDoubleArray"><apiName>getDoubleArray</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as an array of double precision numbers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>Number</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as an array of double precision numbers.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getDouble"><apiName>getDouble</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as a double precision number.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 
+		 </apiDesc><apiType value="Number"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as a double precision number.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getDump"><apiName>getDump</apiName><shortdesc>  
+		 Provides a formatted string representing this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The string representation of this object.
+		 </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>format</apiItemName><apiType value="Boolean"/><apiData>true</apiData><apiDesc>If <codeph>true</codeph>, the output is formatted in a human-readable way.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>  
+		 Provides a formatted string representing this object.
+		 The returned string can be logged or traced in the console for debugging purposes.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getFloatArray"><apiName>getFloatArray</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as an array of floating point numbers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>Number</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as an array of floating point numbers.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getFloat"><apiName>getFloat</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as a floating point number.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 
+		 </apiDesc><apiType value="Number"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as a floating point number.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getHexDump"><apiName>getHexDump</apiName><shortdesc>  
+		 Provides a detailed hexadecimal representation of this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The hexadecimal string representation of this object.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>  
+		 Provides a detailed hexadecimal representation of this object.
+		 The returned string can be logged or traced in the console for debugging purposes.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getIntArray"><apiName>getIntArray</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as an array of integers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>int</i> values.
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as an array of integers.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getInt"><apiName>getInt</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as an integer (32 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as an integer (32 bit).
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getKeys"><apiName>getKeys</apiName><shortdesc> 
+		 Retrieves a list of all the keys contained in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of all the keys in this object.
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves a list of all the keys contained in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getLongArray"><apiName>getLongArray</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as an array of long integers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>Number</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as an array of long integers.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getLong"><apiName>getLong</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as a long integer (64 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 
+		 </apiDesc><apiType value="Number"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as a long integer (64 bit).
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getSFSArray"><apiName>getSFSArray</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as an ISFSArray object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an object implementing the <i>ISFSArray</i> interface.
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSArray</apiOperationClassifier></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as an <i>ISFSArray</i> object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getSFSObject"><apiName>getSFSObject</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as an ISFSObject object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an object implementing the <i>ISFSObject</i> interface.
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as an <i>ISFSObject</i> object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getShortArray"><apiName>getShortArray</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as an array of short integers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>int</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as an array of short integers.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getShort"><apiName>getShort</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as a short integer (16 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as a short integer (16 bit).
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getUnsignedByteArray"><apiName>getUnsignedByteArray</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as an array of unsigned bytes.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>int</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as an array of unsigned bytes.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getUnsignedByte"><apiName>getUnsignedByte</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as an unsigned byte (8 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as an unsigned byte (8 bit).
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getUtfStringArray"><apiName>getUtfStringArray</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as an array of UTF-8 strings.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object as an array of <i>String</i> values.
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as an array of UTF-8 strings.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:getUtfString"><apiName>getUtfString</apiName><shortdesc> 
+		 Returns the element corresponding to the specified key as a UTF-8 string.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this object associated with the specified key.
+		 </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key whose associated value is to be returned.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the element corresponding to the specified key as a UTF-8 string.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:isNull"><apiName>isNull</apiName><shortdesc> 
+		 Indicates if the value mapped by the specified key is null.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the value mapped by the passed key is <codeph>null</codeph>.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key to be checked.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates if the value mapped by the specified key is <codeph>null</codeph>.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:newFromObject"><apiName>newFromObject</apiName><shortdesc>
+		 Returns a new SFSObject instance.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>A new <i>SFSObject</i> instance populated with data from the passed object.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:SFSObject</apiOperationClassifier></apiReturn><apiParam><apiItemName>o</apiItemName><apiType value="Object"/><apiDesc>			The source <i>Object</i>.
+		 </apiDesc></apiParam><apiParam><apiItemName>forceToNumber</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Indicates if the conversion of all numeric values should be forced to the highest precision possible (<i>Number</i>). This means that integer values will be treated as double precision values.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns a new <i>SFSObject</i> instance.
+		 
+		 <p>This is an alternative static constructor that builds a <i>SFSObject</i> populated with the data found in the passed native ActionScript <i>Object</i>.
+		 Numeric data is translated to <i>int</i> (integer values) or <i>Number</i> (decimal values). The procedure is recursive and works for nested objects and arrays.
+		 The supported native types are: <i>Boolean</i>, <i>int</i>, <i>Number</i>, <i>String</i>, <i>Object</i>, <i>Array</i>. The object can contain <codeph>null</codeph> values too.</p>
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject/SFSObject()"><linktext>SFSObject()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject/newInstance()"><linktext>newInstance()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject/toObject()"><linktext>toObject()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:newInstance"><apiName>newInstance</apiName><shortdesc>
+		 Returns a new SFSObject instance.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>A new <i>SFSObject</i> instance.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:SFSObject</apiOperationClassifier></apiReturn></apiOperationDef><apiDesc>
+		 Returns a new <i>SFSObject</i> instance.
+		 This method is an alternative to the standard class constructor.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject/SFSObject()"><linktext>SFSObject()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject/newFromObject()"><linktext>newFromObject()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putBoolArray"><apiName>putBoolArray</apiName><shortdesc> 
+		 Associates the passed array of boolean values with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified array is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Boolean</i> values to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed array of boolean values with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putBool"><apiName>putBool</apiName><shortdesc> 
+		 Associates the passed boolean value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Boolean"/><apiDesc>The value to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed boolean value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putByteArray"><apiName>putByteArray</apiName><shortdesc> 
+		 Associates the passed array of bytes with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified <i>ByteArray</i> is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="flash.utils:ByteArray"/><apiDesc>The <i>ByteArray</i> to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed array of bytes with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putByte"><apiName>putByte</apiName><shortdesc> 
+		 Associates the passed byte (8 bit) value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="int"/><apiDesc>The value to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed byte (8 bit) value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putClass"><apiName>putClass</apiName><shortdesc> 
+		 Associates the passed custom class instance with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified custom class instance is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="any"/><apiDesc>The custom class instance to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed custom class instance with the specified key in this object.
+		 Read the <i>getClass()</i> method description for more informations. 
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putDoubleArray"><apiName>putDoubleArray</apiName><shortdesc> 
+		 Associates the passed array of double precision number values with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified array is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Number</i> values to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed array of double precision number values with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putDouble"><apiName>putDouble</apiName><shortdesc> 
+		 Associates the passed double precision number (64 bit) value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Number"/><apiDesc>The value to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed double precision number (64 bit) value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putFloatArray"><apiName>putFloatArray</apiName><shortdesc> 
+		 Associates the passed array of floating point number values with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified array is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Number</i> values to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed array of floating point number values with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putFloat"><apiName>putFloat</apiName><shortdesc> 
+		 Associates the passed floating point number (32 bit) value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Number"/><apiDesc>The value to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed floating point number (32 bit) value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putIntArray"><apiName>putIntArray</apiName><shortdesc> 
+		 Associates the passed array of integer values with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified array is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>int</i> values to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed array of integer values with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putInt"><apiName>putInt</apiName><shortdesc> 
+		 Associates the passed integer (32 bit) value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="int"/><apiDesc>The value to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed integer (32 bit) value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putLongArray"><apiName>putLongArray</apiName><shortdesc> 
+		 Associates the passed array of long integer values with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified array is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Number</i> values to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed array of long integer values with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putLong"><apiName>putLong</apiName><shortdesc> 
+		 Associates the passed long integer (64 bit) value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Number"/><apiDesc>The value to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed long integer (64 bit) value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putSFSArray"><apiName>putSFSArray</apiName><shortdesc> 
+		 Associates the passed ISFSArray object with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified object implementing the <i>ISFSArray</i> interface is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSArray</apiOperationClassifier><apiDesc>The <i>ISFSArray</i> object to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed <i>ISFSArray</i> object with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putSFSObject"><apiName>putSFSObject</apiName><shortdesc> 
+		 Associates the passed ISFSObject object with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified object implementing the <i>ISFSObject</i> interface is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier><apiDesc>The <i>ISFSObject</i> object to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed <i>ISFSObject</i> object with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putShortArray"><apiName>putShortArray</apiName><shortdesc> 
+		 Associates the passed array of short integer values with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified array is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>int</i> values to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed array of short integer values with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putShort"><apiName>putShort</apiName><shortdesc> 
+		 Associates the passed short integer (16 bit) value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="int"/><apiDesc>The value to be associated with the specified key.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed short integer (16 bit) value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putUtfStringArray"><apiName>putUtfStringArray</apiName><shortdesc> 
+		 Associates the passed array of UTF-8 string values with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified array is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>String</i> values to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed array of UTF-8 string values with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:putUtfString"><apiName>putUtfString</apiName><shortdesc> 
+		 Associates the passed UTF-8 string value with the specified key in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>	The key with which the specified value is to be associated.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="String"/><apiDesc>The value to be associated with the specified key.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Associates the passed UTF-8 string value with the specified key in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:removeElement"><apiName>removeElement</apiName><shortdesc> 
+		 Removes the element corresponding to the passed key from this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>key</apiItemName><apiType value="String"/><apiDesc>The key of the element to be removed.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Removes the element corresponding to the passed key from this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:size"><apiName>size</apiName><shortdesc> 
+		 Indicates the number of elements in this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The number of elements in this object.
+		 </apiDesc><apiType value="int"/></apiReturn></apiOperationDef><apiDesc> 
+		 Indicates the number of elements in this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:toBinary"><apiName>toBinary</apiName><shortdesc> 
+		 Provides the binary form of this object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The binary data representing this object.
+		 </apiDesc><apiType value="flash.utils:ByteArray"/></apiReturn></apiOperationDef><apiDesc> 
+		 Provides the binary form of this object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:SFSObject:toObject"><apiName>toObject</apiName><shortdesc> 
+		 Converts this SFSObject to a native ActionScript Object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>A generic ActionScript 3 <i>Object</i> representing this object.
+		 
+		 </apiDesc><apiType value="Object"/></apiReturn></apiOperationDef><apiDesc> 
+		 Converts this <i>SFSObject</i> to a native ActionScript <i>Object</i>.
+		 The procedure is recurisive, so all nested objects are also converted. The process discards elements of type <i>SFSDataType.CLASS</i>, which must be retrieved with the appropriate method.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/CLASS"><linktext>SFSDataType.CLASS</linktext></link></related-links></apiOperation></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.data:ISFSArray"><apiName>ISFSArray</apiName><shortdesc>
+	 The ISFSArray interface defines all the public methods and properties
+	 of the SFSArray class used by SmartFoxServer in client-server data transfer.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <i>ISFSArray</i> interface defines all the public methods and properties
+	 of the <i>SFSArray</i> class used by SmartFoxServer in client-server data transfer.
+	 Read the implementor class description for additional informations.
+	 
+	 <p><b>NOTE</b>: where mentioned in the "See also" section of the members descriptions below,
+	 check the <i>SFSDataType</i> class for more informations on data types conversion in ActionScript 3.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSArray"><linktext>SFSArray</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType"><linktext>SFSDataType</linktext></link></related-links><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addBoolArray"><apiName>addBoolArray</apiName><shortdesc>
+		 Appends an array of boolean values to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Boolean</i> values to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends an array of boolean values to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addBool"><apiName>addBool</apiName><shortdesc>
+		 Appends a boolean value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Boolean"/><apiDesc>The value to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends a boolean value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addByteArray"><apiName>addByteArray</apiName><shortdesc>
+		 Appends an array of bytes to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="flash.utils:ByteArray"/><apiDesc>The array of <i>int</i> values to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends an array of bytes to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/BYTE"><linktext>SFSDataType.BYTE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addByte"><apiName>addByte</apiName><shortdesc>
+		 Appends a byte (8 bit) value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="int"/><apiDesc>The value to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends a byte (8 bit) value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/BYTE"><linktext>SFSDataType.BYTE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addClass"><apiName>addClass</apiName><shortdesc>
+		 Appends the passed custom class instance to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="any"/><apiDesc>The custom class instance to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends the passed custom class instance to the end of this array.
+		 Read the <i>getClass()</i> method description for more informations. 
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#ISFSArray/getClass()"><linktext>getClass()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addDoubleArray"><apiName>addDoubleArray</apiName><shortdesc>
+		 Appends an array of double precision number values to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Number</i> values to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends an array of double precision number values to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/DOUBLE"><linktext>SFSDataType.DOUBLE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addDouble"><apiName>addDouble</apiName><shortdesc>
+		 Appends a double precision number (64 bit) value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Number"/><apiDesc>The value to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends a double precision number (64 bit) value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/DOUBLE"><linktext>SFSDataType.DOUBLE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addFloatArray"><apiName>addFloatArray</apiName><shortdesc>
+		 Appends an array of floating point number values to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Number</i> values to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends an array of floating point number values to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/FLOAT"><linktext>SFSDataType.FLOAT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addFloat"><apiName>addFloat</apiName><shortdesc>
+		 Appends a floating point number (32 bit) value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Number"/><apiDesc>The value to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends a floating point number (32 bit) value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/FLOAT"><linktext>SFSDataType.FLOAT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addIntArray"><apiName>addIntArray</apiName><shortdesc>
+		 Appends an array of integer values to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>int</i> values to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends an array of integer values to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addInt"><apiName>addInt</apiName><shortdesc>
+		 Appends an integer (32 bit) value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="int"/><apiDesc>The value to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends an integer (32 bit) value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addLongArray"><apiName>addLongArray</apiName><shortdesc>
+		 Appends an array of long integer values to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>Number</i> values to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends an array of long integer values to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/LONG"><linktext>SFSDataType.LONG</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addLong"><apiName>addLong</apiName><shortdesc>
+		 Appends a long integer (64 bit) value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Number"/><apiDesc>The value to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends a long integer (64 bit) value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/LONG"><linktext>SFSDataType.LONG</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addNull"><apiName>addNull</apiName><shortdesc>
+		 Appends a null value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+		 Appends a <codeph>null</codeph> value to the end of this array.
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addSFSArray"><apiName>addSFSArray</apiName><shortdesc>
+		 Appends a ISFSArray object to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSArray</apiOperationClassifier><apiDesc>The object implementing the <i>ISFSArray</i> interface to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends a <i>ISFSArray</i> object to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addSFSObject"><apiName>addSFSObject</apiName><shortdesc>
+		 Appends a ISFSObject object to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier><apiDesc>The object implementing the <i>ISFSObject</i> interface to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends a <i>ISFSObject</i> object to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addShortArray"><apiName>addShortArray</apiName><shortdesc>
+		 Appends an array of short integer values to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>int</i> values to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends an array of short integer values to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/SHORT"><linktext>SFSDataType.SHORT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addShort"><apiName>addShort</apiName><shortdesc>
+		 Appends a short integer (16 bit) value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="int"/><apiDesc>The value to be appended to this array.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends a short integer (16 bit) value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/SHORT"><linktext>SFSDataType.SHORT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addUtfStringArray"><apiName>addUtfStringArray</apiName><shortdesc>
+		 Appends an array of UTF-8 string values to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="Array"/><apiDesc>The array of <i>String</i> values to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends an array of UTF-8 string values to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:addUtfString"><apiName>addUtfString</apiName><shortdesc>
+		 Appends a UTF-8 string value to the end of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="String"/><apiDesc>The value to be appended to this array.
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Appends a UTF-8 string value to the end of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:contains"><apiName>contains</apiName><shortdesc>
+		 Indicates whether this array contains the specified object or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the specified object is present.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>obj</apiItemName><apiType value="any"/><apiDesc>The object whose presence in this array is to be tested.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether this array contains the specified object or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getBoolArray"><apiName>getBoolArray</apiName><shortdesc>
+		 Returns the element at the specified position as an array of booleans.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>Boolean</i> values.
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as an array of booleans.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getBool"><apiName>getBool</apiName><shortdesc>
+		 Returns the element at the specified position as a boolean.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as a boolean.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getByteArray"><apiName>getByteArray</apiName><shortdesc>
+		 Returns the element at the specified position as an array of bytes.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as a <i>ByteArray</i>.
+		 </apiDesc><apiType value="flash.utils:ByteArray"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as an array of bytes.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getByte"><apiName>getByte</apiName><shortdesc>
+		 Returns the element at the specified position as a signed byte (8 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as a signed byte (8 bit).
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/BYTE"><linktext>SFSDataType.BYTE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getClass"><apiName>getClass</apiName><shortdesc>
+		 Returns the element at the specified position as an instance of a custom class.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as a generic <i>Object</i> type to be casted to the target class definition.
+		 
+		 </apiDesc><apiType value="any"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as an instance of a custom class.
+		 
+		 <p>This advanced feature allows the transmission of specific object instances between client-side ActionScript and
+		 server-side Java provided that the respective class definition on both sides have the same package name.</p>
+		 
+		 </apiDesc><example>The following example shows the same class on the client and server sides,
+		 which can be transferred back and forth with the <i>getClass()</i> and <i>addClass()</i> methods.
+		 The server-side Java definition of a SpaceShip class is:
+		 <codeblock>
+		 
+		 package my.game.spacecombat
+		 
+		 public class SpaceShip
+		 {
+		 	private String type;
+		 	private String name;
+		 	private int firePower;
+		 	private int maxSpeed;
+		 	private List&lt;String&gt; weapons;
+		 	
+		 	public SpaceShip(String name, String type)
+		 	{
+		 		this.name = name;
+		 		this.type = type;
+		 	}
+		 	
+		 	// Getters/Setters
+		 	
+		 	...
+		 }
+		 </codeblock>
+		 
+		 The client-side ActionScript 3 definition of the SpaceShip class is:
+		 <codeblock rev="3.0">
+		 
+		 package my.game.spacecombat
+		 
+		 public class SpaceShip
+		 {
+		 	private var _type:String;
+		 	private var _name:String;
+		 	private var _firePower:int;
+		 	private var _maxSpeed:int;
+		 	private var _weapons:Array;
+		 	
+		 	public function SpaceShip(name:String, type:String)
+		 	{
+		 		_name = name;
+		 		_type = type;
+		 	}
+		 	
+		 	// Getters/Setters
+		 	
+		 	...
+		 }
+		 </codeblock>
+		 
+		 A SpaceShip instance is sent by the server to the client in the first position of an array. This is how to retrieve it:
+		 <codeblock rev="3.0">
+		 
+		 var myShipData:SpaceShip = sfsArray.getClass(0) as SpaceShip;
+		 </codeblock> 
+		 </example></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getDoubleArray"><apiName>getDoubleArray</apiName><shortdesc>
+		 Returns the element at the specified position as an array of double precision numbers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>Number</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as an array of double precision numbers.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/DOUBLE"><linktext>SFSDataType.DOUBLE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getDouble"><apiName>getDouble</apiName><shortdesc>
+		 Returns the element at the specified position as a double precision number.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 
+		 </apiDesc><apiType value="Number"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as a double precision number.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/DOUBLE"><linktext>SFSDataType.DOUBLE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getDump"><apiName>getDump</apiName><shortdesc> 
+		 Provides a formatted string representing this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The string representation of this array.
+		 </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>format</apiItemName><apiType value="Boolean"/><apiData>true</apiData><apiDesc>If <codeph>true</codeph>, the output is formatted in a human-readable way.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Provides a formatted string representing this array.
+		 The returned string can be logged or traced in the console for debugging purposes.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getElementAt"><apiName>getElementAt</apiName><shortdesc>
+		 Returns the element at the specified position in this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element at the specified index in this array.
+		 </apiDesc><apiType value="any"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position in this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getFloatArray"><apiName>getFloatArray</apiName><shortdesc>
+		 Returns the element at the specified position as an array of floating point numbers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>Number</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as an array of floating point numbers.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/FLOAT"><linktext>SFSDataType.FLOAT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getFloat"><apiName>getFloat</apiName><shortdesc>
+		 Returns the element at the specified position as a floating point number.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 
+		 </apiDesc><apiType value="Number"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as a floating point number.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/FLOAT"><linktext>SFSDataType.FLOAT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getHexDump"><apiName>getHexDump</apiName><shortdesc> 
+		 Provides a detailed hexadecimal representation of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The hexadecimal string representation of this array.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc> 
+		 Provides a detailed hexadecimal representation of this array.
+		 The returned string can be logged or traced in the console for debugging purposes.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getIntArray"><apiName>getIntArray</apiName><shortdesc>
+		 Returns the element at the specified position as an array of integers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>int</i> values.
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as an array of integers.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getInt"><apiName>getInt</apiName><shortdesc>
+		 Returns the element at the specified position as an integer (32 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as an integer (32 bit).
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getLongArray"><apiName>getLongArray</apiName><shortdesc>
+		 Returns the element at the specified position as an array of long integers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>Number</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as an array of long integers.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/LONG"><linktext>SFSDataType.LONG</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getLong"><apiName>getLong</apiName><shortdesc>
+		 Returns the element at the specified position as a long integer (64 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 
+		 </apiDesc><apiType value="Number"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as a long integer (64 bit).
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/LONG"><linktext>SFSDataType.LONG</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getSFSArray"><apiName>getSFSArray</apiName><shortdesc>
+		 Returns the element at the specified position as an ISFSArray object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an object implementing the <i>ISFSArray</i> interface.
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSArray</apiOperationClassifier></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as an <i>ISFSArray</i> object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getSFSObject"><apiName>getSFSObject</apiName><shortdesc>
+		 Returns the element at the specified position as an ISFSObject object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an object implementing the <i>ISFSObject</i> interface.
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as an <i>ISFSObject</i> object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getShortArray"><apiName>getShortArray</apiName><shortdesc>
+		 Returns the element at the specified position as an array of short integers.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>int</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as an array of short integers.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/SHORT"><linktext>SFSDataType.SHORT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getShort"><apiName>getShort</apiName><shortdesc>
+		 Returns the element at the specified position as a short integer (16 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as a short integer (16 bit).
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/SHORT"><linktext>SFSDataType.SHORT</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getUnsignedByteArray"><apiName>getUnsignedByteArray</apiName><shortdesc>
+		 Returns the element at the specified position as an array of unsigned bytes.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>int</i> values.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as an array of unsigned bytes.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/BYTE"><linktext>SFSDataType.BYTE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getUnsignedByte"><apiName>getUnsignedByte</apiName><shortdesc>
+		 Returns the element at the specified position as an unsigned byte (8 bit).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as an unsigned byte (8 bit).
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSDataType/BYTE"><linktext>SFSDataType.BYTE</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getUtfStringArray"><apiName>getUtfStringArray</apiName><shortdesc>
+		 Returns the element at the specified position as an array of UTF-8 strings.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array as an array of <i>String</i> values.
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as an array of UTF-8 strings.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:getUtfString"><apiName>getUtfString</apiName><shortdesc>
+		 Returns the element at the specified position as a UTF-8 string.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element of this array at the specified index.
+		 </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to return.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Returns the element at the specified position as a UTF-8 string.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:isNull"><apiName>isNull</apiName><shortdesc>
+		 Indicates if the element at the specified position in this array is null.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the element of this array at the specified position is <codeph>null</codeph>.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to be checked.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates if the element at the specified position in this array is <codeph>null</codeph>.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:removeElementAt"><apiName>removeElementAt</apiName><shortdesc>
+		 Removes the element at the specified position in this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The element that was removed.
+		 </apiDesc><apiType value="any"/></apiReturn><apiParam><apiItemName>index</apiItemName><apiType value="int"/><apiDesc>The position of the element to be removed.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Removes the element at the specified position in this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:size"><apiName>size</apiName><shortdesc>
+		 Indicates the number of elements in this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The number of elements in this array.
+		 </apiDesc><apiType value="int"/></apiReturn></apiOperationDef><apiDesc>
+		 Indicates the number of elements in this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.data:ISFSArray:com.smartfoxserver.v2.entities.data:ISFSArray:toBinary"><apiName>toBinary</apiName><shortdesc>
+		 Provides the binary form of this array.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The binary data representing this array.
+		 </apiDesc><apiType value="flash.utils:ByteArray"/></apiReturn></apiOperationDef><apiDesc>
+		 Provides the binary form of this array.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation></apiClassifier></apiPackage>

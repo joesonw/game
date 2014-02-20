@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.smartfoxserver.v2.bitswarm"><apiName>com.smartfoxserver.v2.bitswarm</apiName><apiDetail/><apiClassifier id="com.smartfoxserver.v2.bitswarm:AirUDPManager"><apiName>AirUDPManager</apiName><shortdesc>
+	 The AirUDPManager class allows clients executed in the Adobe AIR runtime to communicate with SmartFoxServer 2X using the UDP protocol.</shortdesc><prolog><asMetadata><apiVersion><apiPlatform description="" name="AIR" version="2.0+"/></apiVersion></asMetadata></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.bitswarm:IUDPManager</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>AirUDPManager</i> class allows clients executed in the Adobe AIR runtime to communicate with SmartFoxServer 2X using the UDP protocol.
+	 
+	 <p>In order to enable a client to send and received UDP data, a UDP channel must be initialized.
+	 This can be done at any moment after having joined a Zone by calling the <i>SmartFox.initUDP()</i> method.
+	 If an application uses UDP sockets, we recommend to initialize the UDP channel as soon as the Zone is joined.</p>
+	 
+	 <p><b>NOTE</b>: this class is for use with Adobe AIR 2.0 (or higher) runtime; the standalone or browser-embedded Flash Player does not support this feature.</p>
+	 
+	 </apiDesc><example>The following example initializes the UDP communication and sends a custom UDP request to an Extension:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.UDP_INIT, onUDPInit);
+	 	sfs.initUDP(new AirUDPManager());
+	 }
+	 
+	 private function onUDPInit(evt:SFSEvent):void
+	 {
+	 	if (evt.params.success)
+	 	{
+	 		// Connection successful: execute an Extension call via UDP
+	 		sfs.send( new ExtensionRequest("udpTest", new SFSObject(), null, true) );
+	 	}
+	 	else
+	 	{
+	 		trace("UDP initialization failed!");
+	 	}
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/initUDP"><linktext>SmartFox.initUDP</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.bitswarm:AirUDPManager:AirUDPManager"><apiName>AirUDPManager</apiName><shortdesc>
+		 Creates a new AirUDPManager instance.</shortdesc><prolog><asMetadata><apiVersion><apiPlatform description="" name="AIR" version="2.0+"/></apiVersion></asMetadata></prolog><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef><apiDesc>
+		 Creates a new <i>AirUDPManager</i> instance.
+		 
+		 </apiDesc></apiConstructorDetail></apiConstructor></apiClassifier></apiPackage>

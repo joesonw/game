@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.smartfoxserver.v2"><apiName>com.smartfoxserver.v2</apiName><apiDetail/><apiClassifier id="com.smartfoxserver.v2:SmartFox"><apiName>SmartFox</apiName><shortdesc>
+	 SmartFox is the main class of the SmartFoxServer 2X API.</shortdesc><prolog><author>The gotoAndPlay() Team
+	 			http://www.smartfoxserver.com
+	 			http://www.gotoandplay.it
+	 </author><asMetadata/><asCustoms><version>1.1.7
+	 
+	 </version></asCustoms></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:EventDispatcher</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 <i>SmartFox</i> is the main class of the SmartFoxServer 2X API.
+	 It is responsible for connecting the client to a SmartFoxServer instance and for dispatching all asynchronous events.
+	 Developers always interact with SmartFoxServer through this class.
+	 
+	 <p><b>NOTE</b>: in the provided examples, <codeph>sfs</codeph> always indicates a <i>SmartFox</i> instance.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="http://www.smartfoxserver.com"><linktext>http://www.smartfoxserver.com</linktext></link></related-links><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.SOCKET_ERROR_socketError"><apiName>socketError</apiName><shortdesc>
+	 Dispatched when a low level socket error is detected, for example bad/inconsistent data.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.SOCKET_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a low level socket error is detected, for example bad/inconsistent data.
+	 
+	 </apiDesc></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.PING_PONG_pingPong"><apiName>pingPong</apiName><shortdesc>
+	 Dispatched when a new lag value measurement is available.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.PING_PONG</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a new lag value measurement is available.
+	 This event is fired when the automatic lag monitoring is turned on by passing <codeph>true</codeph> to the <i>enableLagMonitor()</i> method.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/enableLagMonitor()"><linktext>enableLagMonitor()</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_VARIABLES_UPDATE_buddyVariablesUpdate"><apiName>buddyVariablesUpdate</apiName><shortdesc>
+	 Dispatched when a buddy in the current user's buddies list updates one or more Buddy Variables.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_VARIABLES_UPDATE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSBuddyEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a buddy in the current user's buddies list updates one or more Buddy Variables.
+	 This event is fired in response to the <i>SetBuddyVariablesRequest</i> request.
+	 
+	 <p><b>NOTE</b>: this event is dispatched to those who have the user as a buddy, but also to the user himself.
+	 As in this case the value of the <i>buddy</i> parameter is <codeph>null</codeph> (because the user is not buddy to himself of course),
+	 the <i>isItMe</i> parameter should be used to check if the current user is the one who updated his own Buddy Variables.</p>
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.buddylist.xml#SetBuddyVariablesRequest"><linktext>SetBuddyVariablesRequest</linktext></link><link href="com.smartfoxserver.v2.entities.variables.xml#BuddyVariable"><linktext>BuddyVariable</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Buddy"><linktext>Buddy</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_ONLINE_STATE_UPDATE_buddyOnlineStateChange"><apiName>buddyOnlineStateChange</apiName><shortdesc>
+	 Dispatched when a buddy in the current user's buddies list changes his online state in the Buddy List system.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_ONLINE_STATE_UPDATE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSBuddyEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a buddy in the current user's buddies list changes his online state in the Buddy List system.
+	 This event is fired in response to the <i>GoOnlineRequest</i> request.
+	 
+	 <p><b>NOTE</b>: this event is dispatched to those who have the user as a buddy, but also to the user himself.
+	 As in this case the value of the <i>buddy</i> parameter is <codeph>null</codeph> (because the user is not buddy to himself of course),
+	 the <i>isItMe</i> parameter should be used to check if the current user is the one who changed his own online state.</p>
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.buddylist.xml#GoOnlineRequest"><linktext>GoOnlineRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Buddy"><linktext>Buddy</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_MESSAGE_buddyMessage"><apiName>buddyMessage</apiName><shortdesc>
+	 Dispatched when a message from a buddy is received by the current user.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_MESSAGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSBuddyEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a message from a buddy is received by the current user.
+	 This event is fired in response to the <i>BuddyMessageRequest</i> request.
+	 
+	 <p><b>NOTE</b>: the same event is fired by the sender's client too, so that the user is aware that the message was delivered successfully to the recipient,
+	 and it can be displayed in the chat area keeping the correct message ordering. As in this case the value of the <i>buddy</i> parameter is <codeph>null</codeph>
+	 (because, being the sender, the user is not buddy to himself of course), there is no default way to know who the message was originally sent to.
+	 As this information can be useful in scenarios where the sender is chatting with more than one buddy at the same time in separate windows or tabs
+	 (and we need to write his own message in the proper one), the <i>data</i> parameter can be used to store, for example, the id of the recipient buddy.</p>
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.buddylist.xml#BuddyMessageRequest"><linktext>BuddyMessageRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Buddy"><linktext>Buddy</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_ERROR_buddyError"><apiName>buddyError</apiName><shortdesc>
+	 Dispatched if an error occurs while executing a request related to the Buddy List system.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSBuddyEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched if an error occurs while executing a request related to the Buddy List system.
+	 For example, this event is fired in response to the <i>AddBuddyRequest</i> request, the <i>BlockBuddyRequest</i>, etc.
+	 
+	 </apiDesc></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_REMOVE_buddyRemove"><apiName>buddyRemove</apiName><shortdesc>
+	 Dispatched when a buddy is removed successfully from the current user's buddies list.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_REMOVE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSBuddyEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a buddy is removed successfully from the current user's buddies list.
+	 This event is fired in response to the <i>RemoveBuddyRequest</i> request in case the operation is executed successfully.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.buddylist.xml#RemoveBuddyRequest"><linktext>RemoveBuddyRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Buddy"><linktext>Buddy</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_BLOCK_buddyBlock"><apiName>buddyBlock</apiName><shortdesc>
+	 Dispatched when a buddy is blocked or unblocked successfully by the current user.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_BLOCK</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSBuddyEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a buddy is blocked or unblocked successfully by the current user.
+	 This event is fired in response to the <i>BlockBuddyRequest</i> request in case the operation is executed successfully.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.buddylist.xml#BlockBuddyRequest"><linktext>BlockBuddyRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Buddy"><linktext>Buddy</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_ADD_buddyAdd"><apiName>buddyAdd</apiName><shortdesc>
+	 Dispatched when a buddy is added successfully to the current user's buddies list.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_ADD</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSBuddyEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a buddy is added successfully to the current user's buddies list.
+	 This event is fired in response to the <i>AddBuddyRequest</i> request in case the operation is executed successfully.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.buddylist.xml#AddBuddyRequest"><linktext>AddBuddyRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Buddy"><linktext>Buddy</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_LIST_INIT_buddyListInit"><apiName>buddyListInit</apiName><shortdesc>
+	 Dispatched if the Buddy List system is successfully initialized.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSBuddyEvent.BUDDY_LIST_INIT</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSBuddyEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched if the Buddy List system is successfully initialized.
+	 This event is fired in response to the <i>InitBuddyListRequest</i> request in case the operation is executed successfully.
+	 
+	 <p>After the Buddy List system initialization, the user returns to his previous custom state (if any - see <i>IBuddyManager.myState</i> property).
+	 His online/offline state, his nickname and his persistent Buddy Variables are all loaded and broadcast in the system.
+	 In particular, the online state (see <i>IBuddyManager.myOnlineState</i> property) determines if the user will appear online or not to other users who have him in their buddies list.</p>
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.buddylist.xml#InitBuddyListRequest"><linktext>InitBuddyListRequest</linktext></link><link href="com.smartfoxserver.v2.entities.managers.xml#IBuddyManager"><linktext>IBuddyManager</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Buddy"><linktext>Buddy</linktext></link><link href="com.smartfoxserver.v2.entities.variables.xml#BuddyVariable"><linktext>BuddyVariable</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.INVITATION_REPLY_ERROR_invitationReplyError"><apiName>invitationReplyError</apiName><shortdesc>
+	 Dispatched when an error occurs while the current user is sending a reply to an invitation he received.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.INVITATION_REPLY_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when an error occurs while the current user is sending a reply to an invitation he received.
+	 This event is fired in response to the <i>InvitationReplyRequest</i> request in case the operation failed.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.game.xml#InvitationReplyRequest"><linktext>InvitationReplyRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.INVITATION_REPLY_invitationReply"><apiName>invitationReply</apiName><shortdesc>
+	 Dispatched when the current user receives a reply to an invitation he sent previously.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.INVITATION_REPLY</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the current user receives a reply to an invitation he sent previously.
+	 This event is caused by the <i>InvitationReplyRequest</i> request sent by the invitee.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.game.xml#InvitationReplyRequest"><linktext>InvitationReplyRequest</linktext></link><link href="com.smartfoxserver.v2.entities.invitation.xml#InvitationReply"><linktext>InvitationReply</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.INVITATION_invitation"><apiName>invitation</apiName><shortdesc>
+	 Dispatched when the current user receives an invitation from another user.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.INVITATION</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the current user receives an invitation from another user.
+	 This event is caused by the <i>InviteUsersRequest</i> request; the user is supposed to reply
+	 using the <i>InvitationReplyRequest</i> request.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.game.xml#InviteUsersRequest"><linktext>InviteUsersRequest</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml#InvitationReplyRequest"><linktext>InvitationReplyRequest</linktext></link><link href="com.smartfoxserver.v2.entities.invitation.xml#Invitation"><linktext>Invitation</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.USER_FIND_RESULT_userFindResult"><apiName>userFindResult</apiName><shortdesc>
+	 Dispatched when a users search is completed.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.USER_FIND_RESULT</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a users search is completed.
+	 This event is fired in response to the <i>FindUsersRequest</i> request to return the search result.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#FindUsersRequest"><linktext>FindUsersRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_FIND_RESULT_roomFindResult"><apiName>roomFindResult</apiName><shortdesc>
+	 Dispatched when a Rooms search is completed.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_FIND_RESULT</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a Rooms search is completed.
+	 This event is fired in response to the <i>FindRoomsRequest</i> request to return the search result.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#FindRoomsRequest"><linktext>FindRoomsRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_GROUP_UNSUBSCRIBE_ERROR_roomGroupUnsubscribeError"><apiName>roomGroupUnsubscribeError</apiName><shortdesc>
+	 Dispatched when an error occurs while a Room Group is being unsubscribed.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_GROUP_UNSUBSCRIBE_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when an error occurs while a Room Group is being unsubscribed.
+	 This event is fired in response to the <i>UnsubscribeRoomGroupRequest</i> request in case the operation failed.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#UnsubscribeRoomGroupRequest"><linktext>UnsubscribeRoomGroupRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_GROUP_UNSUBSCRIBE_roomGroupUnsubscribe"><apiName>roomGroupUnsubscribe</apiName><shortdesc>
+	 Dispatched when a Group is unsubscribed by the current user.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_GROUP_UNSUBSCRIBE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a Group is unsubscribed by the current user.
+	 This event is fired in response to the <i>UnsubscribeRoomGroupRequest</i>&gt; request if the operation is executed successfully.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#UnsubscribeRoomGroupRequest"><linktext>UnsubscribeRoomGroupRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_GROUP_SUBSCRIBE_ERROR_roomGroupSubscribeError"><apiName>roomGroupSubscribeError</apiName><shortdesc>
+	 Dispatched when an error occurs while a Room Group is being subscribed.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_GROUP_SUBSCRIBE_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when an error occurs while a Room Group is being subscribed.
+	 This event is fired in response to the <i>SubscribeRoomGroupRequest</i> request in case the operation failed.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#SubscribeRoomGroupRequest"><linktext>SubscribeRoomGroupRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_GROUP_SUBSCRIBE_roomGroupSubscribe"><apiName>roomGroupSubscribe</apiName><shortdesc>
+	 Dispatched when a Group is subscribed by the current user.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_GROUP_SUBSCRIBE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a Group is subscribed by the current user.
+	 This event is fired in response to the <i>SubscribeRoomGroupRequest</i>&gt; request if the operation is executed successfully.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#SubscribeRoomGroupRequest"><linktext>SubscribeRoomGroupRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.USER_VARIABLES_UPDATE_userVariablesUpdate"><apiName>userVariablesUpdate</apiName><shortdesc>
+	 Dispatched when a User Variable is updated.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.USER_VARIABLES_UPDATE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a User Variable is updated.
+	 This event is caused by the <i>SetUserVariablesRequest</i> request sent by a user in one of the Rooms joined by the current user.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#SetUserVariablesRequest"><linktext>SetUserVariablesRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_VARIABLES_UPDATE_roomVariablesUpdate"><apiName>roomVariablesUpdate</apiName><shortdesc>
+	 Dispatched when a Room Variable is updated.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_VARIABLES_UPDATE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a Room Variable is updated.
+	 This event is caused by the <i>SetRoomVariablesRequest</i> request. The request could have been sent by a user in the same Room of the current user or,
+	 in case of a global Room Variable, by a user in a Room belonging to one of the Groups subscribed by the current client.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#SetRoomVariablesRequest"><linktext>SetRoomVariablesRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.EXTENSION_RESPONSE_extensionResponse"><apiName>extensionResponse</apiName><shortdesc>
+	 Dispatched when data coming from a server-side Extension is received by the current user.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.EXTENSION_RESPONSE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when data coming from a server-side Extension is received by the current user.
+	 Data is usually sent by the server to one or more clients in response to an <i>ExtensionRequest</i> request, but not necessarily.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ExtensionRequest"><linktext>ExtensionRequest</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ADMIN_MESSAGE_adminMessage"><apiName>adminMessage</apiName><shortdesc>
+	 Dispatched when the current user receives a message from an administrator user.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ADMIN_MESSAGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the current user receives a message from an administrator user.
+	 This event is caused by the <i>AdminMessageRequest</i> request sent by a user with administration privileges.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#AdminMessageRequest"><linktext>AdminMessageRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.MODERATOR_MESSAGE_moderatorMessage"><apiName>moderatorMessage</apiName><shortdesc>
+	 Dispatched when the current user receives a message from a moderator user.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.MODERATOR_MESSAGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the current user receives a message from a moderator user.
+	 This event can be caused by either the <i>ModeratorMessageRequest</i>, <i>KickUserRequest</i> or
+	 <i>BanUserRequest</i> requests sent by a user with at least moderation privileges.
+	 Also, this event can be caused by a kick/ban action performed through the SmartFoxServer 2X Administration Tool.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ModeratorMessageRequest"><linktext>ModeratorMessageRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#KickUserRequest"><linktext>KickUserRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#BanUserRequest"><linktext>BanUserRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.OBJECT_MESSAGE_objectMessage"><apiName>objectMessage</apiName><shortdesc>
+	 Dispatched when an object containing custom data is received by the current user.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.OBJECT_MESSAGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when an object containing custom data is received by the current user.
+	 This event is caused by an <i>ObjectMessageRequest</i> request sent by any user in the target Room.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ObjectMessageRequest"><linktext>ObjectMessageRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.PRIVATE_MESSAGE_privateMessage"><apiName>privateMessage</apiName><shortdesc>
+	 Dispatched when a private message is received by the current user.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.PRIVATE_MESSAGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a private message is received by the current user.
+	 This event is caused by a <i>PrivateMessageRequest</i> request sent by any user in the Zone.
+	 
+	 <p><b>NOTE</b>: the same event is fired by the sender's client too, so that the user is aware that the message was delivered successfully to the recipient,
+	 and it can be displayed in the private chat area keeping the correct message ordering. In this case there is no default way to know who the message was originally sent to.
+	 As this information can be useful in scenarios where the sender is chatting privately with more than one user at the same time in separate windows or tabs
+	 (and we need to write his own message in the proper one), the <i>data</i> parameter can be used to store, for example, the id of the recipient user.</p>
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#PrivateMessageRequest"><linktext>PrivateMessageRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.PUBLIC_MESSAGE_publicMessage"><apiName>publicMessage</apiName><shortdesc>
+	 Dispatched when a public message is received by the current user.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.PUBLIC_MESSAGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a public message is received by the current user.
+	 This event is caused by a <i>PublicMessageRequest</i> request sent by any user in the target Room, including the current user himself.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#PublicMessageRequest"><linktext>PublicMessageRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_CAPACITY_CHANGE_ERROR_roomCapacityChangeError"><apiName>roomCapacityChangeError</apiName><shortdesc>
+	 Dispatched when an error occurs while attempting to change the capacity of a Room.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_CAPACITY_CHANGE_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when an error occurs while attempting to change the capacity of a Room.
+	 This event is fired in response to the <i>ChangeRoomCapacityRequest</i> request in case the operation failed.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ChangeRoomCapacityRequest"><linktext>ChangeRoomCapacityRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_CAPACITY_CHANGE_roomCapacityChange"><apiName>roomCapacityChange</apiName><shortdesc>
+	 Dispatched when the capacity of a Room is changed.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_CAPACITY_CHANGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the capacity of a Room is changed.
+	 This event is fired in response to the <i>ChangeRoomCapacityRequest</i> request if the operation is executed successfully.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ChangeRoomCapacityRequest"><linktext>ChangeRoomCapacityRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_PASSWORD_STATE_CHANGE_ERROR_roomPasswordStateChangeError"><apiName>roomPasswordStateChangeError</apiName><shortdesc>
+	 Dispatched when an error occurs while attempting to set, change or remove the password of a Room.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_PASSWORD_STATE_CHANGE_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when an error occurs while attempting to set, change or remove the password of a Room.
+	 This event is fired in response to the <i>ChangeRoomPasswordStateRequest</i> request in case the operation failed.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ChangeRoomPasswordStateRequest"><linktext>ChangeRoomPasswordStateRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_PASSWORD_STATE_CHANGE_roomPasswordStateChange"><apiName>roomPasswordStateChange</apiName><shortdesc>
+	 Dispatched when the password of a Room is set, changed or removed.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_PASSWORD_STATE_CHANGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the password of a Room is set, changed or removed.
+	 This event is fired in response to the <i>ChangeRoomPasswordStateRequest</i> request if the operation is executed successfully.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ChangeRoomPasswordStateRequest"><linktext>ChangeRoomPasswordStateRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_NAME_CHANGE_ERROR_roomNameChangeError"><apiName>roomNameChangeError</apiName><shortdesc>
+	 Dispatched when an error occurs while attempting to change the name of a Room.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_NAME_CHANGE_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when an error occurs while attempting to change the name of a Room.
+	 This event is fired in response to the <i>ChangeRoomNameRequest</i> request in case the operation failed.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ChangeRoomNameRequest"><linktext>ChangeRoomNameRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_NAME_CHANGE_roomNameChange"><apiName>roomNameChange</apiName><shortdesc>
+	 Dispatched when the name of a Room is changed.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_NAME_CHANGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the name of a Room is changed.
+	 This event is fired in response to the <i>ChangeRoomNameRequest</i> request if the operation is executed successfully.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ChangeRoomNameRequest"><linktext>ChangeRoomNameRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.SPECTATOR_TO_PLAYER_ERROR_spectatorToPlayerError"><apiName>spectatorToPlayerError</apiName><shortdesc>
+	 Dispatched when an error occurs while the current user is being turned from spectator to player in a Game Room.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.SPECTATOR_TO_PLAYER_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when an error occurs while the current user is being turned from spectator to player in a Game Room.
+	 This event is fired in response to the <i>SpectatorToPlayerRequest</i> request in case the operation failed.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#SpectatorToPlayerRequest"><linktext>SpectatorToPlayerRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.SPECTATOR_TO_PLAYER_spectatorToPlayer"><apiName>spectatorToPlayer</apiName><shortdesc>
+	 Dispatched when a spectator is turned to a player inside a Game Room.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.SPECTATOR_TO_PLAYER</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a spectator is turned to a player inside a Game Room.
+	 This event is fired in response to the <i>SpectatorToPlayerRequest</i>&gt; request if the operation is executed successfully.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#SpectatorToPlayerRequest"><linktext>SpectatorToPlayerRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.PLAYER_TO_SPECTATOR_ERROR_playerToSpectatorError"><apiName>playerToSpectatorError</apiName><shortdesc>
+	 Dispatched when an error occurs while the current user is being turned from player to spectator in a Game Room.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.PLAYER_TO_SPECTATOR_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when an error occurs while the current user is being turned from player to spectator in a Game Room.
+	 This event is fired in response to the <i>PlayerToSpectatorRequest</i> request in case the operation failed.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#PlayerToSpectatorRequest"><linktext>PlayerToSpectatorRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.PLAYER_TO_SPECTATOR_playerToSpectator"><apiName>playerToSpectator</apiName><shortdesc>
+	 Dispatched when a player is turned to a spectator inside a Game Room.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.PLAYER_TO_SPECTATOR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a player is turned to a spectator inside a Game Room.
+	 This event is fired in response to the <i>PlayerToSpectatorRequest</i>&gt; request if the operation is executed successfully.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#PlayerToSpectatorRequest"><linktext>PlayerToSpectatorRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.USER_COUNT_CHANGE_userCountChange"><apiName>userCountChange</apiName><shortdesc>
+	 Dispatched when the number of users/players or spectators inside a Room changes.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.USER_COUNT_CHANGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the number of users/players or spectators inside a Room changes.
+	 This event is caused by a <i>JoinRoomRequest</i> request or a <i>LeaveRoomRequest</i> request.
+	 The Room must belong to one of the Groups subscribed by the current client; also
+	 this event might be fired or not depending on the Room configuration defined upon its
+	 creation (see the <i>RoomSettings.events</i> setting).
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#JoinRoomRequest"><linktext>JoinRoomRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#LeaveRoomRequest"><linktext>LeaveRoomRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/events"><linktext>RoomSettings.events</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.USER_EXIT_ROOM_userExitRoom"><apiName>userExitRoom</apiName><shortdesc>
+	 Dispatched when one of the Rooms joined by the current user is left by another user, or by the current user himself.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.USER_EXIT_ROOM</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when one of the Rooms joined by the current user is left by another user, or by the current user himself.
+	 This event is caused by a <i>LeaveRoomRequest</i> request; it  might be fired or not depending
+	 on the Room configuration defined upon its creation (see the <i>RoomSettings.events</i> setting).
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#LeaveRoomRequest"><linktext>LeaveRoomRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/events"><linktext>RoomSettings.events</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.USER_ENTER_ROOM_userEnterRoom"><apiName>userEnterRoom</apiName><shortdesc>
+	 Dispatched when one of the Rooms joined by the current user is entered by another user.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.USER_ENTER_ROOM</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when one of the Rooms joined by the current user is entered by another user.
+	 This event is caused by a <i>JoinRoomRequest</i> request; it might be fired or not depending
+	 on the Room configuration defined upon its creation (see the <i>RoomSettings.events</i> setting).
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#JoinRoomRequest"><linktext>JoinRoomRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/events"><linktext>RoomSettings.events</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_JOIN_ERROR_roomJoinError"><apiName>roomJoinError</apiName><shortdesc>
+	 Dispatched when an error occurs while the current user is trying to join a Room.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_JOIN_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when an error occurs while the current user is trying to join a Room.
+	 This event is fired in response to the <i>JoinRoomRequest</i> request in case the operation failed.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#JoinRoomRequest"><linktext>JoinRoomRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_JOIN_roomJoin"><apiName>roomJoin</apiName><shortdesc>
+	 Dispatched when a Room is joined by the current user.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_JOIN</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a Room is joined by the current user.
+	 This event is fired in response to the <i>JoinRoomRequest</i> and <i>QuickJoinGameRequest</i>
+	 requests in case the operation is executed successfully.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#JoinRoomRequest"><linktext>JoinRoomRequest</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml#QuickJoinGameRequest"><linktext>QuickJoinGameRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_REMOVE_roomRemove"><apiName>roomRemove</apiName><shortdesc>
+	 Dispatched when a Room belonging to one of the Groups subscribed by the client is removed from the Zone.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_REMOVE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a Room belonging to one of the Groups subscribed by the client is removed from the Zone.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_CREATION_ERROR_roomCreationError"><apiName>roomCreationError</apiName><shortdesc>
+	 Dispatched if an error occurs while creating a new Room.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_CREATION_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched if an error occurs while creating a new Room.
+	 This event is fired in response to the <i>CreateRoomRequest</i> and <i>CreateSFSGameRequest</i> requests in case the operation failed.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#CreateRoomRequest"><linktext>CreateRoomRequest</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml#CreateSFSGameRequest"><linktext>CreateSFSGameRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.ROOM_ADD_roomAdd"><apiName>roomAdd</apiName><shortdesc>
+	 Dispatched when a new Room is created inside the Zone under any of the Room Groups that the client subscribed.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.ROOM_ADD</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a new Room is created inside the Zone under any of the Room Groups that the client subscribed.
+	 This event is fired in response to the <i>CreateRoomRequest</i> and <i>CreateSFSGameRequest</i> requests in case the operation is executed successfully.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#CreateRoomRequest"><linktext>CreateRoomRequest</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml#CreateSFSGameRequest"><linktext>CreateSFSGameRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.LOGOUT_logout"><apiName>logout</apiName><shortdesc>
+	 Dispatched when the current user performs logs out of the server Zone.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.LOGOUT</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the current user performs logs out of the server Zone.
+	 This event is fired in response to the <i>LogoutRequest</i> request.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#LogoutRequest"><linktext>LogoutRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.LOGIN_ERROR_loginError"><apiName>loginError</apiName><shortdesc>
+	 Dispatched if an error occurs while the user login is being performed.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.LOGIN_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched if an error occurs while the user login is being performed.
+	 This event is fired in response to the <i>LoginRequest</i> request in case the operation failed.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#LoginRequest"><linktext>LoginRequest</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.LOGIN_login"><apiName>login</apiName><shortdesc>
+	 Dispatched when the current user performs a successful login in a server Zone.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.LOGIN</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the current user performs a successful login in a server Zone.
+	 This event is fired in response to the <i>LoginRequest</i> request.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#LoginRequest"><linktext>LoginRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.CONFIG_LOAD_FAILURE_configLoadFailure"><apiName>configLoadFailure</apiName><shortdesc>
+	 Dispatched if an error occurs while loading the external client configuration file.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.CONFIG_LOAD_FAILURE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched if an error occurs while loading the external client configuration file.
+	 This event is fired in response to a call to the <i>loadConfig()</i> method,
+	 typically when the configuration file is not found or it isn't accessible (no read permissions).
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/loadConfig()"><linktext>loadConfig()</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.CONFIG_LOAD_SUCCESS_configLoadSuccess"><apiName>configLoadSuccess</apiName><shortdesc>
+	 Dispatched when the external client configuration file is loaded successfully.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.CONFIG_LOAD_SUCCESS</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the external client configuration file is loaded successfully.
+	 This event is fired in response to a call to the <i>loadConfig()</i> method,
+	 but only if the <i>connectOnSuccess</i> argument of the <i>loadConfig()</i> method is set to <codeph>false</codeph>;
+	 otherwise the connection is attempted and the related <i>SFSEvent.CONNECTION</i> event type is fired.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/loadConfig()"><linktext>loadConfig()</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.UDP_INIT_udpInit"><apiName>udpInit</apiName><shortdesc>
+	 Dispatched when the result of the UDP handshake is notified.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.UDP_INIT</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the result of the UDP handshake is notified.
+	 This event is fired in response to a call to the <i>initUDP()</i> method.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/initUDP()"><linktext>initUDP()</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.CONNECTION_ATTEMPT_HTTP_connectionAttemptHttp"><apiName>connectionAttemptHttp</apiName><shortdesc>
+	 Dispatched when the client cannot establish a socket connection to the server and the useBlueBox parameter is active in the configuration.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.CONNECTION_ATTEMPT_HTTP</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the client cannot establish a socket connection to the server and the <i>useBlueBox</i> parameter is active in the configuration.
+	 
+	 <p>The event can be used to notify the user that a second connection attempt is running, using the BlueBox (HTTP tunnelling).</p>
+	 
+	 </apiDesc></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.CONNECTION_RESUME_connectionResume"><apiName>connectionResume</apiName><shortdesc>
+	 Dispatched when the connection between the client and the SmartFoxServer 2X instance is re-established after a temporary disconnection,
+	 while the SmartFoxServer 2X HRC system is available in the Zone.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.CONNECTION_RESUME</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the connection between the client and the SmartFoxServer 2X instance is re-established after a temporary disconnection,
+	 while the SmartFoxServer 2X HRC system is available in the Zone.
+	 
+	 <p>The HRC system allows a broken connection to be re-established transparently within a certain amount of time, without loosing any of the current
+	 application state. For example this allows any player to get back to a game without loosing the match because of a sloppy internet connection.</p>
+	 
+	 <p>When this event is dispatched the application interface should be reverted to the state it had before the diconnection.
+	 In case the reconnection attempt fails, the <i>connectionLost</i> event is fired.</p>
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:connectionResume"><linktext>connectionRetry event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:connectionLost"><linktext>connectionLost event</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.CONNECTION_RETRY_connectionRetry"><apiName>connectionRetry</apiName><shortdesc>
+	 Dispatched when the connection between the client and the SmartFoxServer 2X instance is interrupted abruptly
+	 while the SmartFoxServer 2X HRC system is available in the Zone.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.CONNECTION_RETRY</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the connection between the client and the SmartFoxServer 2X instance is interrupted abruptly
+	 while the SmartFoxServer 2X HRC system is available in the Zone.
+	 
+	 <p>The HRC system allows a broken connection to be re-established transparently within a certain amount of time, without loosing any of the current
+	 application state. For example this allows any player to get back to a game without loosing the match because of a sloppy internet connection.</p>
+	 
+	 <p>When this event is dispatched the API enter a "freeze" mode where no new requests can be sent until the reconnection is successfully performed.
+	 It is highly recommended to handle this event and freeze the application interface accordingly until the <i>connectionResume</i> event is fired,
+	 or the reconnection fails and the user is definitely disconnected and the <i>connectionLost</i> event is fired.</p>
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:connectionResume"><linktext>connectionResume event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:connectionLost"><linktext>connectionLost event</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.CONNECTION_LOST_connectionLost"><apiName>connectionLost</apiName><shortdesc>
+	 Dispatched when the connection between the client and the SmartFoxServer 2X instance is interrupted.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.CONNECTION_LOST</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when the connection between the client and the SmartFoxServer 2X instance is interrupted.
+	 This event is fired in response to a call to the <i>disconnect()</i> method.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/disconnect()"><linktext>disconnect()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:connectionRetry"><linktext>connectionRetry event</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2:SmartFox_com.smartfoxserver.v2.core.SFSEvent.CONNECTION_connection"><apiName>connection</apiName><shortdesc>
+	 Dispatched when a connection between the client and a SmartFoxServer 2X instance is attempted.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core.SFSEvent.CONNECTION</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core.SFSEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a connection between the client and a SmartFoxServer 2X instance is attempted.
+	 This event is fired in response to a call to the <i>connect()</i> method.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/connect()"><linktext>connect()</linktext></link></related-links></adobeApiEvent><apiConstructor id="com.smartfoxserver.v2:SmartFox:SmartFox"><apiName>SmartFox</apiName><shortdesc>
+		 Creates a new SmartFox instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>debug</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>If <codeph>true</codeph>, the SmartFoxServer API debug messages are logged.
+		 		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SmartFox</i> instance.
+		 
+		 </apiDesc><example>The following example instantiates the <i>SmartFox</i> class while enabling the debug messages:
+		 <codeblock rev="3.0">
+		 
+		 var sfs:SmartFox = new SmartFox(true);
+		 </codeblock>
+		 
+		 </example></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/debug"><linktext>debug</linktext></link></related-links></apiConstructor><apiOperation id="com.smartfoxserver.v2:SmartFox:connectWithConfig"><apiName>connectWithConfig</apiName><shortdesc>
+		 Establishes a connection between the client and a SmartFoxServer 2X instance.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>cfg</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.util:ConfigData</apiOperationClassifier><apiDesc>	The configuration object.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Establishes a connection between the client and a SmartFoxServer 2X instance.
+		 The connection details (IP, port, etc) are contained in the passed object.
+		 
+		 <p>This is an alternative version of the <i>connect()</i> method. Read the method description for more informations.</p>
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/connect()"><linktext>connect()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/disconnect()"><linktext>disconnect()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:connection"><linktext>connection event</linktext></link><link href="com.smartfoxserver.v2.util.xml#ConfigData"><linktext>ConfigData</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2:SmartFox:connect"><apiName>connect</apiName><shortdesc>
+		 Establishes a connection between the client and a SmartFoxServer 2X instance.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiException><apiDesc>If an invalid host/address or port is passed, and it can't be found in the loaded settings.
+		 
+		 </apiDesc><apiItemName>ArgumentError</apiItemName><apiOperationClassifier>ArgumentError</apiOperationClassifier></apiException><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>host</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>The address of the server to connect to.
+		 </apiDesc></apiParam><apiParam><apiItemName>port</apiItemName><apiType value="int"/><apiData>-1</apiData><apiDesc>The TCP port to connect to.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Establishes a connection between the client and a SmartFoxServer 2X instance.
+		 If no argument is passed, the client will use the settings loaded via <i>loadConfig()</i> method.
+		 In order to pass full connection settings without loading them from the external configuration file, use the <i>connectWithConfig()</i> method.
+		 
+		 <p>The client usually connects to a SmartFoxServer instance through a socket connection. In case a socket connection can't be established,
+		 and the <i>useBlueBox</i> property is set to <codeph>true</codeph>, a tunnelled http connection through the BlueBox module is attempted.
+		 When a successful connection is established, the <i>connectionMode</i> property can be used to check the current connection mode.</p>
+		 
+		 </apiDesc><example>The following example connects to a local SmartFoxServer 2X instance:
+		 <codeblock rev="3.0">
+		 
+		 sfs.connect("127.0.0.1", 9933);
+		 </codeblock>
+		 
+		 </example></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/loadConfig()"><linktext>loadConfig()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/connectWithConfig()"><linktext>connectWithConfig()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/useBlueBox"><linktext>useBlueBox</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/connectionMode"><linktext>connectionMode</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/disconnect()"><linktext>disconnect()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:connection"><linktext>connection event</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2:SmartFox:disconnect"><apiName>disconnect</apiName><shortdesc>
+		 Closes the connection between the client and the SmartFoxServer 2X instance.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+		 Closes the connection between the client and the SmartFoxServer 2X instance.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/connect()"><linktext>connect()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:connectionLost"><linktext>connectionLost event</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2:SmartFox:enableFullPacketDump"><apiName>enableFullPacketDump</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>b</apiItemName><apiType value="Boolean"/></apiParam></apiOperationDef></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2:SmartFox:enableLagMonitor"><apiName>enableLagMonitor</apiName><shortdesc>
+		 Enables the automatic realtime monitoring of the lag between the client and the server (round robin).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>enabled</apiItemName><apiType value="Boolean"/><apiDesc>	The lag monitoring status: <codeph>true</codeph> to start the monitoring, <codeph>false</codeph> to stop it.
+		 </apiDesc></apiParam><apiParam><apiItemName>interval</apiItemName><apiType value="int"/><apiData>4</apiData><apiDesc>	An optional amount of seconds to wait between each query (recommended 3-4s).
+		 </apiDesc></apiParam><apiParam><apiItemName>queueSize</apiItemName><apiType value="int"/><apiData>10</apiData><apiDesc>The amount of values stored temporarily and used to calculate the average lag.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Enables the automatic realtime monitoring of the lag between the client and the server (round robin).
+		 When turned on, the <i>SFSEvent.PING_PONG</i> event type is dispatched continuously, providing the average of the last ten measured lag values.
+		 The lag monitoring is automatically halted when the user logs out of a Zone or gets disconnected.
+		  
+		 <p><b>NOTE</b>: the lag monitoring can be enabled after the login has been performed successfully only.</p>
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:pingPong"><linktext>pingPong event</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2:SmartFox:getRoomById"><apiName>getRoomById</apiName><shortdesc>
+		 Retrieves a Room object from its id.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An object representing the requested Room; <codeph>null</codeph> if no <i>Room</i> object with the passed id exists in the Rooms list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier></apiReturn><apiParam><apiItemName>id</apiItemName><apiType value="int"/><apiDesc>The id of the Room.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a <i>Room</i> object from its id.
+		 
+		 <p><b>NOTE</b>: the same object is returned by the <i>IRoomManager.getRoomById()</i> method, accessible through the <i>roomManager</i> getter;
+		 this was replicated on the <i>SmartFox</i> class for handy access due to its usually frequent usage.</p>
+		 
+		 </apiDesc><example>The following example retrieves a <i>Room</i> object and traces its name:
+		 <codeblock rev="3.0">
+		 
+		 var roomId:int = 3;
+		 var room:Room = sfs.getRoomById(roomId);
+		 trace("The name of Room", roomId, "is", room.name);
+		 </codeblock>
+		 
+		 </example></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/getRoomByName()"><linktext>getRoomByName()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/roomList"><linktext>roomList</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/roomManager"><linktext>roomManager</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2:SmartFox:getRoomByName"><apiName>getRoomByName</apiName><shortdesc>
+		 Retrieves a Room object from its name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An object representing the requested Room; <codeph>null</codeph> if no <i>Room</i> object with the passed name exists in the Rooms list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the Room.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a <i>Room</i> object from its name.
+		 
+		 <p><b>NOTE</b>: the same object is returned by the <i>IRoomManager.getRoomByName()</i> method, accessible through the <i>roomManager</i> getter;
+		 this was replicated on the <i>SmartFox</i> class for handy access due to its usually frequent usage.</p>
+		 
+		 </apiDesc><example>The following example retrieves a <i>Room</i> object and traces its id:
+		 <codeblock rev="3.0">
+		 
+		 var roomName:String = "The Lobby";
+		 var room:Room = sfs.getRoomByName(roomName);
+		 trace("The ID of Room '", roomName, "' is", room.id);
+		 </codeblock>
+		 
+		 </example></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/getRoomById()"><linktext>getRoomById()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/roomList"><linktext>roomList</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/roomManager"><linktext>roomManager</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2:SmartFox:getRoomListFromGroup"><apiName>getRoomListFromGroup</apiName><shortdesc>
+		 Retrieves the list of Rooms which are part of the specified Room Group.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of <i>Room</i> objects belonging to the passed Group.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>groupId</apiItemName><apiType value="String"/><apiDesc>The name of the Group.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves the list of Rooms which are part of the specified Room Group.
+		 
+		 <p><b>NOTE</b>: the same list is returned by the <i>IRoomManager.getRoomListFromGroup()</i> method, accessible through the <i>roomManager</i> getter;
+		 this was replicated on the <i>SmartFox</i> class for handy access due to its usually frequent usage.</p>
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/roomManager"><linktext>roomManager</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2:SmartFox:initUDP"><apiName>initUDP</apiName><shortdesc>
+		 Initializes the UDP protocol by performing an handshake with the server.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiException><apiDesc>If an invalid address or port is passed, and it can't be found in the loaded settings.
+		 
+		 </apiDesc><apiItemName>ArgumentError</apiItemName><apiOperationClassifier>ArgumentError</apiOperationClassifier></apiException><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>manager</apiItemName><apiType value="com.smartfoxserver.v2.bitswarm:IUDPManager"/><apiDesc>	An instance of the <i>AirUDPManager</i> class.
+		 </apiDesc></apiParam><apiParam><apiItemName>udpHost</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>	The IP address of the server to connect to.
+		 </apiDesc></apiParam><apiParam><apiItemName>udpPort</apiItemName><apiType value="int"/><apiData>-1</apiData><apiDesc>The UDP port to connect to.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Initializes the UDP protocol by performing an handshake with the server.
+		 In ActionScript 3, the UDP protocol is available exclusively if the client is executed in the Adobe AIR 2.0 (or higher) runtime.
+		 In order to properly activate the UDP support for the AIR runtime, an instance of the <i>AirUDPManager</i> class contained in the SmartFoxServer 2X ActionScript 3 API must be provided.
+		 Also, if <i>udpHost</i> or <i>udpPort</i> arguments are not passed, the client will use the settings loaded via <i>loadConfig()</i> method.
+		 
+		 <p>This method needs to be called only once. It can be executed at any moment provided that a connection to the server has already been established.
+		 After a successful initialization, UDP requests can be sent to the server-side Extension at any moment.</p>
+		 
+		 <p><b>MTU note</b></p>
+		 
+		 <p>The <i>Maximum Transmission Unit</i> (MTU), represents the largest amount of bytes that can be sent at once before packet fragmentation occurs.
+		 Since the UDP protocol uses a "nothing-or-all" approach to the transmission, it is important to keep in mind that, on average,
+		 a message size of 1100-1200 bytes is probably the maximum you can reach. If you exceed the MTU size the data will be "lost in hyperspace" (the Internet).</p>
+		 
+		 <p>Another interesting matter is that there is no fixed size for the MTU, because each operating system uses a slightly different value. 
+		 Because of this we suggest a conservative data size of 1000-1200 bytes per packet, to avoid packet loss.
+		 The SFS2X protocol compression allows to send 2-3KBytes of uncompressed data, which usually is squeezed down to a size of ~1000 bytes.
+		 If you have a larger amount of data to send, we suggest you to organize it in smaller chunks so that they don't exceed the suggested MTU size.</p>
+		 
+		 <p>More details about the MTU can be found at the page linked below.</p>
+		 
+		 </apiDesc><example>The following example initializes the UDP communication, sends a request to an Extension and handles the related events:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.UDP_INIT, onUDPInit);
+		 	sfs.initUDP(new AirUDPManager());
+		 }
+		 
+		 private function onUDPInit(evt:SFSEvent):void
+		 {
+		 	if (evt.params.success)
+		 	{
+		 		// Connection successful: execute an Extension call via UDP
+		 		sfs.send( new ExtensionRequest("udpTest", new SFSObject(), null, true) );
+		 	}
+		 	else
+		 	{
+		 		trace("UDP initialization failed!");
+		 	}
+		 }
+		 </codeblock>
+		 
+		 </example></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/udpAvailable"><linktext>udpAvailable</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:udpInit"><linktext>udpInit event</linktext></link><link href="com.smartfoxserver.v2.bitswarm.xml#AirUDPManager"><linktext>AirUDPManager</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/loadConfig()"><linktext>loadConfig()</linktext></link><link href="http://en.wikipedia.org/wiki/Maximum_transmission_unit"><linktext>http://en.wikipedia.org/wiki/Maximum_transmission_unit</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2:SmartFox:killConnection"><apiName>killConnection</apiName><shortdesc>
+		 Simulates an abrupt disconnection from the server.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
+		 Simulates an abrupt disconnection from the server.
+		 This method should be used for testing and simulations only, otherwise use the <i>disconnect()</i> method.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/disconnect()"><linktext>disconnect()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2:SmartFox:loadConfig"><apiName>loadConfig</apiName><shortdesc>
+		 Loads the client configuration file.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>filePath</apiItemName><apiType value="String"/><apiData>sfs-config.xml</apiData><apiDesc>		Filename of the external XML configuration, including its path relative to the folder of the application swf file.
+		 </apiDesc></apiParam><apiParam><apiItemName>connectOnSuccess</apiItemName><apiType value="Boolean"/><apiData>true</apiData><apiDesc>A flag indicating if the connection to SmartFoxServer must be attempted upon configuration loading completion.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Loads the client configuration file.
+		 
+		 <p>The <i>SmartFox</i> instance can be configured through an external XML configuration file loaded at run-time.
+		 By default, the <i>loadConfig()</i> method loads a file named "sfs-config.xml", placed in the same folder of the application swf file.
+		 If the <i>connectOnSuccess</i> argument is set to <codeph>true</codeph>, on loading completion the <i>connect()</i> method is automatically called by the API,
+		 otherwise the <i>SFSEvent.CONFIG_LOAD_SUCCESS</i> event type is dispatched. In case of loading error, the <i>SFSEvent.CONFIG_LOAD_FAILURE</i> event type id fired.</p>
+		 
+		 <p>In order to pass full connection settings without loading them from the external configuration file, use the <i>connectWithConfig()</i> method.</p>
+		 
+		 <p>The external XML configuration file has the following structure; ip, port and zone parameters are mandatory, all other parameters are optional:</p>
+		 <codeblock>
+		 
+		 &lt;!-- SFS2X Client Configuration file --&gt;
+		 &lt;SmartFoxConfig&gt;
+		 	&lt;ip&gt;127.0.0.1&lt;/ip&gt;
+		 	&lt;port&gt;9933&lt;/port&gt;
+		 	&lt;zone&gt;SimpleChat&lt;/zone&gt;
+		 	
+		 	&lt;debug&gt;true&lt;/debug&gt;
+		 	
+		 	&lt;udpIp&gt;127.0.0.1&lt;/udpIp&gt;
+		 	&lt;udpPort&gt;9934&lt;/udpPort&gt;
+		 	
+		 	&lt;httpPort&gt;8080&lt;/httpPort&gt;
+		 	&lt;useBlueBox&gt;true&lt;/useBlueBox&gt;
+		 	&lt;blueBoxPollingRate&gt;500&lt;/blueBoxPollingRate&gt;
+		 &lt;/SmartFoxConfig&gt;
+		 </codeblock>
+		 
+		 </apiDesc><example>The following example loads an external configuration file and, on loading completion, connects to the server:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	var sfs:SmartFox = new SmartFox();
+		 	
+		 	sfs.addEventListener(SFSEvent.CONFIG_LOAD_SUCCESS, onConfigLoaded);
+		 	sfs.addEventListener(SFSEvent.CONFIG_LOAD_FAILURE, onConfigLoadFailed);
+		 	
+		 	sfs.loadConfig("testConfig.xml", false);
+		 }
+		 
+		 private function onConfigLoaded(evt:SFSEvent):void
+		 {
+		 	// Configuration loaded successfully, now connect
+		 	sfs.connect();
+		 }
+		 
+		 private function onConfigLoadFailed(evt:SFSEvent):void
+		 {
+		 	trace("Failed loading configuration file");
+		 }
+		 </codeblock>
+		 
+		 </example></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/connect()"><linktext>connect()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/connectWithConfig()"><linktext>connectWithConfig()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:configLoadSuccess"><linktext>configLoadSuccess event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:configLoadFailure"><linktext>configLoadFailure event</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2:SmartFox:send"><apiName>send</apiName><shortdesc>
+		 Sends a request to the server.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>request</apiItemName><apiType value="com.smartfoxserver.v2.requests:IRequest"/><apiDesc>A request object.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Sends a request to the server.  
+		 All the available request objects can be found in the <i>requests</i> package. 
+		 
+		 </apiDesc><example>The following example sends a login request:
+		 <codeblock rev="3.0">
+		 
+		 sfs.send( new LoginRequest("KermitTheFrog", "KermitPass", "TheMuppetZone") );
+		 </codeblock>
+		 
+		 </example><example>The following example sends a "join room" request.
+		 <codeblock rev="3.0">
+		 
+		 sfs.send( new JoinRoomRequest("Lobby") );
+		 </codeblock>
+		 
+		 </example><example>The following example creates an object containing some parameters and sends it to the server-side Extension.
+		 <codeblock rev="3.0">
+		 
+		 var params:ISFSObject = new SFSObject();
+		 params.putInt("x", 10);
+		 params.putInt("y", 37);
+		 
+		 sfs.send( new ExtensionRequest("setPosition", params) );
+		 </codeblock>
+		 
+		 </example></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.requests.xml"><linktext>com.smartfoxserver.v2.requests</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml"><linktext>com.smartfoxserver.v2.requests.buddylist</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml"><linktext>com.smartfoxserver.v2.requests.game</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2:SmartFox:setClientDetails"><apiName>setClientDetails</apiName><shortdesc>
+		 Allows to specify custom client details that will be used to gather statistics about the client platform via the AdminTool's Analytics Module.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>platformId</apiItemName><apiType value="String"/><apiDesc>An identification string for the client runtime platform: for example "Flash PlugIn" or "iOS".
+		 </apiDesc></apiParam><apiParam><apiItemName>version</apiItemName><apiType value="String"/><apiDesc>	An additional string to specify the version of the runtime platform: for example "2.0.0".
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Allows to specify custom client details that will be used to gather statistics about the client platform via the AdminTool's Analytics Module.
+		 By default the generic "Flash" label is used as platform, without specifying the version.
+		  
+		 <p><b>NOTE</b>: this method must be called before the connection is started. The length of the two strings combined must be less than 512 characters. </p>
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2:SmartFox:buddyManager:get"><apiName>buddyManager</apiName><shortdesc>
+		 Returns a reference to the Buddy Manager.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiValueClassifier>com.smartfoxserver.v2.entities.managers:IBuddyManager</apiValueClassifier></apiValueDef><apiDesc>
+		 Returns a reference to the Buddy Manager.
+		 This manager is used internally by the SmartFoxServer 2X API; the reference returned by this property
+		 gives access to the buddies list, allowing interaction with <i>Buddy</i> and <i>BuddyVariable</i> objects and access to user properties in the <b>Buddy List</b> system.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:compressionThreshold:get"><apiName>compressionThreshold</apiName><shortdesc>
+		 Returns the current compression threshold.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Returns the current compression threshold.
+		 <p>This value represents the maximum message size (in bytes) before the protocol compression is activated. 
+		 It is determined by the server configuration.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:config:get"><apiName>config</apiName><shortdesc> 
+		 Returns the client configuration details.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiValueClassifier>com.smartfoxserver.v2.util:ConfigData</apiValueClassifier></apiValueDef><apiDesc> 
+		 Returns the client configuration details.
+		 If the configuration hasn't been loaded yet, or passed to the <i>connectWithConfig()</i> method, a <codeph>null</codeph> object is returned.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/loadConfig()"><linktext>loadConfig()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/connectWithConfig()"><linktext>connectWithConfig()</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:connectionMode:get"><apiName>connectionMode</apiName><shortdesc>
+		 Returns the current connection mode after a connection has been successfully established.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Returns the current connection mode after a connection has been successfully established.
+		 Possible values are defined as constants in the <i>ConnectionMode</i> class.
+		 
+		 </apiDesc><example>The following example traces the current connection mode:
+		 <codeblock rev="3.0">
+		 
+		 trace("Connection mode: ", sfs.connectionMode);
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.util.xml#ConnectionMode"><linktext>ConnectionMode</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:currentIp:get"><apiName>currentIp</apiName><shortdesc> 
+		 Returns the IP address of the SmartFoxServer 2X instance to which the client is connected.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Returns the IP address of the SmartFoxServer 2X instance to which the client is connected.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/currentPort"><linktext>currentPort</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/connect()"><linktext>connect()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/loadConfig()"><linktext>loadConfig()</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:currentPort:get"><apiName>currentPort</apiName><shortdesc> 
+		 Returns the TCP port of the SmartFoxServer 2X instance to which the client is connected.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Returns the TCP port of the SmartFoxServer 2X instance to which the client is connected.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/currentIp"><linktext>currentIp</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/connect()"><linktext>connect()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/loadConfig()"><linktext>loadConfig()</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:currentZone:get"><apiName>currentZone</apiName><shortdesc> 
+		 Returns the Zone currently in use, if the user is already logged in.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Returns the Zone currently in use, if the user is already logged in.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/loadConfig()"><linktext>loadConfig()</linktext></link><link href="com.smartfoxserver.v2.requests.xml#LoginRequest"><linktext>LoginRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:debug:get"><apiName>debug</apiName><shortdesc>
+		 Indicates whether the client-server messages debug is enabled or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether the client-server messages debug is enabled or not.
+		 If set to <codeph>true</codeph>, detailed debugging informations for all the incoming and outgoing messages are provided.
+		 <p>Debugging can be enabled when instantiating the <i>SmartFox</i> class too.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:isConnected:get"><apiName>isConnected</apiName><shortdesc>
+		 Indicates whether the client is connected to the server or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether the client is connected to the server or not.
+		 
+		 </apiDesc><example>The following example checks the connection status:
+		 <codeblock rev="3.0">
+		 
+		 trace("Am I connected?", sfs.isConnected);
+		 </codeblock>
+		 </example></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:joinedRooms:get"><apiName>joinedRooms</apiName><shortdesc>
+		 Returns a list of Room objects representing the Rooms currently joined by the client.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc>
+		 Returns a list of <i>Room</i> objects representing the Rooms currently joined by the client.
+		 
+		 <p><b>NOTE</b>: the same list is returned by the <i>IRoomManager.getJoinedRooms()</i> method, accessible through the <i>roomManager</i> getter;
+		 this was replicated on the <i>SmartFox</i> class for handy access due to its usually frequent usage.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/lastJoinedRoom()"><linktext>lastJoinedRoom()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/roomManager"><linktext>roomManager</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link><link href="com.smartfoxserver.v2.requests.xml#JoinRoomRequest"><linktext>JoinRoomRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:lastJoinedRoom:get"><apiName>lastJoinedRoom</apiName><shortdesc>
+		 Returns the object representing the last Room joined by the client, if any.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiValueClassifier>com.smartfoxserver.v2.entities:Room</apiValueClassifier></apiValueDef><apiDesc>
+		 Returns the object representing the last Room joined by the client, if any.
+		 This property is <codeph>null</codeph> if no Room was joined.
+		 
+		 <p><b>NOTE</b>: setting the <i>lastJoinedRoom</i> property manually can disrupt the API functioning.
+		 Use the <i>JoinRoomRequest</i> request to join a new Room instead.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/joinedRooms()"><linktext>joinedRooms()</linktext></link><link href="com.smartfoxserver.v2.requests.xml#JoinRoomRequest"><linktext>JoinRoomRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:logger:get"><apiName>logger</apiName><shortdesc>
+		 Returns a reference to the internal Logger instance used by SmartFoxServer 2X.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiValueClassifier>com.smartfoxserver.v2.logging:Logger</apiValueClassifier></apiValueDef><apiDesc>
+		 Returns a reference to the internal <i>Logger</i> instance used by SmartFoxServer 2X.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:maxMessageSize:get"><apiName>maxMessageSize</apiName><shortdesc>
+		 Returns the maximum size of messages allowed by the server.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Returns the maximum size of messages allowed by the server.
+		 <p>Any request exceeding this size will not be sent.
+		 The value is determined by the server configuration.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:mySelf:get"><apiName>mySelf</apiName><shortdesc>
+		 Returns the User object representing the client when connected to a SmartFoxServer 2X instance.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiValueClassifier>com.smartfoxserver.v2.entities:User</apiValueClassifier></apiValueDef><apiDesc>
+		 Returns the <i>User</i> object representing the client when connected to a SmartFoxServer 2X instance.
+		 This object is generated upon successful login only, so it is <codeph>null</codeph> if login was not performed yet.
+		 
+		 <p><b>NOTE</b>: setting the <i>mySelf</i> property manually can disrupt the API functioning.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/isItMe"><linktext>User.isItMe</linktext></link><link href="com.smartfoxserver.v2.requests.xml#LoginRequest"><linktext>LoginRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:roomList:get"><apiName>roomList</apiName><shortdesc>
+		 Returns a list of Room objects representing the Rooms currently "watched" by the client.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc>
+		 Returns a list of <i>Room</i> objects representing the Rooms currently "watched" by the client.
+		 The list contains all the Rooms that are currently joined and all the Rooms belonging to the Room Groups that have been subscribed.
+		 
+		 <p><b>NOTE 1</b>: at login time, the client automatically subscribes all the Room Groups specified in the Zone's <b>Default Room Groups</b> setting.</p>
+		 
+		 <p><b>NOTE 2</b>: the same list is returned by the <i>IRoomManager.getRoomList()</i> method, accessible through the <i>roomManager</i> getter;
+		 this was replicated on the <i>SmartFox</i> class for handy access due to its usually frequent usage.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/roomManager"><linktext>roomManager</linktext></link><link href="com.smartfoxserver.v2.requests.xml#JoinRoomRequest"><linktext>JoinRoomRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#SubscribeRoomGroupRequest"><linktext>SubscribeRoomGroupRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#UnsubscribeRoomGroupRequest"><linktext>UnsubscribeRoomGroupRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:roomManager:get"><apiName>roomManager</apiName><shortdesc>
+		 Returns a reference to the Room Manager.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiValueClassifier>com.smartfoxserver.v2.entities.managers:IRoomManager</apiValueClassifier></apiValueDef><apiDesc>
+		 Returns a reference to the Room Manager.
+		 This manager is used internally by the SmartFoxServer 2X API; the reference returned by this property
+		 gives access to the Rooms list and Groups, allowing interaction with <i>Room</i> objects.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:sessionToken:get"><apiName>sessionToken</apiName><shortdesc>
+		 Returns the unique session token of the client.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Returns the unique session token of the client.
+		 The session token is a string sent by the server to the client after the initial handshake.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:udpAvailable:get"><apiName>udpAvailable</apiName><shortdesc>
+		 Indicates whether the UPD protocol is available or not in the current runtime.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether the UPD protocol is available or not in the current runtime.
+		 UPD is available in a ActionScript 3 client if it is executed in the Adobe AIR 2.0 (or higher) runtime only.
+		 
+		 <p>Using the UDP protocol in an application requires that a handshake is performed between the client and the server. 
+		 By default this is NOT done by the SmartFoxServer 2X API, to avoid allocating resources that might never be used.
+		 In order to activate the UDP support, the <i>initUDP()</i> method must be invoked explicitly.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/initUDP()"><linktext>initUDP()</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:udpInited:get"><apiName>udpInited</apiName><shortdesc>
+		 Indicates whether the UDP handshake has been performed successfully or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether the UDP handshake has been performed successfully or not.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/udpAvailable"><linktext>udpAvailable</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/initUDP()"><linktext>initUDP()</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:useBlueBox:get"><apiName>useBlueBox</apiName><shortdesc>
+		 Indicates whether the client should attempt a tunnelled http connection through the BlueBox in case a socket connection can't be established.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether the client should attempt a tunnelled http connection through the BlueBox in case a socket connection can't be established.
+		 
+		 <p><b>NOTE</b>: this property must be set <b>before</b> the <i>connect()</i> method is called.
+		 Also, after a connection is established, this property does not return the current connection mode (socket or http); for this purpose use the <i>connectionMode</i> property.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/connectionMode"><linktext>connectionMode</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/loadConfig()"><linktext>loadConfig()</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:userManager:get"><apiName>userManager</apiName><shortdesc>
+		 Returns a reference to the User Manager.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiValueClassifier>com.smartfoxserver.v2.entities.managers:IUserManager</apiValueClassifier></apiValueDef><apiDesc>
+		 Returns a reference to the User Manager.
+		 This manager is used internally by the SmartFoxServer 2X API; the reference returned by this property
+		 gives access to the users list, allowing interaction with <i>User</i> objects.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2:SmartFox:version:get"><apiName>version</apiName><shortdesc>
+		 Returns the current version of the SmartFoxServer 2X ActionScript 3 API.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Returns the current version of the SmartFoxServer 2X ActionScript 3 API.
+		 
+		 </apiDesc><example>The following example traces the SmartFoxServer API version to the console:
+		 <codeblock rev="3.0">
+		 
+		 trace("Current API version:", sfs.version);
+		 </codeblock>
+		 </example></apiValueDetail></apiValue></apiClassifier></apiPackage>

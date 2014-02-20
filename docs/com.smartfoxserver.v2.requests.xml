@@ -1,0 +1,1193 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.smartfoxserver.v2.requests"><apiName>com.smartfoxserver.v2.requests</apiName><apiDetail/><apiClassifier id="com.smartfoxserver.v2.requests:ModeratorMessageRequest"><apiName>ModeratorMessageRequest</apiName><shortdesc>
+	 Sends a moderator message to a specific user or a group of users.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:GenericMessageRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Sends a moderator message to a specific user or a group of users.
+	 
+	 <p>The current user must have moderation privileges to be able to send the message (see the <i>User.privilegeId</i> property).</p>
+	 
+	 <p>The <i>recipientMode</i> parameter in the class constructor is used to determine the message recipients: a single user or all the
+	 users in a Room, a Group or the entire Zone. Upon message delivery, the clients of the recipient users dispatch the <i>moderatorMessage</i> event.</p>
+	 
+	 </apiDesc><example>The following example sends a moderator message to all the users in the last joned Room; it also shows how to handle the related event:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.MODERATOR_MESSAGE, onModeratorMessage);
+	 	
+	 	// Set the message recipients: all users in the current Room
+	 	var recipMode:MessageRecipientMode = new MessageRecipientMode(MessageRecipientMode.TO_ROOM, sfs.lastJoinedRoom);
+	 	
+	 	// Send the moderator message
+	 	sfs.send(new ModeratorMessageRequest("Hello everybody, I'm the Moderator!", recipMode));
+	 }
+	 
+	 private function onModeratorMessage(evt:SFSEvent):void
+	 {
+	 	trace("The moderator sent the following message: " + evt.params.message);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:moderatorMessage"><linktext>moderatorMessage event</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/privilegeId"><linktext>User.privilegeId</linktext></link><link href="com.smartfoxserver.v2.requests.xml#AdminMessageRequest"><linktext>AdminMessageRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:ModeratorMessageRequest:ModeratorMessageRequest"><apiName>ModeratorMessageRequest</apiName><shortdesc>
+		 Creates a new ModeratorMessageRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>message</apiItemName><apiType value="String"/><apiDesc>		The message of the moderator to be sent to the target user/s defined by the <i>recipientMode</i> parameter.
+		 </apiDesc></apiParam><apiParam><apiItemName>recipientMode</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.requests:MessageRecipientMode</apiOperationClassifier><apiDesc>An instance of <i>MessageRecipientMode</i> containing the target to which the message should be delivered.
+		 </apiDesc></apiParam><apiParam><apiItemName>params</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier><apiData>null</apiData><apiDesc>		An instance of <i>SFSObject</i> containing custom parameters to be sent to the recipient user/s.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>ModeratorMessageRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:LeaveRoomRequest"><apiName>LeaveRoomRequest</apiName><shortdesc>
+	 Leaves one of the Rooms joined by the current user.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Leaves one of the Rooms joined by the current user.
+	 
+	 <p>Depending on the Room configuration defined upon its creation (see the <i>RoomSettings.events</i> setting), when the current user leaves it,
+	 the following events might be fired: <i>userExitRoom</i>, dispatched to all the users inside the Room (including the current user then) to warn them that a user has gone away;
+	 <i>userCountChange</i>, dispatched to all clients which subscribed the Group to which the Room belongs, to update the count of users inside the Room.</p>
+	 
+	 </apiDesc><example>The following example makes the user leave the currently joined Room and handles the respective event:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.USER_EXIT_ROOM, onUserExitRoom);
+	 	
+	 	// Leave the last joined Room
+	 	sfs.send(new LeaveRoomRequest());
+	 }
+	 
+	 private function onUserExitRoom(evt:SFSEvent):void
+	 {
+	 	var room:Room = evt.params.room;
+	 	var user:User = evt.params.user;
+	 	
+	 	trace("User " + user.name + " just left Room " + room.name);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:userExitRoom"><linktext>userExitRoom event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:userCountChange"><linktext>userCountChange event</linktext></link><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/events"><linktext>RoomSettings.events</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:LeaveRoomRequest:LeaveRoomRequest"><apiName>LeaveRoomRequest</apiName><shortdesc>
+		 Creates a new LeaveRoomRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>theRoom</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiData>null</apiData><apiDesc>The <i>Room</i> object corresponding to the Room that the current user must leave. If <codeph>null</codeph>, the last Room joined by the user is left.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>LeaveRoomRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:MessageRecipientMode"><apiName>MessageRecipientMode</apiName><shortdesc>
+	 The MessageRecipientMode class is used to specify the recipient/s of moderator and administrator messages.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>MessageRecipientMode</i> class is used to specify the recipient/s of moderator and administrator messages.
+	 Read the constants descriptions for more informations.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ModeratorMessageRequest"><linktext>ModeratorMessageRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#AdminMessageRequest"><linktext>AdminMessageRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:MessageRecipientMode:MessageRecipientMode"><apiName>MessageRecipientMode</apiName><shortdesc>
+		 Creates a new MessageRecipientMode instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>mode</apiItemName><apiType value="int"/><apiDesc>One of the costants contained in this class, describing the recipient mode.
+		 </apiDesc></apiParam><apiParam><apiItemName>target</apiItemName><apiType value="any"/><apiDesc>The moderator/administrator message recipient/s, according to the selected recipient mode.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>MessageRecipientMode</i> instance.
+		 The instance must be passed as <i>recipientMode</i> parameter to the <i>ModeratorMessageRequest()</i> and <i>AdminMessageRequest()</i> classes constructors.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ModeratorMessageRequest"><linktext>ModeratorMessageRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#AdminMessageRequest"><linktext>AdminMessageRequest</linktext></link></related-links></apiConstructor><apiValue id="com.smartfoxserver.v2.requests:MessageRecipientMode:TO_GROUP"><apiName>TO_GROUP</apiName><shortdesc>
+		 The moderator/administrator message will be sent to all the clients who subscribed a specific Room Group.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The moderator/administrator message will be sent to all the clients who subscribed a specific Room Group.
+		 A Group id must be passed as <i>target</i> parameter to the class constructor.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Room/groupId"><linktext>Room.groupId</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests:MessageRecipientMode:TO_ROOM"><apiName>TO_ROOM</apiName><shortdesc>
+		 The moderator/administrator message will be sent to all the users in a specific Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The moderator/administrator message will be sent to all the users in a specific Room.
+		 A <i>Room</i> instance must be passed as <i>target</i> parameter to the class constructor.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests:MessageRecipientMode:TO_USER"><apiName>TO_USER</apiName><shortdesc>
+		 The moderator/administrator message will be sent to a specific user.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The moderator/administrator message will be sent to a specific user.
+		 A <i>User</i> instance must be passed as <i>target</i> parameter to the class constructor.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests:MessageRecipientMode:TO_ZONE"><apiName>TO_ZONE</apiName><shortdesc>
+		 The moderator/administrator message will be sent to all the users in the Zone.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>3</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The moderator/administrator message will be sent to all the users in the Zone.
+		 <codeph>null</codeph> can be passed as <i>target</i> parameter, in fact it will be ignored.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.requests:MessageRecipientMode:mode:get"><apiName>mode</apiName><shortdesc>
+		 Returns the selected recipient mode.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Returns the selected recipient mode.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.requests:MessageRecipientMode:target:get"><apiName>target</apiName><shortdesc>
+		 Returns the moderator/administrator message target, according to the selected recipient mode.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="any"/></apiValueDef><apiDesc>
+		 Returns the moderator/administrator message target, according to the selected recipient mode.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:RoomSettings"><apiName>RoomSettings</apiName><shortdesc>
+	 The RoomSettings class is a container for the settings required to create a Room using the CreateRoomRequest request.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>RoomSettings</i> class is a container for the settings required to create a Room using the <i>CreateRoomRequest</i> request.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#CreateRoomRequest"><linktext>CreateRoomRequest</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:RoomSettings:RoomSettings"><apiName>RoomSettings</apiName><shortdesc>
+		 Creates a new RoomSettings instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the Room to be created.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>RoomSettings</i> instance.
+		 The instance must be passed to the <i>CreateRoomRequest</i> class constructor.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#CreateRoomRequest"><linktext>CreateRoomRequest</linktext></link></related-links></apiConstructor><apiValue id="com.smartfoxserver.v2.requests:RoomSettings:events:get"><apiName>events</apiName><shortdesc> 
+		 Defines the flags indicating which events related to the Room are dispatched by the SmartFox client.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiValueClassifier>com.smartfoxserver.v2.requests:RoomEvents</apiValueClassifier><apiDefaultValue>null
+		 </apiDefaultValue></apiValueDef><apiDesc> 
+		 Defines the flags indicating which events related to the Room are dispatched by the <i>SmartFox</i> client.
+		 
+		 <p>Room events include: users entering or leaving the room, user count change and user variables update.
+		 If set to <codeph>null</codeph>, the events configured on the server-side are used (see the SmartFoxServer 2X Administration Tool documentation).</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomSettings:extension:get"><apiName>extension</apiName><shortdesc>
+		 Defines the Extension that must be attached to the Room on the server-side, and its settings.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiValueClassifier>com.smartfoxserver.v2.requests:RoomExtension</apiValueClassifier></apiValueDef><apiDesc>
+		 Defines the Extension that must be attached to the Room on the server-side, and its settings.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomSettings:groupId:get"><apiName>groupId</apiName><shortdesc> 
+		 Defines the id of the Group to which the Room should belong.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="String"/><apiDefaultValue>default
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc> 
+		 Defines the id of the Group to which the Room should belong.
+		 If the Group doesn't exist yet, a new one is created before assigning the Room to it.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Room/groupId"><linktext>com.smartfoxserver.v2.entities.Room.groupId</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomSettings:isGame:get"><apiName>isGame</apiName><shortdesc>
+		 Indicates whether the Room is a Game Room or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/><apiDefaultValue>false
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Indicates whether the Room is a Game Room or not.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomSettings:maxSpectators:get"><apiName>maxSpectators</apiName><shortdesc>
+		 Defines the maximum number of spectators allowed in the Room (only for Game Rooms).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/><apiDefaultValue>0
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Defines the maximum number of spectators allowed in the Room (only for Game Rooms).
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/maxUsers"><linktext>maxUsers</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomSettings:maxUsers:get"><apiName>maxUsers</apiName><shortdesc>
+		 Defines the maximum number of users allowed in the Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/><apiDefaultValue>10
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Defines the maximum number of users allowed in the Room.
+		 In case of Game Rooms, this is the maximum number of players.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/maxSpectators"><linktext>maxSpectators</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomSettings:maxVariables:get"><apiName>maxVariables</apiName><shortdesc>
+		 Defines the maximum number of Room Variables allowed for the Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/><apiDefaultValue>5
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Defines the maximum number of Room Variables allowed for the Room.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomSettings:name:get"><apiName>name</apiName><shortdesc>
+		 Defines the name of the Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Defines the name of the Room.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomSettings:password:get"><apiName>password</apiName><shortdesc>
+		 Defines the password of the Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Defines the password of the Room.
+		 If the password is set to an empty string, the Room won't be password protected.
+		 
+		 <p>The default value is an empty string.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomSettings:permissions:get"><apiName>permissions</apiName><shortdesc> 
+		 Defines the flags indicating which operations are permitted on the Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiValueClassifier>com.smartfoxserver.v2.requests:RoomPermissions</apiValueClassifier><apiDefaultValue>null
+		 </apiDefaultValue></apiValueDef><apiDesc> 
+		 Defines the flags indicating which operations are permitted on the Room.
+		 
+		 <p>Permissions include: name and password change, maximum users change and public messaging.
+		 If set to <codeph>null</codeph>, the permissions configured on the server-side are used (see the SmartFoxServer 2X Administration Tool documentation).</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomSettings:variables:get"><apiName>variables</apiName><shortdesc>
+		 Defines a list of RooomVariable objects to be attached to the Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Array"/><apiDefaultValue>null
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Defines a list of <i>RooomVariable</i> objects to be attached to the Room.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#RoomVariable"><linktext>RoomVariable</linktext></link></related-links></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:PublicMessageRequest"><apiName>PublicMessageRequest</apiName><shortdesc>
+	 Sends a public chat message.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:GenericMessageRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Sends a public chat message.
+	 
+	 <p>A public message is dispatched to all the users in the specified Room, including the message sender (this allows showing
+	 messages in the correct order in the application interface); the corresponding event is the <i>publicMessage</i> event.
+	 It is also possible to send an optional object together with the message: it can contain custom parameters useful to transmit, for example, additional
+	 informations related to the message, like the text font or color, or other formatting details.</p>
+	 
+	 <p>In case the target Room is not specified, the message is sent in the last Room joined by the sender.</p>
+	 
+	 <p><b>NOTE</b>: the <i>publicMessage</i> event is dispatched if the Room is configured to allow public messaging only (see the <i>RoomSettings.permissions</i> parameter).</p>
+	 
+	 </apiDesc><example>The following example sends a public message and handles the respective event:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.PUBLIC_MESSAGE, onPublicMessage);
+	 	
+	 	// Send a public message
+	 	sfs.send(new PublicMessageRequest("Hello everyone!"));
+	 }
+	 
+	 private function onPublicMessage(evt:SFSEvent):void
+	 {
+	 	// As messages are forwarded to the sender too,
+	 	// I have to check if I am the sender
+	 	
+	 	var sender:User = evt.params.sender;
+	 	
+	 	if (sender == sfs.mySelf)
+	 		trace("I said:", evt.params.message);
+	 	else
+	 		trace("User " + sender.name + " said:", evt.params.message);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:publicMessage"><linktext>publicMessage event</linktext></link><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/permissions"><linktext>RoomSettings.permissions</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:PublicMessageRequest:PublicMessageRequest"><apiName>PublicMessageRequest</apiName><shortdesc>
+		 Creates a new PublicMessageRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>message</apiItemName><apiType value="String"/><apiDesc>	The message to be sent to all the users in the target Room.
+		 </apiDesc></apiParam><apiParam><apiItemName>params</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier><apiData>null</apiData><apiDesc>	An instance of <i>SFSObject</i> containing additional custom parameters to be sent to the message recipients (for example the color of the text, etc).
+		 </apiDesc></apiParam><apiParam><apiItemName>targetRoom</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiData>null</apiData><apiDesc>The <i>Room</i> object corresponding to the Room where the message should be dispatched; if <codeph>null</codeph>, the last Room joined by the user is used.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>PublicMessageRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:RoomPermissions"><apiName>RoomPermissions</apiName><shortdesc>
+	 The RoomPermissions class contains a specific subset of the RoomSettings required to create a Room.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>RoomPermissions</i> class contains a specific subset of the <i>RoomSettings</i> required to create a Room.
+	 It defines which operations users will be able to execute on the Room after its creation.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/permissions"><linktext>RoomSettings.permissions</linktext></link><link href="com.smartfoxserver.v2.requests.xml#CreateRoomRequest"><linktext>CreateRoomRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:RoomPermissions:RoomPermissions"><apiName>RoomPermissions</apiName><shortdesc>
+		 Creates a new RoomPermissions instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef><apiDesc>
+		 Creates a new <i>RoomPermissions</i> instance.
+		 The <i>RoomSettings.permissions</i> property must be set to this instance during Room creation.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/permissions"><linktext>RoomSettings.permissions</linktext></link></related-links></apiConstructor><apiValue id="com.smartfoxserver.v2.requests:RoomPermissions:allowNameChange:get"><apiName>allowNameChange</apiName><shortdesc>
+		 Indicates whether changing the Room name after its creation is allowed or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/><apiDefaultValue>false
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Indicates whether changing the Room name after its creation is allowed or not.
+		 
+		 <p>The Room name can be changed by means of the <i>ChangeRoomNameRequest</i> request.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ChangeRoomNameRequest"><linktext>ChangeRoomNameRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomPermissions:allowPasswordStateChange:get"><apiName>allowPasswordStateChange</apiName><shortdesc>
+		 Indicates whether changing (or removing) the Room password after its creation is allowed or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/><apiDefaultValue>false
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Indicates whether changing (or removing) the Room password after its creation is allowed or not.
+		 
+		 <p>The Room password can be changed by means of the <i>ChangeRoomPasswordStateRequest</i> request.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ChangeRoomPasswordStateRequest"><linktext>ChangeRoomPasswordStateRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomPermissions:allowPublicMessages:get"><apiName>allowPublicMessages</apiName><shortdesc>
+		 Indicates whether users inside the Room are allowed to send public messages or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/><apiDefaultValue>false
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Indicates whether users inside the Room are allowed to send public messages or not.
+		 
+		 <p>Public messages can be sent by means of the <i>PublicMessageRequest</i> request.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#PublicMessageRequest"><linktext>PublicMessageRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomPermissions:allowResizing:get"><apiName>allowResizing</apiName><shortdesc>
+		 Indicates whether the Room capacity can be changed after its creation or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/><apiDefaultValue>false
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Indicates whether the Room capacity can be changed after its creation or not.
+		 
+		 <p>The capacity is the maximum number of users and spectators (in Game Rooms) allowed to enter the Room.
+		 It can be changed by means of the <i>ChangeRoomCapacityRequest</i> request.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ChangeRoomCapacityRequest"><linktext>ChangeRoomCapacityRequest</linktext></link></related-links></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:JoinRoomRequest"><apiName>JoinRoomRequest</apiName><shortdesc>
+	 Joins the current user in a Room.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Joins the current user in a Room.
+	 
+	 <p>If the operation is successful, the current user receives a <i>roomJoin</i> event; otherwise the <i>roomJoinError</i> event is fired. This
+	 usually happens when the Room is full, or the password is wrong in case of password protected Rooms.</p>
+	 
+	 <p>Depending on the Room configuration defined upon its creation (see the <i>RoomSettings.events</i> setting), when the current user joins it,
+	 the following events might be fired: <i>userEnterRoom</i>, dispatched to the other users inside the Room to warn them that a new user has arrived;
+	 <i>userCountChange</i>, dispatched to all clients which subscribed the Group to which the Room belongs, to update the count of users inside the Room.</p>
+	 
+	 </apiDesc><example>The following example makes the user join an existing Room:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.ROOM_JOIN, onRoomJoined);
+	 	sfs.addEventListener(SFSEvent.ROOM_JOIN_ERROR, onRoomJoinError);
+	 	
+	 	// Join a Room called "Lobby"
+	 	sfs.send(new JoinRoomRequest("Lobby"));
+	 }
+	 
+	 private function onRoomJoined(evt:SFSEvent):void
+	 {
+	 	trace("Room joined successfully: " + evt.params.room);
+	 }
+	 
+	 private function onRoomJoinError(evt:SFSEvent):void
+	 {
+	 	trace("Room joining failed: " + evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomJoin"><linktext>roomJoin event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomJoinError"><linktext>roomJoinError event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:userEnterRoom"><linktext>userEnterRoom event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:userCountChange"><linktext>userCountChange event</linktext></link><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/events"><linktext>RoomSettings.events</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:JoinRoomRequest:JoinRoomRequest"><apiName>JoinRoomRequest</apiName><shortdesc>
+		 Creates a new JoinRoomRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>id</apiItemName><apiType value="any"/><apiDesc>			The id or the name of the Room to be joined.
+		 </apiDesc></apiParam><apiParam><apiItemName>pass</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>		The password of the Room, in case it is password protected.
+		 </apiDesc></apiParam><apiParam><apiItemName>roomIdToLeave</apiItemName><apiType value="Number"/><apiData>unknown</apiData><apiDesc>The id of a previously joined Room that the user should leave when joining the new Room.
+		 							By default, the last joined Room is left; if a negative number is passed, no previous Room is left.
+		 </apiDesc></apiParam><apiParam><apiItemName>asSpect</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>		<codeph>true</codeph> to join the Room as a spectator (in Game Rooms only).
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>JoinRoomRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:BanMode"><apiName>BanMode</apiName><shortdesc>
+	 The BanMode class contains the costants describing the possible banning modalities for a BanUserRequest.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>BanMode</i> class contains the costants describing the possible banning modalities for a <i>BanUserRequest</i>.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#BanUserRequest"><linktext>BanUserRequest</linktext></link></related-links><apiValue id="com.smartfoxserver.v2.requests:BanMode:BY_ADDRESS"><apiName>BY_ADDRESS</apiName><shortdesc>
+		 User is banned by IP address.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 User is banned by IP address.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.requests:BanMode:BY_NAME"><apiName>BY_NAME</apiName><shortdesc>
+		 User is banned by name.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 User is banned by name.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:SpectatorToPlayerRequest"><apiName>SpectatorToPlayerRequest</apiName><shortdesc>
+	 Turns the current user from spectator to player in a Game Room.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Turns the current user from spectator to player in a Game Room.
+	 
+	 <p>If the operation is successful, all the users in the target Room are notified with the <i>spectatorToPlayer</i> event.
+	 The operation could fail if no player slots are available in the Game Room at the time of the request; in this case
+	 the <i>spectatorToPlayerError</i> event is dispatched to the requester's client.</p>
+	 
+	 </apiDesc><example>The following example turns the current user from spectator to player in the last joined Game Room:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.SPECTATOR_TO_PLAYER, onSpectatorToPlayerSwitch);
+	 	sfs.addEventListener(SFSEvent.SPECTATOR_TO_PLAYER_ERROR, onSpectatorToPlayerSwitchError);
+	 	
+	 	// Switch spectator to player
+	 	sfs.send(new SpectatorToPlayerRequest());
+	 }
+	 
+	 private function onSpectatorToPlayerSwitch(evt:SFSEvent):void
+	 {
+	 	trace("Spectator " + evt.params.user + " is now a player");
+	 }
+	 
+	 private function onSpectatorToPlayerSwitchError(evt:SFSEvent):void
+	 {
+	 	trace("Unable to become a player due to the following error: " + evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:spectatorToPlayer"><linktext>spectatorToPlayer event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:spectatorToPlayerError"><linktext>spectatorToPlayerError event</linktext></link><link href="com.smartfoxserver.v2.requests.xml#PlayerToSpectatorRequest"><linktext>PlayerToSpectatorRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:SpectatorToPlayerRequest:SpectatorToPlayerRequest"><apiName>SpectatorToPlayerRequest</apiName><shortdesc>
+		 Creates a new SpectatorToPlayerRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>targetRoom</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiData>null</apiData><apiDesc>The <i>Room</i> object corresponding to the Room in which the spectator should be turned to player. If <codeph>null</codeph>, the last Room joined by the user is used.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SpectatorToPlayerRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:ObjectMessageRequest"><apiName>ObjectMessageRequest</apiName><shortdesc>
+	 Sends an object containing custom data to all users in a Room, or a subset of them.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:GenericMessageRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Sends an object containing custom data to all users in a Room, or a subset of them.
+	 
+	 <p>The data object is delivered to the selected users (or all users excluding the sender) inside the target Room by means of the <i>objectMessage</i> event.
+	 It can be useful to send game data, like for example the target coordinates of the user's avatar in a virtual world.</p>
+	 
+	 </apiDesc><example>The following example sends the player's character movement coordinates and handles the respective event
+	 (note: the <i>myCharacter</i> instance is supposed to be the user sprite on the stage, while the <i>getUserCharacter</i> method retrieves the sprite of other users' characters):
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.OBJECT_MESSAGE, onObjectMessage);
+	 	
+	 	// Send my movement to all players
+	 	var dataObj:ISFSObject = new SFSObject();
+	 	dataObj.putInt("x", myCharacter.x);
+	 	dataObj.putInt("y", myCharacter.y);
+	 	
+	 	sfs.send(new ObjectMessageRequest(dataObj));
+	 }
+	 
+	 private function onObjectMessage(evt:SFSEvent):void
+	 {
+	 	var dataObj:ISFSObject = evt.params.message as SFSObject;
+	 	
+	 	var sender:User = evt.params.sender;
+	 	var character:Sprite = getUserCharacter(sender.id);
+	 	
+	 	character.x = dataObj.getInt("x");
+	 	character.y = dataObj.getInt("y");
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:objectMessage"><linktext>objectMessage event</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:ObjectMessageRequest:ObjectMessageRequest"><apiName>ObjectMessageRequest</apiName><shortdesc>
+		 Creates a new ObjectMessageRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>obj</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier><apiDesc>		An instance of <i>SFSObject</i> containing custom parameters to be sent to the message recipients.
+		 </apiDesc></apiParam><apiParam><apiItemName>targetRoom</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiData>null</apiData><apiDesc>The <i>Room</i> object corresponding to the Room where the message should be dispatched; if <codeph>null</codeph>, the last Room joined by the user is used.
+		 </apiDesc></apiParam><apiParam><apiItemName>recipients</apiItemName><apiType value="Array"/><apiData>null</apiData><apiDesc>A list of <i>User</i> objects corresponding to the message recipients; if <codeph>null</codeph>, the message is sent to all users in the target Room (except the sender himself).
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>ObjectMessageRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:BanUserRequest"><apiName>BanUserRequest</apiName><shortdesc>
+	 Banishes a user from the server.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Banishes a user from the server.
+	 
+	 <p>The current user must have administration or moderation privileges in order to be able to ban another user (see the <i>User.privilegeId</i> property).
+	 The user can be banned by name or by IP address (see the <i>BanMode</i> class). Also, the request allows sending a message to the banned user
+	 (to make clear the reason of the following disconnection) which is delivered by means of the <i>moderatorMessage</i> event.</p>
+	 
+	 <p>Differently from the user being kicked (see the <i>KickUserRequest</i> request), a banned user won't be able to connect to the SmartFoxServer instance until
+	 the banishment expires (after 24 hours for client-side banning) or an administrator removes his name/IP address from the list of banned users
+	 by means of the SmartFoxServer 2X Administration Tool.</p>
+	 
+	 </apiDesc><example>The following example bans the user Jack from the system:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	var userToBan:User = sfs.userManager.getUserByName("Jack");
+	 	sfs.send(new BanUserRequest(userToBan.id));
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:moderatorMessage"><linktext>moderatorMessage event</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/privilegeId"><linktext>User.privilegeId</linktext></link><link href="com.smartfoxserver.v2.requests.xml#BanMode"><linktext>BanMode</linktext></link><link href="com.smartfoxserver.v2.requests.xml#KickUserRequest"><linktext>KickUserRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:BanUserRequest:BanUserRequest"><apiName>BanUserRequest</apiName><shortdesc>
+		 Creates a new BanUserRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>userId</apiItemName><apiType value="int"/><apiDesc>			The id of the user to be banned.
+		 </apiDesc></apiParam><apiParam><apiItemName>message</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>			A custom message to be delivered to the user before banning him;
+		 								if <codeph>null</codeph>, the default message configured in the SmartFoxServer 2X Administration Tool is used.
+		 </apiDesc></apiParam><apiParam><apiItemName>banMode</apiItemName><apiType value="int"/><apiData>1</apiData><apiDesc>			One of the ban modes defined in the <i>BanMode</i> class.
+		 </apiDesc></apiParam><apiParam><apiItemName>delaySeconds</apiItemName><apiType value="int"/><apiData>5</apiData><apiDesc>	The number of seconds after which the user is banned after receiving the ban message.
+		 </apiDesc></apiParam><apiParam><apiItemName>durationHours</apiItemName><apiType value="int"/><apiData>24</apiData><apiDesc>	The duration of the banishment, expressed in hours.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>BanUserRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.requests.xml#BanMode"><linktext>BanMode</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:SetRoomVariablesRequest"><apiName>SetRoomVariablesRequest</apiName><shortdesc>
+	 Sets one or more custom Room Variables in a Room.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Sets one or more custom Room Variables in a Room.
+	 
+	 <p>When a Room Variable is set, the <i>roomVariablesUpdate</i> event is dispatched to all the users in the target Room, including the user who updated it.
+	 Also, if the Room Variable is global (see the <i>SFSRoomVariable</i> class description), the event is dispatched to all users who subscribed the Group to which the target Room is associated.</p>
+	 
+	 </apiDesc><example>The following example sets a number of Room Variables and handles the respective update event:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.ROOM_VARIABLES_UPDATE, onRoomVarsUpdate);
+	 	
+	 	// Create some Room Variables
+	 	var roomVars:Array = [];
+	 	roomVars.push(new SFSRoomVariable("gameStarted", false));
+	 	roomVars.push(new SFSRoomVariable("gameType", "Snooker"));
+	 	roomVars.push(new SFSRoomVariable("minRank", 10));
+	 	
+	 	sfs.send(new SetRoomVariablesRequest(roomVars));
+	 }
+	 
+	 private function onRoomVarsUpdate(evt:SFSEvent):void
+	 {
+	 	var changedVars:Array = evt.params.changedVars as Array;
+	 	var room:Room = evt.params.room as Room;
+	 	
+	 	// Check if the "gameStarted" variable was changed
+	 	if (changedVars.indexOf("gameStarted") != -1)
+	 	{
+	 		if (room.getVariable("gameStarted").getBoolValue() == true)
+	 			trace("Game started");
+	 		else
+	 			trace("Game stopped");
+	 	}
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomVariablesUpdate"><linktext>roomVariablesUpdate event</linktext></link><link href="com.smartfoxserver.v2.entities.variables.xml#SFSRoomVariable"><linktext>SFSRoomVariable</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:SetRoomVariablesRequest:SetRoomVariablesRequest"><apiName>SetRoomVariablesRequest</apiName><shortdesc>
+		 Creates a new SetRoomVariablesRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>roomVariables</apiItemName><apiType value="Array"/><apiDesc>A list of <i>RoomVariable</i> objects representing the Room Variables to be set.
+		 </apiDesc></apiParam><apiParam><apiItemName>room</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiData>null</apiData><apiDesc>		A <i>Room</i> object representing the Room where to set the Room Variables; if <codeph>null</codeph>, the last Room joined by the current user is used.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SetRoomVariablesRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.variables.xml#RoomVariable"><linktext>RoomVariable</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:SetUserVariablesRequest"><apiName>SetUserVariablesRequest</apiName><shortdesc>
+	 Sets one or more custom User Variables for the current user.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Sets one or more custom User Variables for the current user.
+	 
+	 <p>When a User Variable is set, the <i>userVariablesUpdate</i> event is dispatched to all the users in all the Rooms joined by the current user, including himself.</p>
+	 
+	 <p><b>NOTE</b>: the <i>userVariablesUpdate</i> event is dispatched to users in a specific Room only if it is configured to allow this event (see the <i>RoomSettings.permissions</i> parameter).</p>
+	 
+	 </apiDesc><example>The following example sets a number of User Variables and handles the respective update event:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.USER_VARIABLES_UPDATE, onUserVarsUpdate);
+	 	
+	 	// Create some User Variables
+	 	var userVars:Array = [];
+	 	userVars.push(new SFSUserVariable("avatarType", "SwedishCook"));
+	 	userVars.push(new SFSUserVariable("country", "Sweden"));
+	 	userVars.push(new SFSUserVariable("x", 10));
+	 	userVars.push(new SFSUserVariable("y", 5));
+	 	
+	 	sfs.send(new SetUserVariablesRequest(userVars));
+	 }
+	 
+	 private function onUserVarsUpdate(evt:SFSEvent):void
+	 {
+	 	var changedVars:Array = evt.params.changedVars as Array;
+	 	var user:User = evt.params.user as User;
+	 	
+	 	// Check if the user changed his x and y user variables
+	 	if (changedVars.indexOf("x") != -1 || changedVars.indexOf("y") != -1)
+	 	{
+	 		// Move the user avatar to a new position
+	 		...
+	 	}
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:userVariablesUpdate"><linktext>userVariablesUpdate event</linktext></link><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/permissions"><linktext>RoomSettings.permissions</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:SetUserVariablesRequest:SetUserVariablesRequest"><apiName>SetUserVariablesRequest</apiName><shortdesc>
+		 Creates a new SetUserVariablesRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>userVariables</apiItemName><apiType value="Array"/><apiDesc>A list of <i>UserVariable</i> objects representing the User Variables to be set.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SetUserVariablesRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.variables.xml#UserVariable"><linktext>UserVariable</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:LogoutRequest"><apiName>LogoutRequest</apiName><shortdesc>
+	 Logs the user out of the current server Zone.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Logs the user out of the current server Zone.
+	 
+	 <p>The user is notified of the logout operation by means of the <i>logout</i> event.
+	 This doesn't shut down the connection, so the user will be able to login again in the same Zone or in a different one right after the confirmation event.</p>
+	 
+	 </apiDesc><example>The following example performs a logout from the current Zone:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.LOGOUT, onLogout);
+	 	
+	 	// Logout
+	 	sfs.send(new LogoutRequest());
+	 }
+	 
+	 private function onLogout(evt:SFSEvent):void
+	 {
+	 	trace("Logout executed!");
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:logout"><linktext>logout event</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:LogoutRequest:LogoutRequest"><apiName>LogoutRequest</apiName><shortdesc>
+		 Creates a new LogoutRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef><apiDesc>
+		 Creates a new <i>LogoutRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:UnsubscribeRoomGroupRequest"><apiName>UnsubscribeRoomGroupRequest</apiName><shortdesc>
+	 Unsubscribes the current user to Room-related events occurring in the specified Group.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Unsubscribes the current user to Room-related events occurring in the specified Group.
+	 This allows the user to stop being notified of specific Room events occurring in Rooms belonging to the unsubscribed Group.
+	 
+	 <p>If the operation is successful, the current user receives a <i>roomGroupUnsubscribe</i> event; otherwise the <i>roomGroupUnsubscribeError</i> event is fired.</p>
+	 
+	 </apiDesc><example>The following example makes the current user unsubscribe a Group:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.ROOM_GROUP_UNSUBSCRIBE, onGroupUnsubscribed);
+	 	sfs.addEventListener(SFSEvent.ROOM_GROUP_UNSUBSCRIBE_ERROR, onGroupUnsubscribeError);
+	 	
+	 	// Unsubscribe the "cardGames" group
+	 	sfs.send(new UnsubscribeRoomGroupRequest("cardGames"));
+	 }
+	 
+	 private function onGroupUnsubscribed(evt:SFSEvent):void
+	 {
+	 	trace("Group unsubscribed: " + evt.params.groupId);
+	 }
+	 
+	 private function onGroupUnsubscribeError(evt:SFSEvent):void
+	 {
+	 	trace("Group unsubscribing failed: " + evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomGroupUnsubscribe"><linktext>roomGroupUnsubscribe event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomGroupUnsubscribeError"><linktext>roomGroupUnsubscribeError event</linktext></link><link href="com.smartfoxserver.v2.requests.xml#SubscribeRoomGroupRequest"><linktext>SubscribeRoomGroupRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:UnsubscribeRoomGroupRequest:UnsubscribeRoomGroupRequest"><apiName>UnsubscribeRoomGroupRequest</apiName><shortdesc>
+		 Creates a new UnsubscribeRoomGroupRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>groupId</apiItemName><apiType value="String"/><apiDesc>The name of the Room Group to unsubscribe.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>UnsubscribeRoomGroupRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room/groupId"><linktext>Room.groupId</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:FindRoomsRequest"><apiName>FindRoomsRequest</apiName><shortdesc>
+	 Retrieves a list of Rooms from the server which match the specified criteria.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Retrieves a list of Rooms from the server which match the specified criteria.
+	 
+	 <p>By providing a matching expression and a search scope (a Group or the entire Zone), SmartFoxServer can find those Rooms
+	 matching the passed criteria and return them by means of the <i>roomFindResult</i> event.</p>
+	 
+	 </apiDesc><example>The following example looks for all the server Rooms whose "country" Room Variable is set to <codeph>Sweden</codeph>:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.ROOM_FIND_RESULT, onRoomFindResult);
+	 	
+	 	// Create a matching expression to find Rooms with a "country" variable equal to "Sweden"
+	 	var exp:MatchExpression = new MatchExpression("country", StringMatch.EQUALS, "Sweden");
+	 	
+	 	// Find the Rooms
+	 	sfs.send(new FindRoomsRequest(exp));
+	 }
+	 
+	 private function onRoomFindResult(evt:SFSEvent):void
+	 {
+	 	trace("Rooms found: " + evt.params.rooms);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression"><linktext>MatchExpression</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomFindResult"><linktext>roomFindResult event</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:FindRoomsRequest:FindRoomsRequest"><apiName>FindRoomsRequest</apiName><shortdesc>
+		 Creates a new FindRoomsRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>expr</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.match:MatchExpression</apiOperationClassifier><apiDesc>A matching expression that the system will use to retrieve the Rooms.
+		 </apiDesc></apiParam><apiParam><apiItemName>groupId</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>The name of the Group where to search for matching Rooms; if <codeph>null</codeph>, the search is performed in the whole Zone.
+		 </apiDesc></apiParam><apiParam><apiItemName>limit</apiItemName><apiType value="int"/><apiData>0</apiData><apiDesc>The maximum size of the list of Rooms that will be returned by the <i>roomFindResult</i> event. If <codeph>0</codeph>, all the found Rooms are returned.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>FindRoomsRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomFindResult"><linktext>roomFindResult event</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:RoomExtension"><apiName>RoomExtension</apiName><shortdesc>
+	 The RoomExtension class contains a specific subset of the RoomSettings required to create a Room.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>RoomExtension</i> class contains a specific subset of the <i>RoomSettings</i> required to create a Room.
+	 It defines which server-side Extension should be attached to the Room upon creation.
+	 
+	 <p>The client can communicate with the Room Extension by means of the <i>ExtensionRequest</i> request.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/extension"><linktext>RoomSettings.extension</linktext></link><link href="com.smartfoxserver.v2.requests.xml#CreateRoomRequest"><linktext>CreateRoomRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#ExtensionRequest"><linktext>ExtensionRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:RoomExtension:RoomExtension"><apiName>RoomExtension</apiName><shortdesc>
+		 Creates a new RoomExtension instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>id</apiItemName><apiType value="String"/><apiDesc>		The name of the Extension as deployed on the server; it's the name of the folder containing the Extension classes inside the main <i>[sfs2x-install-folder]/SFS2X/extensions</i> folder.
+		 </apiDesc></apiParam><apiParam><apiItemName>className</apiItemName><apiType value="String"/><apiDesc>The fully qualified name of the main class of the Extension.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>RoomExtension</i> instance.
+		 The <i>RoomSettings.extension</i> property must be set to this instance during Room creation.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/extension"><linktext>RoomSettings.extension</linktext></link></related-links></apiConstructor><apiValue id="com.smartfoxserver.v2.requests:RoomExtension:className:get"><apiName>className</apiName><shortdesc>
+		 Returns the fully qualified name of the main class of the Extension.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Returns the fully qualified name of the main class of the Extension.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#RoomExtension/RoomExtension()"><linktext>RoomExtension()</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomExtension:id:get"><apiName>id</apiName><shortdesc>
+		 Returns the name of the Extension to be attached to the Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Returns the name of the Extension to be attached to the Room.
+		 It's the name of the server-side folder containing the Extension classes inside the main <i>[sfs2x-install-folder]/SFS2X/extensions</i> folder.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#RoomExtension/RoomExtension()"><linktext>RoomExtension()</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomExtension:propertiesFile:get"><apiName>propertiesFile</apiName><shortdesc>
+		 Defines the name of an optional properties file that should be loaded on the server-side during the Extension initialization.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Defines the name of an optional properties file that should be loaded on the server-side during the Extension initialization.
+		 The file must be located in the server-side folder containing the Extension classes (see the <i>id</i> property).
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#RoomExtension/id"><linktext>id</linktext></link></related-links></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:PlayerToSpectatorRequest"><apiName>PlayerToSpectatorRequest</apiName><shortdesc>
+	 Turns the current user from player to spectator in a Game Room.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Turns the current user from player to spectator in a Game Room.
+	 
+	 <p>If the operation is successful, all the users in the target Room are notified with the <i>playerToSpectator</i> event.
+	 The operation could fail if no spectator slots are available in the Game Room at the time of the request; in this case
+	 the <i>playerToSpectatorError</i> event is dispatched to the requester's client.</p>
+	 
+	 </apiDesc><example>The following example turns the current user from player to spectator in the last joined Game Room:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.PLAYER_TO_SPECTATOR, onPlayerToSpectatorSwitch);
+	 	sfs.addEventListener(SFSEvent.PLAYER_TO_SPECTATOR_ERROR, onPlayerToSpectatorSwitchError);
+	 	
+	 	// Switch player to spectator
+	 	sfs.send(new PlayerToSpectatorRequest());
+	 }
+	 
+	 private function onPlayerToSpectatorSwitch(evt:SFSEvent):void
+	 {
+	 	trace("Player " + evt.params.user + " is now a spectator");
+	 }
+	 
+	 private function onPlayerToSpectatorSwitchError(evt:SFSEvent):void
+	 {
+	 	trace("Unable to become a spectator due to the following error: " + evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:playerToSpectator"><linktext>playerToSpectator event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:playerToSpectatorError"><linktext>playerToSpectatorError event</linktext></link><link href="com.smartfoxserver.v2.requests.xml#SpectatorToPlayerRequest"><linktext>SpectatorToPlayerRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:PlayerToSpectatorRequest:PlayerToSpectatorRequest"><apiName>PlayerToSpectatorRequest</apiName><shortdesc>
+		 Creates a new PlayerToSpectatorRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>targetRoom</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiData>null</apiData><apiDesc>The <i>Room</i> object corresponding to the Room in which the player should be turned to spectator. If <codeph>null</codeph>, the last Room joined by the user is used.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>PlayerToSpectatorRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:ChangeRoomPasswordStateRequest"><apiName>ChangeRoomPasswordStateRequest</apiName><shortdesc>
+	 Changes the password of a Room.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Changes the password of a Room.
+	 This request not only changes the password of a Room, but also its "password state", which indicates if the Room is password protected or not.
+	 
+	 <p>If the operation is successful, the <i>roomPasswordStateChange</i> event is dispatched to all the users
+	 who subscribed the Group to which the target Room belongs, including the requester user himself.
+	 If the user is not the creator (owner) of the Room, or if the Room was configured so that password changing is not allowed
+	 (see the <i>RoomSettings.permissions</i> parameter), the <i>roomPasswordStateChangeError</i> event if fired.
+	 An administrator or moderator can override the first constrain (he is not requested to be the Room's owner).</p>
+	 
+	 </apiDesc><example>The following example changes the password of an existing Room:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.ROOM_PASSWORD_STATE_CHANGE, onRoomPasswordStateChanged);
+	 	sfs.addEventListener(SFSEvent.ROOM_PASSWORD_STATE_CHANGE_ERROR, onRoomPasswordStateChangeError);
+	 	
+	 	var theRoom:Room = sfs.getRoomByName("Gonzo's Room");
+	 	sfs.send(new ChangeRoomPasswordStateRequest(theRoom, "mammamia"));
+	 }
+	 
+	 private function onRoomPasswordStateChanged(evt:SFSEvent):void
+	 {
+	 	trace("The password of Room " + evt.params.room.name + " was changed successfully");
+	 }
+	 
+	 private function onRoomPasswordStateChangeError(evt:SFSEvent):void
+	 {
+	 	trace("Room password change failed: " + evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomPasswordStateChange"><linktext>roomPasswordStateChange event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomPasswordStateChangeError"><linktext>roomPasswordStateChangeError event</linktext></link><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/permissions"><linktext>RoomSettings.permissions</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:ChangeRoomPasswordStateRequest:ChangeRoomPasswordStateRequest"><apiName>ChangeRoomPasswordStateRequest</apiName><shortdesc>
+		 Creates a new ChangeRoomPasswordStateRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>room</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiDesc>The <i>Room</i> object corresponding to the Room whose password should be changed.
+		 </apiDesc></apiParam><apiParam><apiItemName>newPass</apiItemName><apiType value="String"/><apiDesc>The new password to be assigned to the Room; an empty string or the <codeph>null</codeph> value can be passed to remove the Room's password.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>ChangeRoomPasswordStateRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:LoginRequest"><apiName>LoginRequest</apiName><shortdesc>
+	 Logs the current user in one of the server Zones.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Logs the current user in one of the server Zones.
+	 
+	 <p>Each Zone represent an indipendent multiuser application governed by SmartFoxServer. In order to join a Zone, a user name and password are usually required.
+	 In order to validate the user credentials, a custom login process should be implemented in the Zone's server-side Extension.</p>
+	 
+	 <p>Read the SmartFoxServer 2X documentation about the login process for more informations.</p>
+	 
+	 <p>If the login operation is successful, the current user receives a <i>login</i> event; otherwise the <i>loginError</i> event is fired.</p>
+	 
+	 </apiDesc><example>The following example performs a login in the "SimpleChat" Zone:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.LOGIN, onLogin);
+	 	sfs.addEventListener(SFSEvent.LOGIN_ERROR, onLoginError);
+	 	
+	 	// Login
+	 	sfs.send(new LoginRequest("FozzieTheBear", "", "SimpleChat"));
+	 }
+	 
+	 private function onLogin(evt:SFSEvent):void
+	 {
+	 	trace("Login successful!");
+	 }
+	 
+	 private function onLoginError(evt:SFSEvent):void
+	 {
+	 	trace("Login failure: " + evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:login"><linktext>login event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:loginError"><linktext>loginError event</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:LoginRequest:LoginRequest"><apiName>LoginRequest</apiName><shortdesc>
+		 Creates a new LoginRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>userName</apiItemName><apiType value="String"/><apiData/><apiDesc>The name to be assigned to the user. If not passed and if the Zone allows guest users, the name is generated automatically by the server.
+		 </apiDesc></apiParam><apiParam><apiItemName>password</apiItemName><apiType value="String"/><apiData/><apiDesc>The user password to access the system. SmartFoxServer doesn't offer a default authentication system,
+		 						so the password must be validated implementing a custom login system in the Zone's server-side Extension.
+		 </apiDesc></apiParam><apiParam><apiItemName>zoneName</apiItemName><apiType value="String"/><apiData/><apiDesc>The name (case-sensitive) of the server Zone to login to; if a Zone name is not specified, the client will use the setting loaded via <i>SmartFox.loadConfig()</i> method.
+		 </apiDesc></apiParam><apiParam><apiItemName>params</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier><apiData>null</apiData><apiDesc>	An instance of <i>SFSObject</i> containing custom parameters to be passed to the Zone Extension (requires a custom login system to be in place).
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>LoginRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/loadConfig()"><linktext>SmartFox.loadConfig()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:CreateRoomRequest"><apiName>CreateRoomRequest</apiName><shortdesc>
+	 Creates a new Room in the current Zone.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Creates a new Room in the current Zone.
+	 
+	 <p>If the creation is successful, a <i>roomAdd</i> event is dispatched to all the users who subscribed the Group to which the Room is associated, including the Room creator.
+	 Otherwise, a <i>roomCreationError</i> event is returned to the creator's client.</p>
+	 
+	 </apiDesc><example>The following example creates a new chat room:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.ROOM_ADD, onRoomCreated);
+	 	sfs.addEventListener(SFSEvent.ROOM_CREATION_ERROR, onRoomCreationError);
+	 	
+	 	// Create a new chat Room
+	 	var settings:RoomSettings = new RoomSettings("My Chat Room");
+	 	settings.maxUsers = 40;
+	 	settings.groupId = "chats";
+	 	
+	 	sfs.send(new CreateRoomRequest(settings));
+	 }
+	 
+	 private function onRoomCreated(evt:SFSEvent):void
+	 {
+	 	trace("Room created: " + evt.params.room);
+	 }
+	 
+	 private function onRoomCreationError(evt:SFSEvent):void
+	 {
+	 	trace("Room creation failed: " + evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomAdd"><linktext>roomAdd event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomCreationError"><linktext>roomCreationError event</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:CreateRoomRequest:CreateRoomRequest"><apiName>CreateRoomRequest</apiName><shortdesc>
+		 Creates a new CreateRoomRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>settings</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.requests:RoomSettings</apiOperationClassifier><apiDesc>An object containing the Room configuration settings.
+		 </apiDesc></apiParam><apiParam><apiItemName>autoJoin</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>If <codeph>true</codeph>, the Room is joined as soon as it is created.
+		 </apiDesc></apiParam><apiParam><apiItemName>roomToLeave</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiData>null</apiData><apiDesc>A <i>Room</i> object representing the Room that should be left if the new Room is auto-joined.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>CreateRoomRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.requests.xml#RoomSettings"><linktext>RoomSettings</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:ChangeRoomNameRequest"><apiName>ChangeRoomNameRequest</apiName><shortdesc>
+	 Changes the name of a Room.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Changes the name of a Room.
+	 
+	 <p>If the renaming operation is successful, the <i>roomNameChange</i> event is dispatched to all the users
+	 who subscribed the Group to which the target Room belongs, including the user who renamed it.
+	 If the user is not the creator (owner) of the Room, or if the Room was configured so that renaming is not allowed
+	 (see the <i>RoomSettings.permissions</i> parameter), the <i>roomNameChangeError</i> event if fired.
+	 An administrator or moderator can override the first constrain (he is not requested to be the Room's owner).</p>
+	 
+	 </apiDesc><example>The following example renames an existing Room:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.ROOM_NAME_CHANGE, onRoomNameChanged);
+	 	sfs.addEventListener(SFSEvent.ROOM_NAME_CHANGE_ERROR, onRoomNameChangeError);
+	 	
+	 	var theRoom:Room = sfs.getRoomByName("Gonzo's Room");
+	 	sfs.send(new ChangeRoomNameRequest(theRoom, "Gonzo The Great's Room"));
+	 }
+	 
+	 private function onRoomNameChanged(evt:SFSEvent):void
+	 {
+	 	trace("Room " + evt.params.oldName + " was successfully renamed to " + evt.params.room.name);
+	 }
+	 
+	 private function onRoomNameChangeError(evt:SFSEvent):void
+	 {
+	 	trace("Room name change failed: " + evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomNameChange"><linktext>roomNameChange event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomNameChangeError"><linktext>roomNameChangeError event</linktext></link><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/permissions"><linktext>RoomSettings.permissions</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:ChangeRoomNameRequest:ChangeRoomNameRequest"><apiName>ChangeRoomNameRequest</apiName><shortdesc>
+		 Creates a new ChangeRoomNameRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>room</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiDesc>The <i>Room</i> object corresponding to the Room whose name should be changed.
+		 </apiDesc></apiParam><apiParam><apiItemName>newName</apiItemName><apiType value="String"/><apiDesc>The new name to be assigned to the Room.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>ChangeRoomNameRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:SubscribeRoomGroupRequest"><apiName>SubscribeRoomGroupRequest</apiName><shortdesc>
+	 Subscribes the current user to Room-related events occurring in the specified Group.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Subscribes the current user to Room-related events occurring in the specified Group.
+	 This allows the user to be notified of specific Room events even if he didn't join the Room from which the events originated, provided the Room belongs to the subscribed Group.
+	 
+	 <p>If the subscription operation is successful, the current user receives a <i>roomGroupSubscribe</i> event; otherwise the <i>roomGroupSubscribeError</i> event is fired.</p>
+	 
+	 </apiDesc><example>The following example makes the current user subscribe a Group:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.ROOM_GROUP_SUBSCRIBE, onGroupSubscribed);
+	 	sfs.addEventListener(SFSEvent.ROOM_GROUP_SUBSCRIBE_ERROR, onGroupSubscribeError);
+	 	
+	 	// Subscribe the "cardGames" group
+	 	sfs.send(new SubscribeRoomGroupRequest("cardGames"));
+	 }
+	 
+	 private function onGroupSubscribed(evt:SFSEvent):void
+	 {
+	 	trace("Group subscribed. The following rooms are now accessible: " + evt.params.newRooms);
+	 }
+	 
+	 private function onGroupSubscribeError(evt:SFSEvent):void
+	 {
+	 	trace("Group subscription failed: " + evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomGroupSubscribe"><linktext>roomGroupSubscribe event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomGroupSubscribeError"><linktext>roomGroupSubscribeError event</linktext></link><link href="com.smartfoxserver.v2.requests.xml#UnsubscribeRoomGroupRequest"><linktext>UnsubscribeRoomGroupRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:SubscribeRoomGroupRequest:SubscribeRoomGroupRequest"><apiName>SubscribeRoomGroupRequest</apiName><shortdesc>
+		 Creates a new SubscribeRoomGroupRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>groupId</apiItemName><apiType value="String"/><apiDesc>The name of the Room Group to subscribe.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SubscribeRoomGroupRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room/groupId"><linktext>Room.groupId</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:RoomEvents"><apiName>RoomEvents</apiName><shortdesc>
+	 The RoomEvents class contains a specific subset of the RoomSettings required to create a Room.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>RoomEvents</i> class contains a specific subset of the <i>RoomSettings</i> required to create a Room.
+	 It defines which events related to the Room will be fired by the <i>SmartFox</i> client.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/events"><linktext>RoomSettings.events</linktext></link><link href="com.smartfoxserver.v2.requests.xml#CreateRoomRequest"><linktext>CreateRoomRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:RoomEvents:RoomEvents"><apiName>RoomEvents</apiName><shortdesc>
+		 Creates a new RoomEvents instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef><apiDesc>
+		 Creates a new <i>RoomEvents</i> instance.
+		 The <i>RoomSettings.events</i> property must be set to this instance during Room creation.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/events"><linktext>RoomSettings.events</linktext></link></related-links></apiConstructor><apiValue id="com.smartfoxserver.v2.requests:RoomEvents:allowUserCountChange:get"><apiName>allowUserCountChange</apiName><shortdesc>
+		 Indicates whether or not the userCountChange event should be dispatched whenever the users (or players+spectators) count changes in the Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/><apiDefaultValue>false
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Indicates whether or not the <i>userCountChange</i> event should be dispatched whenever the users (or players+spectators) count changes in the Room.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:userCountChange"><linktext>userCountChange event</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomEvents:allowUserEnter:get"><apiName>allowUserEnter</apiName><shortdesc>
+		 Indicates whether the userEnterRoom event should be dispatched whenever a user joins the Room or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/><apiDefaultValue>false
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Indicates whether the <i>userEnterRoom</i> event should be dispatched whenever a user joins the Room or not.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:userEnterRoom"><linktext>userEnterRoom event</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomEvents:allowUserExit:get"><apiName>allowUserExit</apiName><shortdesc>
+		 Indicates whether the userExitRoom event should be dispatched whenever a user leaves the Room or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/><apiDefaultValue>false
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Indicates whether the <i>userExitRoom</i> event should be dispatched whenever a user leaves the Room or not.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:userExitRoom"><linktext>userExitRoom event</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.requests:RoomEvents:allowUserVariablesUpdate:get"><apiName>allowUserVariablesUpdate</apiName><shortdesc>
+		 Indicates whether or not the userVariablesUpdate event should be dispatched whenever a user in the Room updates his User Variables.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/><apiDefaultValue>false
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Indicates whether or not the <i>userVariablesUpdate</i> event should be dispatched whenever a user in the Room updates his User Variables.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:userVariablesUpdate"><linktext>userVariablesUpdate event</linktext></link></related-links></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:PrivateMessageRequest"><apiName>PrivateMessageRequest</apiName><shortdesc>
+	 Sends a private chat message.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:GenericMessageRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Sends a private chat message.
+	 
+	 <p>The private message is dispatched to a specific user, who can be in any server Room, or even in no Room at all. The message is delivered by means of the <i>privateMessage</i> event.
+	 It is also returned to the sender: this allows showing the messages in the correct order in the application interface.
+	 It is also possible to send an optional object together with the message: it can contain custom parameters useful to transmit, for example, additional
+	 informations related to the message, like the text font or color, or other formatting details.</p>
+	 
+	 </apiDesc><example>The following example sends a private message and handles the respective event:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.PRIVATE_MESSAGE, onPrivateMessage);
+	 	
+	 	// Send a private message to Jack
+	 	var user:User = sfs.usermanager.getUserByName("Jack");
+	 	sfs.send(new PrivateMessageRequest("Hello everyone!", user.id));
+	 }
+	 
+	 private function onPrivateMessage(evt:SFSEvent):void
+	 {
+	 	// As messages are forwarded to the sender too,
+	 	// I have to check if I am the sender
+	 	
+	 	var sender:User = evt.params.sender;
+	 	
+	 	if (sender != sfs.mySelf)
+	 		trace("User " + sender.name + " sent me this PM:", evt.params.message);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:privateMessage"><linktext>privateMessage event</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:PrivateMessageRequest:PrivateMessageRequest"><apiName>PrivateMessageRequest</apiName><shortdesc>
+		 Creates a new PrivateMessageRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>message</apiItemName><apiType value="String"/><apiDesc>	The message to be sent to to the recipient user.
+		 </apiDesc></apiParam><apiParam><apiItemName>recipientId</apiItemName><apiType value="int"/><apiDesc>The id of the user to which the message is to be sent.
+		 </apiDesc></apiParam><apiParam><apiItemName>params</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier><apiData>null</apiData><apiDesc>	An instance of <i>SFSObject</i> containing additional custom parameters to be sent to the message recipient (for example the color of the text, etc).
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>PrivateMessageRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:ChangeRoomCapacityRequest"><apiName>ChangeRoomCapacityRequest</apiName><shortdesc>
+	 Changes the maximum number of users and/or spectators who can join a Room.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Changes the maximum number of users and/or spectators who can join a Room.
+	 
+	 <p>If the operation is successful, the <i>roomCapacityChange</i> event is dispatched to all the users
+	 who subscribed the Group to which the target Room belongs, including the requester user himself.
+	 If the user is not the creator (owner) of the Room, or if the Room was configured so that capacity changing is not allowed
+	 (see the <i>RoomSettings.permissions</i> parameter), the <i>roomCapacityChangeError</i> event if fired.
+	 An administrator or moderator can override the first constrain (he is not requested to be the Room's owner).</p>
+	 
+	 <p>In case the Room's capacity is reduced to a value less than the current number of users/spectators inside the Room, exceeding users are NOT disconnected.</p>
+	 
+	 </apiDesc><example>The following example changes the capacity of an existing Room:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.ROOM_CAPACITY_CHANGE, onRoomCapacityChanged);
+	 	sfs.addEventListener(SFSEvent.ROOM_CAPACITY_CHANGE_ERROR, onRoomCapacityChangeError);
+	 	
+	 	var theRoom:Room = sfs.getRoomByName("Gonzo's Room");
+	 	
+	 	// Resize the Room so that it allows a maximum of 100 users and zero spectators
+	 	sfs.send(new ChangeRoomCapacityRequest(theRoom, 100, 0));
+	 }
+	 
+	 private function onRoomCapacityChanged(evt:SFSEvent):void
+	 {
+	 	trace("The capacity of Room " + evt.params.room.name + " was changed successfully");
+	 }
+	 
+	 private function onRoomCapacityChangeError(evt:SFSEvent):void
+	 {
+	 	trace("Room capacity change failed: " + evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomCapacityChange"><linktext>roomCapacityChange event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:roomCapacityChangeError"><linktext>roomCapacityChangeError event</linktext></link><link href="com.smartfoxserver.v2.requests.xml#RoomSettings/permissions"><linktext>RoomSettings.permissions</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:ChangeRoomCapacityRequest:ChangeRoomCapacityRequest"><apiName>ChangeRoomCapacityRequest</apiName><shortdesc>
+		 Creates a new ChangeRoomCapacityRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>room</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiDesc>	The <i>Room</i> object corresponding to the Room whose capacity should be changed.
+		 </apiDesc></apiParam><apiParam><apiItemName>newMaxUsers</apiItemName><apiType value="int"/><apiDesc>The new maximum number of users/players who can join the Room; the <codeph>-1</codeph> value can be passed not to change the <i>Room.maxUsers</i> property.
+		 </apiDesc></apiParam><apiParam><apiItemName>newMaxSpect</apiItemName><apiType value="int"/><apiDesc>The new maximum number of spectators who can join the Room (for Game Rooms only); the <codeph>-1</codeph> value can be passed not to change the <i>Room.maxSpectators</i> property.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>ChangeRoomCapacityRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room/maxUsers"><linktext>Room.maxUsers</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:KickUserRequest"><apiName>KickUserRequest</apiName><shortdesc>
+	 Kicks a user out of the server.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Kicks a user out of the server.
+	 
+	 <p>The current user must have administration or moderation privileges in order to be able to kick another user (see the <i>User.privilegeId</i> property).
+	 The request allows sending a message to the kicked user (to make clear the reason of the following disconnection) which is delivered by means of the <i>moderatorMessage</i> event.</p>
+	 
+	 <p>Differently from the user being banned (see the <i>BanUserRequest</i> request), a kicked user will be able to reconnect to the SmartFoxServer instance immediately.</p>
+	 
+	 </apiDesc><example>The following example kicks the user Jack from the system:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	var userToKick:User = sfs.userManager.getUserByName("Jack");
+	 	sfs.send(new KickUserRequest(userToKick.id));
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:moderatorMessage"><linktext>moderatorMessage event</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/privilegeId"><linktext>User.privilegeId</linktext></link><link href="com.smartfoxserver.v2.requests.xml#BanUserRequest"><linktext>BanUserRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:KickUserRequest:KickUserRequest"><apiName>KickUserRequest</apiName><shortdesc>
+		 Creates a new KickUserRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>userId</apiItemName><apiType value="int"/><apiDesc>		The id of the user to be kicked.
+		 </apiDesc></apiParam><apiParam><apiItemName>message</apiItemName><apiType value="String"/><apiData>null</apiData><apiDesc>		A custom message to be delivered to the user before kicking him;
+		 							if <codeph>null</codeph>, the default message configured in the SmartFoxServer 2X Administration Tool is used.
+		 </apiDesc></apiParam><apiParam><apiItemName>delaySeconds</apiItemName><apiType value="int"/><apiData>5</apiData><apiDesc>The number of seconds after which the user is kicked after receiving the kick message.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>KickUserRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:AdminMessageRequest"><apiName>AdminMessageRequest</apiName><shortdesc>
+	 Sends an administrator message to a specific user or a group of users.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:GenericMessageRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Sends an administrator message to a specific user or a group of users.
+	 
+	 <p>The current user must have administration privileges to be able to send the message (see the <i>User.privilegeId</i> property).</p>
+	 
+	 <p>The <i>recipientMode</i> parameter in the class constructor is used to determine the message recipients: a single user or all the
+	 users in a Room, a Group or the entire Zone. Upon message delivery, the clients of the recipient users dispatch the <i>adminMessage</i> event.</p>
+	 
+	 </apiDesc><example>The following example sends an administration message to all the users in the Zone; it also shows how to handle the related event:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.ADMIN_MESSAGE, onAdminMessage);
+	 	
+	 	// Set the message recipients: all users in the Zone
+	 	var recipMode:MessageRecipientMode = new MessageRecipientMode(MessageRecipientMode.TO_ZONE, null);
+	 	
+	 	// Send the administrator message
+	 	sfs.send(new AdminMessageRequest("Hello to everybody from the Administrator!", recipMode));
+	 }
+	 
+	 private function onAdminMessage(evt:SFSEvent):void
+	 {
+	 	trace("The administrator sent the following message: " + evt.params.message);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:adminMessage"><linktext>adminMessage event</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/privilegeId"><linktext>User.privilegeId</linktext></link><link href="com.smartfoxserver.v2.requests.xml#ModeratorMessageRequest"><linktext>ModeratorMessageRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:AdminMessageRequest:AdminMessageRequest"><apiName>AdminMessageRequest</apiName><shortdesc>
+		 Creates a new AdminMessageRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>message</apiItemName><apiType value="String"/><apiDesc>		The message of the administrator to be sent to the target user/s defined by the <i>recipientMode</i> parameter.
+		 </apiDesc></apiParam><apiParam><apiItemName>recipientMode</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.requests:MessageRecipientMode</apiOperationClassifier><apiDesc>An instance of <i>MessageRecipientMode</i> containing the target to which the message should be delivered.
+		 </apiDesc></apiParam><apiParam><apiItemName>params</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier><apiData>null</apiData><apiDesc>		An instance of <i>SFSObject</i> containing custom parameters to be sent to the recipient user/s.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>AdminMessageRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:FindUsersRequest"><apiName>FindUsersRequest</apiName><shortdesc>
+	 Retrieves a list of users from the server which match the specified criteria.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Retrieves a list of users from the server which match the specified criteria.
+	 
+	 <p>By providing a matching expression and a search scope (a Room, a Group or the entire Zone), SmartFoxServer can find those users
+	 matching the passed criteria and return them by means of the <i>userFindResult</i> event.</p>
+	 
+	 </apiDesc><example>The following example looks for all the users whose "age" User Variable is greater than <codeph>29</codeph>:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.USER_FIND_RESULT, onUserFindResult);
+	 	
+	 	// Create a matching expression to find users with an "age" variable greater than 29:
+	 	var exp:MatchExpression = new MatchExpression("age", NumberMatch.GREATER_THAN, 29);
+	 	
+	 	// Find the users
+	 	sfs.send(new FindUsersRequest(exp));
+	 }
+	 
+	 private function onUserFindResult(evt:SFSEvent):void
+	 {
+	 	trace("Users found: " + evt.params.users);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression"><linktext>MatchExpression</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:userFindResult"><linktext>userFindResult event</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:FindUsersRequest:FindUsersRequest"><apiName>FindUsersRequest</apiName><shortdesc>
+		 Creates a new FindUsersRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>expr</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.match:MatchExpression</apiOperationClassifier><apiDesc>A matching expression that the system will use to retrieve the users.
+		 </apiDesc></apiParam><apiParam><apiItemName>target</apiItemName><apiType value="any"/><apiData>null</apiData><apiDesc>The name of a Group or a single <i>Room</i> object where to search for matching users; if <codeph>null</codeph>, the search is performed in the whole Zone.
+		 </apiDesc></apiParam><apiParam><apiItemName>limit</apiItemName><apiType value="int"/><apiData>0</apiData><apiDesc>The maximum size of the list of users that will be returned by the <i>userFindResult</i> event. If <codeph>0</codeph>, all the found users are returned.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>FindUsersRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:userFindResult"><linktext>userFindResult event</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests:ExtensionRequest"><apiName>ExtensionRequest</apiName><shortdesc>
+	 Sends a command to the server-side Extension attached to the Zone or to a Room.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Sends a command to the server-side Extension attached to the Zone or to a Room.
+	 
+	 <p>This request is used to send custom commands from the client to a server-side Extension, be it a Zone-level or Room-level Extension.
+	 Viceversa, the <i>extensionResponse</i> event is used by the server to send Extension commands/responses to the client.</p>
+	 
+	 <p>Read the SmartFoxServer 2X documentation about server-side Extension for more informations.</p>
+	 
+	 <p>The <i>ExtensionRequest</i> request can be sent using the UDP protocol too, provided it is available (see the <i>SmartFox.udpAvailable</i> property):
+	 this allows sending fast stream of packets to the server in real-time type games, typically for position/transformation updates, etc.</p>
+	 
+	 </apiDesc><example>The following example sends a command to the Zone Extension; it also handles responses coming from the
+	 Extension by implementing the <i>extensionResponse</i> listener (the same command name is used in both the request and the response):
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSEvent.EXTENSION_RESPONSE, onExtensionResponse);
+	 	
+	 	// Send two integers to the Zone extension and get their sum in return
+	 	var params:ISFSObject = new SFSObject();
+	 	params.putInt("n1", 26);
+	 	params.putInt("n2", 16);
+	 	
+	 	sfs.send(new ExtensionRequest("add", params));
+	 }
+	 
+	 private function onExtensionResponse(evt:SFSEvent):void
+	 {
+	 	if (evt.params.cmd == "add")
+	 	{
+	 		var responseParams:ISFSObject = evt.params.params as SFSObject;
+	 		
+	 		// We expect an int parameter called "sum"
+	 		trace("The sum is: " + responseParams.getInt("sum"));
+	 	}
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:extensionResponse"><linktext>extensionResponse event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/udpAvailable"><linktext>SmartFox.udpAvailable</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests:ExtensionRequest:ExtensionRequest"><apiName>ExtensionRequest</apiName><shortdesc>
+		 Creates a new ExtensionRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>extCmd</apiItemName><apiType value="String"/><apiDesc>The name of the command which identifies an action that should be executed by the server-side Extension.
+		 </apiDesc></apiParam><apiParam><apiItemName>params</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier><apiData>null</apiData><apiDesc>An instance of <i>SFSObject</i> containing custom data to be sent to the Extension. Can be null if no data needs to be sent.
+		 </apiDesc></apiParam><apiParam><apiItemName>room</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiData>null</apiData><apiDesc>If <codeph>null</codeph>, the specified command is sent to the current Zone server-side Extension; if not <codeph>null</codeph>, the command is sent to the server-side Extension attached to the passed Room.
+		 </apiDesc></apiParam><apiParam><apiItemName>useUDP</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>If <codeph>true</codeph>, the UDP protocol is used to send the request to the server (check the <i>SmartFox.udpAvailable</i> property for more informations).
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>ExtensionRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/udpAvailable"><linktext>SmartFox.udpAvailable</linktext></link></related-links></apiConstructor></apiClassifier></apiPackage>

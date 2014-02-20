@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/interfaces
+END
+IMediator.as
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/interfaces/IMediator.as
+END
+INotification.as
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/interfaces/INotification.as
+END
+IObserver.as
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/interfaces/IObserver.as
+END
+IView.as
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/interfaces/IView.as
+END
+ICommand.as
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/interfaces/ICommand.as
+END
+INotifier.as
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/interfaces/INotifier.as
+END
+IModel.as
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/interfaces/IModel.as
+END
+IProxy.as
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/interfaces/IProxy.as
+END
+IController.as
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/interfaces/IController.as
+END
+IFacade.as
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/interfaces/IFacade.as
+END

@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.smartfoxserver.v2.entities"><apiName>com.smartfoxserver.v2.entities</apiName><apiDetail/><apiClassifier id="com.smartfoxserver.v2.entities:User"><apiName>User</apiName><shortdesc>
+	 The User interface defines all the methods and properties that an object representing a SmartFoxServer User entity exposes.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <i>User</i> interface defines all the methods and properties that an object representing a SmartFoxServer User entity exposes.
+	 <p>In the SmartFoxServer 2X client API this interface is implemented by the <i>SFSUser</i> class. Read the class description for additional informations.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#SFSUser"><linktext>SFSUser</linktext></link></related-links><apiOperation id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:containsVariable"><apiName>containsVariable</apiName><shortdesc>
+		 Indicates whether this user has the specified User Variable set or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if a User Variable with the passed name is set for this user.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the User Variable whose existance must be checked.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether this user has the specified User Variable set or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:getPlayerId"><apiName>getPlayerId</apiName><shortdesc> 
+		 Returns the playerId value of this user in the passed Room.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>playerId</i> of this user in the passed Room.
+		 
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>room</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiDesc>The <i>Room</i> object representing the Room to retrieve the player id from.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Returns the <i>playerId</i> value of this user in the passed Room.
+		 See the <i>playerId</i> property description for more informations.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/playerId"><linktext>playerId</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:getVariable"><apiName>getVariable</apiName><shortdesc>
+		 Retrieves a User Variable from its name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>UserVariable</i> object representing the User Variable, or <codeph>null</codeph> if no User Variable with the passed name is associated with this user.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.variables:UserVariable</apiOperationClassifier></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the User Variable to be retrieved.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a User Variable from its name.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/getVariables()"><linktext>getVariables()</linktext></link><link href="com.smartfoxserver.v2.requests.xml#SetUserVariablesRequest"><linktext>SetUserVariablesRequest</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:getVariables"><apiName>getVariables</apiName><shortdesc>
+		 Retrieves all the User Variables of this user.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of <i>UserVariable</i> objects associated with the user.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc>
+		 Retrieves all the User Variables of this user.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#UserVariable"><linktext>UserVariable</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/getVariable()"><linktext>getVariable()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:isAdmin"><apiName>isAdmin</apiName><shortdesc>
+		 Indicates whether this user logged in as an administrator or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this user is an administrator.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc>
+		 Indicates whether this user logged in as an administrator or not.
+		 Administrator users have the <i>privilegeId</i> property set to <i>UserPrivileges.ADMINISTRATOR</i>.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/isGuest()"><linktext>isGuest()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isStandardUser()"><linktext>isStandardUser()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isModerator()"><linktext>isModerator()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/privilegeId"><linktext>privilegeId</linktext></link><link href="com.smartfoxserver.v2.entities.xml#UserPrivileges/ADMINISTRATOR"><linktext>UserPrivileges.ADMINISTRATOR</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:isGuest"><apiName>isGuest</apiName><shortdesc>
+		 Indicates whether this user logged in as a guest or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this user is a guest.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc>
+		 Indicates whether this user logged in as a guest or not.
+		 Guest users have the <i>privilegeId</i> property set to <i>UserPrivileges.GUEST</i>.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/isStandardUser()"><linktext>isStandardUser()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isModerator()"><linktext>isModerator()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isAdmin()"><linktext>isAdmin()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/privilegeId"><linktext>privilegeId</linktext></link><link href="com.smartfoxserver.v2.entities.xml#UserPrivileges/GUEST"><linktext>UserPrivileges.GUEST</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:isJoinedInRoom"><apiName>isJoinedInRoom</apiName><shortdesc>
+		 Indicates whether this user joined the passed Room or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this user is inside the passed Room.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>room</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiDesc>The <i>Room</i> object representing the Room where to check the user presence.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether this user joined the passed Room or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:isModerator"><apiName>isModerator</apiName><shortdesc>
+		 Indicates whether this user logged in as a moderator or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this user is a moderator.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc>
+		 Indicates whether this user logged in as a moderator or not.
+		 Moderator users have the <i>privilegeId</i> property set to <i>UserPrivileges.MODERATOR</i>.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/isGuest()"><linktext>isGuest()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isStandardUser()"><linktext>isStandardUser()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isAdmin()"><linktext>isAdmin()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/privilegeId"><linktext>privilegeId</linktext></link><link href="com.smartfoxserver.v2.entities.xml#UserPrivileges/MODERATOR"><linktext>UserPrivileges.MODERATOR</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:isPlayerInRoom"><apiName>isPlayerInRoom</apiName><shortdesc>
+		 Indicates whether this user is a player (playerId greater than 0) in the passed Room or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this user is a player in the passed Room.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>room</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiDesc>The <i>Room</i> object representing the Room where to check if this user is a player.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether this user is a player (<i>playerId</i> greater than <codeph>0</codeph>) in the passed Room or not.
+		 Non-Game Rooms always return <codeph>false</codeph>.
+		 
+		 <p>If a user can join one Game Rooms at a time only, use the <i>isPlayer</i> property.</p>
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/playerId"><linktext>playerId</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isPlayer"><linktext>isPlayer</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isSpectatorInRoom()"><linktext>isSpectatorInRoom()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:isSpectatorInRoom"><apiName>isSpectatorInRoom</apiName><shortdesc>
+		 Indicates whether this user is a spectator (playerId lower than 0) in the passed Room or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this user is a spectator in the passed Room.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>room</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiDesc>The <i>Room</i> object representing the Room where to check if this user is a spectator.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether this user is a spectator (<i>playerId</i> lower than <codeph>0</codeph>) in the passed Room or not.
+		 Non-Game Rooms always return <codeph>false</codeph>.
+		 
+		 <p>If a user can join one Game Rooms at a time only, use the <i>isSpectator</i> property.</p>
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/playerId"><linktext>playerId</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isSpectator"><linktext>isSpectator</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isPlayerInRoom()"><linktext>isPlayerInRoom()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:isStandardUser"><apiName>isStandardUser</apiName><shortdesc>
+		 Indicates whether this user logged in as a standard user or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this user is a standard user.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc>
+		 Indicates whether this user logged in as a standard user or not.
+		 Standard users have the <i>privilegeId</i> property set to <i>UserPrivileges.STANDARD</i>.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/isGuest()"><linktext>isGuest()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isModerator()"><linktext>isModerator()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isAdmin()"><linktext>isAdmin()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/privilegeId"><linktext>privilegeId</linktext></link><link href="com.smartfoxserver.v2.entities.xml#UserPrivileges/STANDARD"><linktext>UserPrivileges.STANDARD</linktext></link></related-links></apiOperation><apiValue id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:id:get"><apiName>id</apiName><shortdesc>
+		 Indicates the id of this user.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Indicates the id of this user.
+		 It is unique and it is generated by the server when the user is created.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:isItMe:get"><apiName>isItMe</apiName><shortdesc>
+		 Indicates if this User object represents the current client.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates if this <i>User</i> object represents the current client.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/mySelf"><linktext>SmartFox.mySelf</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:isPlayer:get"><apiName>isPlayer</apiName><shortdesc>
+		 Indicates whether this user is a player (playerId greater than 0) in the last joined Room or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether this user is a player (<i>playerId</i> greater than <codeph>0</codeph>) in the last joined Room or not.
+		 Non-Game Rooms always return <codeph>false</codeph>.
+		 
+		 <p>If the user is inside multiple Game Rooms at the same time, use the <i>isPlayerInRoom()</i> method.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/playerId"><linktext>playerId</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isPlayerInRoom()"><linktext>isPlayerInRoom()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isSpectator"><linktext>isSpectator</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:isSpectator:get"><apiName>isSpectator</apiName><shortdesc>
+		 Indicates whether this user is a spectator (playerId lower than 0) in the last joined Room or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether this user is a spectator (<i>playerId</i> lower than <codeph>0</codeph>) in the last joined Room or not.
+		 Non-Game Rooms always return <codeph>false</codeph>.
+		 
+		 <p>If the user is inside multiple Game Rooms at the same time, use the <i>isSpectatorInRoom()</i> method.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/playerId"><linktext>playerId</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isSpectatorInRoom()"><linktext>isSpectatorInRoom()</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User/isPlayer"><linktext>isPlayer</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:name:get"><apiName>name</apiName><shortdesc>
+		 Indicates the name of this user.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Indicates the name of this user.
+		 Two users in the same Zone can't have the same name.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:playerId:get"><apiName>playerId</apiName><shortdesc>
+		 Returns the id of this user as a player in a Game Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Returns the id of this user as a player in a Game Room.
+		 
+		 <p>This property differs from <i>id</i> property and it used to indicate which player number is assigned to a user inside a Game Room.
+		 For example, in a Game Room for 5 players the first client joining it will have <i>playerId</i> equal to <codeph>1</codeph>, the second will have it equal to <codeph>2</codeph> and so forth. 
+		 When a user leaves the Room the player slot is freed up and the next user joining the Room will take it.</p>
+		 
+		 <p>The <i>playerId</i> property applies to Game Rooms only; in standard Rooms it is always <codeph>0</codeph>.
+		 Also, in Game Rooms a <i>playerId</i> value lower than <codeph>0</codeph> indicates that the user is a spectator.</p>
+		 
+		 <p>If the user is inside multiple Game Rooms at the same time, a different <i>playerId</i> value will be assigned to him in each Room.
+		 In this case this property returns the value corresponding to the last joined Room; in order to obtain the <i>playerId</i> value in a specific Room, use the <i>getPlayerId()</i> method.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/getPlayerId()"><linktext>getPlayerId()</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:privilegeId:get"><apiName>privilegeId</apiName><shortdesc> 
+		 Returns the id which identifies the privilege level of this user.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Returns the id which identifies the privilege level of this user.
+		 
+		 <p><b>NOTE</b>: setting the <i>privilegeId</i> property manually has no effect on the server and can disrupt the API functioning.
+		 Privileges are assigned to the user by the server when the user logs in.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#UserPrivileges"><linktext>UserPrivileges</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:properties:get"><apiName>properties</apiName><shortdesc> 
+		 Defines a generic utility object that can be used to store custom user data.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Object"/></apiValueDef><apiDesc> 
+		 Defines a generic utility object that can be used to store custom user data.
+		 The values added to this object are for client-side use only and are never transmitted to the server or to the other clients.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:User:com.smartfoxserver.v2.entities:User:userManager:get"><apiName>userManager</apiName><shortdesc>
+		 Returns a reference to the User Manager which manages this user.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiValueClassifier>com.smartfoxserver.v2.entities.managers:IUserManager</apiValueClassifier></apiValueDef><apiDesc>
+		 Returns a reference to the User Manager which manages this user.
+		 
+		 <p><b>NOTE</b>: setting the <i>userManager</i> property manually has no effect on the server and can disrupt the API functioning.</p>
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities:Room"><apiName>Room</apiName><shortdesc>
+	 The Room interface defines all the methods and properties that an object representing a SmartFoxServer Room entity exposes.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <i>Room</i> interface defines all the methods and properties that an object representing a SmartFoxServer Room entity exposes.
+	 <p>In the SmartFoxServer 2X client API this interface is implemented by the <i>SFSRoom</i> class. Read the class description for additional informations.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#SFSRoom"><linktext>SFSRoom</linktext></link></related-links><apiOperation id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:containsUser"><apiName>containsUser</apiName><shortdesc>
+		 Indicates whether the specified user is currently inside this Room or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the user is inside this Room; <codeph>false</codeph> otherwise.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>user</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:User</apiOperationClassifier><apiDesc>The <i>User</i> object representing the user whose presence in this Room must be checked.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether the specified user is currently inside this Room or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:containsVariable"><apiName>containsVariable</apiName><shortdesc>
+		 Indicates whether this Room has the specified Room Variable set or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if a Room Variable with the passed name exists in this Room.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the Room Variable whose existance in this Room must be checked.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether this Room has the specified Room Variable set or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:getUserById"><apiName>getUserById</apiName><shortdesc>
+		 Retrieves a User object from its id property.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>User</i> object representing the user, or <codeph>null</codeph> if no user with the passed id exists in this Room.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:User</apiOperationClassifier></apiReturn><apiParam><apiItemName>id</apiItemName><apiType value="int"/><apiDesc>The id of the user to be found.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a <i>User</i> object from its <i>id</i> property.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Room/getUserByName()"><linktext>getUserByName()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:getUserByName"><apiName>getUserByName</apiName><shortdesc>
+		 Retrieves a User object from its name property.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>User</i> object representing the user, or <codeph>null</codeph> if no user with the passed name exists in this Room.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:User</apiOperationClassifier></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the user to be found.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a <i>User</i> object from its <i>name</i> property.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Room/getUserById()"><linktext>getUserById()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:getVariable"><apiName>getVariable</apiName><shortdesc>
+		 Retrieves a Room Variable from its name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>RoomVariable</i> object representing the Room Variable, or <codeph>null</codeph> if no Room Variable with the passed name exists in this Room.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.variables:RoomVariable</apiOperationClassifier></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the Room Variable to be retrieved.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a Room Variable from its name.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Room/getVariables()"><linktext>getVariables()</linktext></link><link href="com.smartfoxserver.v2.requests.xml#SetRoomVariablesRequest"><linktext>SetRoomVariablesRequest</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:getVariables"><apiName>getVariables</apiName><shortdesc>
+		 Retrieves all the Room Variables of this Room.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of <i>RoomVariable</i> objects associated with this Room.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc>
+		 Retrieves all the Room Variables of this Room.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#RoomVariable"><linktext>RoomVariable</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room/getVariable()"><linktext>getVariable()</linktext></link></related-links></apiOperation><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:capacity:get"><apiName>capacity</apiName><shortdesc>
+		 Returns the maximum amount of users, including spectators, that can be contained in this Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Returns the maximum amount of users, including spectators, that can be contained in this Room.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:groupId:get"><apiName>groupId</apiName><shortdesc> 
+		 Returns the Room Group name.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/><apiDefaultValue>default
+		 
+		 </apiDefaultValue></apiValueDef><apiDesc> 
+		 Returns the Room Group name.
+		 Each Group is identified by a unique string (its name or id) and it represents a different "container" for Rooms.
+		 <p>Room Groups enable developers to organize Rooms under different types or categories and let clients select only those Groups they are interested in, in order to receive their events only.
+		 This is done via the <i>SubscribeRoomGroupRequest</i> and <i>UnsubscribeRoomGroupRequest</i> requests.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="" invalidHref="com.smartfoxserver.v2.entities.SubscribeRoomGroupRequest.xml"><linktext>SubscribeRoomGroupRequest</linktext></link><link href="" invalidHref="com.smartfoxserver.v2.entities.UnsubscribeRoomGroupRequest.xml"><linktext>UnsubscribeRoomGroupRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:id:get"><apiName>id</apiName><shortdesc>
+		 Indicates the id of this Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Indicates the id of this Room.
+		 It is unique and it is generated by the server when the Room is created.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:isGame:get"><apiName>isGame</apiName><shortdesc>
+		 Indicates whether this is a Game Room or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether this is a Game Room or not.
+		 
+		 <p><b>NOTE</b>: setting the <i>isGame</i> property manually has no effect on the server and can disrupt the API functioning.
+		 This flag must be set when creating the Room.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:isHidden:get"><apiName>isHidden</apiName><shortdesc>
+		 Indicates whether this Room is hidden or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether this Room is hidden or not.
+		 This is a utility flag that can be used by developers to hide certain Rooms from the interface of their application.
+		 
+		 <p><b>NOTE</b>: setting the <i>isHidden</i> property manually has no effect on the server and can disrupt the API functioning.
+		 This flag must be set when creating the Room.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:isJoined:get"><apiName>isJoined</apiName><shortdesc>
+		 Indicates whether the client joined this Room or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether the client joined this Room or not.
+		 
+		 <p><b>NOTE</b>: setting the <i>isJoined</i> property manually has no effect on the server and can disrupt the API functioning.
+		 Use the <i>JoinRoomRequest</i> request to join a new Room instead.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#JoinRoomRequest"><linktext>JoinRoomRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:isPasswordProtected:get"><apiName>isPasswordProtected</apiName><shortdesc>
+		 Indicates whether this Room requires a password to be joined or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether this Room requires a password to be joined or not.
+		 
+		 <p><b>NOTE</b>: setting the <i>isPasswordProtected</i> property manually has no effect on the server and can disrupt the API functioning.
+		 This flag depends on the Room's password set when the Room is created or by means of the <i>ChangeRoomPasswordStateRequest</i> request.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ChangeRoomPasswordStateRequest"><linktext>ChangeRoomPasswordStateRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:maxSpectators:get"><apiName>maxSpectators</apiName><shortdesc>
+		 Returns the maximum number of spectators allowed in this Room (Game Rooms only).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Returns the maximum number of spectators allowed in this Room (Game Rooms only).
+		 
+		 <p><b>NOTE</b>: setting the <i>maxSpectators</i> property manually has no effect on the server and can disrupt the API functioning.
+		 This flag must be set when creating the Game Room.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:maxUsers:get"><apiName>maxUsers</apiName><shortdesc>
+		 Returns the maximum number of users allowed in this Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Returns the maximum number of users allowed in this Room.
+		 In case of Game Rooms, this is the maximum number of players.
+		 
+		 <p><b>NOTE</b>: setting the <i>maxUsers</i> property manually has no effect on the server and can disrupt the API functioning.
+		 This flag must be set when creating the Room.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:name:get"><apiName>name</apiName><shortdesc>
+		 Indicates the name of this Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Indicates the name of this Room.
+		 Two Rooms in the same Zone can't have the same name.
+		 
+		 <p><b>NOTE</b>: setting the <i>name</i> property manually has no effect on the server and can disrupt the API functioning.
+		 Use the <i>ChangeRoomNameRequest</i> request instead.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ChangeRoomNameRequest"><linktext>ChangeRoomNameRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:playerList:get"><apiName>playerList</apiName><shortdesc>
+		 Returns a list of User objects representing the players currently inside this Room (Game Rooms only).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc>
+		 Returns a list of <i>User</i> objects representing the players currently inside this Room (Game Rooms only).
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:properties:get"><apiName>properties</apiName><shortdesc> 
+		 Defines a generic utility object that can be used to store custom Room data.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Object"/></apiValueDef><apiDesc> 
+		 Defines a generic utility object that can be used to store custom Room data.
+		 The values added to this object are for client-side use only and are never transmitted to the server or to the other clients.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:roomManager:get"><apiName>roomManager</apiName><shortdesc>
+		 Returns a reference to the Room Manager which manages this Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiValueClassifier>com.smartfoxserver.v2.entities.managers:IRoomManager</apiValueClassifier></apiValueDef><apiDesc>
+		 Returns a reference to the Room Manager which manages this Room.
+		 
+		 <p><b>NOTE</b>: setting the <i>roomManager</i> property manually has no effect on the server and can disrupt the API functioning.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:spectatorCount:get"><apiName>spectatorCount</apiName><shortdesc>
+		 Returns the current number of spectators in this Room (Game Rooms only).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Returns the current number of spectators in this Room (Game Rooms only).
+		 
+		 <p><b>NOTE</b>: setting the <i>spectatorCount</i> property manually has no effect on the server and can disrupt the API functioning.
+		 This flag depends on the Room state.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:spectatorList:get"><apiName>spectatorList</apiName><shortdesc>
+		 Returns a list of User objects representing the spectators currently inside this Room (Game Rooms only).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc>
+		 Returns a list of <i>User</i> objects representing the spectators currently inside this Room (Game Rooms only).
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:userCount:get"><apiName>userCount</apiName><shortdesc>
+		 Returns the current number of users in this Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Returns the current number of users in this Room.
+		 In case of Game Rooms, this is the number of players.
+		 
+		 <p><b>NOTE</b>: setting the <i>userCount</i> property manually has no effect on the server and can disrupt the API functioning.
+		 This flag depends on the Room state.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Room:com.smartfoxserver.v2.entities:Room:userList:get"><apiName>userList</apiName><shortdesc>
+		 Returns a list of User objects representing all the users currently inside this Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc>
+		 Returns a list of <i>User</i> objects representing all the users currently inside this Room.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities:SFSRoom"><apiName>SFSRoom</apiName><shortdesc>
+	 The SFSRoom object represents a SmartFoxServer Room entity on the client.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities:Room</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>SFSRoom</i> object represents a SmartFoxServer Room entity on the client.
+	 
+	 <p>The SmartFoxServer 2X client API are not aware of all the Rooms which exist on the server side,
+	 but only of those that are joined by the user and those in the Room Groups that have been subscribed.
+	 Subscribing to one or more Groups allows the client to listen to Room events in specific "areas" of the Zone,
+	 without having to retrieve and keep synchronized the details of all available Rooms, thus reducing 
+	 the traffic between the client and the server considerably.</p>
+	 
+	 <p>The list of available Rooms is created after a successful login and it is kept updated continuously by the server.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/roomManager"><linktext>SmartFox.roomManager</linktext></link><link href="com.smartfoxserver.v2.requests.xml#CreateRoomRequest"><linktext>CreateRoomRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#JoinRoomRequest"><linktext>JoinRoomRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#SubscribeRoomGroupRequest"><linktext>SubscribeRoomGroupRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#UnsubscribeRoomGroupRequest"><linktext>UnsubscribeRoomGroupRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#ChangeRoomNameRequest"><linktext>ChangeRoomNameRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#ChangeRoomPasswordStateRequest"><linktext>ChangeRoomPasswordStateRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#ChangeRoomCapacityRequest"><linktext>ChangeRoomCapacityRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.entities:SFSRoom:SFSRoom"><apiName>SFSRoom</apiName><shortdesc>
+		 Creates a new SFSRoom instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>id</apiItemName><apiType value="int"/><apiDesc>	The Room id.
+		 </apiDesc></apiParam><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The Room name.
+		 </apiDesc></apiParam><apiParam><apiItemName>groupId</apiItemName><apiType value="String"/><apiData>default</apiData><apiDesc>The id of the Group to which the Room belongs.
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SFSRoom</i> instance.
+		 
+		 <p><b>NOTE</b>: developers never istantiate a <i>SFSRoom</i> manually: this is done by the SmartFoxServer 2X API internally.</p>
+		  
+		 </apiDesc></apiConstructorDetail></apiConstructor><apiOperation id="com.smartfoxserver.v2.entities:SFSRoom:containsUser"><apiName>containsUser</apiName><shortdesc> 
+		 Indicates whether the specified user is currently inside this Room or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the user is inside this Room; <codeph>false</codeph> otherwise.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>user</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:User</apiOperationClassifier><apiDesc>The <i>User</i> object representing the user whose presence in this Room must be checked.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether the specified user is currently inside this Room or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSRoom:containsVariable"><apiName>containsVariable</apiName><shortdesc> 
+		 Indicates whether this Room has the specified Room Variable set or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if a Room Variable with the passed name exists in this Room.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the Room Variable whose existance in this Room must be checked.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether this Room has the specified Room Variable set or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSRoom:getUserById"><apiName>getUserById</apiName><shortdesc> 
+		 Retrieves a User object from its id property.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>User</i> object representing the user, or <codeph>null</codeph> if no user with the passed id exists in this Room.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:User</apiOperationClassifier></apiReturn><apiParam><apiItemName>id</apiItemName><apiType value="int"/><apiDesc>The id of the user to be found.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves a <i>User</i> object from its <i>id</i> property.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSRoom:getUserByName"><apiName>getUserByName</apiName><shortdesc> 
+		 Retrieves a User object from its name property.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>User</i> object representing the user, or <codeph>null</codeph> if no user with the passed name exists in this Room.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:User</apiOperationClassifier></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the user to be found.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves a <i>User</i> object from its <i>name</i> property.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSRoom:getVariable"><apiName>getVariable</apiName><shortdesc> 
+		 Retrieves a Room Variable from its name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>RoomVariable</i> object representing the Room Variable, or <codeph>null</codeph> if no Room Variable with the passed name exists in this Room.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.variables:RoomVariable</apiOperationClassifier></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the Room Variable to be retrieved.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves a Room Variable from its name.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSRoom:getVariables"><apiName>getVariables</apiName><shortdesc> 
+		 Retrieves all the Room Variables of this Room.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of <i>RoomVariable</i> objects associated with this Room.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves all the Room Variables of this Room.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSRoom:kernel:merge"><apiName>merge</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="kernel"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>anotherRoom</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier></apiParam></apiOperationDef></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSRoom:toString"><apiName>toString</apiName><shortdesc>
+		 Returns a string that contains the Room id, name and id of the Group to which it belongs.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The string representation of the <i>SFSRoom</i> object.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>
+		 Returns a string that contains the Room id, name and id of the Group to which it belongs.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:capacity:get"><apiName>capacity</apiName><shortdesc> 
+		 Returns the maximum amount of users, including spectators, that can be contained in this Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Returns the maximum amount of users, including spectators, that can be contained in this Room.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:groupId:get"><apiName>groupId</apiName><shortdesc>  
+		 Returns the Room Group name.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>  
+		 Returns the Room Group name.
+		 Each Group is identified by a unique string (its name or id) and it represents a different "container" for Rooms.
+		 <p>Room Groups enable developers to organize Rooms under different types or categories and let clients select only those Groups they are interested in, in order to receive their events only.
+		 This is done via the <i>SubscribeRoomGroupRequest</i> and <i>UnsubscribeRoomGroupRequest</i> requests.</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:id:get"><apiName>id</apiName><shortdesc> 
+		 Indicates the id of this Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Indicates the id of this Room.
+		 It is unique and it is generated by the server when the Room is created.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:isGame:get"><apiName>isGame</apiName><shortdesc> 
+		 Indicates whether this is a Game Room or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Indicates whether this is a Game Room or not.
+		 
+		 <p><b>NOTE</b>: setting the <i>isGame</i> property manually has no effect on the server and can disrupt the API functioning.
+		 This flag must be set when creating the Room.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:isHidden:get"><apiName>isHidden</apiName><shortdesc> 
+		 Indicates whether this Room is hidden or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Indicates whether this Room is hidden or not.
+		 This is a utility flag that can be used by developers to hide certain Rooms from the interface of their application.
+		 
+		 <p><b>NOTE</b>: setting the <i>isHidden</i> property manually has no effect on the server and can disrupt the API functioning.
+		 This flag must be set when creating the Room.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:isJoined:get"><apiName>isJoined</apiName><shortdesc> 
+		 Indicates whether the client joined this Room or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Indicates whether the client joined this Room or not.
+		 
+		 <p><b>NOTE</b>: setting the <i>isJoined</i> property manually has no effect on the server and can disrupt the API functioning.
+		 Use the <i>JoinRoomRequest</i> request to join a new Room instead.</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:isPasswordProtected:get"><apiName>isPasswordProtected</apiName><shortdesc> 
+		 Indicates whether this Room requires a password to be joined or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Indicates whether this Room requires a password to be joined or not.
+		 
+		 <p><b>NOTE</b>: setting the <i>isPasswordProtected</i> property manually has no effect on the server and can disrupt the API functioning.
+		 This flag depends on the Room's password set when the Room is created or by means of the <i>ChangeRoomPasswordStateRequest</i> request.</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:maxSpectators:get"><apiName>maxSpectators</apiName><shortdesc> 
+		 Returns the maximum number of spectators allowed in this Room (Game Rooms only).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Returns the maximum number of spectators allowed in this Room (Game Rooms only).
+		 
+		 <p><b>NOTE</b>: setting the <i>maxSpectators</i> property manually has no effect on the server and can disrupt the API functioning.
+		 This flag must be set when creating the Game Room.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:maxUsers:get"><apiName>maxUsers</apiName><shortdesc> 
+		 Returns the maximum number of users allowed in this Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Returns the maximum number of users allowed in this Room.
+		 In case of Game Rooms, this is the maximum number of players.
+		 
+		 <p><b>NOTE</b>: setting the <i>maxUsers</i> property manually has no effect on the server and can disrupt the API functioning.
+		 This flag must be set when creating the Room.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:name:get"><apiName>name</apiName><shortdesc> 
+		 Indicates the name of this Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Indicates the name of this Room.
+		 Two Rooms in the same Zone can't have the same name.
+		 
+		 <p><b>NOTE</b>: setting the <i>name</i> property manually has no effect on the server and can disrupt the API functioning.
+		 Use the <i>ChangeRoomNameRequest</i> request instead.</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:playerList:get"><apiName>playerList</apiName><shortdesc> 
+		 Returns a list of User objects representing the players currently inside this Room (Game Rooms only).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc> 
+		 Returns a list of <i>User</i> objects representing the players currently inside this Room (Game Rooms only).
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:properties:get"><apiName>properties</apiName><shortdesc>  
+		 Defines a generic utility object that can be used to store custom Room data.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Object"/></apiValueDef><apiDesc>  
+		 Defines a generic utility object that can be used to store custom Room data.
+		 The values added to this object are for client-side use only and are never transmitted to the server or to the other clients.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:roomManager:get"><apiName>roomManager</apiName><shortdesc> 
+		 Returns a reference to the Room Manager which manages this Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiValueClassifier>com.smartfoxserver.v2.entities.managers:IRoomManager</apiValueClassifier></apiValueDef><apiDesc> 
+		 Returns a reference to the Room Manager which manages this Room.
+		 
+		 <p><b>NOTE</b>: setting the <i>roomManager</i> property manually has no effect on the server and can disrupt the API functioning.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:spectatorCount:get"><apiName>spectatorCount</apiName><shortdesc> 
+		 Returns the current number of spectators in this Room (Game Rooms only).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Returns the current number of spectators in this Room (Game Rooms only).
+		 
+		 <p><b>NOTE</b>: setting the <i>spectatorCount</i> property manually has no effect on the server and can disrupt the API functioning.
+		 This flag depends on the Room state.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:spectatorList:get"><apiName>spectatorList</apiName><shortdesc> 
+		 Returns a list of User objects representing the spectators currently inside this Room (Game Rooms only).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc> 
+		 Returns a list of <i>User</i> objects representing the spectators currently inside this Room (Game Rooms only).
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:userCount:get"><apiName>userCount</apiName><shortdesc> 
+		 Returns the current number of users in this Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Returns the current number of users in this Room.
+		 In case of Game Rooms, this is the number of players.
+		 
+		 <p><b>NOTE</b>: setting the <i>userCount</i> property manually has no effect on the server and can disrupt the API functioning.
+		 This flag depends on the Room state.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSRoom:userList:get"><apiName>userList</apiName><shortdesc> 
+		 Returns a list of User objects representing all the users currently inside this Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc> 
+		 Returns a list of <i>User</i> objects representing all the users currently inside this Room.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities:Buddy"><apiName>Buddy</apiName><shortdesc>
+	 The Buddy interface defines all the methods and properties that an object representing a SmartFoxServer Buddy entity exposes.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <i>Buddy</i> interface defines all the methods and properties that an object representing a SmartFoxServer Buddy entity exposes.
+	 <p>In the SmartFoxServer 2X client API this interface is implemented by the <i>SFSBuddy</i> class. Read the class description for additional informations.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#SFSBuddy"><linktext>SFSBuddy</linktext></link></related-links><apiOperation id="com.smartfoxserver.v2.entities:Buddy:com.smartfoxserver.v2.entities:Buddy:containsVariable"><apiName>containsVariable</apiName><shortdesc>
+		 Indicates whether this buddy has the specified Buddy Variable set or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if a Buddy Variable with the passed name is set for this buddy.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>varName</apiItemName><apiType value="String"/><apiDesc>The name of the Buddy Variable whose existance must be checked.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether this buddy has the specified Buddy Variable set or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:Buddy:com.smartfoxserver.v2.entities:Buddy:getOfflineVariables"><apiName>getOfflineVariables</apiName><shortdesc>
+		 Retrieves the list of persistent Buddy Variables of this buddy.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An array of <i>BuddyVariable</i> objects.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc>
+		 Retrieves the list of persistent Buddy Variables of this buddy.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#BuddyVariable/isOffline"><linktext>BuddyVariable.isOffline</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:Buddy:com.smartfoxserver.v2.entities:Buddy:getOnlineVariables"><apiName>getOnlineVariables</apiName><shortdesc>
+		 Retrieves the list of non-persistent Buddy Variables of this buddy.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An array of <i>BuddyVariable</i> objects.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc>
+		 Retrieves the list of non-persistent Buddy Variables of this buddy.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#BuddyVariable/isOffline"><linktext>BuddyVariable.isOffline</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:Buddy:com.smartfoxserver.v2.entities:Buddy:getVariable"><apiName>getVariable</apiName><shortdesc>
+		 Retrieves a Buddy Variable from its name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>BuddyVariable</i> object representing the Buddy Variable, or <codeph>null</codeph> if no Buddy Variable with the passed name is associated with this buddy.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.variables:BuddyVariable</apiOperationClassifier></apiReturn><apiParam><apiItemName>varName</apiItemName><apiType value="String"/><apiDesc>The name of the Buddy Variable to be retrieved.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a Buddy Variable from its name.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Buddy/variables"><linktext>variables</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml#SetBuddyVariablesRequest"><linktext>SetBuddyVariablesRequest</linktext></link></related-links></apiOperation><apiValue id="com.smartfoxserver.v2.entities:Buddy:com.smartfoxserver.v2.entities:Buddy:id:get"><apiName>id</apiName><shortdesc>
+		 Indicates the id of this buddy.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Indicates the id of this buddy.
+		 This is equal to the id assigned by SmartFoxServer to the corresponding user.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/id"><linktext>User.id</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:Buddy:com.smartfoxserver.v2.entities:Buddy:isBlocked:get"><apiName>isBlocked</apiName><shortdesc>
+		 Indicates whether this buddy is blocked in the current user's buddies list or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether this buddy is blocked in the current user's buddies list or not.
+		 A buddy can be blocked by means of a <i>BlockBuddyRequest</i> request.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.buddylist.xml#BlockBuddyRequest"><linktext>BlockBuddyRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:Buddy:com.smartfoxserver.v2.entities:Buddy:isOnline:get"><apiName>isOnline</apiName><shortdesc>
+		 Indicates whether this buddy is online in the Buddy List system or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether this buddy is online in the Buddy List system or not.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Buddy:com.smartfoxserver.v2.entities:Buddy:isTemp:get"><apiName>isTemp</apiName><shortdesc>
+		 Indicates whether this buddy is temporary (non-persistent) in the current user's buddies list or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether this buddy is temporary (non-persistent) in the current user's buddies list or not.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Buddy:com.smartfoxserver.v2.entities:Buddy:name:get"><apiName>name</apiName><shortdesc>
+		 Indicates the name of this buddy.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Indicates the name of this buddy.
+		 This is equal to the name of the corresponding user.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/name"><linktext>User.name</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:Buddy:com.smartfoxserver.v2.entities:Buddy:nickName:get"><apiName>nickName</apiName><shortdesc>
+		 Returns the nickname of this buddy.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Returns the nickname of this buddy.
+		 If the nickname is not set, <codeph>null</codeph> is returned.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:Buddy:com.smartfoxserver.v2.entities:Buddy:state:get"><apiName>state</apiName><shortdesc>
+		 Returns the custom state of this buddy.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Returns the custom state of this buddy.
+		 Examples of custom states are "Available", "Busy", "Be right back", etc. If the custom state is not set, <codeph>null</codeph> is returned.
+		 
+		 <p>The list of available custom states is returned by the <i>IBuddyManager.buddyStates</i> property.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.managers.xml#IBuddyManager/buddyStates"><linktext>IBuddyManager.buddyStates</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:Buddy:com.smartfoxserver.v2.entities:Buddy:variables:get"><apiName>variables</apiName><shortdesc>
+		 Returns a list of BuddyVariable objects associated with the buddy.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc>
+		 Returns a list of <i>BuddyVariable</i> objects associated with the buddy.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#BuddyVariable"><linktext>BuddyVariable</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Buddy/getVariable()"><linktext>getVariable()</linktext></link></related-links></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities:SFSUser"><apiName>SFSUser</apiName><shortdesc>
+	 The SFSUser object represents a client logged in SmartFoxServer.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities:User</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>SFSUser</i> object represents a client logged in SmartFoxServer.
+	 
+	 <p>The SmartFoxServer 2X client API are not aware of all the clients (users) connected to the server,
+	 but only of those that are in the same Rooms joined by the current client; this reduces the traffic between the client and the server considerably.
+	 In order to interact with other users the client should join other Rooms or use the Buddy List system to keep track of and interact with friends.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/userManager"><linktext>SmartFox.userManager</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/buddyManager"><linktext>SmartFox.buddyManager</linktext></link><link href="com.smartfoxserver.v2.requests.xml#JoinRoomRequest"><linktext>JoinRoomRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.entities:SFSUser:SFSUser"><apiName>SFSUser</apiName><shortdesc>
+		 Creates a new SFSUser instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>id</apiItemName><apiType value="int"/><apiDesc>	The user id.
+		 </apiDesc></apiParam><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The user name.
+		 </apiDesc></apiParam><apiParam><apiItemName>isItMe</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>If <codeph>true</codeph>, the user being created corresponds to the current client.
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SFSUser</i> instance.
+		 
+		 <p><b>NOTE</b>: developers never istantiate a <i>SFSUser</i> manually: this is done by the SmartFoxServer 2X API internally.</p>
+		  
+		 </apiDesc></apiConstructorDetail></apiConstructor><apiOperation id="com.smartfoxserver.v2.entities:SFSUser:containsVariable"><apiName>containsVariable</apiName><shortdesc> 
+		 Indicates whether this user has the specified User Variable set or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if a User Variable with the passed name is set for this user.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the User Variable whose existance must be checked.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether this user has the specified User Variable set or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSUser:getPlayerId"><apiName>getPlayerId</apiName><shortdesc>  
+		 Returns the playerId value of this user in the passed Room.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>playerId</i> of this user in the passed Room.
+		 
+		 </apiDesc><apiType value="int"/></apiReturn><apiParam><apiItemName>room</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiDesc>The <i>Room</i> object representing the Room to retrieve the player id from.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>  
+		 Returns the <i>playerId</i> value of this user in the passed Room.
+		 See the <i>playerId</i> property description for more informations.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSUser:getVariable"><apiName>getVariable</apiName><shortdesc> 
+		 Retrieves a User Variable from its name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>UserVariable</i> object representing the User Variable, or <codeph>null</codeph> if no User Variable with the passed name is associated with this user.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.variables:UserVariable</apiOperationClassifier></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the User Variable to be retrieved.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves a User Variable from its name.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSUser:getVariables"><apiName>getVariables</apiName><shortdesc> 
+		 Retrieves all the User Variables of this user.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of <i>UserVariable</i> objects associated with the user.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves all the User Variables of this user.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSUser:isAdmin"><apiName>isAdmin</apiName><shortdesc> 
+		 Indicates whether this user logged in as an administrator or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this user is an administrator.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc> 
+		 Indicates whether this user logged in as an administrator or not.
+		 Administrator users have the <i>privilegeId</i> property set to <i>UserPrivileges.ADMINISTRATOR</i>.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSUser:isGuest"><apiName>isGuest</apiName><shortdesc> 
+		 Indicates whether this user logged in as a guest or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this user is a guest.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc> 
+		 Indicates whether this user logged in as a guest or not.
+		 Guest users have the <i>privilegeId</i> property set to <i>UserPrivileges.GUEST</i>.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSUser:isJoinedInRoom"><apiName>isJoinedInRoom</apiName><shortdesc> 
+		 Indicates whether this user joined the passed Room or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this user is inside the passed Room.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>room</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiDesc>The <i>Room</i> object representing the Room where to check the user presence.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether this user joined the passed Room or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSUser:isModerator"><apiName>isModerator</apiName><shortdesc> 
+		 Indicates whether this user logged in as a moderator or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this user is a moderator.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc> 
+		 Indicates whether this user logged in as a moderator or not.
+		 Moderator users have the <i>privilegeId</i> property set to <i>UserPrivileges.MODERATOR</i>.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSUser:isPlayerInRoom"><apiName>isPlayerInRoom</apiName><shortdesc> 
+		 Indicates whether this user is a player (playerId greater than 0) in the passed Room or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this user is a player in the passed Room.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>room</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiDesc>The <i>Room</i> object representing the Room where to check if this user is a player.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether this user is a player (<i>playerId</i> greater than <codeph>0</codeph>) in the passed Room or not.
+		 Non-Game Rooms always return <codeph>false</codeph>.
+		 
+		 <p>If a user can join one Game Rooms at a time only, use the <i>isPlayer</i> property.</p>
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSUser:isSpectatorInRoom"><apiName>isSpectatorInRoom</apiName><shortdesc> 
+		 Indicates whether this user is a spectator (playerId lower than 0) in the passed Room or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this user is a spectator in the passed Room.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>room</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier><apiDesc>The <i>Room</i> object representing the Room where to check if this user is a spectator.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether this user is a spectator (<i>playerId</i> lower than <codeph>0</codeph>) in the passed Room or not.
+		 Non-Game Rooms always return <codeph>false</codeph>.
+		 
+		 <p>If a user can join one Game Rooms at a time only, use the <i>isSpectator</i> property.</p>
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSUser:isStandardUser"><apiName>isStandardUser</apiName><shortdesc> 
+		 Indicates whether this user logged in as a standard user or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if this user is a standard user.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc> 
+		 Indicates whether this user logged in as a standard user or not.
+		 Standard users have the <i>privilegeId</i> property set to <i>UserPrivileges.STANDARD</i>.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSUser:toString"><apiName>toString</apiName><shortdesc>
+		 Returns a string that contains the user id, name and a boolean indicating if the SFSUser object represents the current client.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The string representation of the <i>SFSUser</i> object.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>
+		 Returns a string that contains the user id, name and a boolean indicating if the <i>SFSUser</i> object represents the current client.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.entities:SFSUser:id:get"><apiName>id</apiName><shortdesc> 
+		 Indicates the id of this user.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Indicates the id of this user.
+		 It is unique and it is generated by the server when the user is created.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSUser:isItMe:get"><apiName>isItMe</apiName><shortdesc> 
+		 Indicates if this User object represents the current client.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Indicates if this <i>User</i> object represents the current client.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSUser:isPlayer:get"><apiName>isPlayer</apiName><shortdesc> 
+		 Indicates whether this user is a player (playerId greater than 0) in the last joined Room or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Indicates whether this user is a player (<i>playerId</i> greater than <codeph>0</codeph>) in the last joined Room or not.
+		 Non-Game Rooms always return <codeph>false</codeph>.
+		 
+		 <p>If the user is inside multiple Game Rooms at the same time, use the <i>isPlayerInRoom()</i> method.</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSUser:isSpectator:get"><apiName>isSpectator</apiName><shortdesc> 
+		 Indicates whether this user is a spectator (playerId lower than 0) in the last joined Room or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Indicates whether this user is a spectator (<i>playerId</i> lower than <codeph>0</codeph>) in the last joined Room or not.
+		 Non-Game Rooms always return <codeph>false</codeph>.
+		 
+		 <p>If the user is inside multiple Game Rooms at the same time, use the <i>isSpectatorInRoom()</i> method.</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSUser:name:get"><apiName>name</apiName><shortdesc> 
+		 Indicates the name of this user.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Indicates the name of this user.
+		 Two users in the same Zone can't have the same name.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSUser:playerId:get"><apiName>playerId</apiName><shortdesc> 
+		 Returns the id of this user as a player in a Game Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Returns the id of this user as a player in a Game Room.
+		 
+		 <p>This property differs from <i>id</i> property and it used to indicate which player number is assigned to a user inside a Game Room.
+		 For example, in a Game Room for 5 players the first client joining it will have <i>playerId</i> equal to <codeph>1</codeph>, the second will have it equal to <codeph>2</codeph> and so forth. 
+		 When a user leaves the Room the player slot is freed up and the next user joining the Room will take it.</p>
+		 
+		 <p>The <i>playerId</i> property applies to Game Rooms only; in standard Rooms it is always <codeph>0</codeph>.
+		 Also, in Game Rooms a <i>playerId</i> value lower than <codeph>0</codeph> indicates that the user is a spectator.</p>
+		 
+		 <p>If the user is inside multiple Game Rooms at the same time, a different <i>playerId</i> value will be assigned to him in each Room.
+		 In this case this property returns the value corresponding to the last joined Room; in order to obtain the <i>playerId</i> value in a specific Room, use the <i>getPlayerId()</i> method.</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSUser:privilegeId:get"><apiName>privilegeId</apiName><shortdesc>  
+		 Returns the id which identifies the privilege level of this user.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/></apiValueDef><apiDesc>  
+		 Returns the id which identifies the privilege level of this user.
+		 
+		 <p><b>NOTE</b>: setting the <i>privilegeId</i> property manually has no effect on the server and can disrupt the API functioning.
+		 Privileges are assigned to the user by the server when the user logs in.</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSUser:properties:get"><apiName>properties</apiName><shortdesc>  
+		 Defines a generic utility object that can be used to store custom user data.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Object"/></apiValueDef><apiDesc>  
+		 Defines a generic utility object that can be used to store custom user data.
+		 The values added to this object are for client-side use only and are never transmitted to the server or to the other clients.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSUser:userManager:get"><apiName>userManager</apiName><shortdesc> 
+		 Returns a reference to the User Manager which manages this user.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiValueClassifier>com.smartfoxserver.v2.entities.managers:IUserManager</apiValueClassifier></apiValueDef><apiDesc> 
+		 Returns a reference to the User Manager which manages this user.
+		 
+		 <p><b>NOTE</b>: setting the <i>userManager</i> property manually has no effect on the server and can disrupt the API functioning.</p>
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities:SFSBuddy"><apiName>SFSBuddy</apiName><shortdesc>
+	 The SFSBuddy object represents a buddy in the current user's buddies list.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities:Buddy</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>SFSBuddy</i> object represents a buddy in the current user's buddies list.
+	 
+	 <p>A buddy is marked out by the following characteristics.</p>
+	 <ul>
+	 	<li><b>Nickname</b>: a buddy can have an optional nickname, which differs from the username used during the login process.</li>
+	 	<li><b>Online/offline state</b>: users can be online or offline as buddies in the Buddy List system. By default a buddy is online every time he joins a Zone,
+	 	but the user can also switch the state to offline at runtime, and disappear from other user's buddies list. This state is persistent and it is based on a reserved Buddy Variable.</li>
+	 	<li><b>Custom state</b>: each user can have a typical IM state such as "Available", "Away", "Occupied", etc. State can be selected among the custom ones defined in the Zone configuration,
+	 	which can be changed or enriched at any time. This state is persistent and it is based on a reserved Buddy Variable.</li>
+	 	<li><b>Blocked buddy</b>: buddies that are blocked in a user's buddies list won't be able to send messages to that user; also they won't be able to see if the user is online or offline in the Buddy List system.</li>
+	 	<li><b>Temporary buddy</b>: a temporary buddy is added to the current user's buddies list whenever another user adds him to his own buddies list. 
+	 	In this way users can "see" each other and exchange messages. If the current user doesn't add that temporary buddy to his buddies list voluntarily, that buddy won't be persisted and will be lost upon disconnection.</li>
+	 	<li><b>Variables</b>: Buddy Variables enable each user to show (and send updates on) specific custom informations to each user to whom he is a buddy. 
+	 	For example one could send realtime updates on his last activity, or post the title of the song he's listening right now, or scores, rankings and whatnot.</li>
+	 </ul>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/buddyManager"><linktext>SmartFox.buddyManager</linktext></link><link href="com.smartfoxserver.v2.entities.variables.xml#BuddyVariable"><linktext>BuddyVariable</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.entities:SFSBuddy:SFSBuddy"><apiName>SFSBuddy</apiName><shortdesc>
+		 Creates a new SFSBuddy instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>id</apiItemName><apiType value="int"/><apiDesc>		The buddy id.
+		 </apiDesc></apiParam><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>	The buddy name.
+		 </apiDesc></apiParam><apiParam><apiItemName>isBlocked</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>If <codeph>true</codeph>, the buddy being created is blocked by the current user.
+		 </apiDesc></apiParam><apiParam><apiItemName>isTemp</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>	If <codeph>true</codeph>, the buddy being created is temporary in the current client.
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SFSBuddy</i> instance.
+		 
+		 <p><b>NOTE</b>: developers never istantiate a <i>SFSBuddy</i> manually: this is done by the SmartFoxServer 2X API internally.</p>
+		  
+		 </apiDesc></apiConstructorDetail></apiConstructor><apiOperation id="com.smartfoxserver.v2.entities:SFSBuddy:containsVariable"><apiName>containsVariable</apiName><shortdesc> 
+		 Indicates whether this buddy has the specified Buddy Variable set or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if a Buddy Variable with the passed name is set for this buddy.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>varName</apiItemName><apiType value="String"/><apiDesc>The name of the Buddy Variable whose existance must be checked.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether this buddy has the specified Buddy Variable set or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSBuddy:getOfflineVariables"><apiName>getOfflineVariables</apiName><shortdesc> 
+		 Retrieves the list of persistent Buddy Variables of this buddy.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An array of <i>BuddyVariable</i> objects.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the list of persistent Buddy Variables of this buddy.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSBuddy:getOnlineVariables"><apiName>getOnlineVariables</apiName><shortdesc> 
+		 Retrieves the list of non-persistent Buddy Variables of this buddy.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An array of <i>BuddyVariable</i> objects.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the list of non-persistent Buddy Variables of this buddy.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSBuddy:getVariable"><apiName>getVariable</apiName><shortdesc> 
+		 Retrieves a Buddy Variable from its name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>BuddyVariable</i> object representing the Buddy Variable, or <codeph>null</codeph> if no Buddy Variable with the passed name is associated with this buddy.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.variables:BuddyVariable</apiOperationClassifier></apiReturn><apiParam><apiItemName>varName</apiItemName><apiType value="String"/><apiDesc>The name of the Buddy Variable to be retrieved.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves a Buddy Variable from its name.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities:SFSBuddy:toString"><apiName>toString</apiName><shortdesc>
+		 Returns a string that contains the buddy name and id.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The string representation of the <i>SFSBuddy</i> object.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>
+		 Returns a string that contains the buddy name and id.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.entities:SFSBuddy:id:get"><apiName>id</apiName><shortdesc> 
+		 Indicates the id of this buddy.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Indicates the id of this buddy.
+		 This is equal to the id assigned by SmartFoxServer to the corresponding user.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSBuddy:isBlocked:get"><apiName>isBlocked</apiName><shortdesc> 
+		 Indicates whether this buddy is blocked in the current user's buddies list or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Indicates whether this buddy is blocked in the current user's buddies list or not.
+		 A buddy can be blocked by means of a <i>BlockBuddyRequest</i> request.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSBuddy:isOnline:get"><apiName>isOnline</apiName><shortdesc> 
+		 Indicates whether this buddy is online in the Buddy List system or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Indicates whether this buddy is online in the Buddy List system or not.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSBuddy:isTemp:get"><apiName>isTemp</apiName><shortdesc> 
+		 Indicates whether this buddy is temporary (non-persistent) in the current user's buddies list or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Indicates whether this buddy is temporary (non-persistent) in the current user's buddies list or not.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSBuddy:name:get"><apiName>name</apiName><shortdesc> 
+		 Indicates the name of this buddy.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Indicates the name of this buddy.
+		 This is equal to the name of the corresponding user.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSBuddy:nickName:get"><apiName>nickName</apiName><shortdesc> 
+		 Returns the nickname of this buddy.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Returns the nickname of this buddy.
+		 If the nickname is not set, <codeph>null</codeph> is returned.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSBuddy:state:get"><apiName>state</apiName><shortdesc> 
+		 Returns the custom state of this buddy.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Returns the custom state of this buddy.
+		 Examples of custom states are "Available", "Busy", "Be right back", etc. If the custom state is not set, <codeph>null</codeph> is returned.
+		 
+		 <p>The list of available custom states is returned by the <i>IBuddyManager.buddyStates</i> property.</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:SFSBuddy:variables:get"><apiName>variables</apiName><shortdesc> 
+		 Returns a list of BuddyVariable objects associated with the buddy.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc> 
+		 Returns a list of <i>BuddyVariable</i> objects associated with the buddy.
+		 
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities:UserPrivileges"><apiName>UserPrivileges</apiName><shortdesc>
+	 The UserPrivileges class contains the costants describing the default user types known by SmartFoxServer.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>UserPrivileges</i> class contains the costants describing the default user types known by SmartFoxServer.
+	 The server assigns one of these values or a custom-defined one to the <i>User.privilegeId</i> property  whenever a user logs in.
+	 
+	 <p>Read the SmartFoxServer 2X documentation for more informations about privilege profiles and their permissions.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/privilegeId"><linktext>User.privilegeId</linktext></link></related-links><apiValue id="com.smartfoxserver.v2.entities:UserPrivileges:ADMINISTRATOR"><apiName>ADMINISTRATOR</apiName><shortdesc>
+		 The administrator user can send dedicated "administrator messages", kick and ban users.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>3</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The administrator user can send dedicated "administrator messages", kick and ban users.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ModeratorMessageRequest"><linktext>AdminMessageRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#KickUserRequest"><linktext>KickUserRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#BanUserRequest"><linktext>BanUserRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:UserPrivileges:GUEST"><apiName>GUEST</apiName><shortdesc>
+		 The Guest user is usually the lowest level in the privilege profiles scale.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The Guest user is usually the lowest level in the privilege profiles scale.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities:UserPrivileges:MODERATOR"><apiName>MODERATOR</apiName><shortdesc>
+		 The moderator user can send dedicated "moderator messages", kick and ban users.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The moderator user can send dedicated "moderator messages", kick and ban users.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.xml#ModeratorMessageRequest"><linktext>ModeratorMessageRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#KickUserRequest"><linktext>KickUserRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#BanUserRequest"><linktext>BanUserRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities:UserPrivileges:STANDARD"><apiName>STANDARD</apiName><shortdesc>
+		 The standard user is usually registered in the application custom login system; uses a unique name and password to login.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The standard user is usually registered in the application custom login system; uses a unique name and password to login.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>

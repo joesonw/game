@@ -1,0 +1,1631 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.smartfoxserver.v2.core"><apiName>com.smartfoxserver.v2.core</apiName><apiDetail/><apiClassifier id="com.smartfoxserver.v2.core:SFSEvent"><apiName>SFSEvent</apiName><shortdesc>
+	 SFSEvent is the class representing most of the events dispatched by the SmartFoxServer 2X ActionScript 3 API.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.core:BaseEvent</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 <i>SFSEvent</i> is the class representing most of the events dispatched by the SmartFoxServer 2X ActionScript 3 API.
+	 
+	 <p>The <i>SFSEvent</i> parent class provides a public property called <i>params</i> which contains specific parameters depending on the event type.</p>
+	 
+	 </apiDesc><example>The following example shows a generic usage of a <i>SFSEvent</i>; please refer to the specific event types for the <i>params</i> object content:
+	 <codeblock rev="3.0">
+	 
+	 package sfsTest
+	 {
+	 	import com.smartfoxserver.v2.SmartFox;
+	 	import com.smartfoxserver.v2.core.SFSEvent;
+	 	
+	 	public class MyTest
+	 	{
+	 		private var sfs:SmartFox;
+	 		
+	 		public function MyTest()
+	 		{
+	 			// Create a SmartFox instance
+	 			sfs = new SmartFox();
+	 			
+	 			// Add event handler for connection 
+	 			sfs.addEventListener(SFSEvent.CONNECTION, onConnection);
+	 			
+	 			// Connect to server
+	 			sfs.connect("127.0.0.1", 9933);	
+	 		}
+	 		
+	 		// Handle connection event
+	 		private function onConnection(evt:SFSEvent):void
+	 		{
+	 			// Retrieve event parameters
+	 			var params:Object = evt.params;
+	 			
+	 			if (params.success)
+	 				trace("Connection established");
+	 			else
+	 				trace("Connection failed");
+	 		}	
+	 	}
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent"><linktext>SFSBuddyEvent</linktext></link></related-links><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ADMIN_MESSAGE_adminMessage"><apiName>adminMessage</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ADMIN_MESSAGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/MODERATOR_MESSAGE"><linktext>MODERATOR_MESSAGE</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:CONFIG_LOAD_FAILURE_configLoadFailure"><apiName>configLoadFailure</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:CONFIG_LOAD_FAILURE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONFIG_LOAD_SUCCESS"><linktext>CONFIG_LOAD_SUCCESS</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:CONFIG_LOAD_SUCCESS_configLoadSuccess"><apiName>configLoadSuccess</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:CONFIG_LOAD_SUCCESS</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONFIG_LOAD_FAILURE"><linktext>CONFIG_LOAD_FAILURE</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:CONNECTION_ATTEMPT_HTTP_connectionAttemptHttp"><apiName>connectionAttemptHttp</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:CONNECTION_ATTEMPT_HTTP</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION"><linktext>CONNECTION</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_LOST"><linktext>CONNECTION_LOST</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:CONNECTION_LOST_connectionLost"><apiName>connectionLost</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:CONNECTION_LOST</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.util.xml#ClientDisconnectionReason"><linktext>com.smartfoxserver.v2.util.ClientDisconnectionReason</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION"><linktext>CONNECTION</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_RETRY"><linktext>CONNECTION_RETRY</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:CONNECTION_RESUME_connectionResume"><apiName>connectionResume</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:CONNECTION_RESUME</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_RETRY"><linktext>CONNECTION_RETRY</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_LOST"><linktext>CONNECTION_LOST</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:CONNECTION_RETRY_connectionRetry"><apiName>connectionRetry</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:CONNECTION_RETRY</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_RESUME"><linktext>CONNECTION_RESUME</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_LOST"><linktext>CONNECTION_LOST</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:CONNECTION_connection"><apiName>connection</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:CONNECTION</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_RETRY"><linktext>CONNECTION_RETRY</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_RESUME"><linktext>CONNECTION_RESUME</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_LOST"><linktext>CONNECTION_LOST</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:EXTENSION_RESPONSE_extensionResponse"><apiName>extensionResponse</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:EXTENSION_RESPONSE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:INVITATION_REPLY_ERROR_invitationReplyError"><apiName>invitationReplyError</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:INVITATION_REPLY_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/INVITATION_REPLY"><linktext>INVITATION_REPLY</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/INVITATION"><linktext>INVITATION</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:INVITATION_REPLY_invitationReply"><apiName>invitationReply</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:INVITATION_REPLY</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.entities.invitation.xml#InvitationReply"><linktext>InvitationReply</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/INVITATION"><linktext>INVITATION</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/INVITATION_REPLY_ERROR"><linktext>INVITATION_REPLY_ERROR</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:INVITATION_invitation"><apiName>invitation</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:INVITATION</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/INVITATION_REPLY"><linktext>INVITATION_REPLY</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:LOGIN_ERROR_loginError"><apiName>loginError</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:LOGIN_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/LOGIN"><linktext>LOGIN</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:LOGIN_login"><apiName>login</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:LOGIN</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/LOGIN_ERROR"><linktext>LOGIN_ERROR</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/LOGOUT"><linktext>LOGOUT</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:LOGOUT_logout"><apiName>logout</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:LOGOUT</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/LOGIN"><linktext>LOGIN</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:MODERATOR_MESSAGE_moderatorMessage"><apiName>moderatorMessage</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:MODERATOR_MESSAGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ADMIN_MESSAGE"><linktext>ADMIN_MESSAGE</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:OBJECT_MESSAGE_objectMessage"><apiName>objectMessage</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:OBJECT_MESSAGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:PLAYER_TO_SPECTATOR_ERROR_playerToSpectatorError"><apiName>playerToSpectatorError</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:PLAYER_TO_SPECTATOR_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/PLAYER_TO_SPECTATOR"><linktext>PLAYER_TO_SPECTATOR</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:PLAYER_TO_SPECTATOR_playerToSpectator"><apiName>playerToSpectator</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:PLAYER_TO_SPECTATOR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/PLAYER_TO_SPECTATOR_ERROR"><linktext>PLAYER_TO_SPECTATOR_ERROR</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/SPECTATOR_TO_PLAYER"><linktext>SPECTATOR_TO_PLAYER</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:PRIVATE_MESSAGE_privateMessage"><apiName>privateMessage</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:PRIVATE_MESSAGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/PUBLIC_MESSAGE"><linktext>PUBLIC_MESSAGE</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:PUBLIC_MESSAGE_publicMessage"><apiName>publicMessage</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:PUBLIC_MESSAGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/PRIVATE_MESSAGE"><linktext>PRIVATE_MESSAGE</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_ADD_roomAdd"><apiName>roomAdd</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_ADD</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_REMOVE"><linktext>ROOM_REMOVE</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_CREATION_ERROR"><linktext>ROOM_CREATION_ERROR</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_CAPACITY_CHANGE_ERROR_roomCapacityChangeError"><apiName>roomCapacityChangeError</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_CAPACITY_CHANGE_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_CAPACITY_CHANGE"><linktext>ROOM_CAPACITY_CHANGE</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_CAPACITY_CHANGE_roomCapacityChange"><apiName>roomCapacityChange</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_CAPACITY_CHANGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_CAPACITY_CHANGE_ERROR"><linktext>ROOM_CAPACITY_CHANGE_ERROR</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_CREATION_ERROR_roomCreationError"><apiName>roomCreationError</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_CREATION_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_ADD"><linktext>ROOM_ADD</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_FIND_RESULT_roomFindResult"><apiName>roomFindResult</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_FIND_RESULT</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_GROUP_SUBSCRIBE_ERROR_roomGroupSubscribeError"><apiName>roomGroupSubscribeError</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_GROUP_SUBSCRIBE_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_GROUP_SUBSCRIBE"><linktext>ROOM_GROUP_SUBSCRIBE</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_GROUP_SUBSCRIBE_roomGroupSubscribe"><apiName>roomGroupSubscribe</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_GROUP_SUBSCRIBE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_GROUP_SUBSCRIBE_ERROR"><linktext>ROOM_GROUP_SUBSCRIBE_ERROR</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_GROUP_UNSUBSCRIBE"><linktext>ROOM_GROUP_UNSUBSCRIBE</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_GROUP_UNSUBSCRIBE_ERROR_roomGroupUnsubscribeError"><apiName>roomGroupUnsubscribeError</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_GROUP_UNSUBSCRIBE_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_GROUP_UNSUBSCRIBE"><linktext>ROOM_GROUP_UNSUBSCRIBE</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_GROUP_UNSUBSCRIBE_roomGroupUnsubscribe"><apiName>roomGroupUnsubscribe</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_GROUP_UNSUBSCRIBE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_GROUP_UNSUBSCRIBE_ERROR"><linktext>ROOM_GROUP_UNSUBSCRIBE_ERROR</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_GROUP_SUBSCRIBE"><linktext>ROOM_GROUP_SUBSCRIBE</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_JOIN_ERROR_roomJoinError"><apiName>roomJoinError</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_JOIN_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_JOIN"><linktext>ROOM_JOIN</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_JOIN_roomJoin"><apiName>roomJoin</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_JOIN</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_JOIN_ERROR"><linktext>ROOM_JOIN_ERROR</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_NAME_CHANGE_ERROR_roomNameChangeError"><apiName>roomNameChangeError</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_NAME_CHANGE_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_NAME_CHANGE"><linktext>ROOM_NAME_CHANGE</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_NAME_CHANGE_roomNameChange"><apiName>roomNameChange</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_NAME_CHANGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_NAME_CHANGE_ERROR"><linktext>ROOM_NAME_CHANGE_ERROR</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_PASSWORD_STATE_CHANGE_ERROR_roomPasswordStateChangeError"><apiName>roomPasswordStateChangeError</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_PASSWORD_STATE_CHANGE_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_PASSWORD_STATE_CHANGE"><linktext>ROOM_PASSWORD_STATE_CHANGE</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_PASSWORD_STATE_CHANGE_roomPasswordStateChange"><apiName>roomPasswordStateChange</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_PASSWORD_STATE_CHANGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_PASSWORD_STATE_CHANGE_ERROR"><linktext>ROOM_PASSWORD_STATE_CHANGE_ERROR</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_REMOVE_roomRemove"><apiName>roomRemove</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_REMOVE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_ADD"><linktext>ROOM_ADD</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:ROOM_VARIABLES_UPDATE_roomVariablesUpdate"><apiName>roomVariablesUpdate</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:ROOM_VARIABLES_UPDATE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:SPECTATOR_TO_PLAYER_ERROR_spectatorToPlayerError"><apiName>spectatorToPlayerError</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:SPECTATOR_TO_PLAYER_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/SPECTATOR_TO_PLAYER"><linktext>SPECTATOR_TO_PLAYER</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:SPECTATOR_TO_PLAYER_spectatorToPlayer"><apiName>spectatorToPlayer</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:SPECTATOR_TO_PLAYER</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/SPECTATOR_TO_PLAYER_ERROR"><linktext>SPECTATOR_TO_PLAYER_ERROR</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/PLAYER_TO_SPECTATOR"><linktext>PLAYER_TO_SPECTATOR</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:UDP_INIT_udpInit"><apiName>udpInit</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:UDP_INIT</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:USER_COUNT_CHANGE_userCountChange"><apiName>userCountChange</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:USER_COUNT_CHANGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/USER_ENTER_ROOM"><linktext>USER_ENTER_ROOM</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/USER_EXIT_ROOM"><linktext>USER_EXIT_ROOM</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:USER_ENTER_ROOM_userEnterRoom"><apiName>userEnterRoom</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:USER_ENTER_ROOM</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/USER_EXIT_ROOM"><linktext>USER_EXIT_ROOM</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/USER_COUNT_CHANGE"><linktext>USER_COUNT_CHANGE</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:USER_EXIT_ROOM_userExitRoom"><apiName>userExitRoom</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:USER_EXIT_ROOM</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/USER_ENTER_ROOM"><linktext>USER_ENTER_ROOM</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/USER_COUNT_CHANGE"><linktext>USER_COUNT_CHANGE</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:USER_FIND_RESULT_userFindResult"><apiName>userFindResult</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:USER_FIND_RESULT</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSEvent:USER_VARIABLES_UPDATE_userVariablesUpdate"><apiName>userVariablesUpdate</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSEvent:USER_VARIABLES_UPDATE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><apiConstructor id="com.smartfoxserver.v2.core:SFSEvent:SFSEvent"><apiName>SFSEvent</apiName><shortdesc>
+		 Creates a new SFSEvent instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>type</apiItemName><apiType value="String"/><apiDesc>The type of event.
+		 </apiDesc></apiParam><apiParam><apiItemName>params</apiItemName><apiType value="Object"/><apiDesc>An object containing the parameters of the event.
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SFSEvent</i> instance.
+		 
+		 </apiDesc></apiConstructorDetail></apiConstructor><apiOperation id="com.smartfoxserver.v2.core:SFSEvent:clone"><apiName>clone</apiName><shortdesc>
+		 Duplicates the instance of the SFSEvent object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiIsOverride/><apiReturn><apiDesc>A new <i>SFSEvent</i> object that is identical to the original.
+		 </apiDesc><apiType value="flash.events:Event"/></apiReturn></apiOperationDef><apiDesc>
+		 Duplicates the instance of the <i>SFSEvent</i> object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.core:SFSEvent:toString"><apiName>toString</apiName><shortdesc>
+		 Generates a string containing all the properties of the SFSEvent object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiIsOverride/><apiReturn><apiDesc>A string containing all the properties of the <i>SFSEvent</i> object.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>
+		 Generates a string containing all the properties of the <i>SFSEvent</i> object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ADMIN_MESSAGE"><apiName>ADMIN_MESSAGE</apiName><shortdesc>
+		 The SFSEvent.ADMIN_MESSAGE constant defines the value of the type property of the event object for a adminMessage event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>adminMessage</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ADMIN_MESSAGE</i> constant defines the value of the <i>type</i> property of the event object for a <i>adminMessage</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>sender</entry><entry><i>User</i></entry><entry>An object representing the administrator user who sent the message.</entry></row><row><entry>message</entry><entry><i>String</i></entry><entry>The message sent by the administrator.</entry></row><row><entry>data</entry><entry><i>ISFSObject</i></entry><entry>An object containing custom parameters which might accompany the message.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example sends an administration message to all the users in the Zone; it also shows how to handle the related event:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.ADMIN_MESSAGE, onAdminMessage);
+		 	
+		 	// Set the message recipients: all users in the Zone
+		 	var recipMode:MessageRecipientMode = new MessageRecipientMode(MessageRecipientMode.TO_ZONE, null);
+		 	
+		 	// Send the administrator message
+		 	sfs.send(new AdminMessageRequest("Hello to everybody from the Administrator!", recipMode));
+		 }
+		 
+		 private function onAdminMessage(evt:SFSEvent):void
+		 {
+		 	trace("The administrator sent the following message: " + evt.params.message);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/MODERATOR_MESSAGE"><linktext>MODERATOR_MESSAGE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:CONFIG_LOAD_FAILURE"><apiName>CONFIG_LOAD_FAILURE</apiName><shortdesc>
+		 The SFSEvent.CONFIG_LOAD_FAILURE constant defines the value of the type property of the event object for a configLoadFailure event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>configLoadFailure</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.CONFIG_LOAD_FAILURE</i> constant defines the value of the <i>type</i> property of the event object for a <i>configLoadFailure</i> event.
+		 
+		 <p>No parameters are available for this event object.</p>
+		 
+		 </apiDesc><example>See the example provided in the <i>CONFIG_LOAD_SUCCESS</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONFIG_LOAD_SUCCESS"><linktext>CONFIG_LOAD_SUCCESS</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:CONFIG_LOAD_SUCCESS"><apiName>CONFIG_LOAD_SUCCESS</apiName><shortdesc>
+		 The SFSEvent.CONFIG_LOAD_SUCCESS constant defines the value of the type property of the event object for a configLoadSuccess event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>configLoadSuccess</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.CONFIG_LOAD_SUCCESS</i> constant defines the value of the <i>type</i> property of the event object for a <i>configLoadSuccess</i> event.
+		 
+		 <p>No parameters are available for this event object.</p>
+		 
+		 </apiDesc><example>The following example loads an external configuration file:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	var sfs:SmartFox = new SmartFox();
+		 	
+		 	sfs.addEventListener(SFSEvent.CONFIG_LOAD_SUCCESS, onConfigLoaded);
+		 	sfs.addEventListener(SFSEvent.CONFIG_LOAD_FAILURE, onConfigLoadFailed);
+		 	
+		 	sfs.loadConfig("testConfig.xml", false);
+		 }
+		 
+		 private function onConfigLoaded(evt:SFSEvent):void
+		 {
+		 	// Configuration loaded successfully, now connect
+		 	sfs.connect();
+		 }
+		 
+		 private function onConfigLoadFailed(evt:SFSEvent):void
+		 {
+		 	trace("Failed loading configuration file");
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONFIG_LOAD_FAILURE"><linktext>CONFIG_LOAD_FAILURE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:CONNECTION_ATTEMPT_HTTP"><apiName>CONNECTION_ATTEMPT_HTTP</apiName><shortdesc>
+		 The SFSEvent.CONNECTION_ATTEMPT_HTTP constant defines the value of the type property of the event object for a connectionAttemptHttp event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>connectionAttemptHttp</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.CONNECTION_ATTEMPT_HTTP</i> constant defines the value of the <i>type</i> property of the event object for a <i>connectionAttemptHttp</i> event.
+		 
+		 <p>No parameters are available for this event object.</p>
+		 
+		 </apiDesc><example>See the example provided in the <i>CONNECTION_ATTEMPT_HTTP</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION"><linktext>CONNECTION</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_LOST"><linktext>CONNECTION_LOST</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:CONNECTION_LOST"><apiName>CONNECTION_LOST</apiName><shortdesc>
+		 The SFSEvent.CONNECTION_LOST constant defines the value of the type property of the event object for a connectionLost event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>connectionLost</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.CONNECTION_LOST</i> constant defines the value of the <i>type</i> property of the event object for a <i>connectionLost</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>reason</entry><entry><i>String</i></entry><entry>The reason of the disconnection, among those available in the <i>ClientDisconnectionReason</i> class.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example handles a disconnection event:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.CONNECTION_LOST, onConnectionLost);
+		 }
+		 
+		 private function onConnectionLost(evt:SFSEvent):void
+		 {
+		 	var reason:String = evt.params.reason;
+		 	
+		 	if (reason != ClientDisconnectionReason.MANUAL)
+		 	{
+		 		if (reason == ClientDisconnectionReason.IDLE)
+		 			trace("A disconnection occurred due to inactivity");
+		 		else if (reason == ClientDisconnectionReason.KICK)
+		 			trace("You have been kicked by the moderator");
+		 		else if (reason == ClientDisconnectionReason.BAN)
+		 			trace("You have been banned by the moderator");
+		 		else
+		 			trace("A disconnection occurred due to unknown reason; please check the server log");
+		 	}
+		 	else
+		 	{
+		 		// Manual disconnection is usually ignored
+		 	}
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.util.xml#ClientDisconnectionReason"><linktext>com.smartfoxserver.v2.util.ClientDisconnectionReason</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION"><linktext>CONNECTION</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_RETRY"><linktext>CONNECTION_RETRY</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:CONNECTION_RESUME"><apiName>CONNECTION_RESUME</apiName><shortdesc>
+		 The SFSEvent.CONNECTION_RESUME constant defines the value of the type property of the event object for a connectionResume event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>connectionResume</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.CONNECTION_RESUME</i> constant defines the value of the <i>type</i> property of the event object for a <i>connectionResume</i> event.
+		 
+		 <p>No parameters are available for this event object.</p>
+		 
+		 </apiDesc><example>See the example provided in the <i>CONNECTION_RETRY</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_RETRY"><linktext>CONNECTION_RETRY</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_LOST"><linktext>CONNECTION_LOST</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:CONNECTION_RETRY"><apiName>CONNECTION_RETRY</apiName><shortdesc>
+		 The SFSEvent.CONNECTION_RETRY constant defines the value of the type property of the event object for a connectionRetry event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>connectionRetry</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.CONNECTION_RETRY</i> constant defines the value of the <i>type</i> property of the event object for a <i>connectionRetry</i> event.
+		 
+		 <p>No parameters are available for this event object.</p>
+		 
+		 </apiDesc><example>The following example handles a temporary disconnection event and the following connection resuming:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.CONNECTION_RETRY, onConnectionRetry);
+		 	sfs.addEventListener(SFSEvent.CONNECTION_RESUME, onConnectionResumed);
+		 	sfs.addEventListener(SFSEvent.CONNECTION_LOST, onConnectionLost);
+		 }
+		 
+		 private function onConnectionRetry(evt:SFSEvent):void
+		 {
+		 	// Freeze the GUI and provide some feedback to the player
+		 	...
+		 }
+		 
+		 private function onConnectionResumed(evt:SFSEvent):void
+		 {
+		 	// Unfreeze the GUI and let the player continue with the game
+		 	...
+		 }
+		 
+		 private function onConnectionLost(evt:SFSEvent):void
+		 {
+		 	trace("Ouch, connection was lost. Reason: " + evt.params.reason);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_RESUME"><linktext>CONNECTION_RESUME</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_LOST"><linktext>CONNECTION_LOST</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:CONNECTION"><apiName>CONNECTION</apiName><shortdesc>
+		 The SFSEvent.CONNECTION constant defines the value of the type property of the event object for a connection event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>connection</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.CONNECTION</i> constant defines the value of the <i>type</i> property of the event object for a <i>connection</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>success</entry><entry><i>Boolean</i></entry><entry>The connection result: <codeph>true</codeph> if a connection was established, <codeph>false</codeph> otherwise.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example starts a connection:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	var sfs:SmartFox = new SmartFox();
+		 	sfs.addEventListener(SFSEvent.CONNECTION, onConnection);
+		 	
+		 	sfs.connect();
+		 }
+		 
+		 private function onConnection(evt:SFSEvent):void
+		 {
+		 	if (evt.params.success)
+		 		trace("Connection established");
+		 	else
+		 		trace("Connection failed");
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_RETRY"><linktext>CONNECTION_RETRY</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_RESUME"><linktext>CONNECTION_RESUME</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/CONNECTION_LOST"><linktext>CONNECTION_LOST</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:EXTENSION_RESPONSE"><apiName>EXTENSION_RESPONSE</apiName><shortdesc>
+		 The SFSEvent.EXTENSION_RESPONSE constant defines the value of the type property of the event object for a extensionResponse event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>extensionResponse</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.EXTENSION_RESPONSE</i> constant defines the value of the <i>type</i> property of the event object for a <i>extensionResponse</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>cmd</entry><entry><i>String</i></entry><entry>The name of the command which identifies an action that should be executed by the client.
+		 												If this event is fired in response to a request sent by the client, it is a common practice
+		 												to use the same command name passed to the request also in the response.</entry></row><row><entry>params</entry><entry><i>ISFSObject</i></entry><entry>An object containing custom data sent by the Extension.</entry></row><row><entry>sourceRoom</entry><entry><i>Number</i></entry><entry>The id of the Room which the Extension is attached to (for Room Extensions only).</entry></row><row><entry>packetId</entry><entry><i>Number</i></entry><entry>The id of the packet when the UDP protocol is used. As this is an auto-increment value generated by the server,
+		 													it can be useful to detect UDP packets received in the wrong order.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example sends a command to the Zone Extension; it also handles responses coming from the
+		 Extension by implementing the <i>extensionResponse</i> listener (the same command name is used in both the request and the response):
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.EXTENSION_RESPONSE, onExtensionResponse);
+		 	
+		 	// Send two integers to the Zone extension and get their sum in return
+		 	var params:ISFSObject = new SFSObject();
+		 	params.putInt("n1", 26);
+		 	params.putInt("n2", 16);
+		 	
+		 	sfs.send(new ExtensionRequest("add", params));
+		 }
+		 
+		 private function onExtensionResponse(evt:SFSEvent):void
+		 {
+		 	if (evt.params.cmd == "add")
+		 	{
+		 		var responseParams:ISFSObject = evt.params.params as SFSObject;
+		 		
+		 		// We expect an int parameter called "sum"
+		 		trace("The sum is: " + responseParams.getInt("sum"));
+		 	}
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:INVITATION_REPLY_ERROR"><apiName>INVITATION_REPLY_ERROR</apiName><shortdesc>
+		 The SFSEvent.INVITATION_REPLY_ERROR constant defines the value of the type property of the event object for a invitationReplyError event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>invitationReplyError</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.INVITATION_REPLY_ERROR</i> constant defines the value of the <i>type</i> property of the event object for a <i>invitationReplyError</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>errorMessage</entry><entry><i>String</i></entry><entry>A message containing the description of the error.</entry></row><row><entry>errorCode</entry><entry><i>int</i></entry><entry>The error code.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>See the example provided in the <i>INVITATION</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/INVITATION_REPLY"><linktext>INVITATION_REPLY</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/INVITATION"><linktext>INVITATION</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:INVITATION_REPLY"><apiName>INVITATION_REPLY</apiName><shortdesc>
+		 The SFSEvent.INVITATION_REPLY constant defines the value of the type property of the event object for a invitationReply event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>invitationReply</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.INVITATION_REPLY</i> constant defines the value of the <i>type</i> property of the event object for a <i>invitationReply</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>invitee</entry><entry><i>User</i></entry><entry>An object representing the user who replied to the invitation.</entry></row><row><entry>reply</entry><entry><i>int</i></entry><entry>The answer to the invitation among those available as constants in the <i>InvitationReply</i> class.</entry></row><row><entry>data</entry><entry><i>ISFSObject</i></entry><entry>An object containing custom parameters, for example a message describing the reason of refusal.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>See the example provided in the <i>INVITATION</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.invitation.xml#InvitationReply"><linktext>InvitationReply</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/INVITATION"><linktext>INVITATION</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/INVITATION_REPLY_ERROR"><linktext>INVITATION_REPLY_ERROR</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:INVITATION"><apiName>INVITATION</apiName><shortdesc>
+		 The SFSEvent.INVITATION constant defines the value of the type property of the event object for a invitation event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>invitation</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.INVITATION</i> constant defines the value of the <i>type</i> property of the event object for a <i>invitation</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>invitation</entry><entry><i>Invitation</i></entry><entry>An object representing the invitation received by the current user.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example receives an invitation and accepts it automatically; in a real case scenario, the application interface
+		 usually allows the user choosing to accept or refuse the invitation, or even ignore it:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.INVITATION, onInvitationReceived);
+		 	sfs.addEventListener(SFSEvent.INVITATION_REPLY_ERROR, onInvitationReplyError);
+		 }
+		 
+		 private function onInvitationReceived(evt:SFSEvent):void
+		 {
+		 	// Let's accept this invitation			
+		 	sfs.send(new InvitationReplyRequest(evt.params.invitation, InvitationReply.ACCEPT));
+		 }
+		 
+		 private function onInvitationReplyError(evt:SFSEvent):void
+		 {
+		 	trace("Failed to reply to invitation due to the following problem: " + evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/INVITATION_REPLY"><linktext>INVITATION_REPLY</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:LOGIN_ERROR"><apiName>LOGIN_ERROR</apiName><shortdesc>
+		 The SFSEvent.LOGIN_ERROR constant defines the value of the type property of the event object for a loginError event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>loginError</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.LOGIN_ERROR</i> constant defines the value of the <i>type</i> property of the event object for a <i>loginError</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>errorMessage</entry><entry><i>String</i></entry><entry>A message containing the description of the error.</entry></row><row><entry>errorCode</entry><entry><i>int</i></entry><entry>The error code.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>See the example provided in the <i>LOGIN</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/LOGIN"><linktext>LOGIN</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:LOGIN"><apiName>LOGIN</apiName><shortdesc>
+		 The SFSEvent.LOGIN constant defines the value of the type property of the event object for a login event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>login</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.LOGIN</i> constant defines the value of the <i>type</i> property of the event object for a <i>login</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>user</entry><entry><i>User</i></entry><entry>An object representing the user who performed the login.</entry></row><row><entry>data</entry><entry><i>ISFSObject</i></entry><entry>An object containing custom parameters returned by a custom login system, if any.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example performs a login in the "SimpleChat" Zone:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.LOGIN, onLogin);
+		 	sfs.addEventListener(SFSEvent.LOGIN_ERROR, onLoginError);
+		 	
+		 	// Login
+		 	sfs.send(new LoginRequest("FozzieTheBear", "", "SimpleChat"));
+		 }
+		 
+		 private function onLogin(evt:SFSEvent):void
+		 {
+		 	trace("Login successful!");
+		 }
+		 
+		 private function onLoginError(evt:SFSEvent):void
+		 {
+		 	trace("Login failure: " + evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/LOGIN_ERROR"><linktext>LOGIN_ERROR</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/LOGOUT"><linktext>LOGOUT</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:LOGOUT"><apiName>LOGOUT</apiName><shortdesc>
+		 The SFSEvent.LOGOUT constant defines the value of the type property of the event object for a logout event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>logout</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.LOGOUT</i> constant defines the value of the <i>type</i> property of the event object for a <i>logout</i> event.
+		 
+		 <p>No parameters are available for this event object.</p>
+		 
+		 </apiDesc><example>The following example performs a logout from the current Zone:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.LOGOUT, onLogout);
+		 	
+		 	// Logout
+		 	sfs.send(new LogoutRequest());
+		 }
+		 
+		 private function onLogout(evt:SFSEvent):void
+		 {
+		 	trace("Logout executed!");
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/LOGIN"><linktext>LOGIN</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:MODERATOR_MESSAGE"><apiName>MODERATOR_MESSAGE</apiName><shortdesc>
+		 The SFSEvent.MODERATOR_MESSAGE constant defines the value of the type property of the event object for a moderatorMessage event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>moderatorMessage</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.MODERATOR_MESSAGE</i> constant defines the value of the <i>type</i> property of the event object for a <i>moderatorMessage</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>sender</entry><entry><i>User</i></entry><entry>An object representing the moderator user who sent the message.</entry></row><row><entry>message</entry><entry><i>String</i></entry><entry>The message sent by the moderator.</entry></row><row><entry>data</entry><entry><i>ISFSObject</i></entry><entry>An object containing custom parameters which might accompany the message.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example sends a moderator message to all the users in the last joned Room; it also shows how to handle the related event:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.MODERATOR_MESSAGE, onModeratorMessage);
+		 	
+		 	// Set the message recipients: all users in the current Room
+		 	var recipMode:MessageRecipientMode = new MessageRecipientMode(MessageRecipientMode.TO_ROOM, sfs.lastJoinedRoom);
+		 	
+		 	// Send the moderator message
+		 	sfs.send(new ModeratorMessageRequest("Hello everybody, I'm the Moderator!", recipMode));
+		 }
+		 
+		 private function onModeratorMessage(evt:SFSEvent):void
+		 {
+		 	trace("The moderator sent the following message: " + evt.params.message);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ADMIN_MESSAGE"><linktext>ADMIN_MESSAGE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:OBJECT_MESSAGE"><apiName>OBJECT_MESSAGE</apiName><shortdesc>
+		 The SFSEvent.OBJECT_MESSAGE constant defines the value of the type property of the event object for a objectMessage event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>objectMessage</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.OBJECT_MESSAGE</i> constant defines the value of the <i>type</i> property of the event object for a <i>objectMessage</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>sender</entry><entry><i>User</i></entry><entry>An object representing the user who sent the message.</entry></row><row><entry>message</entry><entry><i>SFSObject</i></entry><entry>The content of the message: an object containing the custom parameters sent by the sender.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example sends the player's character movement coordinates and handles the respective event
+		 (note: the <i>myCharacter</i> instance is supposed to be the user sprite on the stage, while the <i>getUserCharacter</i> method retrieves the sprite of other users' characters):
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.OBJECT_MESSAGE, onObjectMessage);
+		 	
+		 	// Send my movement to all players
+		 	var dataObj:ISFSObject = new SFSObject();
+		 	dataObj.putInt("x", myCharacter.x);
+		 	dataObj.putInt("y", myCharacter.y);
+		 	
+		 	sfs.send(new ObjectMessageRequest(dataObj));
+		 }
+		 
+		 private function onObjectMessage(evt:SFSEvent):void
+		 {
+		 	var dataObj:ISFSObject = evt.params.message as SFSObject;
+		 	
+		 	var sender:User = evt.params.sender;
+		 	var character:Sprite = getUserCharacter(sender.id);
+		 	
+		 	character.x = dataObj.getInt("x");
+		 	character.y = dataObj.getInt("y");
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:PING_PONG"><apiName>PING_PONG</apiName><shortdesc>
+		 The SFSEvent.PING_PONG constant defines the value of the type property of the event object for a pingPong event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>pingPong</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.PING_PONG</i> constant defines the value of the <i>type</i> property of the event object for a <i>pingPong</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>lagValue</entry><entry><i>int</i></entry><entry>The average of the last ten measured lag values, expressed in milliseconds.</entry></row></tbody></tgroup></adobetable>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:PLAYER_TO_SPECTATOR_ERROR"><apiName>PLAYER_TO_SPECTATOR_ERROR</apiName><shortdesc>
+		 The SFSEvent.PLAYER_TO_SPECTATOR_ERROR constant defines the value of the type property of the event object for a playerToSpectatorError event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>playerToSpectatorError</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.PLAYER_TO_SPECTATOR_ERROR</i> constant defines the value of the <i>type</i> property of the event object for a <i>playerToSpectatorError</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>errorMessage</entry><entry><i>String</i></entry><entry>A message containing the description of the error.</entry></row><row><entry>errorCode</entry><entry><i>int</i></entry><entry>The error code.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>See the example provided in the <i>PLAYER_TO_SPECTATOR</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/PLAYER_TO_SPECTATOR"><linktext>PLAYER_TO_SPECTATOR</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:PLAYER_TO_SPECTATOR"><apiName>PLAYER_TO_SPECTATOR</apiName><shortdesc>
+		 The SFSEvent.PLAYER_TO_SPECTATOR constant defines the value of the type property of the event object for a playerToSpectator event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>playerToSpectator</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.PLAYER_TO_SPECTATOR</i> constant defines the value of the <i>type</i> property of the event object for a <i>playerToSpectator</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>room</entry><entry><i>Room</i></entry><entry>An object representing the Room in which the player is turned to spectator.</entry></row><row><entry>user</entry><entry><i>User</i></entry><entry>An object representing the player who was turned to spectator.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example turns the current user from player to spectator in the last joined Game Room:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.PLAYER_TO_SPECTATOR, onPlayerToSpectatorSwitch);
+		 	sfs.addEventListener(SFSEvent.PLAYER_TO_SPECTATOR_ERROR, onPlayerToSpectatorSwitchError);
+		 	
+		 	// Switch player to spectator
+		 	sfs.send(new PlayerToSpectatorRequest());
+		 }
+		 
+		 private function onPlayerToSpectatorSwitch(evt:SFSEvent):void
+		 {
+		 	trace("Player " + evt.params.user + " is now a spectator");
+		 }
+		 
+		 private function onPlayerToSpectatorSwitchError(evt:SFSEvent):void
+		 {
+		 	trace("Unable to become a spectator due to the following error: " + evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/PLAYER_TO_SPECTATOR_ERROR"><linktext>PLAYER_TO_SPECTATOR_ERROR</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/SPECTATOR_TO_PLAYER"><linktext>SPECTATOR_TO_PLAYER</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:PRIVATE_MESSAGE"><apiName>PRIVATE_MESSAGE</apiName><shortdesc>
+		 The SFSEvent.PRIVATE_MESSAGE constant defines the value of the type property of the event object for a privateMessage event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>privateMessage</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.PRIVATE_MESSAGE</i> constant defines the value of the <i>type</i> property of the event object for a <i>privateMessage</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>sender</entry><entry><i>User</i></entry><entry>An object representing the user who sent the message.</entry></row><row><entry>message</entry><entry><i>String</i></entry><entry>The message sent by the user.</entry></row><row><entry>data</entry><entry><i>ISFSObject</i></entry><entry>An object containing custom parameters which might accompany the message.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example sends a private message and handles the respective event:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.PRIVATE_MESSAGE, onPrivateMessage);
+		 	
+		 	// Send a private message to Jack
+		 	var user:User = sfs.usermanager.getUserByName("Jack");
+		 	sfs.send(new PrivateMessageRequest("Hello my friend!", user.id));
+		 }
+		 
+		 private function onPrivateMessage(evt:SFSEvent):void
+		 {
+		 	// As messages are forwarded to the sender too,
+		 	// I have to check if I am the sender
+		 	
+		 	var sender:User = evt.params.sender;
+		 	
+		 	if (sender != sfs.mySelf)
+		 		trace("User " + sender.name + " sent me this PM:", evt.params.message);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/PUBLIC_MESSAGE"><linktext>PUBLIC_MESSAGE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:PUBLIC_MESSAGE"><apiName>PUBLIC_MESSAGE</apiName><shortdesc>
+		 The SFSEvent.PUBLIC_MESSAGE constant defines the value of the type property of the event object for a publicMessage event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>publicMessage</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.PUBLIC_MESSAGE</i> constant defines the value of the <i>type</i> property of the event object for a <i>publicMessage</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>room</entry><entry><i>Room</i></entry><entry>An object representing the Room at which the message is targeted.</entry></row><row><entry>sender</entry><entry><i>User</i></entry><entry>An object representing the user who sent the message.</entry></row><row><entry>message</entry><entry><i>String</i></entry><entry>The message sent by the user.</entry></row><row><entry>data</entry><entry><i>ISFSObject</i></entry><entry>An object containing custom parameters which might accompany the message.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example sends a public message and handles the respective event:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.PUBLIC_MESSAGE, onPublicMessage);
+		 	
+		 	// Send a public message
+		 	sfs.send(new PublicMessageRequest("Hello everyone!"));
+		 }
+		 
+		 private function onPublicMessage(evt:SFSEvent):void
+		 {
+		 	// As messages are forwarded to the sender too,
+		 	// I have to check if I am the sender
+		 	
+		 	var sender:User = evt.params.sender;
+		 	
+		 	if (sender == sfs.mySelf)
+		 		trace("I said:", evt.params.message);
+		 	else
+		 		trace("User " + sender.name + " said:", evt.params.message);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/PRIVATE_MESSAGE"><linktext>PRIVATE_MESSAGE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_ADD"><apiName>ROOM_ADD</apiName><shortdesc>
+		 The SFSEvent.ROOM_ADD constant defines the value of the type property of the event object for a roomAdd event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomAdd</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_ADD</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomAdd</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>room</entry><entry><i>Room</i></entry><entry>An object representing the Room that was created.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example creates a new chat Room:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.ROOM_ADD, onRoomCreated);
+		 	sfs.addEventListener(SFSEvent.ROOM_CREATION_ERROR, onRoomCreationError);
+		 	
+		 	// Define the settings of a new chat Room
+		 	var settings:RoomSettings = new RoomSettings("My Chat Room");
+		 	settings.maxUsers = 40;
+		 	settings.groupId = "chats";
+		 	
+		 	// Create the Room
+		 	sfs.send(new CreateRoomRequest(settings));
+		 }
+		 
+		 private function onRoomCreated(evt:SFSEvent):void
+		 {
+		 	trace("Room created: " + evt.params.room);
+		 }
+		 
+		 private function onRoomCreationError(evt:SFSEvent):void
+		 {
+		 	trace("Room creation failure: " + evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_REMOVE"><linktext>ROOM_REMOVE</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_CREATION_ERROR"><linktext>ROOM_CREATION_ERROR</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_CAPACITY_CHANGE_ERROR"><apiName>ROOM_CAPACITY_CHANGE_ERROR</apiName><shortdesc>
+		 The SFSEvent.ROOM_CAPACITY_CHANGE_ERROR constant defines the value of the type property of the event object for a roomCapacityChangeError event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomCapacityChangeError</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_CAPACITY_CHANGE_ERROR</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomCapacityChangeError</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>errorMessage</entry><entry><i>String</i></entry><entry>A message containing the description of the error.</entry></row><row><entry>errorCode</entry><entry><i>int</i></entry><entry>The error code.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>See the example provided in the <i>ROOM_CAPACITY_CHANGE</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_CAPACITY_CHANGE"><linktext>ROOM_CAPACITY_CHANGE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_CAPACITY_CHANGE"><apiName>ROOM_CAPACITY_CHANGE</apiName><shortdesc>
+		 The SFSEvent.ROOM_CAPACITY_CHANGE constant defines the value of the type property of the event object for a roomCapacityChange event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomCapacityChange</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_CAPACITY_CHANGE</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomCapacityChange</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>room</entry><entry><i>Room</i></entry><entry>An object representing the Room whose capacity was changed.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example changes the capacity of an existing Room:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.ROOM_CAPACITY_CHANGE, onRoomCapacityChanged);
+		 	sfs.addEventListener(SFSEvent.ROOM_CAPACITY_CHANGE_ERROR, onRoomCapacityChangeError);
+		 	
+		 	var theRoom:Room = sfs.getRoomByName("Gonzo's Room");
+		 	
+		 	// Resize the Room so that it allows a maximum of 100 users and zero spectators
+		 	sfs.send(new ChangeRoomCapacityRequest(theRoom, 100, 0));
+		 }
+		 
+		 private function onRoomCapacityChanged(evt:SFSEvent):void
+		 {
+		 	trace("The capacity of Room " + evt.params.room.name + " was changed successfully");
+		 }
+		 
+		 private function onRoomCapacityChangeError(evt:SFSEvent):void
+		 {
+		 	trace("Room capacity change failed: " + evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_CAPACITY_CHANGE_ERROR"><linktext>ROOM_CAPACITY_CHANGE_ERROR</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_CREATION_ERROR"><apiName>ROOM_CREATION_ERROR</apiName><shortdesc>
+		 The SFSEvent.ROOM_CREATION_ERROR constant defines the value of the type property of the event object for a roomCreationError event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomCreationError</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_CREATION_ERROR</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomCreationError</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>errorMessage</entry><entry><i>String</i></entry><entry>A message containing the description of the error.</entry></row><row><entry>errorCode</entry><entry><i>int</i></entry><entry>The error code.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>See the example provided in the <i>ROOM_ADD</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_ADD"><linktext>ROOM_ADD</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_FIND_RESULT"><apiName>ROOM_FIND_RESULT</apiName><shortdesc>
+		 The SFSEvent.ROOM_FIND_RESULT constant defines the value of the type property of the event object for a roomFindResult event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomFindResult</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_FIND_RESULT</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomFindResult</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>rooms</entry><entry><i>Array</i></entry><entry>A list of <i>Room</i> objects representing the Rooms matching the search criteria. If no Room is found, the list is empty</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example looks for all the server Rooms whose "country" Room Variable is set to "Sweden":
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.ROOM_FIND_RESULT, onRoomFindResult);
+		 	
+		 	// Create a matching expression to find Rooms with a "country" variable equal to "Sweden"
+		 	var exp:MatchExpression = new MatchExpression("country", StringMatch.EQUALS, "Sweden");
+		 	
+		 	// Find the Rooms
+		 	sfs.send(new FindRoomRequest(exp));
+		 }
+		 
+		 private function onRoomFindResult(evt:SFSEvent):void
+		 {
+		 	trace("Rooms found: " + evt.params.rooms);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_GROUP_SUBSCRIBE_ERROR"><apiName>ROOM_GROUP_SUBSCRIBE_ERROR</apiName><shortdesc>
+		 The SFSEvent.ROOM_GROUP_SUBSCRIBE_ERROR constant defines the value of the type property of the event object for a roomGroupSubscribeError event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomGroupSubscribeError</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_GROUP_SUBSCRIBE_ERROR</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomGroupSubscribeError</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>errorMessage</entry><entry><i>String</i></entry><entry>A message containing the description of the error.</entry></row><row><entry>errorCode</entry><entry><i>int</i></entry><entry>The error code.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>See the example provided in the <i>ROOM_GROUP_SUBSCRIBE</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_GROUP_SUBSCRIBE"><linktext>ROOM_GROUP_SUBSCRIBE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_GROUP_SUBSCRIBE"><apiName>ROOM_GROUP_SUBSCRIBE</apiName><shortdesc>
+		 The SFSEvent.ROOM_GROUP_SUBSCRIBE constant defines the value of the type property of the event object for a roomGroupSubscribe event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomGroupSubscribe</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_GROUP_SUBSCRIBE</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomGroupSubscribe</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>groupId</entry><entry><i>String</i></entry><entry>The name of the Group that was subscribed.</entry></row><row><entry>newRooms</entry><entry><i>Array</i></entry><entry>A list of <i>Room</i> objects representing the Rooms belonging to the subscribed Group.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example makes the current user subscribe a Group:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.ROOM_GROUP_SUBSCRIBE, onGroupSubscribed);
+		 	sfs.addEventListener(SFSEvent.ROOM_GROUP_SUBSCRIBE_ERROR, onGroupSubscribeError);
+		 	
+		 	// Subscribe the "cardGames" group
+		 	sfs.send(new SubscribeRoomGroupRequest("cardGames"));
+		 }
+		 
+		 private function onGroupSubscribed(evt:SFSEvent):void
+		 {
+		 	trace("Group subscribed. The following rooms are now accessible: " + evt.params.newRooms);
+		 }
+		 
+		 private function onGroupSubscribeError(evt:SFSEvent):void
+		 {
+		 	trace("Group subscription failed: " + evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_GROUP_SUBSCRIBE_ERROR"><linktext>ROOM_GROUP_SUBSCRIBE_ERROR</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_GROUP_UNSUBSCRIBE"><linktext>ROOM_GROUP_UNSUBSCRIBE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_GROUP_UNSUBSCRIBE_ERROR"><apiName>ROOM_GROUP_UNSUBSCRIBE_ERROR</apiName><shortdesc>
+		 The SFSEvent.ROOM_GROUP_UNSUBSCRIBE_ERROR constant defines the value of the type property of the event object for a roomGroupUnsubscribeError event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomGroupUnsubscribeError</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_GROUP_UNSUBSCRIBE_ERROR</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomGroupUnsubscribeError</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>errorMessage</entry><entry><i>String</i></entry><entry>A message containing the description of the error.</entry></row><row><entry>errorCode</entry><entry><i>int</i></entry><entry>The error code.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>See the example provided in the <i>ROOM_GROUP_UNSUBSCRIBE</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_GROUP_UNSUBSCRIBE"><linktext>ROOM_GROUP_UNSUBSCRIBE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_GROUP_UNSUBSCRIBE"><apiName>ROOM_GROUP_UNSUBSCRIBE</apiName><shortdesc>
+		 The SFSEvent.ROOM_GROUP_UNSUBSCRIBE constant defines the value of the type property of the event object for a roomGroupUnsubscribe event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomGroupUnsubscribe</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_GROUP_UNSUBSCRIBE</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomGroupUnsubscribe</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>groupId</entry><entry><i>String</i></entry><entry>The name of the Group that was unsubscribed.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example makes the current user unsubscribe a Group:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.ROOM_GROUP_UNSUBSCRIBE, onGroupUnsubscribed);
+		 	sfs.addEventListener(SFSEvent.ROOM_GROUP_UNSUBSCRIBE_ERROR, onGroupUnsubscribeError);
+		 	
+		 	// Unsubscribe the "cardGames" group
+		 	sfs.send(new UnsubscribeRoomGroupRequest("cardGames"));
+		 }
+		 
+		 private function onGroupUnsubscribed(evt:SFSEvent):void
+		 {
+		 	trace("Group unsubscribed: " + evt.params.groupId);
+		 }
+		 
+		 private function onGroupUnsubscribeError(evt:SFSEvent):void
+		 {
+		 	trace("Group unsubscribing failed: " + evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_GROUP_UNSUBSCRIBE_ERROR"><linktext>ROOM_GROUP_UNSUBSCRIBE_ERROR</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_GROUP_SUBSCRIBE"><linktext>ROOM_GROUP_SUBSCRIBE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_JOIN_ERROR"><apiName>ROOM_JOIN_ERROR</apiName><shortdesc>
+		 The SFSEvent.ROOM_JOIN_ERROR constant defines the value of the type property of the event object for a roomJoinError event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomJoinError</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_JOIN_ERROR</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomJoinError</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>errorMessage</entry><entry><i>String</i></entry><entry>A message containing the description of the error.</entry></row><row><entry>errorCode</entry><entry><i>int</i></entry><entry>The error code.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>See the example provided in the <i>ROOM_JOIN</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_JOIN"><linktext>ROOM_JOIN</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_JOIN"><apiName>ROOM_JOIN</apiName><shortdesc>
+		 The SFSEvent.ROOM_JOIN constant defines the value of the type property of the event object for a roomJoin event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomJoin</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_JOIN</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomJoin</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>room</entry><entry><i>Room</i></entry><entry>An object representing the Room that was joined.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example makes the user join an existing Room:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.ROOM_JOIN, onRoomJoined);
+		 	sfs.addEventListener(SFSEvent.ROOM_JOIN_ERROR, onRoomJoinError);
+		 	
+		 	// Join a Room called "Lobby"
+		 	sfs.send(new JoinRoomRequest("Lobby"));
+		 }
+		 
+		 private function onRoomJoined(evt:SFSEvent):void
+		 {
+		 	trace("Room joined successfully: " + evt.params.room);
+		 }
+		 
+		 private function onRoomJoinError(evt:SFSEvent):void
+		 {
+		 	trace("Room joining failed: " + evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_JOIN_ERROR"><linktext>ROOM_JOIN_ERROR</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_NAME_CHANGE_ERROR"><apiName>ROOM_NAME_CHANGE_ERROR</apiName><shortdesc>
+		 The SFSEvent.ROOM_NAME_CHANGE_ERROR constant defines the value of the type property of the event object for a roomNameChangeError event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomNameChangeError</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_NAME_CHANGE_ERROR</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomNameChangeError</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>errorMessage</entry><entry><i>String</i></entry><entry>A message containing the description of the error.</entry></row><row><entry>errorCode</entry><entry><i>int</i></entry><entry>The error code.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>See the example provided in the <i>ROOM_NAME_CHANGE</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_NAME_CHANGE"><linktext>ROOM_NAME_CHANGE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_NAME_CHANGE"><apiName>ROOM_NAME_CHANGE</apiName><shortdesc>
+		 The SFSEvent.ROOM_NAME_CHANGE constant defines the value of the type property of the event object for a roomNameChange event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomNameChange</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_NAME_CHANGE</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomNameChange</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>room</entry><entry><i>Room</i></entry><entry>An object representing the Room which was renamed.</entry></row><row><entry>oldName</entry><entry><i>String</i></entry><entry>The previous name of the Room.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example renames an existing Room:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.ROOM_NAME_CHANGE, onRoomNameChanged);
+		 	sfs.addEventListener(SFSEvent.ROOM_NAME_CHANGE_ERROR, onRoomNameChangeError);
+		 	
+		 	var theRoom:Room = sfs.getRoomByName("Gonzo's Room");
+		 	sfs.send(new ChangeRoomNameRequest(theRoom, "Gonzo The Great's Room"));
+		 }
+		 
+		 private function onRoomNameChanged(evt:SFSEvent):void
+		 {
+		 	trace("Room " + evt.params.oldName + " was successfully renamed to " + evt.params.room.name);
+		 }
+		 
+		 private function onRoomNameChangeError(evt:SFSEvent):void
+		 {
+		 	trace("Room name change failed: " + evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_NAME_CHANGE_ERROR"><linktext>ROOM_NAME_CHANGE_ERROR</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_PASSWORD_STATE_CHANGE_ERROR"><apiName>ROOM_PASSWORD_STATE_CHANGE_ERROR</apiName><shortdesc>
+		 The SFSEvent.ROOM_PASSWORD_STATE_CHANGE_ERROR constant defines the value of the type property of the event object for a roomPasswordStateChangeError event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomPasswordStateChangeError</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_PASSWORD_STATE_CHANGE_ERROR</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomPasswordStateChangeError</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>errorMessage</entry><entry><i>String</i></entry><entry>A message containing the description of the error.</entry></row><row><entry>errorCode</entry><entry><i>int</i></entry><entry>The error code.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>See the example provided in the <i>ROOM_PASSWORD_STATE_CHANGE</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_PASSWORD_STATE_CHANGE"><linktext>ROOM_PASSWORD_STATE_CHANGE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_PASSWORD_STATE_CHANGE"><apiName>ROOM_PASSWORD_STATE_CHANGE</apiName><shortdesc>
+		 The SFSEvent.ROOM_PASSWORD_STATE_CHANGE constant defines the value of the type property of the event object for a roomPasswordStateChange event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomPasswordStateChange</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_PASSWORD_STATE_CHANGE</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomPasswordStateChange</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>room</entry><entry><i>Room</i></entry><entry>An object representing the Room whose password was changed.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example changes the password of an existing Room:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.ROOM_PASSWORD_STATE_CHANGE, onRoomPasswordStateChanged);
+		 	sfs.addEventListener(SFSEvent.ROOM_PASSWORD_STATE_CHANGE_ERROR, onRoomPasswordStateChangeError);
+		 	
+		 	var theRoom:Room = sfs.getRoomByName("Gonzo's Room");
+		 	sfs.send(new ChangeRoomPasswordStateRequest(theRoom, "mammamia"));
+		 }
+		 
+		 private function onRoomPasswordStateChanged(evt:SFSEvent):void
+		 {
+		 	trace("The password of Room " + evt.params.room.name + " was changed successfully");
+		 }
+		 
+		 private function onRoomPasswordStateChangeError(evt:SFSEvent):void
+		 {
+		 	trace("Room password change failed: " + evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_PASSWORD_STATE_CHANGE_ERROR"><linktext>ROOM_PASSWORD_STATE_CHANGE_ERROR</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_REMOVE"><apiName>ROOM_REMOVE</apiName><shortdesc>
+		 The SFSEvent.ROOM_REMOVE constant defines the value of the type property of the event object for a roomRemove event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomRemove</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_REMOVE</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomRemove</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>room</entry><entry><i>Room</i></entry><entry>An object representing the Room that was removed.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example shows how to handle this event type:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.ROOM_REMOVE, onRoomRemoved);
+		 }
+		 
+		 private function onRoomRemoved(evt:SFSEvent):void
+		 {
+		 	trace("The following Room was removed: " + evt.params.room);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/ROOM_ADD"><linktext>ROOM_ADD</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:ROOM_VARIABLES_UPDATE"><apiName>ROOM_VARIABLES_UPDATE</apiName><shortdesc>
+		 The SFSEvent.ROOM_VARIABLES_UPDATE constant defines the value of the type property of the event object for a roomVariablesUpdate event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>roomVariablesUpdate</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.ROOM_VARIABLES_UPDATE</i> constant defines the value of the <i>type</i> property of the event object for a <i>roomVariablesUpdate</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>room</entry><entry><i>Room</i></entry><entry>An object representing the Room where the Room Variable update occurred.</entry></row><row><entry>changedVars</entry><entry><i>Array</i></entry><entry>The list of names of the Room Variables that were changed (or created for the first time).</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example sets a number of Room Variables and handles the respective update event:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSBuddyEvent.ROOM_VARIABLES_UPDATE, onRoomVarsUpdate);
+		 	
+		 	// Create some Room Variables
+		 	var roomVars:Array = [];
+		 	roomVars.push(new SFSRoomVariable("gameStarted", false));
+		 	roomVars.push(new SFSRoomVariable("gameType", "Snooker"));
+		 	roomVars.push(new SFSRoomVariable("minRank", 10));
+		 	
+		 	sfs.send(new SetRoomVariablesRequest(roomVars));
+		 }
+		 
+		 private function onRoomVarsUpdate(evt:SFSEvent):void
+		 {
+		 	var changedVars:Array = evt.params.changedVars as Array;
+		 	var room:Room = evt.params.room as Room;
+		 	
+		 	// Check if the "gameStarted" variable was changed
+		 	if (changedVars.indexOf("gameStarted") != -1)
+		 	{
+		 		if (room.getVariable("gameStarted").getBoolValue() == true)
+		 			trace("Game started");
+		 		else
+		 			trace("Game stopped");
+		 	}
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:SOCKET_ERROR"><apiName>SOCKET_ERROR</apiName><shortdesc>
+		 The SFSEvent.SOCKET_ERROR constant defines the value of the type property of the event object for a socketError event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>socketError</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.SOCKET_ERROR</i> constant defines the value of the <i>type</i> property of the event object for a <i>socketError</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>errorMessage</entry><entry><i>String</i></entry><entry>The description of the error.</entry></row></tbody></tgroup></adobetable>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:SPECTATOR_TO_PLAYER_ERROR"><apiName>SPECTATOR_TO_PLAYER_ERROR</apiName><shortdesc>
+		 The SFSEvent.SPECTATOR_TO_PLAYER_ERROR constant defines the value of the type property of the event object for a spectatorToPlayerError event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>spectatorToPlayerError</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.SPECTATOR_TO_PLAYER_ERROR</i> constant defines the value of the <i>type</i> property of the event object for a <i>spectatorToPlayerError</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>errorMessage</entry><entry><i>String</i></entry><entry>A message containing the description of the error.</entry></row><row><entry>errorCode</entry><entry><i>int</i></entry><entry>The error code.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>See the example provided in the <i>SPECTATOR_TO_PLAYER</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/SPECTATOR_TO_PLAYER"><linktext>SPECTATOR_TO_PLAYER</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:SPECTATOR_TO_PLAYER"><apiName>SPECTATOR_TO_PLAYER</apiName><shortdesc>
+		 The SFSEvent.SPECTATOR_TO_PLAYER constant defines the value of the type property of the event object for a spectatorToPlayer event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>spectatorToPlayer</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.SPECTATOR_TO_PLAYER</i> constant defines the value of the <i>type</i> property of the event object for a <i>spectatorToPlayer</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>room</entry><entry><i>Room</i></entry><entry>An object representing the Room in which the spectator is turned to player.</entry></row><row><entry>user</entry><entry><i>User</i></entry><entry>An object representing the spectator who was turned to player.</entry></row><row><entry>playerId</entry><entry><i>int</i></entry><entry>The player id of the user.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example turns the current user from spectator to player in the last joined Game Room:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.SPECTATOR_TO_PLAYER, onSpectatorToPlayerSwitch);
+		 	sfs.addEventListener(SFSEvent.SPECTATOR_TO_PLAYER_ERROR, onSpectatorToPlayerSwitchError);
+		 	
+		 	// Switch spectator to player
+		 	sfs.send(new SpectatorToPlayerRequest());
+		 }
+		 
+		 private function onSpectatorToPlayerSwitch(evt:SFSEvent):void
+		 {
+		 	trace("Spectator " + evt.params.user + " is now a player");
+		 }
+		 
+		 private function onSpectatorToPlayerSwitchError(evt:SFSEvent):void
+		 {
+		 	trace("Unable to become a player due to the following error: " + evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/SPECTATOR_TO_PLAYER_ERROR"><linktext>SPECTATOR_TO_PLAYER_ERROR</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/PLAYER_TO_SPECTATOR"><linktext>PLAYER_TO_SPECTATOR</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:UDP_INIT"><apiName>UDP_INIT</apiName><shortdesc>
+		 The SFSEvent.UDP_INIT constant defines the value of the type property of the event object for a udpInit event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>udpInit</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.UDP_INIT</i> constant defines the value of the <i>type</i> property of the event object for a <i>udpInit</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>success</entry><entry><i>Boolean</i></entry><entry>The connection result: <codeph>true</codeph> if a connection was established, <codeph>false</codeph> otherwise.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example initializes the UDP communication and sends a custom UDP request to an Extension:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.UDP_INIT, onUDPInit);
+		 	
+		 	sfs.initUDP(new AirUDPManager());
+		 }
+		 
+		 private function onUDPInit(evt:SFSEvent):void
+		 {
+		 	if (evt.params.success)
+		 	{
+		 		// Connection successful: execute an Extension call via UDP
+		 		sfs.send( new ExtensionRequest("udpTest", new SFSObject(), null, true) );
+		 	}
+		 	else
+		 	{
+		 		trace("UDP initialization failed!");
+		 	}
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:USER_COUNT_CHANGE"><apiName>USER_COUNT_CHANGE</apiName><shortdesc>
+		 The SFSEvent.USER_COUNT_CHANGE constant defines the value of the type property of the event object for a userCountChange event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>userCountChange</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.USER_COUNT_CHANGE</i> constant defines the value of the <i>type</i> property of the event object for a <i>userCountChange</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>room</entry><entry><i>Room</i></entry><entry>An object representing the Room in which the users count changed.</entry></row><row><entry>uCount</entry><entry><i>int</i></entry><entry>The new users count (players in case of Game Room).</entry></row><row><entry>sCount</entry><entry><i>int</i></entry><entry>The new spectators count (Game Room only).</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example shows how to handle this event type:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.USER_COUNT_CHANGE, onUserCountChanged);
+		 }
+		 
+		 private function onUserCountChanged(evt:SFSEvent):void
+		 {
+		 	var room:Room = evt.params.room;
+		 	var uCount:int = evt.params.uCount;
+		 	var sCount:int = evt.params.sCount;
+		 	
+		 	trace("Room: " + room.name + " now contains " + uCount + " users and " + sCount + " spectators");
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/USER_ENTER_ROOM"><linktext>USER_ENTER_ROOM</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/USER_EXIT_ROOM"><linktext>USER_EXIT_ROOM</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:USER_ENTER_ROOM"><apiName>USER_ENTER_ROOM</apiName><shortdesc>
+		 The SFSEvent.USER_ENTER_ROOM constant defines the value of the type property of the event object for a userEnterRoom event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>userEnterRoom</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.USER_ENTER_ROOM</i> constant defines the value of the <i>type</i> property of the event object for a <i>userEnterRoom</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>user</entry><entry><i>User</i></entry><entry>An object representing the user who joined the Room.</entry></row><row><entry>room</entry><entry><i>Room</i></entry><entry>An object representing the Room that was joined by a user.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example shows how to handle this event type:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.USER_ENTER_ROOM, onUserEnterRoom);
+		 }
+		 
+		 private function onUserEnterRoom(evt:SFSEvent):void
+		 {
+		 	var room:Room = evt.params.room;
+		 	var user:User = evt.params.user;
+		 	
+		 	trace("User " + user.name + " just joined Room " + room.name);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/USER_EXIT_ROOM"><linktext>USER_EXIT_ROOM</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/USER_COUNT_CHANGE"><linktext>USER_COUNT_CHANGE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:USER_EXIT_ROOM"><apiName>USER_EXIT_ROOM</apiName><shortdesc>
+		 The SFSEvent.USER_EXIT_ROOM constant defines the value of the type property of the event object for a userExitRoom event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>userExitRoom</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.USER_EXIT_ROOM</i> constant defines the value of the <i>type</i> property of the event object for a <i>userExitRoom</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>user</entry><entry><i>User</i></entry><entry>An object representing the user who left the Room.</entry></row><row><entry>room</entry><entry><i>Room</i></entry><entry>An object representing the Room that was left by a user.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example shows how to handle this event type:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.USER_EXIT_ROOM, onUserExitRoom);
+		 }
+		 
+		 private function onUserExitRoom(evt:SFSEvent):void
+		 {
+		 	var room:Room = evt.params.room;
+		 	var user:User = evt.params.user;
+		 	
+		 	trace("User " + user.name + " just left Room " + room.name);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent/USER_ENTER_ROOM"><linktext>USER_ENTER_ROOM</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSEvent/USER_COUNT_CHANGE"><linktext>USER_COUNT_CHANGE</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:USER_FIND_RESULT"><apiName>USER_FIND_RESULT</apiName><shortdesc>
+		 The SFSEvent.USER_FIND_RESULT constant defines the value of the type property of the event object for a userFindResult event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>userFindResult</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.USER_FIND_RESULT</i> constant defines the value of the <i>type</i> property of the event object for a <i>userFindResult</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>users</entry><entry><i>Array</i></entry><entry>A list of <i>User</i> objects representing the users matching the search criteria. If no user is found, the list is empty</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example looks for all the users whose "age" User Variable is greater than <codeph>29</codeph>:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.USER_FIND_RESULT, onUserFindResult);
+		 	
+		 	// Create a matching expression to find users with an "age" variable greater than 29:
+		 	var exp:MatchExpression = new MatchExpression("age", NumberMatch.GREATER_THAN, 29);
+		 	
+		 	// Find the users
+		 	sfs.send(new FindUserRequest(exp));
+		 }
+		 
+		 private function onUserFindResult(evt:SFSEvent):void
+		 {
+		 	trace("Users found: " + evt.params.users);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSEvent:USER_VARIABLES_UPDATE"><apiName>USER_VARIABLES_UPDATE</apiName><shortdesc>
+		 The SFSEvent.USER_VARIABLES_UPDATE constant defines the value of the type property of the event object for a userVariablesUpdate event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>userVariablesUpdate</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSEvent.USER_VARIABLES_UPDATE</i> constant defines the value of the <i>type</i> property of the event object for a <i>userVariablesUpdate</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>user</entry><entry><i>User</i></entry><entry>An object representing the User who updated his own User Variables.</entry></row><row><entry>changedVars</entry><entry><i>Array</i></entry><entry>The list of names of the User Variables that were changed (or created for the first time).</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example sets a number of User Variables and handles the respective update event:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSEvent.USER_VARIABLES_UPDATE, onUserVarsUpdate);
+		 	
+		 	// Create some User Variables
+		 	var userVars:Array = [];
+		 	userVars.push(new SFSUserVariable("avatarType", "SwedishCook"));
+		 	userVars.push(new SFSUserVariable("country", "Sweden"));
+		 	userVars.push(new SFSUserVariable("x", 10));
+		 	userVars.push(new SFSUserVariable("y", 5));
+		 	
+		 	sfs.send(new SetUserVariablesRequest(userVars));
+		 }
+		 
+		 private function onUserVarsUpdate(evt:SFSEvent):void
+		 {
+		 	var changedVars:Array = evt.params.changedVars as Array;
+		 	var user:User = evt.params.user as User;
+		 	
+		 	// Check if the user changed his x and y user variables
+		 	if (changedVars.indexOf("x") != -1 || changedVars.indexOf("y") != -1)
+		 	{
+		 		// Move the user avatar to a new position
+		 		...
+		 	}
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.core:SFSBuddyEvent"><apiName>SFSBuddyEvent</apiName><shortdesc>
+	 SFSBuddyEvent is the class representing all the events related to the Buddy List system dispatched by the SmartFoxServer 2X ActionScript 3 API.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.core:BaseEvent</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 <i>SFSBuddyEvent</i> is the class representing all the events related to the Buddy List system dispatched by the SmartFoxServer 2X ActionScript 3 API.
+	 
+	 <p>The <i>SFSBuddyEvent</i> parent class provides a public property called <i>params</i> which contains specific parameters depending on the event type.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent"><linktext>SFSEvent</linktext></link></related-links><adobeApiEvent id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_ADD_buddyAdd"><apiName>buddyAdd</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_ADD</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSBuddyEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent/BUDDY_REMOVE"><linktext>BUDDY_REMOVE</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent/BUDDY_ERROR"><linktext>BUDDY_ERROR</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_BLOCK_buddyBlock"><apiName>buddyBlock</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_BLOCK</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSBuddyEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent/BUDDY_ERROR"><linktext>BUDDY_ERROR</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_ERROR_buddyError"><apiName>buddyError</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSBuddyEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent/BUDDY_ADD"><linktext>BUDDY_ADD</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_LIST_INIT_buddyListInit"><apiName>buddyListInit</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_LIST_INIT</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSBuddyEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent/BUDDY_ERROR"><linktext>BUDDY_ERROR</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_MESSAGE_buddyMessage"><apiName>buddyMessage</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_MESSAGE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSBuddyEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_ONLINE_STATE_UPDATE_buddyOnlineStateChange"><apiName>buddyOnlineStateChange</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_ONLINE_STATE_UPDATE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSBuddyEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_REMOVE_buddyRemove"><apiName>buddyRemove</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_REMOVE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSBuddyEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent/BUDDY_ADD"><linktext>BUDDY_ADD</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent/BUDDY_ERROR"><linktext>BUDDY_ERROR</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_VARIABLES_UPDATE_buddyVariablesUpdate"><apiName>buddyVariablesUpdate</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_VARIABLES_UPDATE</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.core:SFSBuddyEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><apiConstructor id="com.smartfoxserver.v2.core:SFSBuddyEvent:SFSBuddyEvent"><apiName>SFSBuddyEvent</apiName><shortdesc>
+		 Creates a new SFSBuddyEvent instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>type</apiItemName><apiType value="String"/><apiDesc>The type of event.
+		 </apiDesc></apiParam><apiParam><apiItemName>params</apiItemName><apiType value="Object"/><apiDesc>An object containing the parameters of the event.
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SFSBuddyEvent</i> instance.
+		 
+		 </apiDesc></apiConstructorDetail></apiConstructor><apiOperation id="com.smartfoxserver.v2.core:SFSBuddyEvent:clone"><apiName>clone</apiName><shortdesc>
+		 Duplicates the instance of the SFSBuddyEvent object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiIsOverride/><apiReturn><apiDesc>A new <i>SFSBuddyEvent</i> object that is identical to the original.
+		 </apiDesc><apiType value="flash.events:Event"/></apiReturn></apiOperationDef><apiDesc>
+		 Duplicates the instance of the <i>SFSBuddyEvent</i> object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.core:SFSBuddyEvent:toString"><apiName>toString</apiName><shortdesc>
+		 Generates a string containing all the properties of the SFSBuddyEvent object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiIsOverride/><apiReturn><apiDesc>A string containing all the properties of the <i>SFSBuddyEvent</i> object.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>
+		 Generates a string containing all the properties of the <i>SFSBuddyEvent</i> object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_ADD"><apiName>BUDDY_ADD</apiName><shortdesc>
+		 The SFSBuddyEvent.BUDDY_ADD constant defines the value of the type property of the event object for a buddyAdd event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>buddyAdd</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSBuddyEvent.BUDDY_ADD</i> constant defines the value of the <i>type</i> property of the event object for a <i>buddyAdd</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>buddy</entry><entry><i>Buddy</i></entry><entry>The <i>Buddy</i> object corresponding to the buddy that was added.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example handles the possible events caused by a request to add a buddy:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSBuddyEvent.BUDDY_ADD, onBuddyAdded);
+		 	sfs.addEventListener(SFSBuddyEvent.BUDDY_ERROR, onBuddyError);
+		 	
+		 	// Add user "Jack" as a new buddy to my buddies list
+		 	sfs.send(new AddBuddyRequest("Jack"));
+		 }
+		 
+		 private function onBuddyAdded(evt:SFSBuddyEvent):void
+		 {
+		 	trace("This buddy was added:", evt.params.buddy.name);
+		 }
+		 
+		 private function onBuddyError(evt:SFSBuddyEvent):void
+		 {
+		 	trace("The following error occurred during a buddy-related request:", evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent/BUDDY_REMOVE"><linktext>BUDDY_REMOVE</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent/BUDDY_ERROR"><linktext>BUDDY_ERROR</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_BLOCK"><apiName>BUDDY_BLOCK</apiName><shortdesc>
+		 The SFSBuddyEvent.BUDDY_BLOCK constant defines the value of the type property of the event object for a buddyBlock event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>buddyBlock</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSBuddyEvent.BUDDY_BLOCK</i> constant defines the value of the <i>type</i> property of the event object for a <i>buddyBlock</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>buddy</entry><entry><i>Buddy</i></entry><entry>The <i>Buddy</i> object corresponding to the buddy that was blocked/unblocked.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example handles the possible events caused by a request to block a buddy:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSBuddyEvent.BUDDY_BLOCK, onBuddyBlock);
+		 	sfs.addEventListener(SFSBuddyEvent.BUDDY_ERROR, onBuddyError);
+		 	
+		 	// Block user "Jack" in my buddies list
+		 	smartFox.send(new BlockBuddyRequest("Jack", true));
+		 }
+		 
+		 private function onBuddyBlock(evt:SFSBuddyEvent):void
+		 {
+		 	var isBlocked:Boolean = evt.params.buddy.isBlocked;
+		 	trace("Buddy " + evt.params.buddy.name + " is now " + (isBlocked ? "blocked" : "unblocked"));
+		 }
+		 
+		 private function onBuddyError(evt:SFSBuddyEvent):void
+		 {
+		 	trace("The following error occurred while executing a buddy-related request:", evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent/BUDDY_ERROR"><linktext>BUDDY_ERROR</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_ERROR"><apiName>BUDDY_ERROR</apiName><shortdesc>
+		 The SFSBuddyEvent.BUDDY_ERROR constant defines the value of the type property of the event object for a buddyError event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>buddyError</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSBuddyEvent.BUDDY_ERROR</i> constant defines the value of the <i>type</i> property of the event object for a <i>buddyError</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>errorMessage</entry><entry><i>String</i></entry><entry>The message which describes the error.</entry></row><row><entry>errorCode</entry><entry><i>int</i></entry><entry>The error code.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>See the example provided in the <i>BUDDY_ADD</i> constant description.
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent/BUDDY_ADD"><linktext>BUDDY_ADD</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_LIST_INIT"><apiName>BUDDY_LIST_INIT</apiName><shortdesc>
+		 The SFSBuddyEvent.BUDDY_LIST_INIT constant defines the value of the type property of the event object for a buddyListInit event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>buddyListInit</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSBuddyEvent.BUDDY_LIST_INIT</i> constant defines the value of the <i>type</i> property of the event object for a <i>buddyListInit</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>buddyList</entry><entry><i>Array</i></entry><entry>A list of <i>Buddy</i> objects representing all the buddies in the current user's buddies list.</entry></row><row><entry>myVariables</entry><entry><i>Array</i></entry><entry>A list of all the Buddy Variables associated with the current user.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example initializes the Buddy List system:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSBuddyEvent.BUDDY_LIST_INIT, onBuddyListInitialized);
+		 	sfs.addEventListener(SFSBuddyEvent.BUDDY_ERROR, onBuddyError)
+		 	
+		 	// Initialize the Buddy List system
+		 	sfs.send(new InitBuddyListRequest());
+		 }
+		 
+		 private function onBuddyListInitialized(evt:SFSBuddyEvent):void
+		 {
+		 	trace("Buddy List system initialized successfully");
+		 	
+		 	// Retrieve my buddies list
+		 	var buddies:Array = evt.params.buddyList;
+		 	
+		 	// Display the online buddies in a list component in the application interface
+		 	...
+		 }
+		 
+		 private function onBuddyError(evt:SFSBuddyEvent):void
+		 {
+		 	trace("The following error occurred while executing a buddy-related request:", evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent/BUDDY_ERROR"><linktext>BUDDY_ERROR</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_MESSAGE"><apiName>BUDDY_MESSAGE</apiName><shortdesc>
+		 The SFSBuddyEvent.BUDDY_MESSAGE constant defines the value of the type property of the event object for a buddyMessage event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>buddyMessage</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSBuddyEvent.BUDDY_MESSAGE</i> constant defines the value of the <i>type</i> property of the event object for a <i>buddyMessage</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>buddy</entry><entry><i>Buddy</i></entry><entry>The <i>Buddy</i> object representing the message sender. If the <i>isItMe</i> parameter is <codeph>true</codeph>, the value of this parameter is <codeph>null</codeph> (because a user is not buddy to himself).</entry></row><row><entry>isItMe</entry><entry><i>Boolean</i></entry><entry><codeph>true</codeph> if the message sender is the current user himself (in this case this event is a sort of message delivery confirmation).</entry></row><row><entry>message</entry><entry><i>String</i></entry><entry>The message text.</entry></row><row><entry>data</entry><entry><i>ISFSObject</i></entry><entry>An instance of <i>SFSObject</i> containing additional custom parameters (e.g. the message color, an emoticon id, etc).</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example sends a message to a buddy and handles the related event:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSBuddyEvent.BUDDY_MESSAGE, onBuddyMessage);
+		 	
+		 	// Get the recipient of the message, in this case my buddy Jack
+		 	var buddy:Buddy = sfs.buddyManager.getBuddyByName("Jack");
+		 	
+		 	// Send a message to Jack
+		 	sfs.send(new BuddyMessageRequest("Hello Jack!", buddy));
+		 }
+		 
+		 private function onBuddyMessage(evt:SFSBuddyEvent):void
+		 {
+		 	// As messages are forwarded to the sender too,
+		 	// I have to check if I am the sender
+		 	
+		 	var isItMe:Boolean = evt.params.isItMe;
+		 	var sender:Buddy = evt.params.buddy;
+		 	
+		 	if (isItMe)
+		 		trace("I said:", evt.params.message);
+		 	else
+		 		trace("My buddy " + sender.name + " said:", evt.params.message);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_ONLINE_STATE_UPDATE"><apiName>BUDDY_ONLINE_STATE_UPDATE</apiName><shortdesc>
+		 The SFSBuddyEvent.BUDDY_ONLINE_STATE_UPDATE constant defines the value of the type property of the event object for a buddyOnlineStateChange event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>buddyOnlineStateChange</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSBuddyEvent.BUDDY_ONLINE_STATE_UPDATE</i> constant defines the value of the <i>type</i> property of the event object for a <i>buddyOnlineStateChange</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>buddy</entry><entry><i>Buddy</i></entry><entry>The <i>Buddy</i> object representing the buddy who changed his own online state. If the <i>isItMe</i> parameter is <codeph>true</codeph>, the value of this parameter is <codeph>null</codeph> (because a user is not buddy to himself).</entry></row><row><entry>isItMe</entry><entry><i>Boolean</i></entry><entry><codeph>true</codeph> if the online state was changed by the current user himself (in this case this event is a sort of state change confirmation).</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example changes the online state of the user in the Buddy List system:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSBuddyEvent.BUDDY_ONLINE_STATE_UPDATE, onBuddyOnlineStateUpdated);
+		 	
+		 	// Put myself offline in the Buddy List system
+		 	sfs.send(new GoOnlineRequest(false));
+		 }
+		 
+		 private function onBuddyOnlineStateUpdated(evt:SFSBuddyEvent):void
+		 {
+		 	// As the state change event is dispatched to me too,
+		 	// I have to check if I am the one who changed his state
+		 	
+		 	var isItMe:Boolean = evt.params.isItMe;
+		 	
+		 	if (isItMe)
+		 		trace("I'm now", (sfs.buddyManager.myOnlineState ? "online" : "offline"));
+		 	else
+		 		trace("My buddy " + evt.params.buddy.name + " is now", (evt.params.buddy.isOnline ? "online" : "offline"));
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_REMOVE"><apiName>BUDDY_REMOVE</apiName><shortdesc>
+		 The SFSBuddyEvent.BUDDY_REMOVE constant defines the value of the type property of the event object for a buddyRemove event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>buddyRemove</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSBuddyEvent.BUDDY_REMOVE</i> constant defines the value of the <i>type</i> property of the event object for a <i>buddyRemove</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>buddy</entry><entry><i>Buddy</i></entry><entry>The <i>Buddy</i> object corresponding to the buddy that was removed.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example handles the possible events caused by a request to remove a buddy:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSBuddyEvent.BUDDY_REMOVE, onBuddyRemoved);
+		 	sfs.addEventListener(SFSBuddyEvent.BUDDY_ERROR, onBuddyError);
+		 	
+		 	// Remove Jack from my buddies list
+		 	sfs.send(new RemoveBuddyRequest("Jack"));
+		 }
+		 
+		 private function onBuddyRemoved(evt:SFSBuddyEvent):void
+		 {
+		 	trace("This buddy was removed:", evt.params.buddy.name);
+		 }
+		 
+		 private function onBuddyError(evt:SFSBuddyEvent):void
+		 {
+		 	trace("The following error occurred while executing a buddy-related request:", evt.params.errorMessage);
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent/BUDDY_ADD"><linktext>BUDDY_ADD</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent/BUDDY_ERROR"><linktext>BUDDY_ERROR</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.core:SFSBuddyEvent:BUDDY_VARIABLES_UPDATE"><apiName>BUDDY_VARIABLES_UPDATE</apiName><shortdesc>
+		 The SFSBuddyEvent.BUDDY_VARIABLES_UPDATE constant defines the value of the type property of the event object for a buddyVariablesUpdate event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>buddyVariablesUpdate</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>SFSBuddyEvent.BUDDY_VARIABLES_UPDATE</i> constant defines the value of the <i>type</i> property of the event object for a <i>buddyVariablesUpdate</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>buddy</entry><entry><i>Buddy</i></entry><entry>The <i>Buddy</i> object representing the buddy who updated his own Buddy Variables. If the <i>isItMe</i> parameter is <codeph>true</codeph>, the value of this parameter is <codeph>null</codeph> (because a user is not buddy to himself).</entry></row><row><entry>isItMe</entry><entry><i>Boolean</i></entry><entry><codeph>true</codeph> if the Buddy Variables were updated by the current user himself (in this case this event is a sort of update confirmation).</entry></row><row><entry>changedVars</entry><entry><i>Array</i></entry><entry>The list of names of the Buddy Variables that were changed (or created for the first time).</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc><example>The following example sets some Buddy Variables for the current user, one of which is persistent;
+		 the example also handles changes made by the user or by his buddies:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	sfs.addEventListener(SFSBuddyEvent.BUDDY_VARIABLES_UPDATE, onBuddyVarsUpdate);
+		 	
+		 	// Create two Buddy Variables containing the title and artist of the song I'm listening to
+		 	var songTitle:BuddyVariable = new SFSBuddyVariable("songTitle", "Ascension");
+		 	var songAuthor:BuddyVariable = new SFSBuddyVariable("songAuthor", "Mike Oldfield");
+		 	
+		 	// Create a persistent Buddy Variable containing my mood message
+		 	var mood:BuddyVariable = new SFSBuddyVariable(SFSBuddyVariable.OFFLINE_PREFIX + "mood", "I Need SmartFoxServer 2X desperately!");
+		 	
+		 	// Set my Buddy Variables
+		 	var vars:Array = [songTitle, songAuthor, mood];
+		 	sfs.send(new SetBuddyVariablesRequest(vars));
+		 }
+		 
+		 private function onBuddyVarsUpdate(evt:SFSBuddyEvent):void
+		 {
+		 	// As the update event is dispatched to me too,
+		 	// I have to check if I am the one who changed his Buddy Variables
+		 	
+		 	var isItMe:Boolean = evt.params.isItMe;
+		 	
+		 	if (isItMe)
+		 	{
+		 		trace("I've updated the following Buddy Variables:");
+		 		
+		 		for (var i:int = 0; i &lt; evt.params.changedVars.length; i++)
+		 		{
+		 			var bVarName:String = evt.params.changedVars[i];
+		 			
+		 			trace(bVarName, "--&gt;", sfs.buddyManager.getMyVariable(bVarName).getValue());
+		 		}
+		 	}
+		 	else
+		 	{
+		 		var buddyName:String = evt.params.buddy.name;
+		 		
+		 		trace("My buddy " + buddyName + " updated the following Buddy Variables:");
+		 		
+		 		for (var i:int = 0; i &lt; evt.params.changedVars.length; i++)
+		 		{
+		 			var bVarName:String = evt.params.changedVars[i];
+		 			
+		 			trace(bVarName, "--&gt;", sfs.buddyManager.getBuddyByName(buddyName).getVariable(bVarName).getValue());
+		 		}
+		 	}
+		 }
+		 </codeblock>
+		 
+		 </example></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.core:BaseEvent"><apiName>BaseEvent</apiName><shortdesc>
+	 This is the base class of all the events dispatched by the SmartFoxServer 2X ActionScript 3 API.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:Event</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 This is the base class of all the events dispatched by the SmartFoxServer 2X ActionScript 3 API.
+	 In particular, check the <b>SFSEvent</b> and <b>SFSBuddyEvent</b> children classes for more informations.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.core.xml#SFSEvent"><linktext>SFSEvent</linktext></link><link href="com.smartfoxserver.v2.core.xml#SFSBuddyEvent"><linktext>SFSBuddyEvent</linktext></link><link href="com.smartfoxserver.v2.logging.xml#LoggerEvent"><linktext>LoggerEvent</linktext></link></related-links><apiValue id="com.smartfoxserver.v2.core:BaseEvent:params"><apiName>params</apiName><shortdesc>
+		 Specifies the object containing the parameters of the event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Object"/></apiValueDef><apiDesc>
+		 Specifies the object containing the parameters of the event.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>

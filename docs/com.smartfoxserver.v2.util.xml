@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.smartfoxserver.v2.util"><apiName>com.smartfoxserver.v2.util</apiName><apiDetail/><apiClassifier id="com.smartfoxserver.v2.util:ClientDisconnectionReason"><apiName>ClientDisconnectionReason</apiName><shortdesc>
+	 The ClientDisconnectionReason class contains the costants describing the possible reasons why a disconnection from the server occurred.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>ClientDisconnectionReason</i> class contains the costants describing the possible reasons why a disconnection from the server occurred.
+	 </apiDesc></apiClassifierDetail><apiValue id="com.smartfoxserver.v2.util:ClientDisconnectionReason:BAN"><apiName>BAN</apiName><shortdesc>
+		 Client was banned from the server.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>ban</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 Client was banned from the server.
+		 Banning can occur automatically (i.e. for flooding, if the flood filter is active)
+		 or due to the intervention of a user with enough privileges (i.e. an administrator or a moderator).
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.util:ClientDisconnectionReason:IDLE"><apiName>IDLE</apiName><shortdesc>
+		 Client was disconnected because it was idle for too long.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>idle</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 Client was disconnected because it was idle for too long.
+		 The connection timeout depends on the server settings.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.util:ClientDisconnectionReason:KICK"><apiName>KICK</apiName><shortdesc>
+		 Client was kicked out of the server.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>kick</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 Client was kicked out of the server.
+		 Kicking can occur automatically (i.e. for swearing, if the words filter is active)
+		 or due to the intervention of a user with enough privileges (i.e. an administrator or a moderator).
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.util:ClientDisconnectionReason:MANUAL"><apiName>MANUAL</apiName><shortdesc>
+		 The client manually disconnected from the server.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>manual</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The client manually disconnected from the server.
+		 The <i>disconnect</i> method on the <b>SmartFox</b> class was called.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.util:ClientDisconnectionReason:UNKNOWN"><apiName>UNKNOWN</apiName><shortdesc>
+		 A generic network error occurred, and the client is unable to determine the cause of the disconnection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 A generic network error occurred, and the client is unable to determine the cause of the disconnection.
+		 The server-side log should be checked for possible error messages or warnings.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.util:PasswordUtil"><apiName>PasswordUtil</apiName><shortdesc>
+	 Helper class for logging in with a pre-hashed password.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Helper class for logging in with a pre-hashed password.
+	 This is needed if your server-side database stores User passwords hashed with MD5.
+	 </apiDesc></apiClassifierDetail><apiOperation id="com.smartfoxserver.v2.util:PasswordUtil:md5Password"><apiName>md5Password</apiName><shortdesc>
+		 Generates the MD5 hash of the user password.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiDesc>The hashed password.
+		 
+		 </apiDesc><apiType value="String"/></apiReturn><apiParam><apiItemName>pass</apiItemName><apiType value="String"/><apiDesc>The plain text password.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Generates the MD5 hash of the user password.
+		 
+		 </apiDesc><example>This example shows how you can login with a hashed password:
+		 <codeblock rev="3.0">
+		 var userName:String = "testName";
+		 var userPass:String = "testPass";
+		 
+		 var md5Pass:String = PasswordUtil.md5Password(userPass);
+		 sfs.send(new LoginRequest(userName, md5Pass, sfs.config.zone));
+		 </codeblock>
+		 </example></apiOperationDetail></apiOperation></apiClassifier><apiClassifier id="com.smartfoxserver.v2.util:SFSErrorCodes"><apiName>SFSErrorCodes</apiName><shortdesc>
+	 The SFSErrorCodes class provides a mean of translation between server error codes and their relative error messages.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>SFSErrorCodes</i> class provides a mean of translation between server error codes and their relative error messages.
+	 <p>Error messages are provided by defualt in the English language but they can be localized and substituted in any other language.
+	 The error messages contain special placeholders that are processed at runtime and substituted with runtime data.
+	 They are in the form of a number enclosed in curly brackets such as: {0}, {1}, etc.
+	 Please make sure you maintain these placeholders while translating the messages.</p>
+	 <p>For more informations please check this link: <xref href="http://docs2x.smartfoxserver.com/AdvancedTopics/client-error-messages" scope="external">http://docs2x.smartfoxserver.com/AdvancedTopics/client-error-messages</xref></p> 
+	 </apiDesc></apiClassifierDetail><apiOperation id="com.smartfoxserver.v2.util:SFSErrorCodes:setErrorMessage"><apiName>setErrorMessage</apiName><shortdesc>
+		 Sets the text of the error message corresponding to the passed error code.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>code</apiItemName><apiType value="int"/><apiDesc>	The code of the error message to be modified.
+		 </apiDesc></apiParam><apiParam><apiItemName>message</apiItemName><apiType value="String"/><apiDesc>	The new error message, including the placeholders for runtime informations.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Sets the text of the error message corresponding to the passed error code.
+		 
+		 <p><b>NOTE</b>: you have to make sure you maintain all the placeholders while modifying the messages.</p>
+		 
+		 </apiDesc><example>The following example shows how to translate error 13 to French language retaining the required placeholders:
+		 <codeblock rev="3.0">
+		 
+		 private function someMethod():void
+		 {
+		 	SFSErrorCodes.setErrorMessage(13, "Le Groupe demandé n'est pas disponible - Salle: {0}; Groupe: {1}");
+		 }
+		 </codeblock>
+		 </example></apiOperationDetail></apiOperation></apiClassifier><apiClassifier id="com.smartfoxserver.v2.util:ConfigData"><apiName>ConfigData</apiName><shortdesc>
+	 The ConfigData class stores the client configuration data loaded from an external XML file or passed directly to the deputy connect method.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>ConfigData</i> class stores the client configuration data loaded from an external XML file or passed directly to the deputy connect method.
+	 The external configuration file is loaded by the <i>SmartFox</i> class when its <i>loadConfig()</i> method is called.
+	 Otherwise it can be passed directly to the <i>connectWithConfig()</i> method of the <i>SmartFox</i> class.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/loadConfig()"><linktext>SmartFox.loadConfig()</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/connectWithConfig()"><linktext>SmartFox.connectWithConfig()</linktext></link></related-links><apiValue id="com.smartfoxserver.v2.util:ConfigData:blueBoxPollingRate"><apiName>blueBoxPollingRate</apiName><shortdesc>
+		 Specifies the BlueBox polling speed.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>750</apiData><apiType value="int"/><apiDefaultValue>750
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Specifies the BlueBox polling speed.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.util:ConfigData:debug"><apiName>debug</apiName><shortdesc>
+		 Indicates whether the client-server messages debug should be enabled or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>false</apiData><apiType value="Boolean"/><apiDefaultValue>false
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Indicates whether the client-server messages debug should be enabled or not.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.util:ConfigData:host"><apiName>host</apiName><shortdesc>
+		 Specifies the IP address or host name of the SmartFoxServer 2X instance to connect to (TCP connection).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>127.0.0.1</apiData><apiType value="String"/><apiDefaultValue>127.0.0.1
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Specifies the IP address or host name of the SmartFoxServer 2X instance to connect to (TCP connection).
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.util:ConfigData:httpPort"><apiName>httpPort</apiName><shortdesc>
+		 Specifies the port for generic HTTP communication.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>8080</apiData><apiType value="int"/><apiDefaultValue>8080
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Specifies the port for generic HTTP communication.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.util:ConfigData:port"><apiName>port</apiName><shortdesc>
+		 Specifies the TCP port of the SmartFoxServer 2X instance to connect to (TCP connection).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>9933</apiData><apiType value="int"/><apiDefaultValue>9933
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Specifies the TCP port of the SmartFoxServer 2X instance to connect to (TCP connection).
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.util:ConfigData:udpHost"><apiName>udpHost</apiName><shortdesc>
+		 Specifies the IP address of the SmartFoxServer 2X instance to connect to (UDP connection).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>127.0.0.1</apiData><apiType value="String"/><apiDefaultValue>127.0.0.1
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Specifies the IP address of the SmartFoxServer 2X instance to connect to (UDP connection).
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.util:ConfigData:udpPort"><apiName>udpPort</apiName><shortdesc>
+		 Specifies the UDP port of the SmartFoxServer 2X instance to connect to (UDP connection).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>9933</apiData><apiType value="int"/><apiDefaultValue>9933
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Specifies the UDP port of the SmartFoxServer 2X instance to connect to (UDP connection).
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.util:ConfigData:useBlueBox"><apiName>useBlueBox</apiName><shortdesc>
+		 Indicates whether the SmartFoxServer's BlueBox should be enabled or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>true</apiData><apiType value="Boolean"/><apiDefaultValue>true
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Indicates whether the SmartFoxServer's BlueBox should be enabled or not.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.util:ConfigData:zone"><apiName>zone</apiName><shortdesc>
+		 Specifies the Zone of the SmartFoxServer 2X instance to join.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/><apiDefaultValue>null
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 Specifies the Zone of the SmartFoxServer 2X instance to join.
+		 
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.util:ConnectionMode"><apiName>ConnectionMode</apiName><shortdesc>
+	 The ConnectionMode class contains the costants defining the possible connection modes of the client with the server.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>ConnectionMode</i> class contains the costants defining the possible connection modes of the client with the server.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/connectionMode"><linktext>SmartFox.connectionMode</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.util:ConnectionMode:ConnectionMode"><apiName>ConnectionMode</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.smartfoxserver.v2.util:ConnectionMode:HTTP"><apiName>HTTP</apiName><shortdesc>
+		 An tunnelled http connection (through the BlueBox) is established between the client and the server.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>http</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 An tunnelled http connection (through the BlueBox) is established between the client and the server.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.util:ConnectionMode:SOCKET"><apiName>SOCKET</apiName><shortdesc>
+		 A socket connection is established between the client and the server.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>socket</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 A socket connection is established between the client and the server.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<uiDir>http://www.longsihao.com/games/BattlePlayer/assets/ui/</uiDir>
+	<itemDir>http://www.longsihao.com/games/BattlePlayer/assets/ui/</itemDir>
+	<mapDir>http://www.longsihao.com/games/BattlePlayer/assets/map/</mapDir>
+	<roleDir>http://www.longsihao.com/games/BattlePlayer/assets/role/</roleDir>
+	<battleXML>http://www.longsihao.com/games/BattlePlayer/assets/data/battles.xml</battleXML>
+	<ui>CommonUI,BattlePlace,BtnBattleTips,BattleBtn,Blood,BloodSlot,FigtherText,PreSkill,BattleMusic</ui>
+</config>

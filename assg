@@ -1,0 +1,20 @@
+<xml>
+  <head>
+    <width>1000</width>
+    <height>1000</height>
+  </head>
+  <resources>
+    <resource id="0" libid="0">TestRectangle</resource>
+    <resource id="1" libid="0">TestSquare</resource>
+  </resources>
+  <body>
+    <tile x="0" y="27" width="10" length="10" height="0">1</tile>
+    <tile x="2" y="13" width="10" length="10" height="0">1</tile>
+    <tile x="6" y="17" width="10" length="10" height="0">0</tile>
+    <tile x="12" y="2" width="25" length="10" height="0">0</tile>
+    <tile x="17" y="7" width="10" length="10" height="0">1</tile>
+  </body>
+  <libraries>
+    <library id="0">Test.swf</library>
+  </libraries>
+</xml>

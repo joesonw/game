@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.smartfoxserver.v2.entities.variables"><apiName>com.smartfoxserver.v2.entities.variables</apiName><apiDetail/><apiClassifier id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable"><apiName>SFSBuddyVariable</apiName><shortdesc>
+	 The SFSBuddyVariable object represents a SmartFoxServer Buddy Variable entity on the client.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities.variables:BuddyVariable</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>SFSBuddyVariable</i> object represents a SmartFoxServer Buddy Variable entity on the client.
+	 It is a custom value attached to a <i>Buddy</i> object in a Buddy List that gets automatically synchronized between client and server on every change.
+	 
+	 <p>Buddy Variables work with the same principle of the User and Room Variables. The only difference is the logic by which they get propagated to other users.
+	 While Room and User Variables are usually broadcast to all clients in the same Room, Buddy Variables updates are sent to all users who have the owner of the Buddy Variable in their Buddy Lists.</p>
+	 
+	 <p>Buddy Variables are particularly useful to store custom user data that must be "visible" to the buddies only, such as a profile, a score, a status message, etc.
+	 Buddy Variables can be set by means of the <i>SetBuddyVariablesRequest</i> request; they support the following data types (also nested):
+	 <i>Boolean</i>, <i>int</i>, <i>Number</i>, <i>String</i>, <i>SFSObject</i>, <i>SFSArray</i>. A Buddy Variable can also be <codeph>null</codeph>.</p>
+	 
+	 <p>There is also a special convention that allows Buddy Variables to be set as "offline".
+	 Offline Buddy Variables are persistent values which are made available to all users who have the owner in their Buddy Lists, whether that Buddy is online or not.
+	 In order to make a Buddy Variable persistent, its name should start with a dollar sign (<codeph>$</codeph>).
+	 This conventional character is contained in the <i>OFFLINE_PREFIX</i> constant.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#SFSBuddyVariable/OFFLINE_PREFIX"><linktext>OFFLINE_PREFIX</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Buddy"><linktext>Buddy</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml#SetBuddyVariablesRequest"><linktext>SetBuddyVariablesRequest</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSArray"><linktext>SFSArray</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable:SFSBuddyVariable"><apiName>SFSBuddyVariable</apiName><shortdesc>
+		 Creates a new SFSBuddyVariable instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the Buddy Variable.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="any"/><apiDesc>The value of the Buddy Variable; valid data types are: <i>Boolean</i>, <i>int</i>, <i>Number</i>, <i>String</i>, <i>SFSObject</i>, <i>SFSArray</i>. The value can also be <codeph>null</codeph>.
+		 </apiDesc></apiParam><apiParam><apiItemName>type</apiItemName><apiType value="int"/><apiData>-1</apiData><apiDesc>The type of the Buddy Variable among those available in the <i>VariableType</i> class. Usually it is not necessary to pass this parameter, as the type is auto-detected from the value.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SFSBuddyVariable</i> instance.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#VariableType"><linktext>VariableType</linktext></link></related-links></apiConstructor><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable:getBoolValue"><apiName>getBoolValue</apiName><shortdesc> 
+		 Retrieves the value of a boolean variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as a <i>Boolean</i>.
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the value of a boolean variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable:getDoubleValue"><apiName>getDoubleValue</apiName><shortdesc> 
+		 Retrieves the value of a numeric variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as a <i>Number</i>.
+		 </apiDesc><apiType value="Number"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the value of a numeric variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable:getIntValue"><apiName>getIntValue</apiName><shortdesc> 
+		 Retrieves the value of an integer variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as an <i>int</i>.
+		 </apiDesc><apiType value="int"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the value of an integer variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable:getSFSArrayValue"><apiName>getSFSArrayValue</apiName><shortdesc> 
+		 Retrieves the value of a SFSArray variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as an <i>ISFSArray</i>.
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSArray</apiOperationClassifier></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the value of a <i>SFSArray</i> variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable:getSFSObjectValue"><apiName>getSFSObjectValue</apiName><shortdesc> 
+		 Retrieves the value of a SFSObject variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as an <i>ISFSObject</i>.
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the value of a <i>SFSObject</i> variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable:getStringValue"><apiName>getStringValue</apiName><shortdesc> 
+		 Retrieves the value of a string variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as a <i>String</i>.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the value of a string variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable:getValue"><apiName>getValue</apiName><shortdesc> 
+		 Retrieves the untyped value of this variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable untyped value.
+		 </apiDesc><apiType value="any"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the untyped value of this variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable:isNull"><apiName>isNull</apiName><shortdesc> 
+		 Indicates if the variable is null.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the variable has a <codeph>null</codeph> value.
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc> 
+		 Indicates if the variable is <codeph>null</codeph>.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable:toString"><apiName>toString</apiName><shortdesc>
+		 Returns a string that contains the Buddy Variable name, type and value.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The string representation of the <i>SFSUserVariable</i> object.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>
+		 Returns a string that contains the Buddy Variable name, type and value.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable:OFFLINE_PREFIX"><apiName>OFFLINE_PREFIX</apiName><shortdesc>
+		 The prefix to be added to a Buddy Variable name to make it persistent.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>$</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The prefix to be added to a Buddy Variable name to make it persistent.
+		 A persistent Buddy Variable is made available to all users who have the owner in their Buddy Lists, whether that Buddy is online or not.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable:isOffline:get"><apiName>isOffline</apiName><shortdesc> 
+		 Indicates whether the Buddy Variable is persistent or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Indicates whether the Buddy Variable is persistent or not.
+		 
+		 <p>By convention any Buddy Variable whose name starts with the dollar sign (<codeph>$</codeph>) will be regarded as persistent and stored locally by the server.
+		 Persistent Buddy Variables are also referred to as "offline variables" because they are available to all users
+		 who have the owner in their Buddy Lists, whether that Buddy is online or not.</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable:name:get"><apiName>name</apiName><shortdesc> 
+		 Indicates the name of this variable.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Indicates the name of this variable.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable:type:get"><apiName>type</apiName><shortdesc> 
+		 Indicates the type of this variable.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Indicates the type of this variable.
+		 Possible types are: <codeph>Null</codeph>, <codeph>Bool</codeph>, <codeph>Int</codeph>, <codeph>Double</codeph>, <codeph>String</codeph>, <codeph>Object</codeph>, <codeph>Array</codeph>.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.variables:VariableType"><apiName>VariableType</apiName><shortdesc>
+	 The VariableType class contains the costants defining the valid types of User and Room Variables to be passed to their constructors.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>VariableType</i> class contains the costants defining the valid types of User and Room Variables to be passed to their constructors.
+	 </apiDesc></apiClassifierDetail><apiValue id="com.smartfoxserver.v2.entities.variables:VariableType:ARRAY"><apiName>ARRAY</apiName><shortdesc>
+		 The type of the User/Room Variable is SFSArray.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>6</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The type of the User/Room Variable is <i>SFSArray</i>.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSArray"><linktext>SFSArray</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:VariableType:BOOL"><apiName>BOOL</apiName><shortdesc>
+		 The type of the User/Room Variable is Boolean.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The type of the User/Room Variable is <i>Boolean</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:VariableType:DOUBLE"><apiName>DOUBLE</apiName><shortdesc>
+		 The type of the User/Room Variable is Number.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>3</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The type of the User/Room Variable is <i>Number</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:VariableType:INT"><apiName>INT</apiName><shortdesc>
+		 The type of the User/Room Variable is int.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The type of the User/Room Variable is <i>int</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:VariableType:NULL"><apiName>NULL</apiName><shortdesc>
+		 The User/Room Variable is null.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The User/Room Variable is <codeph>null</codeph>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:VariableType:OBJECT"><apiName>OBJECT</apiName><shortdesc>
+		 The type of the User/Room Variable is SFSObject.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>5</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The type of the User/Room Variable is <i>SFSObject</i>.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:VariableType:STRING"><apiName>STRING</apiName><shortdesc>
+		 The type of the User/Room Variable is String.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>4</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 The type of the User/Room Variable is <i>String</i>.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.variables:SFSUserVariable"><apiName>SFSUserVariable</apiName><shortdesc>
+	 The SFSUserVariable object represents a SmartFoxServer User Variable entity on the client.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities.variables:UserVariable</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>SFSUserVariable</i> object represents a SmartFoxServer User Variable entity on the client.
+	 It is a custom value attached to a <i>User</i> object that gets automatically synchronized between client and server on every change.
+	 
+	 <p>User Variables are particularly useful to store custom user data that must be "visible" to the other users, such as a profile, a score, a status message, etc.
+	 User Variables can be set by means of the <i>SetUserVariablesRequest</i> request; they support the following data types (also nested):
+	 <i>Boolean</i>, <i>int</i>, <i>Number</i>, <i>String</i>, <i>SFSObject</i>, <i>SFSArray</i>. A User Variable can also be <codeph>null</codeph>.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link><link href="com.smartfoxserver.v2.requests.xml#SetUserVariablesRequest"><linktext>SetUserVariablesRequest</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSArray"><linktext>SFSArray</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.entities.variables:SFSUserVariable:com.smartfoxserver.v2.entities.variables:SFSUserVariable"><apiName>SFSUserVariable</apiName><shortdesc>
+		 Creates a new SFSUserVariable instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the User Variable.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="any"/><apiDesc>The value of the User Variable; valid data types are: <i>Boolean</i>, <i>int</i>, <i>Number</i>, <i>String</i>, <i>SFSObject</i>, <i>SFSArray</i>. The value can also be <codeph>null</codeph>.
+		 </apiDesc></apiParam><apiParam><apiItemName>type</apiItemName><apiType value="int"/><apiData>-1</apiData><apiDesc>The type of the User Variable among those available in the <i>VariableType</i> class. Usually it is not necessary to pass this parameter, as the type is auto-detected from the value.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SFSUserVariable</i> instance.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#VariableType"><linktext>VariableType</linktext></link></related-links></apiConstructor><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSUserVariable:getBoolValue"><apiName>getBoolValue</apiName><shortdesc> 
+		 Retrieves the value of a boolean variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as a <i>Boolean</i>.
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the value of a boolean variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSUserVariable:getDoubleValue"><apiName>getDoubleValue</apiName><shortdesc> 
+		 Retrieves the value of a numeric variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as a <i>Number</i>.
+		 </apiDesc><apiType value="Number"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the value of a numeric variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSUserVariable:getIntValue"><apiName>getIntValue</apiName><shortdesc> 
+		 Retrieves the value of an integer variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as an <i>int</i>.
+		 </apiDesc><apiType value="int"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the value of an integer variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSUserVariable:getSFSArrayValue"><apiName>getSFSArrayValue</apiName><shortdesc> 
+		 Retrieves the value of a SFSArray variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as an <i>ISFSArray</i>.
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSArray</apiOperationClassifier></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the value of a <i>SFSArray</i> variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSUserVariable:getSFSObjectValue"><apiName>getSFSObjectValue</apiName><shortdesc> 
+		 Retrieves the value of a SFSObject variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as an <i>ISFSObject</i>.
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the value of a <i>SFSObject</i> variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSUserVariable:getStringValue"><apiName>getStringValue</apiName><shortdesc> 
+		 Retrieves the value of a string variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as a <i>String</i>.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the value of a string variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSUserVariable:getValue"><apiName>getValue</apiName><shortdesc> 
+		 Retrieves the untyped value of this variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable untyped value.
+		 </apiDesc><apiType value="any"/></apiReturn></apiOperationDef><apiDesc> 
+		 Retrieves the untyped value of this variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSUserVariable:isNull"><apiName>isNull</apiName><shortdesc> 
+		 Indicates if the variable is null.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the variable has a <codeph>null</codeph> value.
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc> 
+		 Indicates if the variable is <codeph>null</codeph>.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSUserVariable:toString"><apiName>toString</apiName><shortdesc>
+		 Returns a string that contains the User Variable name, type and value.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The string representation of the <i>SFSUserVariable</i> object.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>
+		 Returns a string that contains the User Variable name, type and value.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.entities.variables:SFSUserVariable:name:get"><apiName>name</apiName><shortdesc> 
+		 Indicates the name of this variable.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Indicates the name of this variable.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:SFSUserVariable:type:get"><apiName>type</apiName><shortdesc> 
+		 Indicates the type of this variable.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Indicates the type of this variable.
+		 Possible types are: <codeph>Null</codeph>, <codeph>Bool</codeph>, <codeph>Int</codeph>, <codeph>Double</codeph>, <codeph>String</codeph>, <codeph>Object</codeph>, <codeph>Array</codeph>.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.variables:ReservedBuddyVariables"><apiName>ReservedBuddyVariables</apiName><shortdesc>
+	 The ReservedBuddyVariables class contains the costants describing the SmartFoxServer API reserved Buddy Variable names.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>ReservedBuddyVariables</i> class contains the costants describing the SmartFoxServer API reserved Buddy Variable names.
+	 Reserved Buddy Variables are used to store specific buddy-related informations.
+	 </apiDesc></apiClassifierDetail><apiValue id="com.smartfoxserver.v2.entities.variables:ReservedBuddyVariables:BV_NICKNAME"><apiName>BV_NICKNAME</apiName><shortdesc>
+		 The Buddy Variable with this name stores the optional nickname of the user in a buddy list.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>$__BV_NICKNAME__</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The Buddy Variable with this name stores the optional nickname of the user in a buddy list.
+		 This variable is persistent, which means that the nickname is preserved upon disconnection.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Buddy/nickName"><linktext>Buddy.nickName</linktext></link><link href="com.smartfoxserver.v2.entities.managers.xml#IBuddyManager/myNickName"><linktext>IBuddyManager.myNickName</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:ReservedBuddyVariables:BV_ONLINE"><apiName>BV_ONLINE</apiName><shortdesc>
+		 The Buddy Variable with this name keeps track of the online/offline state of the user in a buddy list.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>$__BV_ONLINE__</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The Buddy Variable with this name keeps track of the online/offline state of the user in a buddy list.
+		 This variable is persistent, which means that the online/offline state is preserved upon disconnection.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Buddy/isOnline"><linktext>Buddy.isOnline</linktext></link><link href="com.smartfoxserver.v2.entities.managers.xml#IBuddyManager/myOnlineState"><linktext>IBuddyManager.myOnlineState</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:ReservedBuddyVariables:BV_STATE"><apiName>BV_STATE</apiName><shortdesc>
+		 The Buddy Variable with this name stores the custom state of the user in a buddy list.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>$__BV_STATE__</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The Buddy Variable with this name stores the custom state of the user in a buddy list.
+		 This variable is persistent, which means that the custom state is preserved upon disconnection.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Buddy/state"><linktext>Buddy.state</linktext></link><link href="com.smartfoxserver.v2.entities.managers.xml#IBuddyManager/myState"><linktext>IBuddyManager.myState</linktext></link></related-links></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.variables:SFSRoomVariable"><apiName>SFSRoomVariable</apiName><shortdesc>
+	 The SFSRoomVariable object represents a SmartFoxServer Room Variable entity on the client.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities.variables:RoomVariable</apiBaseInterface><apiBaseClassifier>com.smartfoxserver.v2.entities.variables:SFSUserVariable</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>SFSRoomVariable</i> object represents a SmartFoxServer Room Variable entity on the client.
+	 It is a custom value attached to a <i>Room</i> object that gets automatically synchronized between client and server on every change.
+	 
+	 <p>Room Variables are particularly useful to store custom Room data such as a game status and other Room-level informations.
+	 Room Variables can be set by means of the <i>SetRoomVariablesRequest</i> request; they support the following data types (also nested):
+	 <i>Boolean</i>, <i>int</i>, <i>Number</i>, <i>String</i>, <i>SFSObject</i>, <i>SFSArray</i>. A Room Variable can also be <codeph>null</codeph>.</p>
+	 
+	 <p>Room Variables also support a number of specific flags:
+	 <ul>
+	 		<li><b>Private</b>: a private Room Variable can only be modified by its creator.</li>
+	 		<li><b>Persistent</b>: a persistent Room Variable will continue to exist even if its creator has left the Room (but will be deleted when the creator will get disconnected).</li>
+	 		<li><b>Global</b>: a global Room Variable will fire update events not only to all users in the Room, but also to all users in the Group to which the Room belongs
+	 		(NOTE: this flag is not available on the client-side because clients are not allowed to create global Room Variables).</li>
+	 </ul>
+	 </p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link><link href="com.smartfoxserver.v2.requests.xml#SetRoomVariablesRequest"><linktext>SetRoomVariablesRequest</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSArray"><linktext>SFSArray</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.entities.variables:SFSRoomVariable:SFSRoomVariable"><apiName>SFSRoomVariable</apiName><shortdesc>
+		 Creates a new SFSRoomVariable instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the Room Variable.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="any"/><apiDesc>The value of the Room Variable; valid data types are: <i>Boolean</i>, <i>int</i>, <i>Number</i>, <i>String</i>, <i>SFSObject</i>, <i>SFSArray</i>. The value can also be <codeph>null</codeph>.
+		 </apiDesc></apiParam><apiParam><apiItemName>type</apiItemName><apiType value="int"/><apiData>-1</apiData><apiDesc>The type of the Room Variable among those available in the <i>VariableType</i> class. Usually it is not necessary to pass this parameter, as the type is auto-detected from the value.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SFSRoomVariable</i> instance.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#VariableType"><linktext>VariableType</linktext></link></related-links></apiConstructor><apiOperation id="com.smartfoxserver.v2.entities.variables:SFSRoomVariable:toString"><apiName>toString</apiName><shortdesc>
+		 Returns a string that contains the Room Variable name, type, value and isPrivate flag.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiIsOverride/><apiReturn><apiDesc>The string representation of the <i>SFSRoomVariable</i> object.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>
+		 Returns a string that contains the Room Variable name, type, value and <i>isPrivate</i> flag.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.entities.variables:SFSRoomVariable:isPersistent:get"><apiName>isPersistent</apiName><shortdesc> 
+		 Indicates whether this Room Variable is persistent or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Indicates whether this Room Variable is persistent or not.
+		 A persistent Room Variable continues to exist in the Room after the user who created it has left it and until he disconnects.
+		 
+		 <p><b>NOTE</b>: setting the <i>isPersistent</i> property manually on an existing Room Variable returned by the API has no effect on the server and can disrupt the API functioning.
+		 This flag can be set when the Room Variable object is created by the developer only (using the <i>new</i> keyword).</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:SFSRoomVariable:isPrivate:get"><apiName>isPrivate</apiName><shortdesc> 
+		 Indicates whether this Room Variable is private or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Indicates whether this Room Variable is private or not.
+		 A private Room Variable can be modified by its owner only (the user that created it).
+		 
+		 <p><b>NOTE</b>: setting the <i>isPrivate</i> property manually on an existing Room Variable returned by the API has no effect on the server and can disrupt the API functioning.
+		 This flag can be set when the Room Variable object is created by the developer only (using the <i>new</i> keyword).</p>
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.variables:RoomVariable"><apiName>RoomVariable</apiName><shortdesc>
+	 The RoomVariable interface defines all the public methods and properties that an object representing a SmartFoxServer Room Variable exposes.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities.variables:UserVariable</apiBaseInterface><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <i>RoomVariable</i> interface defines all the public methods and properties that an object representing a SmartFoxServer Room Variable exposes.
+	 <p>In the SmartFoxServer 2X client API this interface is implemented by the <i>SFSRoomVariable</i> class. Read the class description for additional informations.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#SFSRoomVariable"><linktext>SFSRoomVariable</linktext></link></related-links><apiValue id="com.smartfoxserver.v2.entities.variables:RoomVariable:com.smartfoxserver.v2.entities.variables:RoomVariable:isPersistent:get"><apiName>isPersistent</apiName><shortdesc>
+		 Indicates whether this Room Variable is persistent or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether this Room Variable is persistent or not.
+		 A persistent Room Variable continues to exist in the Room after the user who created it has left it and until he disconnects.
+		 
+		 <p><b>NOTE</b>: setting the <i>isPersistent</i> property manually on an existing Room Variable returned by the API has no effect on the server and can disrupt the API functioning.
+		 This flag can be set when the Room Variable object is created by the developer only (using the <i>new</i> keyword).</p>
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:RoomVariable:com.smartfoxserver.v2.entities.variables:RoomVariable:isPrivate:get"><apiName>isPrivate</apiName><shortdesc>
+		 Indicates whether this Room Variable is private or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether this Room Variable is private or not.
+		 A private Room Variable can be modified by its owner only (the user that created it).
+		 
+		 <p><b>NOTE</b>: setting the <i>isPrivate</i> property manually on an existing Room Variable returned by the API has no effect on the server and can disrupt the API functioning.
+		 This flag can be set when the Room Variable object is created by the developer only (using the <i>new</i> keyword).</p>
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.variables:ReservedRoomVariables"><apiName>ReservedRoomVariables</apiName><shortdesc>
+	 The ReservedRoomVariables class contains the costants describing the SmartFoxServer API reserved Room Variable names.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>ReservedRoomVariables</i> class contains the costants describing the SmartFoxServer API reserved Room Variable names.
+	 </apiDesc></apiClassifierDetail><apiValue id="com.smartfoxserver.v2.entities.variables:ReservedRoomVariables:RV_GAME_STARTED"><apiName>RV_GAME_STARTED</apiName><shortdesc>
+		 The Room Variable with this name keeps track of the state (started or stopped) of a game created with the CreateSFSGameRequest request.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>$GS</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The Room Variable with this name keeps track of the state (started or stopped) of a game created with the <i>CreateSFSGameRequest</i> request.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.game.xml#CreateSFSGameRequest"><linktext>CreateSFSGameRequest</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml#SFSGameSettings/notifyGameStarted"><linktext>com.smartfoxserver.v2.requests.game.SFSGameSettings.notifyGameStarted</linktext></link></related-links></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.variables:BuddyVariable"><apiName>BuddyVariable</apiName><shortdesc>
+	 The BuddyVariable interface defines all the public methods and properties that an object representing a SmartFoxServer Buddy Variable exposes.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities.variables:UserVariable</apiBaseInterface><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <i>BuddyVariable</i> interface defines all the public methods and properties that an object representing a SmartFoxServer Buddy Variable exposes.
+	 <p>In the SmartFoxServer 2X client API this interface is implemented by the <i>SFSBuddyVariable</i> class. Read the class description for additional informations.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#SFSBuddyVariable"><linktext>SFSBuddyVariable</linktext></link></related-links><apiValue id="com.smartfoxserver.v2.entities.variables:BuddyVariable:com.smartfoxserver.v2.entities.variables:BuddyVariable:isOffline:get"><apiName>isOffline</apiName><shortdesc>
+		 Indicates whether the Buddy Variable is persistent or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether the Buddy Variable is persistent or not.
+		 
+		 <p>By convention any Buddy Variable whose name starts with the dollar sign (<codeph>$</codeph>) will be regarded as persistent and stored locally by the server.
+		 Persistent Buddy Variables are also referred to as "offline variables" because they are available to all users
+		 who have the owner in their Buddy Lists, whether that Buddy is online or not.</p>
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.variables:UserVariable"><apiName>UserVariable</apiName><shortdesc>
+	 The UserVariable interface defines all the public methods and properties that an object representing a SmartFoxServer User Variable exposes.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <i>UserVariable</i> interface defines all the public methods and properties that an object representing a SmartFoxServer User Variable exposes.
+	 <p>In the SmartFoxServer 2X client API this interface is implemented by the <i>SFSUserVariable</i> class. Read the class description for additional informations.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#SFSUserVariable"><linktext>SFSUserVariable</linktext></link></related-links><apiOperation id="com.smartfoxserver.v2.entities.variables:UserVariable:com.smartfoxserver.v2.entities.variables:UserVariable:getBoolValue"><apiName>getBoolValue</apiName><shortdesc>
+		 Retrieves the value of a boolean variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as a <i>Boolean</i>.
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc>
+		 Retrieves the value of a boolean variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:UserVariable:com.smartfoxserver.v2.entities.variables:UserVariable:getDoubleValue"><apiName>getDoubleValue</apiName><shortdesc>
+		 Retrieves the value of a numeric variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as a <i>Number</i>.
+		 </apiDesc><apiType value="Number"/></apiReturn></apiOperationDef><apiDesc>
+		 Retrieves the value of a numeric variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:UserVariable:com.smartfoxserver.v2.entities.variables:UserVariable:getIntValue"><apiName>getIntValue</apiName><shortdesc>
+		 Retrieves the value of an integer variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as an <i>int</i>.
+		 </apiDesc><apiType value="int"/></apiReturn></apiOperationDef><apiDesc>
+		 Retrieves the value of an integer variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:UserVariable:com.smartfoxserver.v2.entities.variables:UserVariable:getSFSArrayValue"><apiName>getSFSArrayValue</apiName><shortdesc>
+		 Retrieves the value of a SFSArray variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as an <i>ISFSArray</i>.
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSArray</apiOperationClassifier></apiReturn></apiOperationDef><apiDesc>
+		 Retrieves the value of a <i>SFSArray</i> variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:UserVariable:com.smartfoxserver.v2.entities.variables:UserVariable:getSFSObjectValue"><apiName>getSFSObjectValue</apiName><shortdesc>
+		 Retrieves the value of a SFSObject variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as an <i>ISFSObject</i>.
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier></apiReturn></apiOperationDef><apiDesc>
+		 Retrieves the value of a <i>SFSObject</i> variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:UserVariable:com.smartfoxserver.v2.entities.variables:UserVariable:getStringValue"><apiName>getStringValue</apiName><shortdesc>
+		 Retrieves the value of a string variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable value as a <i>String</i>.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>
+		 Retrieves the value of a string variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:UserVariable:com.smartfoxserver.v2.entities.variables:UserVariable:getValue"><apiName>getValue</apiName><shortdesc>
+		 Retrieves the untyped value of this variable.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The variable untyped value.
+		 </apiDesc><apiType value="any"/></apiReturn></apiOperationDef><apiDesc>
+		 Retrieves the untyped value of this variable.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.variables:UserVariable:com.smartfoxserver.v2.entities.variables:UserVariable:isNull"><apiName>isNull</apiName><shortdesc>
+		 Indicates if the variable is null.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the variable has a <codeph>null</codeph> value.
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc>
+		 Indicates if the variable is <codeph>null</codeph>.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.entities.variables:UserVariable:com.smartfoxserver.v2.entities.variables:UserVariable:name:get"><apiName>name</apiName><shortdesc>
+		 Indicates the name of this variable.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Indicates the name of this variable.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.variables:UserVariable:com.smartfoxserver.v2.entities.variables:UserVariable:type:get"><apiName>type</apiName><shortdesc>
+		 Indicates the type of this variable.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Indicates the type of this variable.
+		 Possible types are: <codeph>Null</codeph>, <codeph>Bool</codeph>, <codeph>Int</codeph>, <codeph>Double</codeph>, <codeph>String</codeph>, <codeph>Object</codeph>, <codeph>Array</codeph>.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>

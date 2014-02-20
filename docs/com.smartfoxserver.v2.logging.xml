@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.smartfoxserver.v2.logging"><apiName>com.smartfoxserver.v2.logging</apiName><apiDetail/><apiClassifier id="com.smartfoxserver.v2.logging:LogLevel"><apiName>LogLevel</apiName><shortdesc>
+	 The LogLevel class contains the costants describing the importance levels of logged messages.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>LogLevel</i> class contains the costants describing the importance levels of logged messages.
+	 </apiDesc></apiClassifierDetail><apiValue id="com.smartfoxserver.v2.logging:LogLevel:DEBUG"><apiName>DEBUG</apiName><shortdesc>
+		 A DEBUG message is a fine-grained information on the client activity.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>100</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 A DEBUG message is a fine-grained information on the client activity.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.logging:LogLevel:ERROR"><apiName>ERROR</apiName><shortdesc>
+		 An ERROR message contains informations on a problem that occurred during the client activities.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>400</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 An ERROR message contains informations on a problem that occurred during the client activities.
+		 Client operations might be compromised when an error is raised.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.logging:LogLevel:INFO"><apiName>INFO</apiName><shortdesc>
+		 An INFO message contains informations on the standard client activities.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>200</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 An INFO message contains informations on the standard client activities.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.logging:LogLevel:WARN"><apiName>WARN</apiName><shortdesc>
+		 A WARN message is a warning caused by an unexpected behavior of the client.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>300</apiData><apiType value="int"/></apiValueDef><apiDesc>
+		 A WARN message is a warning caused by an unexpected behavior of the client.
+		 Client operations are not compromised when a warning is raised.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.logging:LoggerEvent"><apiName>LoggerEvent</apiName><shortdesc>
+	 LoggerEvent is the class representing all the events dispatched by the SmartFoxServer 2X ActionScript 3 API internal logger.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.core:BaseEvent</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 <i>LoggerEvent</i> is the class representing all the events dispatched by the SmartFoxServer 2X ActionScript 3 API internal logger.
+	 
+	 <p>The <i>LoggerEvent</i> parent class provides a public property called <i>params</i> which contains specific parameters depending on the event type.</p>
+	 
+	 </apiDesc><example>The following example gets a reference to the logger from the main <i>SmartFox</i> class and add a <i>LoggerEvent</i> listener; please refer to the specific event types for the <i>params</i> object content:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	var logger:Logger = sfs.logger;
+	 	logger.addEventListener(LoggerEvent.ERROR, onErrorLogged);
+	 }
+	 
+	 private function onErrorLogged(evt:LoggerEvent):void
+	 {
+	 	// Write the error message in a log text area in the application interface
+	 	log.text = "The following error occurred: " + evt.params.message;
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.logging.xml#Logger"><linktext>Logger</linktext></link></related-links><adobeApiEvent id="com.smartfoxserver.v2.logging:LoggerEvent:DEBUG_debug"><apiName>debug</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.logging:LoggerEvent:DEBUG</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.logging:LoggerEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.logging:LoggerEvent:ERROR_error"><apiName>error</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.logging:LoggerEvent:ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.logging:LoggerEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.logging:LoggerEvent:INFO_info"><apiName>info</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.logging:LoggerEvent:INFO</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.logging:LoggerEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.logging:LoggerEvent:WARNING_warn"><apiName>warn</apiName><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.logging:LoggerEvent:WARNING</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.logging:LoggerEvent</adobeApiEventClassifier><apiDefinedEvent/></adobeApiEventDef></adobeApiEventDetail></adobeApiEvent><apiConstructor id="com.smartfoxserver.v2.logging:LoggerEvent:LoggerEvent"><apiName>LoggerEvent</apiName><shortdesc>
+		 Creates a new LoggerEvent instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>type</apiItemName><apiType value="String"/><apiDesc>The type of event.
+		 </apiDesc></apiParam><apiParam><apiItemName>params</apiItemName><apiType value="Object"/><apiData>null</apiData><apiDesc>An object containing the parameters of the event.
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>LoggerEvent</i> instance.
+		 
+		 </apiDesc></apiConstructorDetail></apiConstructor><apiOperation id="com.smartfoxserver.v2.logging:LoggerEvent:clone"><apiName>clone</apiName><shortdesc>
+		 Duplicates the instance of the LoggerEvent object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiIsOverride/><apiReturn><apiDesc>A new <i>LoggerEvent</i> object that is identical to the original.
+		 </apiDesc><apiType value="flash.events:Event"/></apiReturn></apiOperationDef><apiDesc>
+		 Duplicates the instance of the <i>LoggerEvent</i> object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.logging:LoggerEvent:toString"><apiName>toString</apiName><shortdesc>
+		 Generates a string containing all the properties of the LoggerEvent object.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiIsOverride/><apiReturn><apiDesc>A string containing all the properties of the <i>LoggerEvent</i> object.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>
+		 Generates a string containing all the properties of the <i>LoggerEvent</i> object.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.logging:LoggerEvent:DEBUG"><apiName>DEBUG</apiName><shortdesc>
+		 The LoggerEvent.DEBUG constant defines the value of the type property of the event object for a debug event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>debug</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>LoggerEvent.DEBUG</i> constant defines the value of the <i>type</i> property of the event object for a <i>debug</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>message</entry><entry><i>String</i></entry><entry>The logged debug message.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.logging:LoggerEvent:ERROR"><apiName>ERROR</apiName><shortdesc>
+		 The LoggerEvent.ERROR constant defines the value of the type property of the event object for a error event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>error</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>LoggerEvent.ERROR</i> constant defines the value of the <i>type</i> property of the event object for a <i>error</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>message</entry><entry><i>String</i></entry><entry>The logged error message.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.logging:LoggerEvent:INFO"><apiName>INFO</apiName><shortdesc>
+		 The LoggerEvent.INFO constant defines the value of the type property of the event object for a info event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>info</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>LoggerEvent.INFO</i> constant defines the value of the <i>type</i> property of the event object for a <i>info</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>message</entry><entry><i>String</i></entry><entry>The logged information message.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.logging:LoggerEvent:WARNING"><apiName>WARNING</apiName><shortdesc>
+		 The LoggerEvent.WARNING constant defines the value of the type property of the event object for a warn event.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>warn</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The <i>LoggerEvent.WARNING</i> constant defines the value of the <i>type</i> property of the event object for a <i>warn</i> event.
+		 
+		 <p>The properties of the <i>params</i> object contained in the event object have the following values:</p>
+		 <adobetable class="innertable">
+		 
+		 
+		 <tgroup cols="3"><thead><row><entry>Property</entry><entry>Type</entry><entry>Description</entry></row></thead><tbody><row><entry>message</entry><entry><i>String</i></entry><entry>The logged warning message.</entry></row></tbody></tgroup></adobetable>
+		 
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.logging:Logger"><apiName>Logger</apiName><shortdesc>
+	 The internal logger used by the SmartFoxServer 2X client API.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:EventDispatcher</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The internal logger used by the SmartFoxServer 2X client API.
+	 This is a singleton class.
+	 
+	 <p>You can get a reference to the <i>Logger</i> by means of the <i>SmartFox.logger</i> property.
+	 Accessing the logger can be useful to control the client-side logging level,
+	 enable or disable the output towards the Adobe Flash or Flash/Flex Builder console and
+	 enable or disable the events dispatching. When logger events are enabled, you can add your own listners to this class,
+	 in order to have a lower access to logged messages (for example you could display them in a dedicated panel in the application interface).</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.logging.xml#LoggerEvent"><linktext>LoggerEvent</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/logger"><linktext>SmartFox.logger</linktext></link></related-links><adobeApiEvent id="com.smartfoxserver.v2.logging:Logger_com.smartfoxserver.v2.logging.LoggerEvent.ERROR_error"><apiName>error</apiName><shortdesc>
+	 Dispatched when a message of level ERROR is logged.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.logging.LoggerEvent.ERROR</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.logging.LoggerEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a message of level <i>ERROR</i> is logged.
+	 The <i>enableEventDispatching</i> property must be <codeph>true</codeph>.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.logging.xml#Logger/enableEventDispatching"><linktext>enableEventDispatching</linktext></link><link href="com.smartfoxserver.v2.logging.xml#LogLevel/ERROR"><linktext>LogLevel.ERROR</linktext></link><link href="com.smartfoxserver.v2.logging.xml#LoggerEvent/ERROR"><linktext>LoggerEvent.ERROR</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.logging:Logger_com.smartfoxserver.v2.logging.LoggerEvent.WARN_warn"><apiName>warn</apiName><shortdesc>
+	 Dispatched when a message of level WARN is logged.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.logging.LoggerEvent.WARN</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.logging.LoggerEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a message of level <i>WARN</i> is logged.
+	 The <i>enableEventDispatching</i> property must be <codeph>true</codeph>.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.logging.xml#Logger/enableEventDispatching"><linktext>enableEventDispatching</linktext></link><link href="com.smartfoxserver.v2.logging.xml#LogLevel/WARN"><linktext>LogLevel.WARN</linktext></link><link href="com.smartfoxserver.v2.logging.xml#LoggerEvent/WARN"><linktext>LoggerEvent.WARN</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.logging:Logger_com.smartfoxserver.v2.logging.LoggerEvent.INFO_info"><apiName>info</apiName><shortdesc>
+	 Dispatched when a message of level INFO is logged.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.logging.LoggerEvent.INFO</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.logging.LoggerEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a message of level <i>INFO</i> is logged.
+	 The <i>enableEventDispatching</i> property must be <codeph>true</codeph>.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.logging.xml#Logger/enableEventDispatching"><linktext>enableEventDispatching</linktext></link><link href="com.smartfoxserver.v2.logging.xml#LogLevel/INFO"><linktext>LogLevel.INFO</linktext></link><link href="com.smartfoxserver.v2.logging.xml#LoggerEvent/INFO"><linktext>LoggerEvent.INFO</linktext></link></related-links></adobeApiEvent><adobeApiEvent id="com.smartfoxserver.v2.logging:Logger_com.smartfoxserver.v2.logging.LoggerEvent.DEBUG_debug"><apiName>debug</apiName><shortdesc>
+	 Dispatched when a message of level DEBUG is logged.</shortdesc><prolog/><adobeApiEventDetail><adobeApiEventDef><apiEventType>com.smartfoxserver.v2.logging.LoggerEvent.DEBUG</apiEventType><adobeApiEventClassifier>com.smartfoxserver.v2.logging.LoggerEvent</adobeApiEventClassifier><apiGeneratedEvent/></adobeApiEventDef><apiDesc>
+	 Dispatched when a message of level <i>DEBUG</i> is logged.
+	 The <i>enableEventDispatching</i> property must be <codeph>true</codeph>.
+	 
+	 </apiDesc></adobeApiEventDetail><related-links><link href="com.smartfoxserver.v2.logging.xml#Logger/enableEventDispatching"><linktext>enableEventDispatching</linktext></link><link href="com.smartfoxserver.v2.logging.xml#LogLevel/DEBUG"><linktext>LogLevel.DEBUG</linktext></link><link href="com.smartfoxserver.v2.logging.xml#LoggerEvent/DEBUG"><linktext>LoggerEvent.DEBUG</linktext></link></related-links></adobeApiEvent><apiValue id="com.smartfoxserver.v2.logging:Logger:enableConsoleTrace:get"><apiName>enableConsoleTrace</apiName><shortdesc>
+		 Indicates whether or not the output of logged messages to the console window of Adobe Flash and Flex/Flash Builder is enabled.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether or not the output of logged messages to the console window of Adobe Flash and Flex/Flash Builder is enabled.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.logging:Logger:enableEventDispatching:get"><apiName>enableEventDispatching</apiName><shortdesc>
+		 Indicates whether dispatching of log events is enabled or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether dispatching of log events is enabled or not.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.logging.xml#Logger/event:debug"><linktext>debug event</linktext></link><link href="com.smartfoxserver.v2.logging.xml#Logger/event:info"><linktext>info event</linktext></link><link href="com.smartfoxserver.v2.logging.xml#Logger/event:warn"><linktext>warn event</linktext></link><link href="com.smartfoxserver.v2.logging.xml#Logger/event:error"><linktext>error event</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.logging:Logger:loggingLevel:get"><apiName>loggingLevel</apiName><shortdesc>
+		 Determines the current logging level.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="readwrite"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Determines the current logging level.
+		 Messages with a level lower than this value are not logged.
+		 The available log levels are contained in the <i>LogLevel</i> class.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.logging.xml#LogLevel"><linktext>LogLevel</linktext></link></related-links></apiValue></apiClassifier></apiPackage>

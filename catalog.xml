@@ -1,0 +1,2193 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<swc xmlns="http://www.adobe.com/flash/swccatalog/9">
+  <versions>
+    <swc version="1.2" />
+    <flex version="4.1.0" build="16076" minimumSupportedVersion="3.0.0" />
+  </versions>
+  <features>
+    <feature-script-deps />
+    <feature-files />
+  </features>
+  <libraries>
+    <library path="library.swf">
+      <script name="com/smartfoxserver/v2/entities/Room" mod="1289172918000" signatureChecksum="1178146736" >
+        <def id="com.smartfoxserver.v2.entities:Room" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:RoomVariable" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:IRoomManager" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/SFSRoom" mod="1360137176000" signatureChecksum="313542828" >
+        <def id="com.smartfoxserver.v2.entities:SFSRoom" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:SFSRoomVariable" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:SFSUserManager" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:ArrayUtil" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:IUserManager" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:RoomVariable" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:IRoomManager" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2:kernel" type="n" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/IController" mod="1289577630000" signatureChecksum="1338783478" >
+        <def id="com.smartfoxserver.v2.bitswarm:IController" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IMessage" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/BaseController" mod="1289577606000" signatureChecksum="698249351" >
+        <def id="com.smartfoxserver.v2.bitswarm:BaseController" /> 
+        <dep id="trace" type="e" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IMessage" type="s" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IController" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/controllers/ExtensionController" mod="1322491656000" signatureChecksum="4261201761" >
+        <def id="com.smartfoxserver.v2.controllers:ExtensionController" /> 
+        <dep id="com.smartfoxserver.v2.core:SFSEvent" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:BitSwarmClient" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IMessage" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:BaseController" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/PacketReadState" mod="1289577658000" signatureChecksum="3313192248" >
+        <def id="com.smartfoxserver.v2.bitswarm:PacketReadState" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/Itr" mod="0" >
+        <def id="de.polygonal.ds:Itr" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/LinkedQueueIterator" mod="0" >
+        <def id="de.polygonal.ds:LinkedQueueIterator" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="de.polygonal.ds:LinkedQueue" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="de.polygonal.ds:LinkedQueueNode" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Itr" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/IRequest" mod="1289207078000" signatureChecksum="3368913412" >
+        <def id="com.smartfoxserver.v2.requests:IRequest" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IMessage" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/BaseRequest" mod="1303228657000" signatureChecksum="557707249" >
+        <def id="com.smartfoxserver.v2.requests:BaseRequest" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSObject" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:Message" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:ExtensionRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IMessage" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:IRequest" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/buddylist/InitBuddyListRequest" mod="1289233140000" signatureChecksum="2569446881" >
+        <def id="com.smartfoxserver.v2.requests.buddylist:InitBuddyListRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/UserPrivileges" mod="1288801274000" signatureChecksum="1320240377" >
+        <def id="com.smartfoxserver.v2.entities:UserPrivileges" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/LeaveRoomRequest" mod="1306400877000" signatureChecksum="3363931400" >
+        <def id="com.smartfoxserver.v2.requests:LeaveRoomRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/util/LagMonitor" mod="1327416106000" signatureChecksum="168282674" >
+        <def id="com.smartfoxserver.v2.util:LagMonitor" /> 
+        <dep id="flash.utils:Timer" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:PingPongRequest" type="e" /> 
+        <dep id="flash.events:TimerEvent" type="e" /> 
+        <dep id="flash.utils:getTimer" type="e" /> 
+        <dep id="flash.events:Event" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="flash.utils:Timer" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:EventDispatcher" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/exceptions/SFSValidationError" mod="1299617353000" signatureChecksum="207763940" >
+        <def id="com.smartfoxserver.v2.exceptions:SFSValidationError" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Error" type="i" /> 
+      </script>
+      <script name="com/hurlant/crypto/hash/IHash" mod="1177909556000" >
+        <def id="com.hurlant.crypto.hash:IHash" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/RoomSettings" mod="1289557856000" signatureChecksum="256253230" >
+        <def id="com.smartfoxserver.v2.requests:RoomSettings" /> 
+        <dep id="com.smartfoxserver.v2.entities:SFSConstants" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:RoomExtension" type="s" /> 
+        <dep id="com.smartfoxserver.v2.requests:RoomEvents" type="s" /> 
+        <dep id="com.smartfoxserver.v2.requests:RoomPermissions" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/GenericMessageRequest" mod="1310738271000" signatureChecksum="2255843303" >
+        <def id="com.smartfoxserver.v2.requests:GenericMessageRequest" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageType" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:MessageRecipientMode" type="e" /> 
+        <dep id="ArgumentError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="e" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="de.polygonal.ds:ListSet" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="s" /> 
+        <dep id="de.polygonal.ds:ListSet" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/ModeratorMessageRequest" mod="1289652474000" signatureChecksum="1107580518" >
+        <def id="com.smartfoxserver.v2.requests:ModeratorMessageRequest" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageType" type="e" /> 
+        <dep id="ArgumentError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:MessageRecipientMode" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageRequest" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/SLLNode" mod="0" >
+        <def id="de.polygonal.ds:SLLNode" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="e" /> 
+        <dep id="Std" type="e" /> 
+        <dep id="de.polygonal.ds:SLL" type="s" /> 
+        <dep id="de.polygonal.ds:SLLNode" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/match/MatchExpression" mod="1289500018000" signatureChecksum="3173128843" >
+        <def id="com.smartfoxserver.v2.entities.match:MatchExpression" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.match:LogicOperator" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.match:IMatcher" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.match:LogicOperator" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/protocol/serialization/SerializableSFSType" mod="1288818112000" signatureChecksum="3874104333" >
+        <def id="com.smartfoxserver.v2.protocol.serialization:SerializableSFSType" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/Hashable" mod="0" >
+        <def id="de.polygonal.ds:Hashable" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/Collection" mod="0" >
+        <def id="de.polygonal.ds:Collection" /> 
+        <dep id="de.polygonal.ds:Collection" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="de.polygonal.ds:DA" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Hashable" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/DLL" mod="0" >
+        <def id="de.polygonal.ds:DLL" /> 
+        <dep id="de.polygonal.ds:DLL" type="e" /> 
+        <dep id="de.polygonal.ds:DLLIterator" type="e" /> 
+        <dep id="de.polygonal.ds:HashKey" type="e" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="e" /> 
+        <dep id="de.polygonal.ds:DLLNode" type="e" /> 
+        <dep id="de.polygonal.ds:CircularDLLIterator" type="e" /> 
+        <dep id="Array" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="Std" type="e" /> 
+        <dep id="de.polygonal.ds:DA" type="e" /> 
+        <dep id="de.polygonal.core.util:Instance" type="e" /> 
+        <dep id="de.polygonal.ds:DLL" type="s" /> 
+        <dep id="de.polygonal.ds:Collection" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Number" type="s" /> 
+        <dep id="Class" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="de.polygonal.ds:DLLNode" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="de.polygonal.ds:DA" type="s" /> 
+        <dep id="de.polygonal.ds:Cloneable" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Collection" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/ArrayConvert" mod="0" >
+        <def id="de.polygonal.ds:ArrayConvert" /> 
+        <dep id="de.polygonal.ds:DLL" type="e" /> 
+        <dep id="de.polygonal.ds:ArrayedQueue" type="e" /> 
+        <dep id="de.polygonal.ds:SLL" type="e" /> 
+        <dep id="de.polygonal.ds:LinkedQueue" type="e" /> 
+        <dep id="Array" type="e" /> 
+        <dep id="de.polygonal.ds:LinkedStackNode" type="e" /> 
+        <dep id="de.polygonal.ds:Array3" type="e" /> 
+        <dep id="de.polygonal.ds:LinkedQueueNode" type="e" /> 
+        <dep id="de.polygonal.ds:Array2" type="e" /> 
+        <dep id="de.polygonal.ds:ArrayedStack" type="e" /> 
+        <dep id="de.polygonal.ds:LinkedStack" type="e" /> 
+        <dep id="de.polygonal.ds:SLLNode" type="e" /> 
+        <dep id="de.polygonal.ds:DLLNode" type="e" /> 
+        <dep id="de.polygonal.ds:DA" type="e" /> 
+        <dep id="de.polygonal.ds:DLL" type="s" /> 
+        <dep id="de.polygonal.ds:ArrayedQueue" type="s" /> 
+        <dep id="de.polygonal.ds:SLL" type="s" /> 
+        <dep id="de.polygonal.ds:LinkedQueue" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="de.polygonal.ds:LinkedStackNode" type="s" /> 
+        <dep id="de.polygonal.ds:Array3" type="s" /> 
+        <dep id="de.polygonal.ds:LinkedQueueNode" type="s" /> 
+        <dep id="de.polygonal.ds:Array2" type="s" /> 
+        <dep id="de.polygonal.ds:ArrayedStack" type="s" /> 
+        <dep id="de.polygonal.ds:LinkedStack" type="s" /> 
+        <dep id="de.polygonal.ds:SLLNode" type="s" /> 
+        <dep id="de.polygonal.ds:DLLNode" type="s" /> 
+        <dep id="de.polygonal.ds:DA" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="as3reflect/AccessorAccess" mod="1231598064925" signatureChecksum="570591165" >
+        <def id="as3reflect:AccessorAccess" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/RoomExtension" mod="1289465932000" signatureChecksum="3252834811" >
+        <def id="com.smartfoxserver.v2.requests:RoomExtension" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/BanUserRequest" mod="1306393478000" signatureChecksum="2089398747" >
+        <def id="com.smartfoxserver.v2.requests:BanUserRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/managers/IBuddyManager" mod="1289230572000" signatureChecksum="3871502944" >
+        <def id="com.smartfoxserver.v2.entities.managers:IBuddyManager" /> 
+        <dep id="com.smartfoxserver.v2.entities:Buddy" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:BuddyVariable" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/BanMode" mod="1289579784000" signatureChecksum="4112330153" >
+        <def id="com.smartfoxserver.v2.requests:BanMode" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/IUDPManager" mod="1289577644000" signatureChecksum="1003125857" >
+        <def id="com.smartfoxserver.v2.bitswarm:IUDPManager" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/AirUDPManager" mod="1360137177000" signatureChecksum="1462710453" >
+        <def id="com.smartfoxserver.v2.bitswarm:AirUDPManager" /> 
+        <dep id="com.smartfoxserver.v2.protocol.serialization:DefaultObjectDumpFormatter" type="e" /> 
+        <dep id="com.smartfoxserver.v2.core:SFSEvent" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSObject" type="e" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="e" /> 
+        <dep id="flash.net:DatagramSocket" type="e" /> 
+        <dep id="flash.utils:Timer" type="e" /> 
+        <dep id="flash.events:IOErrorEvent" type="e" /> 
+        <dep id="flash.events:TimerEvent" type="e" /> 
+        <dep id="flash.errors:IOError" type="e" /> 
+        <dep id="flash.events:DatagramSocketDataEvent" type="e" /> 
+        <dep id="flash.events:Event" type="s" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="s" /> 
+        <dep id="flash.net:DatagramSocket" type="s" /> 
+        <dep id="flash.utils:Timer" type="s" /> 
+        <dep id="flash.events:IOErrorEvent" type="s" /> 
+        <dep id="flash.errors:IOError" type="s" /> 
+        <dep id="flash.events:DatagramSocketDataEvent" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2:kernel" type="n" /> 
+        <dep id="Object" type="i" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IUDPManager" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/util/ConfigLoader" mod="1294401274000" signatureChecksum="1094083884" >
+        <def id="com.smartfoxserver.v2.util:ConfigLoader" /> 
+        <dep id="flash.events:Event" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:ConfigData" type="e" /> 
+        <dep id="com.smartfoxserver.v2.core:SFSEvent" type="e" /> 
+        <dep id="flash.net:URLRequest" type="e" /> 
+        <dep id="flash.events:IOErrorEvent" type="e" /> 
+        <dep id="flash.net:URLLoader" type="e" /> 
+        <dep id="XML" type="e" /> 
+        <dep id="flash.events:Event" type="s" /> 
+        <dep id="com.smartfoxserver.v2.util:ConfigData" type="s" /> 
+        <dep id="com.smartfoxserver.v2.core:SFSEvent" type="s" /> 
+        <dep id="flash.events:IOErrorEvent" type="s" /> 
+        <dep id="flash.net:URLLoader" type="s" /> 
+        <dep id="XML" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:EventDispatcher" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/SLLIterator" mod="0" >
+        <def id="de.polygonal.ds:SLLIterator" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.ds:SLL" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="de.polygonal.ds:SLLNode" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Itr" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/LinkedQueueNode" mod="0" >
+        <def id="de.polygonal.ds:LinkedQueueNode" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="de.polygonal.ds:LinkedQueueNode" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/ManualDisconnectionRequest" mod="1289581286000" signatureChecksum="1027628136" >
+        <def id="com.smartfoxserver.v2.requests:ManualDisconnectionRequest" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/managers/IUserManager" mod="1289131804000" signatureChecksum="3412834678" >
+        <def id="com.smartfoxserver.v2.entities.managers:IUserManager" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/ArrayedStackIterator" mod="0" >
+        <def id="de.polygonal.ds:ArrayedStackIterator" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.ds:ArrayedStack" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Itr" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/Array2Iterator" mod="0" >
+        <def id="de.polygonal.ds:Array2Iterator" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="de.polygonal.ds:Array2" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Itr" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/match/LogicOperator" mod="1296738796000" signatureChecksum="1769490540" >
+        <def id="com.smartfoxserver.v2.entities.match:LogicOperator" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/core/BaseEvent" mod="1288390762000" signatureChecksum="2208386236" >
+        <def id="com.smartfoxserver.v2.core:BaseEvent" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:Event" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/BitSwarmEvent" mod="1304414570000" signatureChecksum="1922794418" >
+        <def id="com.smartfoxserver.v2.bitswarm:BitSwarmEvent" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.core:BaseEvent" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/HashMapKeyIterator" mod="0" >
+        <def id="de.polygonal.ds:HashMapKeyIterator" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="flash.utils:Dictionary" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Itr" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="as3reflect/IMetaDataContainer" mod="1231857264134" signatureChecksum="789406436" >
+        <def id="as3reflect:IMetaDataContainer" /> 
+        <dep id="as3reflect:MetaData" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="as3reflect/IMember" mod="1231597401494" signatureChecksum="3852751132" >
+        <def id="as3reflect:IMember" /> 
+        <dep id="as3reflect:Type" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="as3reflect:IMetaDataContainer" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="as3reflect/MetaDataContainer" mod="1231857358631" signatureChecksum="3304356330" >
+        <def id="as3reflect:MetaDataContainer" /> 
+        <dep id="as3reflect:MetaData" type="e" /> 
+        <dep id="as3reflect:MetaData" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="as3reflect:IMetaDataContainer" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="as3reflect/AbstractMember" mod="1231597954911" signatureChecksum="2866708317" >
+        <def id="as3reflect:AbstractMember" /> 
+        <dep id="as3reflect:Type" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="as3reflect:IMember" type="i" /> 
+        <dep id="as3reflect:MetaDataContainer" type="i" /> 
+      </script>
+      <script name="as3reflect/Field" mod="1231598175103" signatureChecksum="2707309292" >
+        <def id="as3reflect:Field" /> 
+        <dep id="as3reflect:Type" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="as3reflect:AbstractMember" type="i" /> 
+      </script>
+      <script name="as3reflect/Variable" mod="1231598724752" signatureChecksum="171586199" >
+        <def id="as3reflect:Variable" /> 
+        <dep id="as3reflect:Type" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="as3reflect:Field" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/bbox/BBEvent" mod="1297851354000" signatureChecksum="3492704459" >
+        <def id="com.smartfoxserver.v2.bitswarm.bbox:BBEvent" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.core:BaseEvent" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/managers/IRoomManager" mod="1346403813000" signatureChecksum="3184623093" >
+        <def id="com.smartfoxserver.v2.entities.managers:IRoomManager" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/managers/SFSRoomManager" mod="1309772883000" signatureChecksum="1702607533" >
+        <def id="com.smartfoxserver.v2.entities.managers:SFSRoomManager" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="e" /> 
+        <dep id="de.polygonal.ds:HashMap" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:ArrayUtil" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="de.polygonal.ds:HashMap" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2:kernel" type="n" /> 
+        <dep id="Object" type="i" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:IRoomManager" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/logging/LogLevel" mod="1288704942000" signatureChecksum="2969848356" >
+        <def id="com.smartfoxserver.v2.logging:LogLevel" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/UnsubscribeRoomGroupRequest" mod="1289902970000" signatureChecksum="169902240" >
+        <def id="com.smartfoxserver.v2.requests:UnsubscribeRoomGroupRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/exceptions/SFSCodecError" mod="1299617329000" signatureChecksum="577776702" >
+        <def id="com.smartfoxserver.v2.exceptions:SFSCodecError" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Error" type="i" /> 
+      </script>
+      <script name="as3reflect/Parameter" mod="1231858427808" signatureChecksum="1573147961" >
+        <def id="as3reflect:Parameter" /> 
+        <dep id="as3reflect:Type" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/invitation/Invitation" mod="1289575948000" signatureChecksum="3679946268" >
+        <def id="com.smartfoxserver.v2.entities.invitation:Invitation" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/invitation/SFSInvitation" mod="1289574302000" signatureChecksum="387963275" >
+        <def id="com.smartfoxserver.v2.entities.invitation:SFSInvitation" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.entities.invitation:Invitation" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/match/RoomProperties" mod="1347359161000" signatureChecksum="3883507929" >
+        <def id="com.smartfoxserver.v2.entities.match:RoomProperties" /> 
+        <dep id="ArgumentError" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/SetRoomVariablesRequest" mod="1289900216000" signatureChecksum="3353596308" >
+        <def id="com.smartfoxserver.v2.requests:SetRoomVariablesRequest" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:RoomVariable" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="Std" mod="0" >
+        <def id="Std" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="Number" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/PendingPacket" mod="1289577662000" signatureChecksum="413359847" >
+        <def id="com.smartfoxserver.v2.bitswarm:PendingPacket" /> 
+        <dep id="flash.utils:ByteArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.core:PacketHeader" type="s" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/Queue" mod="0" >
+        <def id="de.polygonal.ds:Queue" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Collection" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/ArrayedQueue" mod="0" >
+        <def id="de.polygonal.ds:ArrayedQueue" /> 
+        <dep id="de.polygonal.ds:ArrayedQueue" type="e" /> 
+        <dep id="de.polygonal.ds:HashKey" type="e" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="Array" type="e" /> 
+        <dep id="de.polygonal.ds:DA" type="e" /> 
+        <dep id="de.polygonal.core.util:Instance" type="e" /> 
+        <dep id="de.polygonal.ds:ArrayedQueueIterator" type="e" /> 
+        <dep id="de.polygonal.ds:ArrayedQueue" type="s" /> 
+        <dep id="de.polygonal.ds:Collection" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Number" type="s" /> 
+        <dep id="Class" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="de.polygonal.ds:DA" type="s" /> 
+        <dep id="de.polygonal.ds:Cloneable" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Queue" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/hurlant/util/Base64" mod="1177909560000" >
+        <def id="com.hurlant.util:Base64" /> 
+        <dep id="flash.utils:ByteArray" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/User" mod="1346160606000" signatureChecksum="847412203" >
+        <def id="com.smartfoxserver.v2.entities:User" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:IUserManager" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:UserVariable" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/SFSUser" mod="1289173958000" signatureChecksum="3116115794" >
+        <def id="com.smartfoxserver.v2.entities:SFSUser" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:SFSUserVariable" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:UserPrivileges" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:SFSUserVariable" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:IUserManager" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:UserVariable" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/managers/SFSBuddyManager" mod="1346402478000" signatureChecksum="3439388154" >
+        <def id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:ReservedBuddyVariables" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:BuddyVariable" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:ArrayUtil" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities:Buddy" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:BuddyVariable" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:IBuddyManager" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="as3reflect/Type" mod="1231856310227" signatureChecksum="845696140" >
+        <def id="as3reflect:Type" /> 
+        <dep id="as3reflect:AccessorAccess" type="e" /> 
+        <dep id="ReferenceError" type="e" /> 
+        <dep id="flash.utils:describeType" type="e" /> 
+        <dep id="as3reflect:ClassUtils" type="e" /> 
+        <dep id="trace" type="e" /> 
+        <dep id="as3reflect:Constant" type="e" /> 
+        <dep id="as3reflect:MetaDataArgument" type="e" /> 
+        <dep id="as3reflect:Accessor" type="e" /> 
+        <dep id="as3reflect:Parameter" type="e" /> 
+        <dep id="as3reflect:Variable" type="e" /> 
+        <dep id="as3reflect:MetaData" type="e" /> 
+        <dep id="flash.utils:getDefinitionByName" type="e" /> 
+        <dep id="as3reflect:Method" type="e" /> 
+        <dep id="as3reflect:Accessor" type="s" /> 
+        <dep id="as3reflect:IMember" type="s" /> 
+        <dep id="as3reflect:IMetaDataContainer" type="s" /> 
+        <dep id="ReferenceError" type="s" /> 
+        <dep id="as3reflect:Parameter" type="s" /> 
+        <dep id="as3reflect:Field" type="s" /> 
+        <dep id="XML" type="s" /> 
+        <dep id="as3reflect:Method" type="s" /> 
+        <dep id="XMLList" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="as3reflect:MetaDataContainer" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/DLLNode" mod="0" >
+        <def id="de.polygonal.ds:DLLNode" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="e" /> 
+        <dep id="Std" type="e" /> 
+        <dep id="de.polygonal.ds:DLL" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="de.polygonal.ds:DLLNode" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/protocol/serialization/ISFSDataSerializer" mod="1288818108000" signatureChecksum="2208533928" >
+        <def id="com.smartfoxserver.v2.protocol.serialization:ISFSDataSerializer" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/CircularDLLIterator" mod="0" >
+        <def id="de.polygonal.ds:CircularDLLIterator" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.ds:DLL" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="de.polygonal.ds:DLLNode" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Itr" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="flash/Lib" mod="0" >
+        <def id="flash:Lib" /> 
+        <dep id="Class" type="e" /> 
+        <dep id="Array" type="e" /> 
+        <dep id="flash.net:URLRequest" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Class" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="flash.display:MovieClip" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/IoHandler" mod="1289577638000" signatureChecksum="4274346495" >
+        <def id="com.smartfoxserver.v2.bitswarm:IoHandler" /> 
+        <dep id="com.smartfoxserver.v2.protocol:IProtocolCodec" type="s" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IMessage" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/core/SFSIOHandler" mod="1341827544000" signatureChecksum="190345120" >
+        <def id="com.smartfoxserver.v2.core:SFSIOHandler" /> 
+        <dep id="com.smartfoxserver.v2.core:PacketHeader" type="e" /> 
+        <dep id="com.smartfoxserver.v2.protocol.serialization:DefaultObjectDumpFormatter" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="e" /> 
+        <dep id="com.smartfoxserver.v2.core:SFSProtocolCodec" type="e" /> 
+        <dep id="flash.errors:IOError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:PendingPacket" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSCodecError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:PacketReadState" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.core:PacketHeader" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:BitSwarmClient" type="s" /> 
+        <dep id="com.smartfoxserver.v2.protocol:IProtocolCodec" type="s" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IMessage" type="s" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="s" /> 
+        <dep id="flash.errors:IOError" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:PendingPacket" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IoHandler" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/KickUserRequest" mod="1306400865000" signatureChecksum="2749538397" >
+        <def id="com.smartfoxserver.v2.requests:KickUserRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/managers/SFSUserManager" mod="1302619871000" signatureChecksum="1681264781" >
+        <def id="com.smartfoxserver.v2.entities.managers:SFSUserManager" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="e" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="e" /> 
+        <dep id="de.polygonal.ds:HashMap" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="s" /> 
+        <dep id="de.polygonal.ds:HashMap" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2:kernel" type="n" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:IUserManager" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/match/IMatcher" mod="1289498130000" signatureChecksum="917253221" >
+        <def id="com.smartfoxserver.v2.entities.match:IMatcher" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/util/BuddyOnlineState" mod="1289578620000" signatureChecksum="1146307488" >
+        <def id="com.smartfoxserver.v2.util:BuddyOnlineState" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/data/ISFSArray" mod="1289062956000" signatureChecksum="3196807266" >
+        <def id="com.smartfoxserver.v2.entities.data:ISFSArray" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSDataWrapper" type="s" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/data/SFSArray" mod="1297849872000" signatureChecksum="3927433380" >
+        <def id="com.smartfoxserver.v2.entities.data:SFSArray" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSDataWrapper" type="e" /> 
+        <dep id="com.smartfoxserver.v2.protocol.serialization:DefaultObjectDumpFormatter" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSObject" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSDataType" type="e" /> 
+        <dep id="com.smartfoxserver.v2.protocol.serialization:DefaultSFSDataSerializer" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSDataWrapper" type="s" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="Error" type="s" /> 
+        <dep id="com.smartfoxserver.v2.protocol.serialization:ISFSDataSerializer" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/Stack" mod="0" >
+        <def id="de.polygonal.ds:Stack" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Collection" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/LinkedStack" mod="0" >
+        <def id="de.polygonal.ds:LinkedStack" /> 
+        <dep id="de.polygonal.ds:LinkedStack" type="e" /> 
+        <dep id="de.polygonal.ds:HashKey" type="e" /> 
+        <dep id="de.polygonal.ds:LinkedStackIterator" type="e" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="Array" type="e" /> 
+        <dep id="de.polygonal.ds:DA" type="e" /> 
+        <dep id="de.polygonal.core.util:Instance" type="e" /> 
+        <dep id="de.polygonal.ds:LinkedStackNode" type="e" /> 
+        <dep id="de.polygonal.ds:LinkedStack" type="s" /> 
+        <dep id="de.polygonal.ds:Collection" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Number" type="s" /> 
+        <dep id="Class" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="de.polygonal.ds:DA" type="s" /> 
+        <dep id="de.polygonal.ds:Cloneable" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="de.polygonal.ds:LinkedStackNode" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+        <dep id="de.polygonal.ds:Stack" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/util/ClientDisconnectionReason" mod="1288704976000" signatureChecksum="1073241719" >
+        <def id="com.smartfoxserver.v2.util:ClientDisconnectionReason" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/core/PacketHeader" mod="1289577706000" signatureChecksum="3150694421" >
+        <def id="com.smartfoxserver.v2.core:PacketHeader" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/util/PasswordUtil" mod="1370082689000" signatureChecksum="2485473130" >
+        <def id="com.smartfoxserver.v2.util:PasswordUtil" /> 
+        <dep id="com.hurlant.util:Hex" type="e" /> 
+        <dep id="com.hurlant.crypto.hash:MD5" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="com.hurlant.crypto.hash:IHash" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/core/fmt/Sprintf" mod="0" >
+        <def id="de.polygonal.core.fmt:Sprintf" /> 
+        <dep id="String" type="e" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="e" /> 
+        <dep id="de.polygonal.core.fmt:NumberFormat" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="Array" type="e" /> 
+        <dep id="Std" type="e" /> 
+        <dep id="Number" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/core/fmt/NumberFormat" mod="0" >
+        <def id="de.polygonal.core.fmt:NumberFormat" /> 
+        <dep id="de.polygonal.core.fmt:NumberFormat" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="Std" type="e" /> 
+        <dep id="Number" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/variables/ReservedRoomVariables" mod="1289401482000" signatureChecksum="63975557" >
+        <def id="com.smartfoxserver.v2.entities.variables:ReservedRoomVariables" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/LinkedQueue" mod="0" >
+        <def id="de.polygonal.ds:LinkedQueue" /> 
+        <dep id="de.polygonal.ds:LinkedQueueIterator" type="e" /> 
+        <dep id="de.polygonal.ds:HashKey" type="e" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="e" /> 
+        <dep id="de.polygonal.ds:LinkedQueue" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="Array" type="e" /> 
+        <dep id="de.polygonal.ds:DA" type="e" /> 
+        <dep id="de.polygonal.core.util:Instance" type="e" /> 
+        <dep id="de.polygonal.ds:LinkedQueueNode" type="e" /> 
+        <dep id="de.polygonal.ds:Collection" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Number" type="s" /> 
+        <dep id="Class" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="de.polygonal.ds:LinkedQueue" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="de.polygonal.ds:DA" type="s" /> 
+        <dep id="de.polygonal.ds:Cloneable" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="de.polygonal.ds:LinkedQueueNode" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Queue" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/variables/UserVariable" mod="1288962964000" signatureChecksum="2879108203" >
+        <def id="com.smartfoxserver.v2.entities.variables:UserVariable" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/variables/BuddyVariable" mod="1288868462000" signatureChecksum="3671338887" >
+        <def id="com.smartfoxserver.v2.entities.variables:BuddyVariable" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:UserVariable" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/invitation/InvitationReply" mod="1289574668000" signatureChecksum="3945544949" >
+        <def id="com.smartfoxserver.v2.entities.invitation:InvitationReply" /> 
+        <dep id="ArgumentError" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/match/StringMatch" mod="1289499262000" signatureChecksum="3423894621" >
+        <def id="com.smartfoxserver.v2.entities.match:StringMatch" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.entities.match:IMatcher" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/HashKey" mod="0" >
+        <def id="de.polygonal.ds:HashKey" /> 
+        <dep id="de.polygonal.ds:HashKey" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/logging/Logger" mod="1333706211000" signatureChecksum="448138014" >
+        <def id="com.smartfoxserver.v2.logging:Logger" /> 
+        <dep id="trace" type="e" /> 
+        <dep id="com.smartfoxserver.v2.logging:LogLevel" type="e" /> 
+        <dep id="com.smartfoxserver.v2.logging:LoggerEvent" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="com.smartfoxserver.v2.logging:LoggerEvent" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:EventDispatcher" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/protocol/IProtocolCodec" mod="1288818090000" signatureChecksum="2151248965" >
+        <def id="com.smartfoxserver.v2.protocol:IProtocolCodec" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IoHandler" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IMessage" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/core/SFSProtocolCodec" mod="1360137177000" signatureChecksum="1303977990" >
+        <def id="com.smartfoxserver.v2.core:SFSProtocolCodec" /> 
+        <dep id="flash.utils:ByteArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSObject" type="e" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:Message" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSCodecError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:BitSwarmClient" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IoHandler" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IController" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IMessage" type="s" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.protocol:IProtocolCodec" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/FindUsersRequest" mod="1306393561000" signatureChecksum="2256198357" >
+        <def id="com.smartfoxserver.v2.requests:FindUsersRequest" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="e" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.match:MatchExpression" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/SLL" mod="0" >
+        <def id="de.polygonal.ds:SLL" /> 
+        <dep id="de.polygonal.ds:SLL" type="e" /> 
+        <dep id="de.polygonal.ds:SLLNode" type="e" /> 
+        <dep id="de.polygonal.ds:HashKey" type="e" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="e" /> 
+        <dep id="de.polygonal.ds:SLLIterator" type="e" /> 
+        <dep id="Array" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="Std" type="e" /> 
+        <dep id="de.polygonal.ds:DA" type="e" /> 
+        <dep id="de.polygonal.core.util:Instance" type="e" /> 
+        <dep id="de.polygonal.ds:SLL" type="s" /> 
+        <dep id="de.polygonal.ds:Collection" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="de.polygonal.ds:SLLNode" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Number" type="s" /> 
+        <dep id="Class" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="de.polygonal.ds:DA" type="s" /> 
+        <dep id="de.polygonal.ds:Cloneable" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Collection" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/protocol/serialization/DefaultObjectDumpFormatter" mod="1288818096000" signatureChecksum="3869821123" >
+        <def id="com.smartfoxserver.v2.protocol.serialization:DefaultObjectDumpFormatter" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSError" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/game/QuickJoinGameRequest" mod="1289557208000" signatureChecksum="1708057295" >
+        <def id="com.smartfoxserver.v2.requests.game:QuickJoinGameRequest" /> 
+        <dep id="ArgumentError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.match:MatchExpression" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/CreateRoomRequest" mod="1346677022000" signatureChecksum="2007727959" >
+        <def id="com.smartfoxserver.v2.requests:CreateRoomRequest" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:RoomVariable" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.requests:RoomSettings" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:RoomVariable" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="as3reflect/MetaData" mod="1231857612459" signatureChecksum="2830801301" >
+        <def id="as3reflect:MetaData" /> 
+        <dep id="as3reflect:MetaDataArgument" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/PingPongRequest" mod="1303230810000" signatureChecksum="2597475152" >
+        <def id="com.smartfoxserver.v2.requests:PingPongRequest" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="as3reflect/Method" mod="1231597543796" signatureChecksum="2025633792" >
+        <def id="as3reflect:Method" /> 
+        <dep id="as3reflect:Parameter" type="e" /> 
+        <dep id="flash.utils:Proxy" type="e" /> 
+        <dep id="as3reflect:Parameter" type="s" /> 
+        <dep id="as3reflect:Type" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="as3reflect:MetaDataContainer" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/buddylist/BuddyMessageRequest" mod="1349427549000" signatureChecksum="1933805606" >
+        <def id="com.smartfoxserver.v2.requests.buddylist:BuddyMessageRequest" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageType" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Buddy" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageRequest" type="i" /> 
+      </script>
+      <script name="com/hurlant/crypto/hash/MD5" mod="1194842834272" >
+        <def id="com.hurlant.crypto.hash:MD5" /> 
+        <dep id="flash.utils:ByteArray" type="e" /> 
+        <dep id="flash.utils:Endian" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.hurlant.crypto.hash:IHash" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/DA" mod="0" >
+        <def id="de.polygonal.ds:DA" /> 
+        <dep id="de.polygonal.ds:HashKey" type="e" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="Array" type="e" /> 
+        <dep id="Std" type="e" /> 
+        <dep id="de.polygonal.ds:DA" type="e" /> 
+        <dep id="de.polygonal.core.util:Instance" type="e" /> 
+        <dep id="de.polygonal.ds:DAIterator" type="e" /> 
+        <dep id="de.polygonal.ds:Collection" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Number" type="s" /> 
+        <dep id="Class" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="de.polygonal.ds:DA" type="s" /> 
+        <dep id="de.polygonal.ds:Cloneable" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Collection" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/util/SFSErrorCodes" mod="1346919925000" signatureChecksum="3898099047" >
+        <def id="com.smartfoxserver.v2.util:SFSErrorCodes" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="as3reflect/Constant" mod="1231598141902" signatureChecksum="503198431" >
+        <def id="as3reflect:Constant" /> 
+        <dep id="as3reflect:Type" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="as3reflect:Field" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/LinkedStackNode" mod="0" >
+        <def id="de.polygonal.ds:LinkedStackNode" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="Std" type="e" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="de.polygonal.ds:LinkedStackNode" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/PrivateMessageRequest" mod="1346925891000" signatureChecksum="1489325600" >
+        <def id="com.smartfoxserver.v2.requests:PrivateMessageRequest" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageType" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/HandshakeRequest" mod="1363017035000" signatureChecksum="2763430648" >
+        <def id="com.smartfoxserver.v2.requests:HandshakeRequest" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/DLLIterator" mod="0" >
+        <def id="de.polygonal.ds:DLLIterator" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.ds:DLL" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="de.polygonal.ds:DLLNode" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Itr" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/PublicMessageRequest" mod="1289659720000" signatureChecksum="3520289878" >
+        <def id="com.smartfoxserver.v2.requests:PublicMessageRequest" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageType" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/data/ISFSObject" mod="1300897781000" signatureChecksum="1908394441" >
+        <def id="com.smartfoxserver.v2.entities.data:ISFSObject" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSDataWrapper" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/match/UserProperties" mod="1346338426000" signatureChecksum="3165547758" >
+        <def id="com.smartfoxserver.v2.entities.match:UserProperties" /> 
+        <dep id="ArgumentError" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/variables/SFSUserVariable" mod="1288867376000" signatureChecksum="2633374190" >
+        <def id="com.smartfoxserver.v2.entities.variables:SFSUserVariable" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:VariableType" type="e" /> 
+        <dep id="as3reflect:Type" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:UserVariable" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/SetUserVariablesRequest" mod="1289900718000" signatureChecksum="3614687119" >
+        <def id="com.smartfoxserver.v2.requests:SetUserVariablesRequest" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:UserVariable" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/buddylist/RemoveBuddyRequest" mod="1289234688000" signatureChecksum="4181692034" >
+        <def id="com.smartfoxserver.v2.requests.buddylist:RemoveBuddyRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/Controllers" mod="1289577620000" signatureChecksum="3330553316" >
+        <def id="com.smartfoxserver.v2.bitswarm:Controllers" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/util/ConfigData" mod="1370080474000" signatureChecksum="49047176" >
+        <def id="com.smartfoxserver.v2.util:ConfigData" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/core/SFSEvent" mod="1346863775000" signatureChecksum="413722928" >
+        <def id="com.smartfoxserver.v2.core:SFSEvent" /> 
+        <dep id="flash.events:Event" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.core:BaseEvent" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/ArrayedQueueIterator" mod="0" >
+        <def id="de.polygonal.ds:ArrayedQueueIterator" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.ds:ArrayedQueue" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Itr" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="_e5c36ef1fc061f36ae7aee445f40b47f51afeb95c547451e7e816bb0162d5840_flash_display_Sprite" mod="1370082700044" signatureChecksum="35748595" >
+        <def id="_e5c36ef1fc061f36ae7aee445f40b47f51afeb95c547451e7e816bb0162d5840_flash_display_Sprite" /> 
+        <dep id="flash.system:Security" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+      </script>
+      <script name="as3reflect/errors/ClassNotFoundError" mod="1231597064294" signatureChecksum="4170200949" >
+        <def id="as3reflect.errors:ClassNotFoundError" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Error" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/FindRoomsRequest" mod="1306393540000" signatureChecksum="2151135026" >
+        <def id="com.smartfoxserver.v2.requests:FindRoomsRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.match:MatchExpression" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/variables/VariableType" mod="1288966010000" signatureChecksum="682328667" >
+        <def id="com.smartfoxserver.v2.entities.variables:VariableType" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/IMessage" mod="1289577634000" signatureChecksum="1784785565" >
+        <def id="com.smartfoxserver.v2.bitswarm:IMessage" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/Message" mod="1289577654000" signatureChecksum="3742806397" >
+        <def id="com.smartfoxserver.v2.bitswarm:Message" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IMessage" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/Set" mod="0" >
+        <def id="de.polygonal.ds:Set" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Collection" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/ListSet" mod="0" >
+        <def id="de.polygonal.ds:ListSet" /> 
+        <dep id="de.polygonal.ds:HashKey" type="e" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="e" /> 
+        <dep id="de.polygonal.ds:DA" type="e" /> 
+        <dep id="de.polygonal.core.util:Instance" type="e" /> 
+        <dep id="de.polygonal.ds:ListSet" type="e" /> 
+        <dep id="de.polygonal.ds:Set" type="s" /> 
+        <dep id="de.polygonal.ds:Collection" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="de.polygonal.ds:DA" type="s" /> 
+        <dep id="de.polygonal.ds:ListSet" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Set" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/SubscribeRoomGroupRequest" mod="1289902018000" signatureChecksum="1624738722" >
+        <def id="com.smartfoxserver.v2.requests:SubscribeRoomGroupRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/AdminMessageRequest" mod="1289652138000" signatureChecksum="1807307486" >
+        <def id="com.smartfoxserver.v2.requests:AdminMessageRequest" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageType" type="e" /> 
+        <dep id="ArgumentError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:MessageRecipientMode" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageRequest" type="i" /> 
+      </script>
+      <script name="as3reflect/MetaDataArgument" mod="1231597479653" signatureChecksum="3901309589" >
+        <def id="as3reflect:MetaDataArgument" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/SFSConstants" mod="1288817762000" signatureChecksum="2931900321" >
+        <def id="com.smartfoxserver.v2.entities:SFSConstants" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/buddylist/AddBuddyRequest" mod="1289234522000" signatureChecksum="805804584" >
+        <def id="com.smartfoxserver.v2.requests.buddylist:AddBuddyRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities:Buddy" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/protocol/serialization/DefaultSFSDataSerializer" mod="1300897781000" signatureChecksum="3866722506" >
+        <def id="com.smartfoxserver.v2.protocol.serialization:DefaultSFSDataSerializer" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSDataWrapper" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="e" /> 
+        <dep id="as3reflect:ClassUtils" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSDataType" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSCodecError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSObject" type="e" /> 
+        <dep id="as3reflect:Type" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="e" /> 
+        <dep id="com.smartfoxserver.v2.protocol.serialization:SerializableSFSType" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSDataWrapper" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSObject" type="s" /> 
+        <dep id="as3reflect:Type" type="s" /> 
+        <dep id="as3reflect:Field" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSCodecError" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.protocol.serialization:ISFSDataSerializer" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/JoinRoomRequest" mod="1289554904000" signatureChecksum="840292427" >
+        <def id="com.smartfoxserver.v2.requests:JoinRoomRequest" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/variables/RoomVariable" mod="1342020564000" signatureChecksum="1197954287" >
+        <def id="com.smartfoxserver.v2.entities.variables:RoomVariable" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:UserVariable" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/ChangeRoomNameRequest" mod="1289917090000" signatureChecksum="4080571613" >
+        <def id="com.smartfoxserver.v2.requests:ChangeRoomNameRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/core/SFSBuddyEvent" mod="1306919187000" signatureChecksum="3167072620" >
+        <def id="com.smartfoxserver.v2.core:SFSBuddyEvent" /> 
+        <dep id="com.smartfoxserver.v2.core:SFSEvent" type="e" /> 
+        <dep id="flash.events:Event" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.core:BaseEvent" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/exceptions/SFSError" mod="1322491656000" signatureChecksum="180630478" >
+        <def id="com.smartfoxserver.v2.exceptions:SFSError" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Error" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/MessageRecipientMode" mod="1346409294000" signatureChecksum="2766560918" >
+        <def id="com.smartfoxserver.v2.requests:MessageRecipientMode" /> 
+        <dep id="ArgumentError" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/PlayerToSpectatorRequest" mod="1342775415000" signatureChecksum="3438057433" >
+        <def id="com.smartfoxserver.v2.requests:PlayerToSpectatorRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/Array3Cell" mod="0" >
+        <def id="de.polygonal.ds:Array3Cell" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="Dynamic" mod="0" >
+        <def id="Dynamic" /> 
+        <dep id="AS3" type="n" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/variables/ReservedBuddyVariables" mod="1289171976000" signatureChecksum="2170766858" >
+        <def id="com.smartfoxserver.v2.entities.variables:ReservedBuddyVariables" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/game/InvitationReplyRequest" mod="1289577218000" signatureChecksum="3696614799" >
+        <def id="com.smartfoxserver.v2.requests.game:InvitationReplyRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.invitation:Invitation" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="Void" mod="0" >
+        <def id="Void" /> 
+        <dep id="AS3" type="n" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/Buddy" mod="1349173205000" signatureChecksum="4070767344" >
+        <def id="com.smartfoxserver.v2.entities:Buddy" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:BuddyVariable" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/controllers/SystemController" mod="1353069754000" signatureChecksum="1607516859" >
+        <def id="com.smartfoxserver.v2.controllers:SystemController" /> 
+        <dep id="com.smartfoxserver.v2.requests.buddylist:SetBuddyVariablesRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.core:SFSEvent" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:ChangeRoomNameRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:SFSRoom" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:LoginRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:BuddyOnlineState" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.core:SFSBuddyEvent" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:SFSUser" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:UnsubscribeRoomGroupRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:SFSBuddy" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageType" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests.buddylist:BlockBuddyRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:FindRoomsRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:LogoutRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:SFSRoomVariable" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests.game:InviteUsersRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:SubscribeRoomGroupRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:PlayerToSpectatorRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:FindUsersRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:SFSUserVariable" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.invitation:SFSInvitation" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:ClientDisconnectionReason" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:SetUserVariablesRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:SFSErrorCodes" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests.buddylist:RemoveBuddyRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:ChangeRoomPasswordStateRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests.buddylist:GoOnlineRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:SetRoomVariablesRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests.buddylist:InitBuddyListRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:SpectatorToPlayerRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests.buddylist:AddBuddyRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:CreateRoomRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:ChangeRoomCapacityRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:JoinRoomRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:ReservedBuddyVariables" type="e" /> 
+        <dep id="com.smartfoxserver.v2.core:SFSEvent" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IMessage" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.invitation:Invitation" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities:Buddy" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:BuddyVariable" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:UserVariable" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:BitSwarmClient" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:IUserManager" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:RoomVariable" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:IRoomManager" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2:kernel" type="n" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:BaseController" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/RoomPermissions" mod="1289463794000" signatureChecksum="585733645" >
+        <def id="com.smartfoxserver.v2.requests:RoomPermissions" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/GenericMessageType" mod="1289579378000" signatureChecksum="500719126" >
+        <def id="com.smartfoxserver.v2.requests:GenericMessageType" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/hurlant/util/Hex" mod="1177909560000" >
+        <def id="com.hurlant.util:Hex" /> 
+        <dep id="flash.utils:ByteArray" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/Map" mod="0" >
+        <def id="de.polygonal.ds:Map" /> 
+        <dep id="de.polygonal.ds:Set" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Collection" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/game/CreateSFSGameRequest" mod="1289900412000" signatureChecksum="619004927" >
+        <def id="com.smartfoxserver.v2.requests.game:CreateSFSGameRequest" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests.game:InviteUsersRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:CreateRoomRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Buddy" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests.game:SFSGameSettings" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="s" /> 
+        <dep id="com.smartfoxserver.v2.requests:CreateRoomRequest" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="flash/Boot" mod="0" >
+        <def id="flash:Boot" /> 
+        <dep id="flash:Lib" type="e" /> 
+        <dep id="String" type="e" /> 
+        <dep id="Dynamic" type="e" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="Array" type="e" /> 
+        <dep id="flash.text:TextFormat" type="s" /> 
+        <dep id="flash.text:TextField" type="s" /> 
+        <dep id="Number" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="flash.display:Stage" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="Error" type="s" /> 
+        <dep id="flash.display:MovieClip" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.text:TextFieldAutoSize" type="i" /> 
+        <dep id="flash.events:Event" type="i" /> 
+        <dep id="flash.text:TextField" type="i" /> 
+        <dep id="flash.display:MovieClip" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/data/SFSDataType" mod="1288967124000" signatureChecksum="2027023912" >
+        <def id="com.smartfoxserver.v2.entities.data:SFSDataType" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/variables/SFSBuddyVariable" mod="1349179597000" signatureChecksum="2266116311" >
+        <def id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:VariableType" type="e" /> 
+        <dep id="as3reflect:Type" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:BuddyVariable" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/HashMap" mod="0" >
+        <def id="de.polygonal.ds:HashMap" /> 
+        <dep id="de.polygonal.ds:ArrayConvert" type="e" /> 
+        <dep id="de.polygonal.ds:HashMapKeyIterator" type="e" /> 
+        <dep id="de.polygonal.ds:HashKey" type="e" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="e" /> 
+        <dep id="Array" type="e" /> 
+        <dep id="de.polygonal.ds:DA" type="e" /> 
+        <dep id="de.polygonal.ds:ListSet" type="e" /> 
+        <dep id="de.polygonal.ds:HashMap" type="e" /> 
+        <dep id="de.polygonal.ds:HashMapValIterator" type="e" /> 
+        <dep id="de.polygonal.ds:Set" type="s" /> 
+        <dep id="de.polygonal.ds:Collection" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="de.polygonal.ds:DA" type="s" /> 
+        <dep id="de.polygonal.ds:ListSet" type="s" /> 
+        <dep id="de.polygonal.ds:Cloneable" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="flash.utils:Dictionary" type="s" /> 
+        <dep id="de.polygonal.ds:HashMap" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Map" type="i" /> 
+        <dep id="flash.utils:Dictionary" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/BitSwarmClient" mod="1370078682000" signatureChecksum="1493427768" >
+        <def id="com.smartfoxserver.v2.bitswarm:BitSwarmClient" /> 
+        <dep id="flash.events:Event" type="e" /> 
+        <dep id="com.smartfoxserver.v2.controllers:ExtensionController" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:ClientDisconnectionReason" type="e" /> 
+        <dep id="flash.errors:IllegalOperationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm.bbox:BBEvent" type="e" /> 
+        <dep id="ArgumentError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IController" type="e" /> 
+        <dep id="flash.net:Socket" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="e" /> 
+        <dep id="trace" type="e" /> 
+        <dep id="flash.events:IOErrorEvent" type="e" /> 
+        <dep id="flash.utils:getTimer" type="e" /> 
+        <dep id="com.smartfoxserver.v2.controllers:SystemController" type="e" /> 
+        <dep id="flash.events:SecurityErrorEvent" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSError" type="e" /> 
+        <dep id="flash.utils:setTimeout" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm.bbox:BBClient" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:DefaultUDPManager" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:ConnectionMode" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:BitSwarmEvent" type="e" /> 
+        <dep id="flash.events:ProgressEvent" type="e" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="e" /> 
+        <dep id="flash.events:Event" type="s" /> 
+        <dep id="com.smartfoxserver.v2.controllers:ExtensionController" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm.bbox:BBEvent" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IController" type="s" /> 
+        <dep id="flash.net:Socket" type="s" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IMessage" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="flash.events:IOErrorEvent" type="s" /> 
+        <dep id="com.smartfoxserver.v2.controllers:SystemController" type="s" /> 
+        <dep id="flash.events:SecurityErrorEvent" type="s" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSError" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm.bbox:BBClient" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IoHandler" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:BitSwarmEvent" type="s" /> 
+        <dep id="flash.events:ProgressEvent" type="s" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IUDPManager" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:EventDispatcher" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/ChangeRoomCapacityRequest" mod="1289917190000" signatureChecksum="1411622671" >
+        <def id="com.smartfoxserver.v2.requests:ChangeRoomCapacityRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/DAIterator" mod="0" >
+        <def id="de.polygonal.ds:DAIterator" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="de.polygonal.ds:DA" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Itr" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/RoomEvents" mod="1289464588000" signatureChecksum="932221431" >
+        <def id="com.smartfoxserver.v2.requests:RoomEvents" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/ExtensionRequest" mod="1370079560000" signatureChecksum="2390479264" >
+        <def id="com.smartfoxserver.v2.requests:ExtensionRequest" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSObject" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/buddylist/BlockBuddyRequest" mod="1360137177000" signatureChecksum="1598467594" >
+        <def id="com.smartfoxserver.v2.requests.buddylist:BlockBuddyRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities:Buddy" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/LogoutRequest" mod="1289864426000" signatureChecksum="1292461284" >
+        <def id="com.smartfoxserver.v2.requests:LogoutRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/util/ConnectionMode" mod="1297852670000" signatureChecksum="2685351818" >
+        <def id="com.smartfoxserver.v2.util:ConnectionMode" /> 
+        <dep id="ArgumentError" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/DefaultUDPManager" mod="1289577626000" signatureChecksum="1205177099" >
+        <def id="com.smartfoxserver.v2.bitswarm:DefaultUDPManager" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IUDPManager" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/game/InviteUsersRequest" mod="1348758199000" signatureChecksum="1868718724" >
+        <def id="com.smartfoxserver.v2.requests.game:InviteUsersRequest" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Buddy" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/Array3Iterator" mod="0" >
+        <def id="de.polygonal.ds:Array3Iterator" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="de.polygonal.ds:Array3" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Itr" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/util/ArrayUtil" mod="1289578680000" signatureChecksum="2731296531" >
+        <def id="com.smartfoxserver.v2.util:ArrayUtil" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/Array3" mod="0" >
+        <def id="de.polygonal.ds:Array3" /> 
+        <dep id="de.polygonal.ds:Array3Iterator" type="e" /> 
+        <dep id="de.polygonal.ds:HashKey" type="e" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="Array" type="e" /> 
+        <dep id="de.polygonal.ds:DA" type="e" /> 
+        <dep id="de.polygonal.core.util:Instance" type="e" /> 
+        <dep id="de.polygonal.ds:Array3" type="e" /> 
+        <dep id="de.polygonal.ds:Array3Cell" type="s" /> 
+        <dep id="Number" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="de.polygonal.ds:Cloneable" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="de.polygonal.ds:Array3" type="s" /> 
+        <dep id="de.polygonal.ds:Array2" type="s" /> 
+        <dep id="de.polygonal.ds:Collection" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Class" type="s" /> 
+        <dep id="de.polygonal.ds:DA" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Collection" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/Array2" mod="0" >
+        <def id="de.polygonal.ds:Array2" /> 
+        <dep id="de.polygonal.ds:HashKey" type="e" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="Array" type="e" /> 
+        <dep id="de.polygonal.ds:DA" type="e" /> 
+        <dep id="de.polygonal.core.util:Instance" type="e" /> 
+        <dep id="de.polygonal.ds:Array2Iterator" type="e" /> 
+        <dep id="de.polygonal.ds:Array2" type="e" /> 
+        <dep id="de.polygonal.ds:Collection" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Number" type="s" /> 
+        <dep id="Class" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="de.polygonal.ds:DA" type="s" /> 
+        <dep id="de.polygonal.ds:Cloneable" type="s" /> 
+        <dep id="de.polygonal.ds:Array2Cell" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="de.polygonal.ds:Array2" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Collection" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/bitswarm/bbox/BBClient" mod="1345626491000" signatureChecksum="1550327127" >
+        <def id="com.smartfoxserver.v2.bitswarm.bbox:BBClient" /> 
+        <dep id="flash.events:Event" type="e" /> 
+        <dep id="flash.errors:IllegalOperationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm.bbox:BBEvent" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="e" /> 
+        <dep id="flash.net:URLRequest" type="e" /> 
+        <dep id="trace" type="e" /> 
+        <dep id="com.hurlant.util:Base64" type="e" /> 
+        <dep id="flash.net:URLVariables" type="e" /> 
+        <dep id="flash.events:IOErrorEvent" type="e" /> 
+        <dep id="flash.events:SecurityErrorEvent" type="e" /> 
+        <dep id="flash.utils:setTimeout" type="e" /> 
+        <dep id="flash.net:URLRequestMethod" type="e" /> 
+        <dep id="flash.net:URLLoaderDataFormat" type="e" /> 
+        <dep id="flash.net:URLLoader" type="e" /> 
+        <dep id="flash.events:Event" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm.bbox:BBEvent" type="s" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="flash.net:URLRequest" type="s" /> 
+        <dep id="flash.net:URLVariables" type="s" /> 
+        <dep id="flash.events:IOErrorEvent" type="s" /> 
+        <dep id="flash.net:URLLoader" type="s" /> 
+        <dep id="flash.events:SecurityErrorEvent" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:EventDispatcher" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/data/SFSObject" mod="1290621998000" signatureChecksum="187317246" >
+        <def id="com.smartfoxserver.v2.entities.data:SFSObject" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSDataWrapper" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.protocol.serialization:DefaultObjectDumpFormatter" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSDataType" type="e" /> 
+        <dep id="com.smartfoxserver.v2.protocol.serialization:DefaultSFSDataSerializer" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSDataWrapper" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="Error" type="s" /> 
+        <dep id="com.smartfoxserver.v2.protocol.serialization:ISFSDataSerializer" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/data/SFSDataWrapper" mod="1288954028000" signatureChecksum="4255593198" >
+        <def id="com.smartfoxserver.v2.entities.data:SFSDataWrapper" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/game/SFSGameSettings" mod="1348745621000" signatureChecksum="2200142945" >
+        <def id="com.smartfoxserver.v2.requests.game:SFSGameSettings" /> 
+        <dep id="com.smartfoxserver.v2.entities.match:MatchExpression" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:RoomSettings" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/LoginRequest" mod="1289930190000" signatureChecksum="1589252707" >
+        <def id="com.smartfoxserver.v2.requests:LoginRequest" /> 
+        <dep id="com.hurlant.util:Hex" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.hurlant.crypto.hash:MD5" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.hurlant.crypto.hash:IHash" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/variables/SFSRoomVariable" mod="1322491656000" signatureChecksum="2144117512" >
+        <def id="com.smartfoxserver.v2.entities.variables:SFSRoomVariable" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:SFSUserVariable" type="i" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:RoomVariable" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/HashMapValIterator" mod="0" >
+        <def id="de.polygonal.ds:HashMapValIterator" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="flash.utils:Dictionary" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Itr" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/kernel" mod="1281021362000" signatureChecksum="991569131" >
+        <def id="com.smartfoxserver.v2:kernel" /> 
+        <dep id="AS3" type="n" /> 
+      </script>
+      <script name="de/polygonal/ds/Array2Cell" mod="0" >
+        <def id="de.polygonal.ds:Array2Cell" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/ChangeRoomPasswordStateRequest" mod="1289917094000" signatureChecksum="451648665" >
+        <def id="com.smartfoxserver.v2.requests:ChangeRoomPasswordStateRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="as3reflect/Accessor" mod="1231597123325" signatureChecksum="2449951922" >
+        <def id="as3reflect:Accessor" /> 
+        <dep id="as3reflect:AccessorAccess" type="s" /> 
+        <dep id="as3reflect:Type" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="as3reflect:Field" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/buddylist/SetBuddyVariablesRequest" mod="1349364166000" signatureChecksum="3115440087" >
+        <def id="com.smartfoxserver.v2.requests.buddylist:SetBuddyVariablesRequest" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:SFSArray" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:BuddyVariable" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="as3reflect/ClassUtils" mod="1231598130963" signatureChecksum="3142770842" >
+        <def id="as3reflect:ClassUtils" /> 
+        <dep id="as3reflect:MetadataUtils" type="e" /> 
+        <dep id="ReferenceError" type="e" /> 
+        <dep id="flash.utils:getQualifiedClassName" type="e" /> 
+        <dep id="flash.utils:getDefinitionByName" type="e" /> 
+        <dep id="flash.utils:getQualifiedSuperclassName" type="e" /> 
+        <dep id="flash.system:ApplicationDomain" type="e" /> 
+        <dep id="as3reflect.errors:ClassNotFoundError" type="e" /> 
+        <dep id="ReferenceError" type="s" /> 
+        <dep id="XML" type="s" /> 
+        <dep id="XMLList" type="s" /> 
+        <dep id="flash.system:ApplicationDomain" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/match/BoolMatch" mod="1289499090000" signatureChecksum="1034965074" >
+        <def id="com.smartfoxserver.v2.entities.match:BoolMatch" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.entities.match:IMatcher" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="as3reflect/MetadataUtils" mod="1231596671051" signatureChecksum="1005429908" >
+        <def id="as3reflect:MetadataUtils" /> 
+        <dep id="flash.utils:describeType" type="e" /> 
+        <dep id="flash.utils:getQualifiedClassName" type="e" /> 
+        <dep id="flash.utils:Timer" type="e" /> 
+        <dep id="flash.utils:getDefinitionByName" type="e" /> 
+        <dep id="flash.events:TimerEvent" type="e" /> 
+        <dep id="flash.utils:Timer" type="s" /> 
+        <dep id="flash.events:TimerEvent" type="s" /> 
+        <dep id="XML" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/managers/SFSGlobalUserManager" mod="1289065416000" signatureChecksum="2130405768" >
+        <def id="com.smartfoxserver.v2.entities.managers:SFSGlobalUserManager" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:SFSUserManager" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/SmartFox" mod="1370080355000" signatureChecksum="182705393" >
+        <def id="com.smartfoxserver.v2:SmartFox" /> 
+        <dep id="com.smartfoxserver.v2.util:ConfigData" type="e" /> 
+        <dep id="com.smartfoxserver.v2.core:SFSEvent" type="e" /> 
+        <dep id="ArgumentError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:SFSRoomManager" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:ConfigLoader" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:LagMonitor" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.core:SFSBuddyEvent" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSCodecError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:DefaultUDPManager" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:ConnectionMode" type="e" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:ManualDisconnectionRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:SFSGlobalUserManager" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:ClientDisconnectionReason" type="e" /> 
+        <dep id="flash.errors:IllegalOperationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:SFSErrorCodes" type="e" /> 
+        <dep id="flash.utils:setTimeout" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:BitSwarmClient" type="e" /> 
+        <dep id="com.smartfoxserver.v2.core:SFSIOHandler" type="e" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:BitSwarmEvent" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:HandshakeRequest" type="e" /> 
+        <dep id="flash.system:Capabilities" type="e" /> 
+        <dep id="com.smartfoxserver.v2.requests:JoinRoomRequest" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:ConfigData" type="s" /> 
+        <dep id="com.smartfoxserver.v2.util:ConfigLoader" type="s" /> 
+        <dep id="com.smartfoxserver.v2.core:SFSEvent" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IMessage" type="s" /> 
+        <dep id="com.smartfoxserver.v2.util:LagMonitor" type="s" /> 
+        <dep id="com.smartfoxserver.v2.requests:IRequest" type="s" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="s" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSCodecError" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:BitSwarmClient" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities:User" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IoHandler" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:BitSwarmEvent" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2.logging:Logger" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:IUserManager" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:IBuddyManager" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="com.smartfoxserver.v2.bitswarm:IUDPManager" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.managers:IRoomManager" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2:kernel" type="n" /> 
+        <dep id="flash.events:EventDispatcher" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/Cloneable" mod="0" >
+        <def id="de.polygonal.ds:Cloneable" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/match/NumberMatch" mod="1289499714000" signatureChecksum="2574553662" >
+        <def id="com.smartfoxserver.v2.entities.match:NumberMatch" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.entities.match:IMatcher" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/buddylist/GoOnlineRequest" mod="1289231914000" signatureChecksum="1410507838" >
+        <def id="com.smartfoxserver.v2.requests.buddylist:GoOnlineRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/ArrayedStack" mod="0" >
+        <def id="de.polygonal.ds:ArrayedStack" /> 
+        <dep id="de.polygonal.ds:ArrayedStack" type="e" /> 
+        <dep id="de.polygonal.ds:HashKey" type="e" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.core.fmt:Sprintf" type="e" /> 
+        <dep id="Math" type="e" /> 
+        <dep id="Array" type="e" /> 
+        <dep id="de.polygonal.ds:DA" type="e" /> 
+        <dep id="de.polygonal.core.util:Instance" type="e" /> 
+        <dep id="de.polygonal.ds:ArrayedStackIterator" type="e" /> 
+        <dep id="de.polygonal.ds:ArrayedStack" type="s" /> 
+        <dep id="de.polygonal.ds:Collection" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="String" type="s" /> 
+        <dep id="Number" type="s" /> 
+        <dep id="Class" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="de.polygonal.ds:DA" type="s" /> 
+        <dep id="de.polygonal.ds:Cloneable" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+        <dep id="de.polygonal.ds:Stack" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/ObjectMessageRequest" mod="1289829756000" signatureChecksum="1768643534" >
+        <def id="com.smartfoxserver.v2.requests:ObjectMessageRequest" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageType" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSObject" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:GenericMessageRequest" type="i" /> 
+      </script>
+      <script name="de/polygonal/ds/LinkedStackIterator" mod="0" >
+        <def id="de.polygonal.ds:LinkedStackIterator" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="de.polygonal.ds:LinkedStack" type="s" /> 
+        <dep id="de.polygonal.ds:Itr" type="s" /> 
+        <dep id="Void" type="s" /> 
+        <dep id="Boolean" type="s" /> 
+        <dep id="de.polygonal.ds:LinkedStackNode" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="de.polygonal.ds:Itr" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/entities/SFSBuddy" mod="1289230570000" signatureChecksum="1093244301" >
+        <def id="com.smartfoxserver.v2.entities:SFSBuddy" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:ReservedBuddyVariables" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:SFSBuddyVariable" type="e" /> 
+        <dep id="com.smartfoxserver.v2.util:ArrayUtil" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities.data:ISFSArray" type="s" /> 
+        <dep id="com.smartfoxserver.v2.entities.variables:BuddyVariable" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.entities:Buddy" type="i" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="de/polygonal/core/util/Instance" mod="0" >
+        <def id="de.polygonal.core.util:Instance" /> 
+        <dep id="flash:Boot" type="e" /> 
+        <dep id="Class" type="s" /> 
+        <dep id="Array" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/requests/SpectatorToPlayerRequest" mod="1342775429000" signatureChecksum="3710821506" >
+        <def id="com.smartfoxserver.v2.requests:SpectatorToPlayerRequest" /> 
+        <dep id="com.smartfoxserver.v2.exceptions:SFSValidationError" type="e" /> 
+        <dep id="com.smartfoxserver.v2.entities:Room" type="s" /> 
+        <dep id="com.smartfoxserver.v2:SmartFox" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.requests:BaseRequest" type="i" /> 
+      </script>
+      <script name="com/smartfoxserver/v2/logging/LoggerEvent" mod="1289235776000" signatureChecksum="817070235" >
+        <def id="com.smartfoxserver.v2.logging:LoggerEvent" /> 
+        <dep id="flash.events:Event" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="com.smartfoxserver.v2.core:BaseEvent" type="i" /> 
+      </script>
+      <digests>
+        <digest type="SHA-256" signed="false" value="18bd203f77f108cfa5ce12854cd8454ed384b351a631390725c5c45f62b242ca"   />
+      </digests>
+    </library>
+  </libraries>
+  <files>
+  </files>
+</swc>

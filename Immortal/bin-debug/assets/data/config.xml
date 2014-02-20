@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<uiDir>leo/assets/ui/</uiDir>
+	<itemDir>leo/assets/ui/</itemDir>
+	<mapDir>leo/assets/map/</mapDir>
+	<roleDir>leo/assets/role/</roleDir>
+	<battleXML>leo/assets/data/battles.xml</battleXML>
+	<ui>CommonUI,BattlePlace,BtnBattleTips,BattleBtn,Blood,BloodSlot,FigtherText,PreSkill,BattleMusic</ui>
+</config>

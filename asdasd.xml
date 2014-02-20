@@ -1,0 +1,19 @@
+<xml>
+  <head>
+    <width>1000</width>
+    <height>1000</height>
+  </head>
+  <resources>
+    <resource id="0" libid="0">TestRectangle</resource>
+    <resource id="1" libid="0">TestSquare</resource>
+  </resources>
+  <body>
+    <tile x="0" y="0" width="10" length="10" height="0" walkable="false">0</tile>
+    <tile x="0" y="20" width="100" length="100" height="0" walkable="true">1</tile>
+    <tile x="11" y="5" width="10" length="10" height="0" walkable="false">1</tile>
+    <tile x="21" y="5" width="10" length="10" height="0" walkable="false">1</tile>
+  </body>
+  <libraries>
+    <library id="0">Test.swf</library>
+  </libraries>
+</xml>

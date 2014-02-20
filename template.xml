@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xml>
+	<header>
+		<width>400</width>
+		<height>400</height>
+		<name>400</name>
+	</header>
+	<resources>
+		<resource id="0" libid="0">rr</resource>
+		<resource id="1" libid="-1">images/logo.png</resource>
+	</resources>
+	<body>
+		<tile x="0" y="0" z="0" sizeX="40" sizeY="40" sizeZ="10">0</tile>
+	</body>
+	<libraries>
+		<lib id="0">res1.swf</lib>
+	</libraries>
+</xml>

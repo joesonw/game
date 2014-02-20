@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<battle id="1" name="战役1" exp="1000" gold="200" itemID="1001" battleMapID="BattleMap100">
+		<!-- item中type 1为玩家，2为敌人 place值从0—8中随便填 -->
+		<item actionName="Action_AddObject" type="1" roleType="1" roleID="1001" 
+		objID="3000" place="1" hp="1000" name="我方1"/>
+		<item actionName="Action_AddObject" type="1" roleType="2" roleID ="2001" 
+		objID="4000" place="5" hp="1000" name="敌方1"/>
+		<item actionName="Action_AddObject" type="1" roleType="2" roleID ="2003" 
+		objID="4001" place="6" hp="1000" name="敌方2"/>
+		
+		<!-- 战斗攻击指令，技能可以攻击一个目标或多个目标，技能没有MISS,普通攻击只能攻击一个目标，会有反击/抵挡/暴击/闪避
+		 -->
+		 <item actionName="Action_Attack" type="2" fire="3000" target="4000" damage="200" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4000" target="3000" damage="100" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		 <item actionName="Action_Attack" type="2" fire="4001" target="3000" damage="0" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="1"/>
+		<item actionName="Action_Attack" type="2" fire="3000" target="4000,4001" damage="400,480" 
+		isSkill="1" skillID="100" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4000" target="3000" damage="150" 
+		isSkill="1" skillID="200" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4001" target="3000" damage="80" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3000" target="4000" damage="400" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="1"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4001" target="3000" damage="160" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="1"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3000" target="4001" damage="400" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="1"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4001" target="3000" damage="70" 
+		isSkill="0" skillID="0" isBackAttack="1" backAttackDamage="50" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3000" target="4001" damage="150" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="1" isCrucial="0"
+		isJink="0"/>
+	</battle>
+	
+	<battle id="2" name="战役2" exp="2000" gold="400" itemID="1004" battleMapID="BattleMap101">
+		<!-- item中type 1为玩家，2为敌人 place值从0—8中随便填 -->
+		<item actionName="Action_AddObject" type="1" roleType="1" roleID="1001" 
+		objID="3000" place="1" hp="1000" name="我方1"/>
+		<item actionName="Action_AddObject" type="1" roleType="2" roleID ="2001" 
+		objID="4000" place="5" hp="1000" name="敌方1"/>
+		<item actionName="Action_AddObject" type="1" roleType="2" roleID ="2002" 
+		objID="4001" place="0" hp="1000" name="敌方2"/>
+		<item actionName="Action_AddObject" type="1" roleType="2" roleID ="2003" 
+		objID="4002" place="6" hp="1000" name="敌方3"/>
+		
+		<!-- 战斗攻击指令，技能可以攻击一个目标或多个目标，技能没有MISS,普通攻击只能攻击一个目标，会有反击/抵挡/暴击/闪避
+		 -->
+		 <item actionName="Action_Attack" type="2" fire="3000" target="4000" damage="200" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4000" target="3000" damage="100" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		 <item actionName="Action_Attack" type="2" fire="4001" target="3000" damage="0" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="1"/>
+		 <item actionName="Action_Attack" type="2" fire="4002" target="3000" damage="50" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="1" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3000" target="4000" damage="900" 
+		isSkill="1" skillID="101" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4001" target="3000" damage="210" 
+		isSkill="1" skillID="201" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4002" target="3000" damage="200" 
+		isSkill="1" skillID="202" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3000" target="4001" damage="300" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="1"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4001" target="3000" damage="160" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="1"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4002" target="3000" damage="90" 
+		isSkill="0" skillID="0" isBackAttack="1" backAttackDamage="90" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3000" target="4001" damage="200" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4001" target="3000" damage="90" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4002" target="3000" damage="50" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="1" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3000" target="4001" damage="770" 
+		isSkill="1" skillID="101" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4002" target="3000" damage="200" 
+		isSkill="1" skillID="203" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+	</battle>
+	
+	<battle id="3" name="战役3" exp="3000" gold="600" itemID="1008" battleMapID="BattleMap102">
+		<!-- item中type 1为玩家，2为敌人 place值从0—8中随便填 -->
+		<item actionName="Action_AddObject" type="1" roleType="1" roleID="1002" 
+		objID="3001" place="6" hp="1000" name="我方2"/>
+		<item actionName="Action_AddObject" type="1" roleType="1" roleID="1001" 
+		objID="3000" place="1" hp="1000" name="敌方1"/>
+		<item actionName="Action_AddObject" type="1" roleType="2" roleID ="2001" 
+		objID="4000" place="1" hp="1000" name="敌方1"/>
+		<item actionName="Action_AddObject" type="1" roleType="2" roleID ="2002" 
+		objID="4001" place="4" hp="1000" name="敌方2"/>
+		<item actionName="Action_AddObject" type="1" roleType="2" roleID ="2003" 
+		objID="4002" place="8" hp="1000" name="敌方3"/>
+		
+		<!-- 战斗攻击指令，技能可以攻击一个目标或多个目标，技能没有MISS,普通攻击只能攻击一个目标，会有反击/抵挡/暴击/闪避
+		 -->
+		 <item actionName="Action_Attack" type="2" fire="3000" target="4000" damage="100" 
+		isSkill="0" skillID="0" isBackAttack="1" backAttackDamage="50" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3001" target="4000" damage="150" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4000" target="3000" damage="150" 
+		isSkill="1" skillID="200" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4001" target="3000,3001" damage="100,100" 
+		isSkill="1" skillID="201" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4002" target="3001" damage="0" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="1"/>
+		<item actionName="Action_Attack" type="2" fire="3000" target="4000,4001,4002" damage="200,250,300" 
+		isSkill="1" skillID="101" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3001" target="4000" damage="150" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4000" target="3001" damage="150" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4001" target="3001" damage="50" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="1" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4002" target="3000" damage="170" 
+		isSkill="1" skillID="202" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3000" target="4001" damage="300" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="1"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3001" target="4001" damage="100" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4000" target="3000" damage="200" 
+		isSkill="1" skillID="203" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4001" target="3001" damage="100" 
+		isSkill="0" skillID="0" isBackAttack="1" backAttackDamage="80" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4002" target="3001" damage="100" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3000" target="4000" damage="200" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3001" target="4000,4001,4002" damage="230,150,290" 
+		isSkill="1" skillID="104" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4001" target="3001" damage="300" 
+		isSkill="1" skillID="204" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4002" target="3001" damage="250" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="1"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3000" target="4001,4002" damage="240,200" 
+		isSkill="1" skillID="105" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="4002" target="3000" damage="150" 
+		isSkill="0" skillID="0" isBackAttack="1" backAttackDamage="100" isResis="0" isCrucial="0"
+		isJink="0"/>
+		<item actionName="Action_Attack" type="2" fire="3000" target="4002" damage="250" 
+		isSkill="0" skillID="0" isBackAttack="0" backAttackDamage="0" isResis="0" isCrucial="1"
+		isJink="0"/>
+	</battle>
+</root>
+
+
+
+

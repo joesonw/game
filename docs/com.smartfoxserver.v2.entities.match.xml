@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.smartfoxserver.v2.entities.match"><apiName>com.smartfoxserver.v2.entities.match</apiName><apiDetail/><apiClassifier id="com.smartfoxserver.v2.entities.match:IMatcher"><apiName>IMatcher</apiName><shortdesc>
+	 The IMatcher interface defines the properties that an object representing a condition to be used in a matching expression exposes.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <i>IMatcher</i> interface defines the properties that an object representing a condition to be used in a matching expression exposes.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression"><linktext>MatchExpression</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#BoolMatch"><linktext>BoolMatch</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#NumberMatch"><linktext>NumberMatch</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#StringMatch"><linktext>StringMatch</linktext></link></related-links><apiValue id="com.smartfoxserver.v2.entities.match:IMatcher:com.smartfoxserver.v2.entities.match:IMatcher:symbol:get"><apiName>symbol</apiName><shortdesc>
+		 Returns the condition symbol of this matcher.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Returns the condition symbol of this matcher.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:IMatcher:com.smartfoxserver.v2.entities.match:IMatcher:type:get"><apiName>type</apiName><shortdesc>
+		 Returns the type id of this matcher.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Returns the type id of this matcher.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.match:MatchExpression"><apiName>MatchExpression</apiName><shortdesc>
+	 The MatchExpression class represents a matching expression used to compare custom variables or predefined properties when searching for users or Rooms.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>MatchExpression</i> class represents a matching expression used to compare custom variables or predefined properties when searching for users or Rooms.
+	 
+	 <p>The matching expressions are built like "if" statements in any common programming language.
+	 They work like queries in a database and can be used to search for Rooms or users using custom criteria: in fact a matching expression can compare predefined
+	 properties of the Room and user entities (see the <i>RoomProperties</i> and <i>UserProperties</i> classes), but also custom Room or User Variables.</p>
+	 <p>These expressions are easy to create and concatenate, and they can be used for many different filtering operations within the SmartFoxServer 2X framework,
+	 for example to invite players to join a game (see the <i>CreateSFSGameRequest</i> request description), to look for specific Rooms
+	 or users (see the <i>FindRoomsRequest</i> and <i>FindUsersRequest</i> requests descriptions), etc.</p>
+	 
+	 <p>Additionally (see the examples for more informations):
+	 <ul>
+	 	<li>any number of expressions can be linked together with the logical <b>AND</b> and <b>OR</b> operators to create complex queries;</li>
+	 	<li>searching through nested data structures such as <i>SFSObject</i> and <i>SFSArray</i> can be done via a very simple dot-syntax.</li>
+	 </ul>
+	 </p>
+	 
+	 </apiDesc><example>The following example shows how to create a simple matching expression made of two concatenated conditions: it compares the custom "rank" and "country" User Variables to the passed values.
+	 This expression could be used during the creation of a Game Room, to filter the users that the server should take into account when sending the invitations to join the game (only
+	 italian users with a ranking greater than 5 - whatever this number means to our game): 
+	 <codeblock rev="3.0">
+	 
+	 var exp:MatchExpression = new MatchExpression('rank', NumberMatch.GREATER_THAN, 5).and('country', StringMatch.EQUALS, 'Italy');
+	 </codeblock>
+	 
+	 </example><example>The following example creates a matching expression made of three concatenated conditions which compare two predefined Room properties and the custom "isGameStarted" Room Variable to the passed values;
+	 this expression could be used to retrieve all the Game Rooms still waiting for players to join them:
+	 <codeblock rev="3.0">
+	 
+	 var exp:MatchExpression = new MatchExpression(RoomProperties.IS_GAME, BoolMatch.EQUALS, true)
+	 							.and(RoomProperties.HAS_FREE_PLAYER_SLOTS, BoolMatch.EQUALS, true)
+	 							.and("isGameStarted", BoolMatch.EQUALS, false);
+	 </codeblock>
+	 
+	 </example><example>The following example creates a matching expression which compares a nested property in a complex data structure;
+	 an <i>SFSObject</i> called "avatarData" (could be a User Variable for example) contains the "shield" object (a nested <i>SFSObject</i>)
+	 which in turn contains, among others, the "inUse" property which could be used to retrieve all user whose avatars are currently equipped with a shield:
+	 <codeblock rev="3.0">
+	 
+	 var exp:MatchExpression = new MatchExpression("avatarData.shield.inUse", BoolMatch.EQUALS, true);
+	 </codeblock>
+	 
+	 </example><example>The following example is similar to the previous one, but it involves an <i>SFSArray</i>. The "avatarData" object contains the "weapons" <i>SFSArray</i>,
+	 from which the expression retrieves the third element (that <i>.3</i> means "give me the element at index == 3") that we know being the weapon the user avatar has in his right hand.
+	 Again, this element is an <i>SFSObject</i> containing, among the others, the "name" property which can be compared to the passed string.
+	 This example could be used to retrieve all users whose avatars have the Narsil sword in the right hand:
+	 <codeblock rev="3.0">
+	 
+	 var exp:MatchExpression = new MatchExpression("avatarData.weapons.3.name", StringMatch.EQUALS, "Narsil");
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#RoomProperties"><linktext>RoomProperties</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#UserProperties"><linktext>UserProperties</linktext></link><link href="com.smartfoxserver.v2.requests.game.xml#CreateSFSGameRequest"><linktext>CreateSFSGameRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#FindRoomsRequest"><linktext>FindRoomsRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#FindUsersRequest"><linktext>FindUsersRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.entities.match:MatchExpression:MatchExpression"><apiName>MatchExpression</apiName><shortdesc>
+		 Creates a new MatchExpression instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>varName</apiItemName><apiType value="String"/><apiDesc>	Name of the variable or property to match.
+		 </apiDesc></apiParam><apiParam><apiItemName>condition</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.match:IMatcher</apiOperationClassifier><apiDesc>The matching condition.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="any"/><apiDesc>	The value to compare against the variable or property during the matching.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>MatchExpression</i> instance.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression/varName"><linktext>varName</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression/condition"><linktext>condition</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression/value"><linktext>value</linktext></link></related-links></apiConstructor><apiOperation id="com.smartfoxserver.v2.entities.match:MatchExpression:and"><apiName>and</apiName><shortdesc>
+		 Concatenates the current expression with a new one using the logical AND operator.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>A new <i>MatchExpression</i> resulting from the concatenation of the current expression with a new one generated from the specified parameters.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.match:MatchExpression</apiOperationClassifier></apiReturn><apiParam><apiItemName>varName</apiItemName><apiType value="String"/><apiDesc>	The name of the additional variable or property to match.
+		 </apiDesc></apiParam><apiParam><apiItemName>condition</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.match:IMatcher</apiOperationClassifier><apiDesc>The additional matching condition.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="any"/><apiDesc>	The value to compare against the additional variable or property during the matching.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Concatenates the current expression with a new one using the logical <b>AND</b> operator.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression/varName"><linktext>varName</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression/condition"><linktext>condition</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression/value"><linktext>value</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#LogicOperator/AND"><linktext>LogicOperator.AND</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.match:MatchExpression:hasNext"><apiName>hasNext</apiName><shortdesc>
+		 Checks if the current matching expression is concatenated to another one through a logical operator.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the current matching expression is concatenated to another one.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc>
+		 Checks if the current matching expression is concatenated to another one through a logical operator.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression/logicOp"><linktext>logicOp</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.match:MatchExpression:or"><apiName>or</apiName><shortdesc>
+		 Concatenates the current expression with a new one using the logical OR operator.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>A new <i>MatchExpression</i> resulting from the concatenation of the current expression with a new one generated from the specified parameters.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.match:MatchExpression</apiOperationClassifier></apiReturn><apiParam><apiItemName>varName</apiItemName><apiType value="String"/><apiDesc>	The name of the additional variable or property to match.
+		 </apiDesc></apiParam><apiParam><apiItemName>condition</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.match:IMatcher</apiOperationClassifier><apiDesc>The additional matching condition.
+		 </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="any"/><apiDesc>	The value to compare against the additional variable or property during the matching.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Concatenates the current expression with a new one using the logical <b>OR</b> operator.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression/varName"><linktext>varName</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression/condition"><linktext>condition</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression/value"><linktext>value</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#LogicOperator/OR"><linktext>LogicOperator.OR</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.match:MatchExpression:rewind"><apiName>rewind</apiName><shortdesc>
+		 Moves the iterator cursor to the first matching expression in the chain.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>MatchExpression</i> object at the top of the chain of matching expressions.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.match:MatchExpression</apiOperationClassifier></apiReturn></apiOperationDef><apiDesc>
+		 Moves the iterator cursor to the first matching expression in the chain.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.match:MatchExpression:toString"><apiName>toString</apiName><shortdesc>
+		 Returns a string representation of the matching expression.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The string representation of the <i>MatchExpression</i> object.
+		 </apiDesc><apiType value="String"/></apiReturn></apiOperationDef><apiDesc>
+		 Returns a string representation of the matching expression.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.entities.match:MatchExpression:condition:get"><apiName>condition</apiName><shortdesc>
+		 Returns the matching criteria used during values comparison.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiValueClassifier>com.smartfoxserver.v2.entities.match:IMatcher</apiValueClassifier></apiValueDef><apiDesc>
+		 Returns the matching criteria used during values comparison.
+		 
+		 <p>Different objects implementing the <i>IMatcher</i> interface can be used, depending on the type of the variable or property to check.</p> 
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#BoolMatch"><linktext>BoolMatch</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#NumberMatch"><linktext>NumberMatch</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#StringMatch"><linktext>StringMatch</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:MatchExpression:logicOp:get"><apiName>logicOp</apiName><shortdesc>
+		 In case of concatenated expressions, returns the current logical operator.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiValueClassifier>com.smartfoxserver.v2.entities.match:LogicOperator</apiValueClassifier><apiDefaultValue>null
+		 </apiDefaultValue></apiValueDef><apiDesc>
+		 In case of concatenated expressions, returns the current logical operator.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:MatchExpression:next:get"><apiName>next</apiName><shortdesc>
+		 Returns the next matching expression concatenated to the current one.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiValueClassifier>com.smartfoxserver.v2.entities.match:MatchExpression</apiValueClassifier></apiValueDef><apiDesc>
+		 Returns the next matching expression concatenated to the current one.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:MatchExpression:value:get"><apiName>value</apiName><shortdesc>
+		 Returns the value against which the variable or property corresponding to varName is compared.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="any"/></apiValueDef><apiDesc>
+		 Returns the value against which the variable or property corresponding to <i>varName</i> is compared.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:MatchExpression:varName:get"><apiName>varName</apiName><shortdesc>
+		 Returns the name of the variable or property against which the comparison is made.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Returns the name of the variable or property against which the comparison is made.
+		 
+		 <p>Depending what the matching expression is used for (searching a user or a Room), this can be
+		 the name of a User Variable or a Room Variable, or it can be one of the constants contained in the <i>UserProperties</i> or <i>RoomProperties</i> classes,
+		 representing some of the predefined properties of the user and Room entities respectively.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#RoomProperties"><linktext>RoomProperties</linktext></link><link href="com.smartfoxserver.v2.entities.match.xml#UserProperties"><linktext>UserProperties</linktext></link><link href="com.smartfoxserver.v2.entities.variables.xml#RoomVariable"><linktext>RoomVariable</linktext></link><link href="com.smartfoxserver.v2.entities.variables.xml#UserVariable"><linktext>UserVariable</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link></related-links></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.match:RoomProperties"><apiName>RoomProperties</apiName><shortdesc>
+	 The RoomProperties class contains the names of predefined properties that can be used in matching expressions to search/filter Rooms.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>RoomProperties</i> class contains the names of predefined properties that can be used in matching expressions to search/filter Rooms.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression"><linktext>MatchExpression</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links><apiValue id="com.smartfoxserver.v2.entities.match:RoomProperties:GROUP_ID"><apiName>GROUP_ID</apiName><shortdesc>
+		 The name of the Group to which the Room belongs.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${G}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The name of the Group to which the Room belongs.
+		 Requires a <i>StringMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:RoomProperties:HAS_FREE_PLAYER_SLOTS"><apiName>HAS_FREE_PLAYER_SLOTS</apiName><shortdesc>
+		 The Room has at least one free player slot.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${HFP}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The Room has at least one free player slot.
+		 Requires a <i>BoolMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:RoomProperties:IS_GAME"><apiName>IS_GAME</apiName><shortdesc>
+		 The Room is a Game Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${ISG}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The Room is a Game Room.
+		 Requires a <i>BoolMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:RoomProperties:IS_PRIVATE"><apiName>IS_PRIVATE</apiName><shortdesc>
+		 The Room is private.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${ISP}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The Room is private.
+		 Requires a <i>BoolMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:RoomProperties:IS_TYPE_SFSGAME"><apiName>IS_TYPE_SFSGAME</apiName><shortdesc>
+		 The Room is an SFSGame on the server-side.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${IST}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The Room is an <i>SFSGame</i> on the server-side.
+		 Requires a <i>BoolMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:RoomProperties:MAX_SPECTATORS"><apiName>MAX_SPECTATORS</apiName><shortdesc>
+		 The maximum number of spectators allowed in the Room (Game Rooms only).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${MXS}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The maximum number of spectators allowed in the Room (Game Rooms only).
+		 Requires a <i>NumberMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:RoomProperties:MAX_USERS"><apiName>MAX_USERS</apiName><shortdesc>
+		 The maximum number of users allowed in the Room (players in Game Rooms).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${MXU}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The maximum number of users allowed in the Room (players in Game Rooms).
+		 Requires a <i>NumberMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:RoomProperties:NAME"><apiName>NAME</apiName><shortdesc>
+		 The Room name.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${N}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The Room name.
+		 Requires a <i>StringMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:RoomProperties:SPECTATOR_COUNT"><apiName>SPECTATOR_COUNT</apiName><shortdesc>
+		 The Room spectators count (Game Rooms only).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${SC}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The Room spectators count (Game Rooms only).
+		 Requires a <i>NumberMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:RoomProperties:USER_COUNT"><apiName>USER_COUNT</apiName><shortdesc>
+		 The Room users count (players in Game Rooms).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${UC}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The Room users count (players in Game Rooms).
+		 Requires a <i>NumberMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.match:UserProperties"><apiName>UserProperties</apiName><shortdesc>
+	 The UserProperties class contains the names of predefined properties that can be used in matching expressions to search/filter users.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>UserProperties</i> class contains the names of predefined properties that can be used in matching expressions to search/filter users.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression"><linktext>MatchExpression</linktext></link><link href="com.smartfoxserver.v2.entities.xml#User"><linktext>User</linktext></link></related-links><apiValue id="com.smartfoxserver.v2.entities.match:UserProperties:IS_IN_ANY_ROOM"><apiName>IS_IN_ANY_ROOM</apiName><shortdesc>
+		 The user joined at least one Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${IAR}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The user joined at least one Room.
+		 Requires a <i>BoolMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:UserProperties:IS_NPC"><apiName>IS_NPC</apiName><shortdesc>
+		 The user is a Non-Player Character (NPC).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${ISN}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The user is a Non-Player Character (NPC).
+		 Requires a <i>BoolMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:UserProperties:IS_PLAYER"><apiName>IS_PLAYER</apiName><shortdesc>
+		 The user is a player in a Game Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${ISP}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The user is a player in a Game Room.
+		 Requires a <i>BoolMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:UserProperties:IS_SPECTATOR"><apiName>IS_SPECTATOR</apiName><shortdesc>
+		 The user is a spectator in a Game Room.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${ISS}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The user is a spectator in a Game Room.
+		 Requires a <i>BoolMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:UserProperties:NAME"><apiName>NAME</apiName><shortdesc>
+		 The user name.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${N}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The user name.
+		 Requires a <i>StringMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:UserProperties:PRIVILEGE_ID"><apiName>PRIVILEGE_ID</apiName><shortdesc>
+		 The user privilege id.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>${PRID}</apiData><apiType value="String"/></apiValueDef><apiDesc>
+		 The user privilege id.
+		 Requires a <i>NumberMatcher</i> to be used for values comparison.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.match:NumberMatch"><apiName>NumberMatch</apiName><shortdesc>
+	 The NumberMatch class is used in matching expressions to check numeric conditions.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities.match:IMatcher</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>NumberMatch</i> class is used in matching expressions to check numeric conditions.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression"><linktext>MatchExpression</linktext></link></related-links><apiValue id="com.smartfoxserver.v2.entities.match:NumberMatch:EQUALS"><apiName>EQUALS</apiName><shortdesc>
+		 An instance of NumberMatch representing the following condition: number1 == number2.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:NumberMatch</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>NumberMatch</i> representing the following condition: <i>number1 == number2</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:NumberMatch:GREATER_THAN_OR_EQUAL_TO"><apiName>GREATER_THAN_OR_EQUAL_TO</apiName><shortdesc>
+		 An instance of NumberMatch representing the following condition: number1 &amp;gt;= number2.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:NumberMatch</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>NumberMatch</i> representing the following condition: <i>number1 &gt;= number2</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:NumberMatch:GREATER_THAN"><apiName>GREATER_THAN</apiName><shortdesc>
+		 An instance of NumberMatch representing the following condition: number1 &amp;gt; number2.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:NumberMatch</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>NumberMatch</i> representing the following condition: <i>number1 &gt; number2</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:NumberMatch:LESS_THAN_OR_EQUAL_TO"><apiName>LESS_THAN_OR_EQUAL_TO</apiName><shortdesc>
+		 An instance of NumberMatch representing the following condition: number1 &amp;lt;= number2.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:NumberMatch</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>NumberMatch</i> representing the following condition: <i>number1 &lt;= number2</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:NumberMatch:LESS_THAN"><apiName>LESS_THAN</apiName><shortdesc>
+		 An instance of NumberMatch representing the following condition: number1 &amp;lt; number2.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:NumberMatch</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>NumberMatch</i> representing the following condition: <i>number1 &lt; number2</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:NumberMatch:NOT_EQUALS"><apiName>NOT_EQUALS</apiName><shortdesc>
+		 An instance of NumberMatch representing the following condition: number1 != number2.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:NumberMatch</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>NumberMatch</i> representing the following condition: <i>number1 != number2</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:NumberMatch:symbol:get"><apiName>symbol</apiName><shortdesc> 
+		 Returns the condition symbol of this matcher.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Returns the condition symbol of this matcher.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:NumberMatch:type:get"><apiName>type</apiName><shortdesc> 
+		 Returns the type id of this matcher.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Returns the type id of this matcher.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.match:LogicOperator"><apiName>LogicOperator</apiName><shortdesc>
+	 The LogicOperator class is used to concatenate two matching expressions using the AND or OR logical operator.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>LogicOperator</i> class is used to concatenate two matching expressions using the <b>AND</b> or <b>OR</b> logical operator.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression"><linktext>MatchExpression</linktext></link></related-links><apiValue id="com.smartfoxserver.v2.entities.match:LogicOperator:AND"><apiName>AND</apiName><shortdesc>
+		 An instance of LogicOperator representing the AND logical operator.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:LogicOperator</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>LogicOperator</i> representing the <b>AND</b> logical operator.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:LogicOperator:OR"><apiName>OR</apiName><shortdesc>
+		 An instance of LogicOperator representing the OR logical operator.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:LogicOperator</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>LogicOperator</i> representing the <b>OR</b> logical operator.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:LogicOperator:id:get"><apiName>id</apiName><shortdesc>
+		 Returns the id of the current LogicOperator instance.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Returns the id of the current <i>LogicOperator</i> instance.
+		 It can be the string "AND" or "OR".
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.match:StringMatch"><apiName>StringMatch</apiName><shortdesc>
+	 The StringMatch class is used in matching expressions to check string conditions.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities.match:IMatcher</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>StringMatch</i> class is used in matching expressions to check string conditions.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression"><linktext>MatchExpression</linktext></link></related-links><apiValue id="com.smartfoxserver.v2.entities.match:StringMatch:CONTAINS"><apiName>CONTAINS</apiName><shortdesc>
+		 An instance of StringMatch representing the following condition: string1.indexOf(string2) != -1.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:StringMatch</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>StringMatch</i> representing the following condition: <i>string1.indexOf(string2) != -1</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:StringMatch:ENDS_WITH"><apiName>ENDS_WITH</apiName><shortdesc>
+		 An instance of StringMatch representing the following condition: string1 ends with characters contained in string2.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:StringMatch</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>StringMatch</i> representing the following condition: <i>string1</i> ends with characters contained in <i>string2</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:StringMatch:EQUALS"><apiName>EQUALS</apiName><shortdesc>
+		 An instance of StringMatch representing the following condition: string1 == string2.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:StringMatch</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>StringMatch</i> representing the following condition: <i>string1 == string2</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:StringMatch:NOT_EQUALS"><apiName>NOT_EQUALS</apiName><shortdesc>
+		 An instance of StringMatch representing the following condition: string1 != string2.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:StringMatch</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>StringMatch</i> representing the following condition: <i>string1 != string2</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:StringMatch:STARTS_WITH"><apiName>STARTS_WITH</apiName><shortdesc>
+		 An instance of StringMatch representing the following condition: string1 starts with characters contained in string2.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:StringMatch</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>StringMatch</i> representing the following condition: <i>string1</i> starts with characters contained in <i>string2</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:StringMatch:symbol:get"><apiName>symbol</apiName><shortdesc> 
+		 Returns the condition symbol of this matcher.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Returns the condition symbol of this matcher.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:StringMatch:type:get"><apiName>type</apiName><shortdesc> 
+		 Returns the type id of this matcher.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Returns the type id of this matcher.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.match:BoolMatch"><apiName>BoolMatch</apiName><shortdesc>
+	 The BoolMatch class is used in matching expressions to check boolean conditions.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities.match:IMatcher</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>BoolMatch</i> class is used in matching expressions to check boolean conditions.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.match.xml#MatchExpression"><linktext>MatchExpression</linktext></link></related-links><apiValue id="com.smartfoxserver.v2.entities.match:BoolMatch:EQUALS"><apiName>EQUALS</apiName><shortdesc>
+		 An instance of BoolMatch representing the following condition: bool1 == bool2.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:BoolMatch</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>BoolMatch</i> representing the following condition: <i>bool1 == bool2</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:BoolMatch:NOT_EQUALS"><apiName>NOT_EQUALS</apiName><shortdesc>
+		 An instance of BoolMatch representing the following condition: bool1 != bool2.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiValueClassifier>com.smartfoxserver.v2.entities.match:BoolMatch</apiValueClassifier></apiValueDef><apiDesc>
+		 An instance of <i>BoolMatch</i> representing the following condition: <i>bool1 != bool2</i>.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:BoolMatch:symbol:get"><apiName>symbol</apiName><shortdesc> 
+		 Returns the condition symbol of this matcher.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Returns the condition symbol of this matcher.
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.match:BoolMatch:type:get"><apiName>type</apiName><shortdesc> 
+		 Returns the type id of this matcher.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Returns the type id of this matcher.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>

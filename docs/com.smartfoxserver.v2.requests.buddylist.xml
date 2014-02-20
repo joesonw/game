@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.smartfoxserver.v2.requests.buddylist"><apiName>com.smartfoxserver.v2.requests.buddylist</apiName><apiDetail/><apiClassifier id="com.smartfoxserver.v2.requests.buddylist:BlockBuddyRequest"><apiName>BlockBuddyRequest</apiName><shortdesc>
+	 Blocks or unblocks a buddy in the current user's buddies list.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Blocks or unblocks a buddy in the current user's buddies list.
+	 Blocked buddies won't be able to send messages or requests to that user. 
+	 
+	 <p>In order to block a buddy, the current user must be online in the Buddy List system. If the operation is successful, a <i>buddyBlock</i> confirmation event is dispatched;
+	 otherwise the <i>buddyError</i> event is fired.</p>
+	 
+	 <p><b>NOTE</b>: this request can be sent if the Buddy List system was previously initialized only (see the <i>InitBuddyListRequest</i> request description).</p>
+	 
+	 </apiDesc><example>The following example sends a request to block a buddy:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSBuddyEvent.BUDDY_BLOCK, onBuddyBlock);
+	 	sfs.addEventListener(SFSBuddyEvent.BUDDY_ERROR, onBuddyError);
+	 	
+	 	// Block Jack in my buddies list
+	 	sfs.send(new BlockBuddyRequest("Jack", true));
+	 }
+	 
+	 private function onBuddyBlock(evt:SFSBuddyEvent):void
+	 {
+	 	var isBlocked:Boolean = evt.params.buddy.isBlocked;
+	 	trace("Buddy " + evt.params.buddy.name + " is now " + (isBlocked ? "blocked" : "unblocked"));
+	 }
+	 
+	 private function onBuddyError(evt:SFSBuddyEvent):void
+	 {
+	 	trace("The following error occurred while executing a buddy-related request:", evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:buddyBlock"><linktext>buddyBlock event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:buddyError"><linktext>buddyError event</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml#InitBuddyListRequest"><linktext>InitBuddyListRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests.buddylist:BlockBuddyRequest:BlockBuddyRequest"><apiName>BlockBuddyRequest</apiName><shortdesc>
+		 Creates a new BlockBuddyRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>buddyName</apiItemName><apiType value="String"/><apiDesc>The name of the buddy to be blocked or unblocked.
+		 </apiDesc></apiParam><apiParam><apiItemName>blocked</apiItemName><apiType value="Boolean"/><apiDesc>	<codeph>true</codeph> if the buddy must be blocked; <codeph>false</codeph> if he must be unblocked.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>BlockBuddyRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests.buddylist:BuddyMessageRequest"><apiName>BuddyMessageRequest</apiName><shortdesc>
+	 Sends a message to a buddy in the current user's buddies list.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:GenericMessageRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Sends a message to a buddy in the current user's buddies list.
+	 
+	 <p>Messages sent to buddies using the <i>BuddyMessageRequest</i> request are similar to the standard private messages (see the <i>PrivateMessageRequest</i> request)
+	 but are specifically designed for the Buddy List system: they don't require any Room parameter, nor they require that users joined a Room.
+	 Additionally, buddy messages are subject to specific validation, such as making sure that the recipient is in the sender's buddies list and the sender is not blocked by the recipient.</p> 
+	 
+	 <p>If the operation is successful, a <i>buddyMessage</i> event is dispatched in both the sender and recipient clients.</p>
+	 
+	 <p><b>NOTE</b>: this request can be sent if the Buddy List system was previously initialized only (see the <i>InitBuddyListRequest</i> request description).</p>
+	 
+	 </apiDesc><example>The following example sends a message to a buddy and handles the related event:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSBuddyEvent.BUDDY_MESSAGE, onBuddyMessage);
+	 	
+	 	// Get the recipient of the message, in this case my buddy Jack
+	 	var buddy:Buddy = sfs.buddyManager.getBuddyByName("Jack");
+	 	
+	 	// Send a message to Jack
+	 	sfs.send(new BuddyMessageRequest("Hello Jack!", buddy));
+	 }
+	 
+	 private function onBuddyMessage(evt:SFSBuddyEvent):void
+	 {
+	 	// As messages are forwarded to the sender too,
+	 	// I have to check if I am the sender
+	 	
+	 	var isItMe:Boolean = evt.params.isItMe;
+	 	var sender:Buddy = evt.params.buddy;
+	 	
+	 	if (isItMe)
+	 		trace("I said:", evt.params.message);
+	 	else
+	 		trace("My buddy " + sender.name + " said:", evt.params.message);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:buddyMessage"><linktext>buddyMessage event</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml#InitBuddyListRequest"><linktext>InitBuddyListRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests.buddylist:BuddyMessageRequest:BuddyMessageRequest"><apiName>BuddyMessageRequest</apiName><shortdesc>
+		 Creates a new BuddyMessageRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>message</apiItemName><apiType value="String"/><apiDesc>	The message to be sent to a buddy.
+		 </apiDesc></apiParam><apiParam><apiItemName>targetBuddy</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:Buddy</apiOperationClassifier><apiDesc>The <i>Buddy</i> object corresponding to the message recipient.
+		 </apiDesc></apiParam><apiParam><apiItemName>params</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities.data:ISFSObject</apiOperationClassifier><apiData>null</apiData><apiDesc>	An instance of <i>SFSObject</i> containing additional custom parameters (e.g. the message color, an emoticon id, etc).
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>BuddyMessageRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.data.xml#SFSObject"><linktext>SFSObject</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests.buddylist:InitBuddyListRequest"><apiName>InitBuddyListRequest</apiName><shortdesc>
+	 Initializes the Buddy List system on the current client.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Initializes the Buddy List system on the current client.
+	 
+	 <p>Buddy List system initialization involves loading any previously stored buddy-specific data from the server, such as the current user's buddies list, his previous state and the persistent Buddy Variables.
+	 The initialization request is <b>the first operation to be executed</b> in order to be able to use the Buddy List system features.
+	 Once the initialization is completed, the <i>buddyListInit</i> event id fired and the user has access to all his previously set data and can start to interact with his buddies;
+	 if the initialization failed, a <i>buddyError</i> event id fired.</p>
+	 
+	 </apiDesc><example>The following example initializes the Buddy List system:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSBuddyEvent.BUDDY_LIST_INIT, onBuddyListInitialized);
+	 	sfs.addEventListener(SFSBuddyEvent.BUDDY_ERROR, onBuddyError)
+	 	
+	 	// Initialize the Buddy List system
+	 	sfs.send(new InitBuddyListRequest());
+	 }
+	 
+	 private function onBuddyListInitialized(evt:SFSBuddyEvent):void
+	 {
+	 	trace("Buddy List system initialized successfully");
+	 	
+	 	// Retrieve my buddies list
+	 	var buddies:Array = sfs.buddyManager.buddyList;
+	 	
+	 	// Display the online buddies in a list component in the application interface
+	 	...
+	 }
+	 
+	 private function onBuddyError(evt:SFSBuddyEvent):void
+	 {
+	 	trace("The following error occurred while executing a buddy-related request:", evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:buddyListInit"><linktext>buddyListInit event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:buddyError"><linktext>buddyError event</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests.buddylist:InitBuddyListRequest:InitBuddyListRequest"><apiName>InitBuddyListRequest</apiName><shortdesc>
+		 Creates a new InitBuddyListRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef><apiDesc>
+		 Creates a new <i>InitBuddyListRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests.buddylist:AddBuddyRequest"><apiName>AddBuddyRequest</apiName><shortdesc>
+	 Adds a new buddy to the current user's buddies list.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Adds a new buddy to the current user's buddies list.
+	 
+	 <p>In order to add a buddy, the current user must be online in the Buddy List system. If the buddy is added successfully, the operation is confirmed by a <i>buddyAdd</i> event;
+	 otherwise the <i>buddyError</i> event is fired.</p>
+	 
+	 <p><b>NOTE</b>: this request can be sent if the Buddy List system was previously initialized only (see the <i>InitBuddyListRequest</i> request description).</p>
+	 
+	 </apiDesc><example>The following example sends a request to add a buddy:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSBuddyEvent.BUDDY_ADD, onBuddyAdded);
+	 	sfs.addEventListener(SFSBuddyEvent.BUDDY_ERROR, onBuddyError);
+	 	
+	 	// Add Jack as a new buddy to my buddies list
+	 	sfs.send(new AddBuddyRequest("Jack"));
+	 }
+	 
+	 private function onBuddyAdded(evt:SFSBuddyEvent):void
+	 {
+	 	trace("This buddy was added:", evt.params.buddy.name);
+	 }
+	 
+	 private function onBuddyError(evt:SFSBuddyEvent):void
+	 {
+	 	trace("The following error occurred while executing a buddy-related request:", evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:buddyAdd"><linktext>buddyAdd event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:buddyError"><linktext>buddyError event</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml#RemoveBuddyRequest"><linktext>RemoveBuddyRequest</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml#InitBuddyListRequest"><linktext>InitBuddyListRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests.buddylist:AddBuddyRequest:AddBuddyRequest"><apiName>AddBuddyRequest</apiName><shortdesc>
+		 Creates a new AddBuddyRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>buddyName</apiItemName><apiType value="String"/><apiDesc>The name of the user to be added as a buddy.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>AddBuddyRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests.buddylist:SetBuddyVariablesRequest"><apiName>SetBuddyVariablesRequest</apiName><shortdesc>
+	 Sets one or more Buddy Variables for the current user.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Sets one or more Buddy Variables for the current user.
+	 
+	 <p>This operation updates the <i>Buddy</i> object representing the user in all the buddies lists in which the user was added as a buddy.
+	 If the operation is successful, a <i>buddyVariablesUpdate</i> event is dispatched to all the owners of those buddies lists and to the user who updated his variables too.</p>
+	 
+	 <p>The Buddy Variables can be persisted, which means that their value will be saved even it the user disconnects and it will be restored when he connects again.
+	 In order to make a variable persistent, put the constant <i>SFSBuddyVariable.OFFLINE_PREFIX</i> before its name. Read the SmartFoxServer 2X documentaion about the <b>Buddy List API</b> for more informations.</p>
+	 
+	 <p><b>NOTE</b>: this request can be sent if the Buddy List system was previously initialized only (see the <i>InitBuddyListRequest</i> request description)
+	 and the current user state in the system is "online".</p>
+	 
+	 </apiDesc><example>The following example sets some Buddy Variables for the current user, one of which is persistent;
+	 the example also handles changes made by the user or by his buddies:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSBuddyEvent.BUDDY_VARIABLES_UPDATE, onBuddyVarsUpdate);
+	 	
+	 	// Create two Buddy Variables containing the title and artist of the song I'm listening to
+	 	var songTitle:BuddyVariable = new SFSBuddyVariable("songTitle", "Ascension");
+	 	var songAuthor:BuddyVariable = new SFSBuddyVariable("songAuthor", "Mike Oldfield");
+	 	
+	 	// Create a persistent Buddy Variable containing my mood message
+	 	var mood:BuddyVariable = new SFSBuddyVariable(SFSBuddyVariable.OFFLINE_PREFIX + "mood", "I Need SmartFoxServer 2X desperately!");
+	 	
+	 	// Set my Buddy Variables
+	 	var vars:Array = [songTitle, songAuthor, mood];
+	 	sfs.send(new SetBuddyVariablesRequest(vars));
+	 }
+	 
+	 private function onBuddyVarsUpdate(evt:SFSBuddyEvent):void
+	 {
+	 	// As the update event is dispatched to me too,
+	 	// I have to check if I am the one who changed his Buddy Variables
+	 	
+	 	var isItMe:Boolean = evt.params.isItMe;
+	 	
+	 	if (isItMe)
+	 	{
+	 		trace("I've updated the following Buddy Variables:");
+	 		
+	 		for (var i:int = 0; i &lt; evt.params.changedVars.length; i++)
+	 		{
+	 			var bVarName:String = evt.params.changedVars[i];
+	 			
+	 			trace(bVarName, "--&gt;", sfs.buddyManager.getMyVariable(bVarName).getValue());
+	 		}
+	 	}
+	 	else
+	 	{
+	 		var buddyName:String = evt.params.buddy.name;
+	 		
+	 		trace("My buddy " + buddyName + " updated the following Buddy Variables:");
+	 		
+	 		for (var i:int = 0; i &lt; evt.params.changedVars.length; i++)
+	 		{
+	 			var bVarName:String = evt.params.changedVars[i];
+	 			
+	 			trace(bVarName, "--&gt;", sfs.buddyManager.getBuddyByName(buddyName).getVariable(bVarName).getValue());
+	 		}
+	 	}
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#BuddyVariable"><linktext>BuddyVariable</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:buddyVariablesUpdate"><linktext>buddyVariablesUpdate event</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml#InitBuddyListRequest"><linktext>InitBuddyListRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests.buddylist:SetBuddyVariablesRequest:SetBuddyVariablesRequest"><apiName>SetBuddyVariablesRequest</apiName><shortdesc>
+		 Creates a new SetBuddyVariablesRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>buddyVariables</apiItemName><apiType value="Array"/><apiDesc>A list of <i>BuddyVariable</i> objects representing the Buddy Variables to be set.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SetBuddyVariablesRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link><link href="com.smartfoxserver.v2.entities.variables.xml#BuddyVariable"><linktext>BuddyVariable</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests.buddylist:RemoveBuddyRequest"><apiName>RemoveBuddyRequest</apiName><shortdesc>
+	 Removes a buddy from the current user's buddies list.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Removes a buddy from the current user's buddies list.
+	 
+	 <p>In order to remove a buddy, the current user must be online in the Buddy List system. If the buddy is removed successfully, the operation is confirmed by a <i>buddyRemove</i> event;
+	 otherwise the <i>buddyError</i> event is fired.</p>
+	 
+	 <p><b>NOTE</b>: this request can be sent if the Buddy List system was previously initialized only (see the <i>InitBuddyListRequest</i> request description).</p>
+	 
+	 </apiDesc><example>The following example sends a request to remove a buddy:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSBuddyEvent.BUDDY_REMOVE, onBuddyRemoved);
+	 	sfs.addEventListener(SFSBuddyEvent.BUDDY_ERROR, onBuddyError);
+	 	
+	 	// Remove Jack from my buddies list
+	 	sfs.send(new RemoveBuddyRequest("Jack"));
+	 }
+	 
+	 private function onBuddyRemoved(evt:SFSBuddyEvent):void
+	 {
+	 	trace("This buddy was removed:", evt.params.buddy.name);
+	 }
+	 
+	 private function onBuddyError(evt:SFSBuddyEvent):void
+	 {
+	 	trace("The following error occurred while executing a buddy-related request:", evt.params.errorMessage);
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/event:buddyRemove"><linktext>buddyRemove event</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:buddyError"><linktext>buddyError event</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml#AddBuddyRequest"><linktext>AddBuddyRequest</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml#InitBuddyListRequest"><linktext>InitBuddyListRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests.buddylist:RemoveBuddyRequest:RemoveBuddyRequest"><apiName>RemoveBuddyRequest</apiName><shortdesc>
+		 Creates a new RemoveBuddyRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>buddyName</apiItemName><apiType value="String"/><apiDesc>The name of the buddy to be removed from the user's buddies list.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>RemoveBuddyRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link></related-links></apiConstructor></apiClassifier><apiClassifier id="com.smartfoxserver.v2.requests.buddylist:GoOnlineRequest"><apiName>GoOnlineRequest</apiName><shortdesc>
+	 Toggles the current user's online/offline state as buddy in other users' buddies lists.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>com.smartfoxserver.v2.requests:BaseRequest</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 Toggles the current user's online/offline state as buddy in other users' buddies lists.
+	 
+	 <p>All clients who have the current user as buddy in their buddies list will receive the <i>buddyOnlineStateChange</i> event and see the <i>Buddy.isOnline</i> property change accordingly.
+	 The same event is also dispatched to the current user, who sent the request, so that the application interface can be updated accordingly.
+	 Going online/offline as buddy doesn't affect the user connection, the currently joined Zone and Rooms, etc.</p>
+	 
+	 <p>The online state of a user in a buddy list is handled by means of a reserved and persistent Buddy Variable.</p>
+	 
+	 <p><b>NOTE</b>: this request can be sent if the Buddy List system was previously initialized only (see the <i>InitBuddyListRequest</i> request description).</p>
+	 
+	 </apiDesc><example>The following example changes the user online state in the Buddy List system:
+	 <codeblock rev="3.0">
+	 
+	 private function someMethod():void
+	 {
+	 	sfs.addEventListener(SFSBuddyEvent.BUDDY_ONLINE_STATE_UPDATE, onBuddyOnlineStateUpdated);
+	 	
+	 	// Put myself offline in the Buddy List system
+	 	sfs.send(new GoOnlineRequest(false));
+	 }
+	 
+	 private function onBuddyOnlineStateUpdated(evt:SFSBuddyEvent):void
+	 {
+	 	// As the state change event is dispatched to me too,
+	 	// I have to check if I am the one who changed his state
+	 	
+	 	var isItMe:Boolean = evt.params.isItMe;
+	 	
+	 	if (isItMe)
+	 		trace("I'm now", (sfs.buddyManager.myOnlineState ? "online" : "offline"));
+	 	else
+	 		trace("My buddy " + evt.params.buddy.name + " is now", (evt.params.buddy.isOnline ? "online" : "offline"));
+	 }
+	 </codeblock>
+	 
+	 </example></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.managers.xml#IBuddyManager/myOnlineState"><linktext>IBuddyManager.myOnlineState</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Buddy/isOnline"><linktext>Buddy.isOnline</linktext></link><link href="com.smartfoxserver.v2.xml#SmartFox/event:buddyOnlineStateChange"><linktext>buddyOnlineStateChange event</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml#InitBuddyListRequest"><linktext>InitBuddyListRequest</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.requests.buddylist:GoOnlineRequest:GoOnlineRequest"><apiName>GoOnlineRequest</apiName><shortdesc>
+		 Creates a new GoOnlineRequest instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>online</apiItemName><apiType value="Boolean"/><apiDesc><codeph>true</codeph> to make the current user available (online) in the Buddy List system; <codeph>false</codeph> to make him not available (offline).
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>GoOnlineRequest</i> instance.
+		 The instance must be passed to the <i>SmartFox.send()</i> method for the request to be performed.
+		 
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/send()"><linktext>SmartFox.send()</linktext></link></related-links></apiConstructor></apiClassifier></apiPackage>

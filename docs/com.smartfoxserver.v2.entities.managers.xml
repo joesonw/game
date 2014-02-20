@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.smartfoxserver.v2.entities.managers"><apiName>com.smartfoxserver.v2.entities.managers</apiName><apiDetail/><apiClassifier id="com.smartfoxserver.v2.entities.managers:SFSRoomManager"><apiName>SFSRoomManager</apiName><shortdesc>
+	 The SFSRoomManager class is the entity in charge of managing the client-side Rooms list.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities.managers:IRoomManager</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>SFSRoomManager</i> class is the entity in charge of managing the client-side Rooms list.
+	 It keeps track of all the Rooms available in the client-side Rooms list and of subscriptions to multiple Room Groups.
+	 It also provides various utility methods to look for Rooms by name and id, retrieve Rooms belonging to a specific Group, etc.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/roomManager"><linktext>SmartFox.roomManager</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.entities.managers:SFSRoomManager:SFSRoomManager"><apiName>SFSRoomManager</apiName><shortdesc>
+		 Creates a new SFSRoomManager instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>sfs</apiItemName><apiOperationClassifier>com.smartfoxserver.v2:SmartFox</apiOperationClassifier><apiDesc>	An instance of the SmartFoxServer 2X client API main <i>SmartFox</i> class.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SFSRoomManager</i> instance.
+		 
+		 <p><b>NOTE</b>: developers never istantiate a <i>SFSRoomManager</i> manually: this is done by the SmartFoxServer 2X API internally.
+		 A reference to the existing instance can be retrieved using the <i>SmartFox.roomManager</i> property.</p>
+		  
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/roomManager"><linktext>SmartFox.roomManager</linktext></link></related-links></apiConstructor><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSRoomManager:containsGroup"><apiName>containsGroup</apiName><shortdesc> 
+		 Indicates whether the specified Group has been subscribed by the client or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the client subscribed the passed Group.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>groupId</apiItemName><apiType value="String"/><apiDesc>The name of the Group.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether the specified Group has been subscribed by the client or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSRoomManager:containsRoomInGroup"><apiName>containsRoomInGroup</apiName><shortdesc> 
+		 Indicates whether the Rooms list contains a Room belonging to the specified Group or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the Rooms list contains the passed Room and it belongs to the specified Group.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>idOrName</apiItemName><apiType value="any"/><apiDesc>The id or name of the <i>Room</i> object whose presence in the Rooms list is to be tested.
+		 </apiDesc></apiParam><apiParam><apiItemName>groupId</apiItemName><apiType value="String"/><apiDesc>	The name of the Group to which the specified Room must belong.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether the Rooms list contains a Room belonging to the specified Group or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSRoomManager:containsRoom"><apiName>containsRoom</apiName><shortdesc> 
+		 Indicates whether a Room exists in the Rooms list or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the passed Room exists in the Rooms list.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>idOrName</apiItemName><apiType value="any"/><apiDesc>The id or name of the <i>Room</i> object whose presence in the Rooms list is to be tested.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether a Room exists in the Rooms list or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSRoomManager:getJoinedRooms"><apiName>getJoinedRooms</apiName><shortdesc> 
+		 Returns a list of Rooms currently joined by the client.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of <i>Room</i> objects representing the Rooms currently joined by the client.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc> 
+		 Returns a list of Rooms currently joined by the client.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSRoomManager:getRoomById"><apiName>getRoomById</apiName><shortdesc> 
+		 Retrieves a Room object from its id.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An object representing the requested Room; <codeph>null</codeph> if no <i>Room</i> object with the passed id exists in the Rooms list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier></apiReturn><apiParam><apiItemName>id</apiItemName><apiType value="int"/><apiDesc>The id of the Room.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves a <i>Room</i> object from its id.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSRoomManager:getRoomByName"><apiName>getRoomByName</apiName><shortdesc> 
+		 Retrieves a Room object from its name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An object representing the requested Room; <codeph>null</codeph> if no <i>Room</i> object with the passed name exists in the Rooms list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the Room.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves a <i>Room</i> object from its name.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSRoomManager:getRoomCount"><apiName>getRoomCount</apiName><shortdesc> 
+		 Returns the current number of Rooms in the Rooms list.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The number of Rooms in the Rooms list.
+		 </apiDesc><apiType value="int"/></apiReturn></apiOperationDef><apiDesc> 
+		 Returns the current number of Rooms in the Rooms list.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSRoomManager:getRoomGroups"><apiName>getRoomGroups</apiName><shortdesc> 
+		 Returns the names of Groups currently subscribed by the client.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>A list of Group names.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc> 
+		 Returns the names of Groups currently subscribed by the client.
+		 
+		 <p><b>NOTE</b>: at login time, the client automatically subscribes all the Room Groups specified in the Zone's <b>Default Room Groups</b> setting.</p>
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSRoomManager:getRoomListFromGroup"><apiName>getRoomListFromGroup</apiName><shortdesc> 
+		 Retrieves the list of Rooms which are part of the specified Room Group.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of <i>Room</i> objects belonging to the passed Group.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>groupId</apiItemName><apiType value="String"/><apiDesc>The name of the Group.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves the list of Rooms which are part of the specified Room Group.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSRoomManager:getRoomList"><apiName>getRoomList</apiName><shortdesc> 
+		 Returns a list of Rooms currently "known" by the client.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of the available <i>Room</i> objects.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc> 
+		 Returns a list of Rooms currently "known" by the client.
+		 The list contains all the Rooms that are currently joined and all the Rooms belonging to the Room Groups that have been subscribed.
+		 
+		 <p><b>NOTE</b>: at login time, the client automatically subscribes all the Room Groups specified in the Zone's <b>Default Room Groups</b> setting.</p>
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSRoomManager:getUserRooms"><apiName>getUserRooms</apiName><shortdesc> 
+		 Retrieves a list of Rooms joined by the specified user.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of Rooms joined by the passed user.
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>user</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:User</apiOperationClassifier><apiDesc>A <i>User</i> object representing the user to look for in the current Rooms list.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves a list of Rooms joined by the specified user.
+		 The list contains only those Rooms "known" by the Room Manager; the user might have joined others the client is not aware of.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.entities.managers:SFSRoomManager:protected:_smartFox"><apiName>_smartFox</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="protected"/><apiDynamic/><apiValueClassifier>com.smartfoxserver.v2:SmartFox</apiValueClassifier></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager"><apiName>SFSBuddyManager</apiName><shortdesc>
+	 The SFSBuddyManager class is the entity in charge of managing the current user's Buddy List system.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities.managers:IBuddyManager</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>SFSBuddyManager</i> class is the entity in charge of managing the current user's <b>Buddy List</b> system.
+	 It keeps track of all the user's buddies, their state and their Buddy Variables.
+	 It also provides utility methods to set the user's properties when he is part of the buddies list of other users.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/buddyManager"><linktext>SmartFox.buddyManager</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:SFSBuddyManager"><apiName>SFSBuddyManager</apiName><shortdesc>
+		 Creates a new SFSBuddyManager instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>sfs</apiItemName><apiOperationClassifier>com.smartfoxserver.v2:SmartFox</apiOperationClassifier><apiDesc>	An instance of the SmartFoxServer 2X client API main <i>SmartFox</i> class.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SFSBuddyManager</i> instance.
+		 
+		 <p><b>NOTE</b>: developers never istantiate a <i>SFSBuddyManager</i> manually: this is done by the SmartFoxServer 2X API internally.
+		 A reference to the existing instance can be retrieved using the <i>SmartFox.buddyManager</i> property.</p>
+		  
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/buddyManager"><linktext>SmartFox.buddyManager</linktext></link></related-links></apiConstructor><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:containsBuddy"><apiName>containsBuddy</apiName><shortdesc> 
+		 Indicates whether a buddy exists in user's buddies list or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the specified buddy exists in the buddies list.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the buddy whose presence in the buddies list is to be tested.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether a buddy exists in user's buddies list or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:getBuddyById"><apiName>getBuddyById</apiName><shortdesc> 
+		 Retrieves a Buddy object from its id property.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>Buddy</i> object representing the buddy, or <codeph>null</codeph> if no buddy with the passed id exists in the buddies list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:Buddy</apiOperationClassifier></apiReturn><apiParam><apiItemName>id</apiItemName><apiType value="int"/><apiDesc>The id of the buddy to be found.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves a <i>Buddy</i> object from its <i>id</i> property.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:getBuddyByName"><apiName>getBuddyByName</apiName><shortdesc> 
+		 Retrieves a Buddy object from its name property.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>Buddy</i> object representing the buddy, or <codeph>null</codeph> if no buddy with the passed name exists in the buddies list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:Buddy</apiOperationClassifier></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the buddy to be found.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves a <i>Buddy</i> object from its <i>name</i> property.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:getBuddyByNickName"><apiName>getBuddyByNickName</apiName><shortdesc> 
+		 Retrieves a Buddy object from its nickName property (if set).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>Buddy</i> object representing the buddy, or <codeph>null</codeph> if no buddy with the passed nickName exists in the buddies list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:Buddy</apiOperationClassifier></apiReturn><apiParam><apiItemName>nickName</apiItemName><apiType value="String"/><apiDesc>The nickName of the buddy to be found.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves a <i>Buddy</i> object from its <i>nickName</i> property (if set).
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:getMyVariable"><apiName>getMyVariable</apiName><shortdesc> 
+		 Retrieves a Buddy Variable from its name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>BuddyVariable</i> object representing the Buddy Variable, or <codeph>null</codeph> if no Buddy Variable with the passed name is associated with the current user.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.variables:BuddyVariable</apiOperationClassifier></apiReturn><apiParam><apiItemName>varName</apiItemName><apiType value="String"/><apiDesc>The name of the Buddy Variable to be retrieved.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves a Buddy Variable from its name.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:buddyList:get"><apiName>buddyList</apiName><shortdesc> 
+		 Returns a list of Buddy objects representing all the buddies in the user's buddies list.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc> 
+		 Returns a list of <i>Buddy</i> objects representing all the buddies in the user's buddies list.
+		 The list is <codeph>null</codeph> if the Buddy List system is not initialized.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:buddyStates:get"><apiName>buddyStates</apiName><shortdesc> 
+		 Returns a list of strings representing the available custom buddy states.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc> 
+		 Returns a list of strings representing the available custom buddy states.
+		 The custom states are received by the client upon initialization of the Buddy List system. They can be configured by means of the SmartFoxServer 2X Administration Tool.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:isInited:get"><apiName>isInited</apiName><shortdesc> 
+		 Indicates whether the client's Buddy List system is initialized or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Indicates whether the client's Buddy List system is initialized or not.
+		 If not, an <i>InitBuddyListRequest</i> request should be sent to the server in order to retrieve the persistent Buddy List data.
+		 
+		 <p>No Buddy List related operations are allowed until the system is initialized.</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:myNickName:get"><apiName>myNickName</apiName><shortdesc> 
+		 Returns the current user's nickname (if set).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Returns the current user's nickname (if set).
+		 If the nickname was never set before, <codeph>null</codeph> is returned.
+		 <p>As the nickname of a user in a buddy list is handled by means of a reserved Buddy Variable (see <i>ReservedBuddyVariables</i> class),
+		 it can be set using the <i>SetBuddyVariablesRequest</i> request.</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:myOnlineState:get"><apiName>myOnlineState</apiName><shortdesc> 
+		 Returns the current user's online/offline state.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc> 
+		 Returns the current user's online/offline state.
+		 If <codeph>true</codeph>, the user appears to be online in the buddies list of other users who have him as a buddy.
+		 <p>The online state of a user in a buddy list is handled by means of a reserved Buddy Variable (see <i>ReservedBuddyVariables</i> class);
+		 it can be changed using the dedicated <i>GoOnlineRequest</i> request.</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:myState:get"><apiName>myState</apiName><shortdesc> 
+		 Returns the current user's custom state (if set).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> 
+		 Returns the current user's custom state (if set).
+		 Examples of custom states are "Available", "Busy", "Be right back", etc. If the custom state was never set before, <codeph>null</codeph> is returned.
+		 <p>As the custom state of a user in a buddy list is handled by means of a reserved Buddy Variable (see <i>ReservedBuddyVariables</i> class),
+		 it can be set using the <i>SetBuddyVariablesRequest</i> request.</p>
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:myVariables:get"><apiName>myVariables</apiName><shortdesc> 
+		 Returns all the Buddy Variables associated with the current user.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc> 
+		 Returns all the Buddy Variables associated with the current user.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:offlineBuddies:get"><apiName>offlineBuddies</apiName><shortdesc> 
+		 Returns a list of Buddy objects representing all the offline buddies in the user's buddies list.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc> 
+		 Returns a list of <i>Buddy</i> objects representing all the offline buddies in the user's buddies list.
+		 
+		 </apiDesc></apiValueDetail></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:SFSBuddyManager:onlineBuddies:get"><apiName>onlineBuddies</apiName><shortdesc> 
+		 Returns a list of Buddy objects representing all the online buddies in the user's buddies list.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc> 
+		 Returns a list of <i>Buddy</i> objects representing all the online buddies in the user's buddies list.
+		 
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.managers:IBuddyManager"><apiName>IBuddyManager</apiName><shortdesc>
+	 The IBuddyManager interface defines all the methods and properties exposed by the client-side manager of the SmartFoxServer Buddy List system.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <i>IBuddyManager</i> interface defines all the methods and properties exposed by the client-side manager of the SmartFoxServer <b>Buddy List</b> system.
+	 <p>In the SmartFoxServer 2X client API this interface is implemented by the <i>SFSBuddyManager</i> class. Read the class description for additional informations.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.managers.xml#SFSBuddyManager"><linktext>SFSBuddyManager</linktext></link></related-links><apiOperation id="com.smartfoxserver.v2.entities.managers:IBuddyManager:com.smartfoxserver.v2.entities.managers:IBuddyManager:containsBuddy"><apiName>containsBuddy</apiName><shortdesc>
+		 Indicates whether a buddy exists in user's buddies list or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the specified buddy exists in the buddies list.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the buddy whose presence in the buddies list is to be tested.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether a buddy exists in user's buddies list or not.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Buddy/name"><linktext>Buddy.name</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IBuddyManager:com.smartfoxserver.v2.entities.managers:IBuddyManager:getBuddyById"><apiName>getBuddyById</apiName><shortdesc>
+		 Retrieves a Buddy object from its id property.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>Buddy</i> object representing the buddy, or <codeph>null</codeph> if no buddy with the passed id exists in the buddies list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:Buddy</apiOperationClassifier></apiReturn><apiParam><apiItemName>id</apiItemName><apiType value="int"/><apiDesc>The id of the buddy to be found.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a <i>Buddy</i> object from its <i>id</i> property.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Buddy/id"><linktext>Buddy.id</linktext></link><link href="com.smartfoxserver.v2.entities.managers.xml#IBuddyManager/getBuddyByName()"><linktext>getBuddyByName()</linktext></link><link href="com.smartfoxserver.v2.entities.managers.xml#IBuddyManager/getBuddyByNickName()"><linktext>getBuddyByNickName()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IBuddyManager:com.smartfoxserver.v2.entities.managers:IBuddyManager:getBuddyByName"><apiName>getBuddyByName</apiName><shortdesc>
+		 Retrieves a Buddy object from its name property.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>Buddy</i> object representing the buddy, or <codeph>null</codeph> if no buddy with the passed name exists in the buddies list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:Buddy</apiOperationClassifier></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the buddy to be found.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a <i>Buddy</i> object from its <i>name</i> property.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Buddy/name"><linktext>Buddy.name</linktext></link><link href="com.smartfoxserver.v2.entities.managers.xml#IBuddyManager/getBuddyById()"><linktext>getBuddyById()</linktext></link><link href="com.smartfoxserver.v2.entities.managers.xml#IBuddyManager/getBuddyByNickName()"><linktext>getBuddyByNickName()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IBuddyManager:com.smartfoxserver.v2.entities.managers:IBuddyManager:getBuddyByNickName"><apiName>getBuddyByNickName</apiName><shortdesc>
+		 Retrieves a Buddy object from its nickName property (if set).</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>Buddy</i> object representing the buddy, or <codeph>null</codeph> if no buddy with the passed nickName exists in the buddies list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:Buddy</apiOperationClassifier></apiReturn><apiParam><apiItemName>nickName</apiItemName><apiType value="String"/><apiDesc>The nickName of the buddy to be found.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a <i>Buddy</i> object from its <i>nickName</i> property (if set).
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Buddy/nickName"><linktext>Buddy.nickName</linktext></link><link href="com.smartfoxserver.v2.entities.managers.xml#IBuddyManager/getBuddyById()"><linktext>getBuddyById()</linktext></link><link href="com.smartfoxserver.v2.entities.managers.xml#IBuddyManager/getBuddyByName()"><linktext>getBuddyByName()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IBuddyManager:com.smartfoxserver.v2.entities.managers:IBuddyManager:getMyVariable"><apiName>getMyVariable</apiName><shortdesc>
+		 Retrieves a Buddy Variable from its name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>BuddyVariable</i> object representing the Buddy Variable, or <codeph>null</codeph> if no Buddy Variable with the passed name is associated with the current user.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities.variables:BuddyVariable</apiOperationClassifier></apiReturn><apiParam><apiItemName>varName</apiItemName><apiType value="String"/><apiDesc>The name of the Buddy Variable to be retrieved.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a Buddy Variable from its name.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.managers.xml#IBuddyManager/myVariables"><linktext>myVariables</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml#SetBuddyVariablesRequest"><linktext>SetBuddyVariablesRequest</linktext></link></related-links></apiOperation><apiValue id="com.smartfoxserver.v2.entities.managers:IBuddyManager:com.smartfoxserver.v2.entities.managers:IBuddyManager:buddyList:get"><apiName>buddyList</apiName><shortdesc>
+		 Returns a list of Buddy objects representing all the buddies in the user's buddies list.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc>
+		 Returns a list of <i>Buddy</i> objects representing all the buddies in the user's buddies list.
+		 The list is <codeph>null</codeph> if the Buddy List system is not initialized.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="" invalidHref="com.smartfoxserver.v2.entities.managers.isInited.xml"><linktext>isInited</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:IBuddyManager:com.smartfoxserver.v2.entities.managers:IBuddyManager:buddyStates:get"><apiName>buddyStates</apiName><shortdesc>
+		 Returns a list of strings representing the available custom buddy states.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc>
+		 Returns a list of strings representing the available custom buddy states.
+		 The custom states are received by the client upon initialization of the Buddy List system. They can be configured by means of the SmartFoxServer 2X Administration Tool.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Buddy/state"><linktext>Buddy.state</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:IBuddyManager:com.smartfoxserver.v2.entities.managers:IBuddyManager:isInited:get"><apiName>isInited</apiName><shortdesc>
+		 Indicates whether the client's Buddy List system is initialized or not.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Indicates whether the client's Buddy List system is initialized or not.
+		 If not, an <i>InitBuddyListRequest</i> request should be sent to the server in order to retrieve the persistent Buddy List data.
+		 
+		 <p>No Buddy List related operations are allowed until the system is initialized.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.requests.buddylist.xml#InitBuddyListRequest"><linktext>InitBuddyListRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:IBuddyManager:com.smartfoxserver.v2.entities.managers:IBuddyManager:myNickName:get"><apiName>myNickName</apiName><shortdesc>
+		 Returns the current user's nickname (if set).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Returns the current user's nickname (if set).
+		 If the nickname was never set before, <codeph>null</codeph> is returned.
+		 <p>As the nickname of a user in a buddy list is handled by means of a reserved Buddy Variable (see <i>ReservedBuddyVariables</i> class),
+		 it can be set using the <i>SetBuddyVariablesRequest</i> request.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Buddy/nickName"><linktext>Buddy.nickName</linktext></link><link href="com.smartfoxserver.v2.entities.variables.xml#ReservedBuddyVariables"><linktext>ReservedBuddyVariables</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml#SetBuddyVariablesRequest"><linktext>SetBuddyVariablesRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:IBuddyManager:com.smartfoxserver.v2.entities.managers:IBuddyManager:myOnlineState:get"><apiName>myOnlineState</apiName><shortdesc>
+		 Returns the current user's online/offline state.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+		 Returns the current user's online/offline state.
+		 If <codeph>true</codeph>, the user appears to be online in the buddies list of other users who have him as a buddy.
+		 <p>The online state of a user in a buddy list is handled by means of a reserved Buddy Variable (see <i>ReservedBuddyVariables</i> class);
+		 it can be changed using the dedicated <i>GoOnlineRequest</i> request.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Buddy/isOnline"><linktext>Buddy.isOnline</linktext></link><link href="com.smartfoxserver.v2.entities.variables.xml#ReservedBuddyVariables"><linktext>ReservedBuddyVariables</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml#GoOnlineRequest"><linktext>GoOnlineRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:IBuddyManager:com.smartfoxserver.v2.entities.managers:IBuddyManager:myState:get"><apiName>myState</apiName><shortdesc>
+		 Returns the current user's custom state (if set).</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+		 Returns the current user's custom state (if set).
+		 Examples of custom states are "Available", "Busy", "Be right back", etc. If the custom state was never set before, <codeph>null</codeph> is returned.
+		 <p>As the custom state of a user in a buddy list is handled by means of a reserved Buddy Variable (see <i>ReservedBuddyVariables</i> class),
+		 it can be set using the <i>SetBuddyVariablesRequest</i> request.</p>
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Buddy/state"><linktext>Buddy.state</linktext></link><link href="com.smartfoxserver.v2.entities.variables.xml#ReservedBuddyVariables"><linktext>ReservedBuddyVariables</linktext></link><link href="com.smartfoxserver.v2.requests.buddylist.xml#SetBuddyVariablesRequest"><linktext>SetBuddyVariablesRequest</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:IBuddyManager:com.smartfoxserver.v2.entities.managers:IBuddyManager:myVariables:get"><apiName>myVariables</apiName><shortdesc>
+		 Returns all the Buddy Variables associated with the current user.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc>
+		 Returns all the Buddy Variables associated with the current user.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.variables.xml#BuddyVariable"><linktext>BuddyVariable</linktext></link><link href="com.smartfoxserver.v2.entities.managers.xml#IBuddyManager/getMyVariable()"><linktext>getMyVariable()</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:IBuddyManager:com.smartfoxserver.v2.entities.managers:IBuddyManager:offlineBuddies:get"><apiName>offlineBuddies</apiName><shortdesc>
+		 Returns a list of Buddy objects representing all the offline buddies in the user's buddies list.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc>
+		 Returns a list of <i>Buddy</i> objects representing all the offline buddies in the user's buddies list.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Buddy/isOnline"><linktext>Buddy.isOnline</linktext></link></related-links></apiValue><apiValue id="com.smartfoxserver.v2.entities.managers:IBuddyManager:com.smartfoxserver.v2.entities.managers:IBuddyManager:onlineBuddies:get"><apiName>onlineBuddies</apiName><shortdesc>
+		 Returns a list of Buddy objects representing all the online buddies in the user's buddies list.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Array"/></apiValueDef><apiDesc>
+		 Returns a list of <i>Buddy</i> objects representing all the online buddies in the user's buddies list.
+		 
+		 </apiDesc></apiValueDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Buddy/isOnline"><linktext>Buddy.isOnline</linktext></link></related-links></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.managers:IUserManager"><apiName>IUserManager</apiName><shortdesc>
+	 The IUserManager interface defines all the methods and properties exposed by the client-side manager of the SmartFoxServer User entities.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <i>IUserManager</i> interface defines all the methods and properties exposed by the client-side manager of the SmartFoxServer User entities.
+	 <p>In the SmartFoxServer 2X client API this interface is implemented by the <i>SFSUserManager</i> class. Read the class description for additional informations.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.managers.xml#SFSUserManager"><linktext>SFSUserManager</linktext></link></related-links><apiOperation id="com.smartfoxserver.v2.entities.managers:IUserManager:com.smartfoxserver.v2.entities.managers:IUserManager:containsUserId"><apiName>containsUserId</apiName><shortdesc>
+		 Indicates whether a user exists in the local users list or not from the id.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the passed user exists in the users list.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>userId</apiItemName><apiType value="int"/><apiDesc>The id of the user whose presence in the users list is to be tested.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether a user exists in the local users list or not from the id.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/id"><linktext>User.id</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IUserManager:com.smartfoxserver.v2.entities.managers:IUserManager:containsUserName"><apiName>containsUserName</apiName><shortdesc>
+		 Indicates whether a user exists in the local users list or not from the name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the passed user exists in the users list.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>userName</apiItemName><apiType value="String"/><apiDesc>The name of the user whose presence in the users list is to be tested.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether a user exists in the local users list or not from the name.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/name"><linktext>User.name</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IUserManager:com.smartfoxserver.v2.entities.managers:IUserManager:containsUser"><apiName>containsUser</apiName><shortdesc>
+		 Indicates whether a user exists in the local users list or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the passed user exists in the users list.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>user</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:User</apiOperationClassifier><apiDesc>The <i>User</i> object representing the user whose presence in the users list is to be tested.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether a user exists in the local users list or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IUserManager:com.smartfoxserver.v2.entities.managers:IUserManager:getUserById"><apiName>getUserById</apiName><shortdesc>
+		 Retrieves a User object from its id property.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>User</i> object representing the user, or <codeph>null</codeph> if no user with the passed id exists in the local users list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:User</apiOperationClassifier></apiReturn><apiParam><apiItemName>userId</apiItemName><apiType value="int"/><apiDesc>The id of the user to be found.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a <i>User</i> object from its <i>id</i> property.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/id"><linktext>User.id</linktext></link><link href="com.smartfoxserver.v2.entities.managers.xml#IUserManager/getUserByName()"><linktext>getUserByName()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IUserManager:com.smartfoxserver.v2.entities.managers:IUserManager:getUserByName"><apiName>getUserByName</apiName><shortdesc>
+		 Retrieves a User object from its name property.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>User</i> object representing the user, or <codeph>null</codeph> if no user with the passed name exists in the local users list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:User</apiOperationClassifier></apiReturn><apiParam><apiItemName>userName</apiItemName><apiType value="String"/><apiDesc>The name of the user to be found.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a <i>User</i> object from its <i>name</i> property.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#User/name"><linktext>User.name</linktext></link><link href="com.smartfoxserver.v2.entities.managers.xml#IUserManager/getUserById()"><linktext>getUserById()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IUserManager:com.smartfoxserver.v2.entities.managers:IUserManager:getUserList"><apiName>getUserList</apiName><shortdesc>
+		 Get the whole list of users inside the Rooms joined by the client.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of <i>User</i> objects representing the users in the local users list.
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc>
+		 Get the whole list of users inside the Rooms joined by the client.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.entities.managers:IUserManager:com.smartfoxserver.v2.entities.managers:IUserManager:userCount:get"><apiName>userCount</apiName><shortdesc>
+		 Returns the total number of users in the local users list.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc>
+		 Returns the total number of users in the local users list.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.managers:SFSUserManager"><apiName>SFSUserManager</apiName><shortdesc>
+	 The SFSUserManager class is the entity in charge of managing the local (client-side) users list.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseInterface>com.smartfoxserver.v2.entities.managers:IUserManager</apiBaseInterface><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+	 The <i>SFSUserManager</i> class is the entity in charge of managing the local (client-side) users list.
+	 It keeps track of all the users that are currently joined in the same Rooms of the current user.
+	 It also provides utility methods to look for users by name and id.
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/userManager"><linktext>SmartFox.userManager</linktext></link></related-links><apiConstructor id="com.smartfoxserver.v2.entities.managers:SFSUserManager:SFSUserManager"><apiName>SFSUserManager</apiName><shortdesc>
+		 Creates a new SFSUserManager instance.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>sfs</apiItemName><apiOperationClassifier>com.smartfoxserver.v2:SmartFox</apiOperationClassifier><apiDesc>	An instance of the SmartFoxServer 2X client API main <i>SmartFox</i> class.
+		 
+		 </apiDesc></apiParam></apiConstructorDef><apiDesc>
+		 Creates a new <i>SFSUserManager</i> instance.
+		 
+		 <p><b>NOTE</b>: developers never istantiate a <i>SFSUserManager</i> manually: this is done by the SmartFoxServer 2X API internally.
+		 A reference to the existing instance can be retrieved using the <i>SmartFox.userManager</i> property.</p>
+		  
+		 </apiDesc></apiConstructorDetail><related-links><link href="com.smartfoxserver.v2.xml#SmartFox/userManager"><linktext>SmartFox.userManager</linktext></link></related-links></apiConstructor><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSUserManager:kernel:clearAll"><apiName>clearAll</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="kernel"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSUserManager:containsUserId"><apiName>containsUserId</apiName><shortdesc> 
+		 Indicates whether a user exists in the local users list or not from the id.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the passed user exists in the users list.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>userId</apiItemName><apiType value="int"/><apiDesc>The id of the user whose presence in the users list is to be tested.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether a user exists in the local users list or not from the id.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSUserManager:containsUserName"><apiName>containsUserName</apiName><shortdesc> 
+		 Indicates whether a user exists in the local users list or not from the name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the passed user exists in the users list.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>userName</apiItemName><apiType value="String"/><apiDesc>The name of the user whose presence in the users list is to be tested.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether a user exists in the local users list or not from the name.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSUserManager:containsUser"><apiName>containsUser</apiName><shortdesc> 
+		 Indicates whether a user exists in the local users list or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the passed user exists in the users list.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>user</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:User</apiOperationClassifier><apiDesc>The <i>User</i> object representing the user whose presence in the users list is to be tested.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Indicates whether a user exists in the local users list or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSUserManager:getUserById"><apiName>getUserById</apiName><shortdesc> 
+		 Retrieves a User object from its id property.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>User</i> object representing the user, or <codeph>null</codeph> if no user with the passed id exists in the local users list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:User</apiOperationClassifier></apiReturn><apiParam><apiItemName>userId</apiItemName><apiType value="int"/><apiDesc>The id of the user to be found.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves a <i>User</i> object from its <i>id</i> property.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSUserManager:getUserByName"><apiName>getUserByName</apiName><shortdesc> 
+		 Retrieves a User object from its name property.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The <i>User</i> object representing the user, or <codeph>null</codeph> if no user with the passed name exists in the local users list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:User</apiOperationClassifier></apiReturn><apiParam><apiItemName>userName</apiItemName><apiType value="String"/><apiDesc>The name of the user to be found.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc> 
+		 Retrieves a <i>User</i> object from its <i>name</i> property.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:SFSUserManager:getUserList"><apiName>getUserList</apiName><shortdesc> 
+		 Get the whole list of users inside the Rooms joined by the client.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of <i>User</i> objects representing the users in the local users list.
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc> 
+		 Get the whole list of users inside the Rooms joined by the client.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.smartfoxserver.v2.entities.managers:SFSUserManager:userCount:get"><apiName>userCount</apiName><shortdesc> 
+		 Returns the total number of users in the local users list.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc> 
+		 Returns the total number of users in the local users list.
+		 </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.smartfoxserver.v2.entities.managers:IRoomManager"><apiName>IRoomManager</apiName><shortdesc>
+	 The IRoomManager interface defines all the methods and properties exposed by the client-side manager of the SmartFoxServer Room entities.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiInterface/><apiAccess value="public"/><apiStatic/><apiBaseClassifier/></apiClassifierDef><apiDesc>
+	 The <i>IRoomManager</i> interface defines all the methods and properties exposed by the client-side manager of the SmartFoxServer Room entities.
+	 <p>In the SmartFoxServer 2X client API this interface is implemented by the <i>SFSRoomManager</i> class. Read the class description for additional informations.</p>
+	 
+	 </apiDesc></apiClassifierDetail><related-links><link href="com.smartfoxserver.v2.entities.managers.xml#SFSRoomManager"><linktext>SFSRoomManager</linktext></link></related-links><apiOperation id="com.smartfoxserver.v2.entities.managers:IRoomManager:com.smartfoxserver.v2.entities.managers:IRoomManager:containsGroup"><apiName>containsGroup</apiName><shortdesc>
+		 Indicates whether the specified Group has been subscribed by the client or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the client subscribed the passed Group.
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>groupId</apiItemName><apiType value="String"/><apiDesc>The name of the Group.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether the specified Group has been subscribed by the client or not.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IRoomManager:com.smartfoxserver.v2.entities.managers:IRoomManager:containsRoomInGroup"><apiName>containsRoomInGroup</apiName><shortdesc>
+		 Indicates whether the Rooms list contains a Room belonging to the specified Group or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the Rooms list contains the passed Room and it belongs to the specified Group.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>idOrName</apiItemName><apiType value="any"/><apiDesc>The id or name of the <i>Room</i> object whose presence in the Rooms list is to be tested.
+		 </apiDesc></apiParam><apiParam><apiItemName>groupId</apiItemName><apiType value="String"/><apiDesc>	The name of the Group to which the specified Room must belong.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether the Rooms list contains a Room belonging to the specified Group or not.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Room/id"><linktext>Room.id</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room/name"><linktext>Room.name</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room/groupId"><linktext>Room.groupId</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IRoomManager:com.smartfoxserver.v2.entities.managers:IRoomManager:containsRoom"><apiName>containsRoom</apiName><shortdesc>
+		 Indicates whether a Room exists in the Rooms list or not.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc><codeph>true</codeph> if the passed Room exists in the Rooms list.
+		 
+		 </apiDesc><apiType value="Boolean"/></apiReturn><apiParam><apiItemName>idOrName</apiItemName><apiType value="any"/><apiDesc>The id or name of the <i>Room</i> object whose presence in the Rooms list is to be tested.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Indicates whether a Room exists in the Rooms list or not.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Room/id"><linktext>Room.id</linktext></link><link href="com.smartfoxserver.v2.entities.xml#Room/name"><linktext>Room.name</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IRoomManager:com.smartfoxserver.v2.entities.managers:IRoomManager:getJoinedRooms"><apiName>getJoinedRooms</apiName><shortdesc>
+		 Returns a list of Rooms currently joined by the client.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of <i>Room</i> objects representing the Rooms currently joined by the client.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc>
+		 Returns a list of Rooms currently joined by the client.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link><link href="com.smartfoxserver.v2.requests.xml#JoinRoomRequest"><linktext>JoinRoomRequest</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IRoomManager:com.smartfoxserver.v2.entities.managers:IRoomManager:getRoomById"><apiName>getRoomById</apiName><shortdesc>
+		 Retrieves a Room object from its id.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An object representing the requested Room; <codeph>null</codeph> if no <i>Room</i> object with the passed id exists in the Rooms list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier></apiReturn><apiParam><apiItemName>id</apiItemName><apiType value="int"/><apiDesc>The id of the Room.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a <i>Room</i> object from its id.
+		 
+		 </apiDesc><example>The following example retrieves a <i>Room</i> object and traces its name:
+		 <codeblock rev="3.0">
+		 
+		 var roomId:int = 3;
+		 var room:Room = sfs.getRoomById(roomId);
+		 trace("The name of Room", roomId, "is", room.name);
+		 </codeblock>
+		 
+		 </example></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.managers.xml#IRoomManager/getRoomByName()"><linktext>getRoomByName()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IRoomManager:com.smartfoxserver.v2.entities.managers:IRoomManager:getRoomByName"><apiName>getRoomByName</apiName><shortdesc>
+		 Retrieves a Room object from its name.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An object representing the requested Room; <codeph>null</codeph> if no <i>Room</i> object with the passed name exists in the Rooms list.
+		 
+		 </apiDesc><apiOperationClassifier>com.smartfoxserver.v2.entities:Room</apiOperationClassifier></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the Room.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a <i>Room</i> object from its name.
+		 
+		 </apiDesc><example>The following example retrieves a <i>Room</i> object and traces its id:
+		 <codeblock rev="3.0">
+		 
+		 var roomName:String = "The Lobby";
+		 var room:Room = sfs.getRoomByName(roomName);
+		 trace("The ID of Room '", roomName, "' is", room.id);
+		 </codeblock>
+		 
+		 </example></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.managers.xml#IRoomManager/getRoomById()"><linktext>getRoomById()</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IRoomManager:com.smartfoxserver.v2.entities.managers:IRoomManager:getRoomCount"><apiName>getRoomCount</apiName><shortdesc>
+		 Returns the current number of Rooms in the Rooms list.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The number of Rooms in the Rooms list.
+		 </apiDesc><apiType value="int"/></apiReturn></apiOperationDef><apiDesc>
+		 Returns the current number of Rooms in the Rooms list.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IRoomManager:com.smartfoxserver.v2.entities.managers:IRoomManager:getRoomGroups"><apiName>getRoomGroups</apiName><shortdesc>
+		 Returns the names of Groups currently subscribed by the client.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>A list of Group names.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc>
+		 Returns the names of Groups currently subscribed by the client.
+		 
+		 <p><b>NOTE</b>: at login time, the client automatically subscribes all the Room Groups specified in the Zone's <b>Default Room Groups</b> setting.</p>
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Room/groupId"><linktext>Room.groupId</linktext></link><link href="com.smartfoxserver.v2.requests.xml#SubscribeRoomGroupRequest"><linktext>SubscribeRoomGroupRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#UnsubscribeRoomGroupRequest"><linktext>UnsubscribeRoomGroupRequest</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IRoomManager:com.smartfoxserver.v2.entities.managers:IRoomManager:getRoomListFromGroup"><apiName>getRoomListFromGroup</apiName><shortdesc>
+		 Retrieves the list of Rooms which are part of the specified Room Group.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of <i>Room</i> objects belonging to the passed Group.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>groupId</apiItemName><apiType value="String"/><apiDesc>The name of the Group.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves the list of Rooms which are part of the specified Room Group.
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IRoomManager:com.smartfoxserver.v2.entities.managers:IRoomManager:getRoomList"><apiName>getRoomList</apiName><shortdesc>
+		 Returns a list of Rooms currently "known" by the client.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of the available <i>Room</i> objects.
+		 
+		 </apiDesc><apiType value="Array"/></apiReturn></apiOperationDef><apiDesc>
+		 Returns a list of Rooms currently "known" by the client.
+		 The list contains all the Rooms that are currently joined and all the Rooms belonging to the Room Groups that have been subscribed.
+		 
+		 <p><b>NOTE</b>: at login time, the client automatically subscribes all the Room Groups specified in the Zone's <b>Default Room Groups</b> setting.</p>
+		 
+		 </apiDesc></apiOperationDetail><related-links><link href="com.smartfoxserver.v2.entities.xml#Room"><linktext>Room</linktext></link><link href="com.smartfoxserver.v2.requests.xml#JoinRoomRequest"><linktext>JoinRoomRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#SubscribeRoomGroupRequest"><linktext>SubscribeRoomGroupRequest</linktext></link><link href="com.smartfoxserver.v2.requests.xml#UnsubscribeRoomGroupRequest"><linktext>UnsubscribeRoomGroupRequest</linktext></link></related-links></apiOperation><apiOperation id="com.smartfoxserver.v2.entities.managers:IRoomManager:com.smartfoxserver.v2.entities.managers:IRoomManager:getUserRooms"><apiName>getUserRooms</apiName><shortdesc>
+		 Retrieves a list of Rooms joined by the specified user.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>The list of Rooms joined by the passed user.
+		 </apiDesc><apiType value="Array"/></apiReturn><apiParam><apiItemName>user</apiItemName><apiOperationClassifier>com.smartfoxserver.v2.entities:User</apiOperationClassifier><apiDesc>A <i>User</i> object representing the user to look for in the current Rooms list.
+		 
+		 </apiDesc></apiParam></apiOperationDef><apiDesc>
+		 Retrieves a list of Rooms joined by the specified user.
+		 The list contains only those Rooms "known" by the Room Manager; the user might have joined others the client is not aware of.
+		 
+		 </apiDesc></apiOperationDetail></apiOperation></apiClassifier></apiPackage>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/core
+END
+Model.as
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/core/Model.as
+END
+Controller.as
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/core/Controller.as
+END
+View.as
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/22/trunk/framework/src/org/puremvc/as3/core/View.as
+END

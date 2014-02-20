@@ -1,0 +1,43 @@
+10
+
+dir
+22
+http://gamedream-webgame.googlecode.com/svn/trunk/framework/src/org/puremvc/as3/patterns
+http://gamedream-webgame.googlecode.com/svn
+
+
+
+2012-08-02T15:38:24.596533Z
+22
+xiaocc2012@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4420f99b-4bb4-0963-9328-b2a06ca017b6
+
+proxy
+dir
+
+facade
+dir
+
+mediator
+dir
+
+observer
+dir
+
+command
+dir
+
